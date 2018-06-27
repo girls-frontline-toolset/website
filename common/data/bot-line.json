@@ -1,0 +1,9 @@
+[{"title":"人形製造時間查詢","code":["#少前 g <小時> <分鐘>","#gl g <小時> <分鐘>"],"example":["#gl g 1 10"],"high":"* 只有分鐘的話 請在小時中打上0!"},
+
+  {"title":"妖精製造時間查詢","code":["#少前 f <小時> <分鐘>","#gl f <小時> <分鐘>"],"example":["#gl f 5 30"],"high":""},
+  {"title":"裝備製造時間查詢","code":["#少前 d <分鐘>","#gl d <分鐘>"],"example":["#gl d 52"],"high":""},
+  {"title":"圖片找尋(隨機)","code":["#少前 i","#gl i"],"example":["#gl i"],"high":""},
+  {"title":"圖片找尋(角色)","code":["#少前 i <角色名>","#gl i <角色名>"],"example":["#gl i idw"],"high":""},
+  {"title":"教學查看:","code":["#少前","#gl"],"example":["#gl"],"high":""},
+  {"title":"關於:","code":["#少前 info","#gl info"],"example":["#gl info"],"high":""}
+]

@@ -1,0 +1,64 @@
+<script>
+    export default {
+        props: {h1:Boolean,h2:Boolean,h3:Boolean,text:{type:String,default:"Default text"},icon:String},
+        commponents: {},
+        name: 'gl-ui-title',
+        data() {
+            return {
+            }
+        }, methods: {
+        },
+        beforeCreate: function () {
+        }, created: function () {
+        }, beforeMount: function () {
+        }, mounted: function () {
+        }, beforeUpdate: function () {
+        }, updated: function () {
+        },
+        render: function (h) {
+            let el,icon;
+            if(this.icon) icon = h("v-icon",{'class':['s35']},[this.icon]);
+            switch (true){
+                case this.h1:
+                    el = h("h1",{'class':['bb','headline']},[icon,this.text]);
+                    break;
+                case this.h2:
+                    el = h("h2",{'class':['gl-lf','title']},[this.text]);
+                    break;
+                case this.h3:
+                default:
+                    el = h("h3",{'class':['gl-lf','subheading']},[this.text]);
+                    break;
+            }
+
+            return h('v-layout', {'row':true},[h("v-flex",{"xs12":true,"pa-0":true},[el])]);
+        }
+    }
+</script>
+
+<style>
+    .gl-lf{
+        border: 0 solid #eee;
+        border-left-width: .45rem;
+        padding-left: 10px;
+        border-left-color: #ffb300;
+        margin-bottom: 5px;
+    }
+
+    .bb{
+        color: #ffb300;
+        padding: 0 0 0 10px;
+        border-bottom: 2px solid rgba(255,179,0,.8);
+        /** font-weight: bolder; **/
+    }
+
+    .s35:before{
+        font-size: 35px !important;
+    }
+
+    .s35{
+        color: #ffb300!important;
+        font-size: 35px !important;
+    }
+
+</style>

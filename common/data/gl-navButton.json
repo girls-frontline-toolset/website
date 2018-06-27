@@ -1,0 +1,10 @@
+[
+  [
+    {"message": "人型製造時間", "href": "/time/girl"},
+    {"message": "模擬造槍", "href": "/time/make"}
+  ],
+  [
+    {"message": "妖精製造時間", "href":"/time/fairy"},
+    {"message": "圖鑑", "href": "/time/list"}
+  ]
+]

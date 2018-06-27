@@ -1,0 +1,4 @@
+[22-Mar-2018 21:25:29 Asia/Hong_Kong] PHP Warning:  array_push() expects parameter 1 to be array, null given in /home/kurumich/public_html/vueGirl/api/line/line.php on line 76
+[22-Mar-2018 21:25:29 Asia/Hong_Kong] PHP Warning:  file_get_contents(https://api.line.me/v2/bot/message/reply): failed to open stream: HTTP request failed! HTTP/1.0 400 Bad Request
+ in /home/kurumich/public_html/vueGirl/api/line/LINEBotTiny.php on line 108
+[22-Mar-2018 21:25:29 Asia/Hong_Kong] Request failed: 
