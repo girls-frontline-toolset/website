@@ -82,23 +82,6 @@ module.exports = {
         historyApiFallback: {
             index: 'index.html',
             rewrites: [
-                {from: '/time/girl.html', to: '/index.html'},
-                {from: '/time/device.html', to: '/index.html'},
-                {from: '/time/fairy.html', to: '/index.html'},
-                {from: '/time/make.html', to: '/index.html'},
-                {from: '/time/make_device.html', to: '/index.html'},
-                {from: '/time/list.html', to: '/index.html'},
-                {from: '/fb/list.html', to: '/index.html'},
-                {from: '/fb/add.html', to: '/index.html'},
-                {from: '/like/list.html', to: '/index.html'},
-                {from: '/like/list_fairy', to: '/index.html'},
-                {from: '/time/make_device', to: '/index.html'},
-                {from: '/more/line', to: '/index.html'},
-                {from: '/bot/line', to: '/index.html'},
-                {from: '/more/feedback', to: '/index.html'},
-                {from: '/more/link', to: '/index.html'},
-                {from: '/more/about', to: '/index.html'},
-                {from: '/time/h_make', to: '/index.html'},
                 {from: '/api/*', to: 'http://127.0.0.1'},
                 {from: '/.*', to: '/index.html'},
             ]
