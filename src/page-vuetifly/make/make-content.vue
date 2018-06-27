@@ -186,7 +186,7 @@
                         break;
                 }
                 this.total += 1;
-                let name = (!this.girlList[data - 1].src)?  this.girlList[data - 1].src: this.girlList[data - 1].name;
+                let name = (this.girlList[data - 1].src)?  this.girlList[data - 1].src: this.girlList[data - 1].name;
                 this.dataMake.push({name:name,no:data});
 
             },
