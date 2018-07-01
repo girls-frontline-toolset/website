@@ -20,6 +20,9 @@ const setting = {
     },
     glDialog:null,
     app:false,
+    serverError:function () {
+        window.location = "https://www1.ntw-20.com" + window.location.pathname;
+    }
 };
 
 
@@ -27,12 +30,14 @@ $.ajax({
     async: false,
     url: "/common/data/define.json",
     success: function (data) {
-        //console.log(data);
         setting.make_device = data['time/make_device']['updateTime'];
         setting.make = data['time/make']['updateTime'];
         setting.h_make= data['time/h_make']['updateTime'];
         setting.h_make_device = data['time/h_make_device']['updateTime'];
         setting.announcement = data.announcement;
+    },
+    error: function (request, status, error) {
+        window.location = "https://www1.ntw-20.com" + window.location.pathname;
     }
 });
 

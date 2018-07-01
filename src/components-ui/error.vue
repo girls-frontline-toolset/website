@@ -1,6 +1,6 @@
 <template>
     <v-flex xs12 pa-1 >
-        <v-alert v-if="errorText[error]" :value="errorText[error] !== undefined" outline :color="color[error]" :icon="icon[error]">{{errorText[error]}}</v-alert>
+        <v-alert v-if="errorText[error]" :value="errorText[error] !== undefined" outline :color="color[error]" :icon="icon[error]">{{errorText[error]}}<a v-if="error === 2 " href="https://www1.ntw-20.com" >後備伺服器</a></v-alert>
     </v-flex>
 </template>
 <script>

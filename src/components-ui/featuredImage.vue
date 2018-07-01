@@ -65,6 +65,8 @@
                         }
                     );
                 }
+            }).fail(function() {
+                _this.$s.serverError();
             });
         }, created() {
         }, beforeMount() {

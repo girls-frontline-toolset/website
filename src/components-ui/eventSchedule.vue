@@ -2,7 +2,7 @@
     <v-container row pa-1 ref="r">
         <v-layout row wrap >
           <v-flex xs12 sm6 md12 pr-1 v-if="haveEvent">
-                <gl-ui-title text="本日活動" h2 ></gl-ui-title>
+                <gl-ui-title text="本日活動(繁中版)" h2 ></gl-ui-title>
                 <a :href="img.h" target="_blank" v-for="img,key in data[now[0]][now[1]][now[2]]" :key="now[0] + '-'+now[1] + '-' + now[2] + '-' + key"><img :src="img.src" style="width: 100%" @load="loaded"></a>
             </v-flex>
 
@@ -125,6 +125,8 @@
                             }
                             _this.f = false;
                         }
+                    }).fail(function() {
+                       _this.$s.serverError();
                     });
                 }
             }, addData(start, end, src, i, h) {

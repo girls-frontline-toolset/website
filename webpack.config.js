@@ -82,7 +82,7 @@ module.exports = {
         historyApiFallback: {
             index: 'index.html',
             rewrites: [
-                {from: '/api/*', to: 'http://127.0.0.1'},
+                {from: '/api/ *', to: 'http://127.0.0.1'},
                 {from: '/.*', to: '/index.html'},
             ]
         },

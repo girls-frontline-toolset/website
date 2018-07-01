@@ -1,8 +1,10 @@
+import 'babel-polyfill';
 import Vue from 'vue'
 import App from './App.vue'
 import Vuetify from 'vuetify'
 import routes from './router/router.config.js'
 import colors from 'vuetify/es5/util/colors'
+
 //import 'bootstrap/dist/css/bootstrap.min.css'
 //import 'bootstrap/dist/js/bootstrap.min.js'
 
