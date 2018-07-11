@@ -2,22 +2,22 @@
     <div >
             <gl-ui-tag-list  :select="model"  :items="items"></gl-ui-tag-list>
             <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-            <gl-ui-title text="人型製造時間查詢" h1 icon="icon-doll"></gl-ui-title>
+            <gl-ui-title :text="$t('title.h1.time.girl')" h1 icon="icon-doll"></gl-ui-title>
             <gl-ui-hot-time :list="hotTime" :clickF="badge"></gl-ui-hot-time>
 
             <v-container grid-list-md>
                 <form>
                 <v-layout row wrap pa1>
                     <v-flex xs4 pa-1>
-                            <v-text-field mask="#" type="number" v-model="hh" label="小時" tabindex="1"
+                            <v-text-field mask="#" type="number" v-model="hh" :label="$t('t.hour')" tabindex="1"
                                           autofocus></v-text-field>
                         </v-flex>
                         <v-flex xs4 pa-1>
-                            <v-text-field mask="##" type="number" v-model="mm" label="分鐘" tabindex="2"
+                            <v-text-field mask="##" type="number" v-model="mm" :label="$t('t.minute')" tabindex="2"
                                           @keyup.enter.native="search()"></v-text-field>
                         </v-flex>
                         <v-flex xs4 pa-1>
-                            <v-btn color="primary" block dark @click="search()" tabindex="3">查詢</v-btn>
+                            <v-btn color="primary" block dark @click="search()" tabindex="3">{{$t('t.inquiry')}}</v-btn>
                         </v-flex>
                 </v-layout></form>
 
@@ -60,7 +60,7 @@
                 error:0,
                 model:"tab-0",
                 data:[],
-                items:[{"t":"時間查詢","to":"/time/girl","i":"access_time"},{"t":"時間列表","to":"/list/girl?f=time&fn=tag","i":"list"}],
+                items:[{"t":"time.search","to":"/time/girl","i":"access_time"},{"t":"time.list","to":"/list/girl?f=time&fn=tag","i":"list"}],
             }
         },
         methods: {

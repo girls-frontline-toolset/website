@@ -2,12 +2,12 @@
     <v-container row pa-1 ref="r">
         <v-layout row wrap >
           <v-flex xs12 sm6 md12 pr-1 v-if="haveEvent">
-                <gl-ui-title text="本日活動(繁中版)" h2 ></gl-ui-title>
+                <gl-ui-title :text="$t('title.h2.event-tw')" h2 ></gl-ui-title>
                 <a :href="img.h" target="_blank" v-for="img,key in data[now[0]][now[1]][now[2]]" :key="now[0] + '-'+now[1] + '-' + now[2] + '-' + key"><img :src="img.src" style="width: 100%" @load="loaded"></a>
             </v-flex>
 
             <v-flex xs12 sm6 md12 pr-1>
-                <gl-ui-title text="活動時間表" h2></gl-ui-title>
+                <gl-ui-title :text="$t('title.h2.event-schedule-tw')" h2></gl-ui-title>
                 <v-date-picker ma-0 style="margin: 0" full-width color="gl-main-color" :event-color="eventColor" :events="functionEvents" :day-format="dataFormat" locale="zh-tw"  v-model="picker">
                     <v-container v-if="progress" fluid fill-height text-xs-center dark-overlay align-center>
                         <v-layout row align-center>

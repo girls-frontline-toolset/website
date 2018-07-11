@@ -2,44 +2,44 @@
     <div>
         <gl-ui-tag-list v-if="isShow || $s.app" :select="model" :items="items"></gl-ui-tag-list>
         <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-        <gl-ui-title text="人型圖鑑" h1 icon="icon-equipment"></gl-ui-title>
+        <gl-ui-title :text="$t('title.h1.list.girl')" h1 icon="icon-equipment"></gl-ui-title>
 
         <v-container grid-list-md>
             <v-layout row wrap >
                 <v-flex xs6>
-                    <v-select label="篩選條件" item-text="t" item-value="i" :items="humanoidItems" v-model="humanoid"
+                    <v-select :label="$t('time.filter')" item-text="t" item-value="i" :items="humanoidItems" v-model="humanoid"
                               single-line></v-select>
                 </v-flex>
                 <v-flex xs3 pa-1>
-                    <v-text-field mask="###" type="number" v-model="range[0]" label="開始編號" tabindex="1"></v-text-field>
+                    <v-text-field mask="###" type="number" v-model="range[0]" :label="$t('time.start-no')" tabindex="1"></v-text-field>
                 </v-flex>
                 <v-flex xs3 pa-1 v-if="humanoid !== 1">
-                    <v-text-field  mask="###" type="number" v-model="range[1]" label="結束編號" tabindex="2"></v-text-field>
+                    <v-text-field  mask="###" type="number" v-model="range[1]" :label="$t('time.end-no')" tabindex="2"></v-text-field>
                 </v-flex>
                 <v-flex xs3 pa-1 v-else>
-                    <v-text-field  mask="###" type="number" v-model="range[2]" label="結束編號" tabindex="2"></v-text-field>
+                    <v-text-field  mask="###" type="number" v-model="range[2]" :label="$t('time.end-no')" tabindex="2"></v-text-field>
                 </v-flex>
 
                 <v-flex xs12 pa-1>
-                    <gl-ui-title h2 text="種類: "></gl-ui-title>
+                    <gl-ui-title h2 :text="$t('t.type') + ':'"></gl-ui-title>
                     <gl-ui-icon-button v-for="item,key in type" :key="key" :opacity="item" type="type" :name="key" ></gl-ui-icon-button>
                 </v-flex>
 
                 <v-flex xs12 pa-1>
-                    <gl-ui-title h2 text="星數: "></gl-ui-title>
+                    <gl-ui-title h2 :text="$t('t.star') + ':'"></gl-ui-title>
                     <gl-ui-icon-button v-if="humanoid !== 1" v-for="item,key in star" :key="key" :opacity="item" type="star" :name="key" ></gl-ui-icon-button>
                     <gl-ui-icon-button v-if="humanoid === 1" :opacity="other.star_other" type="other" name="star_other" ></gl-ui-icon-button>
                 </v-flex>
 
                 <v-flex xs12 pa-1 v-if="humanoid === 0">
-                    <gl-ui-title h2 text="其他: "></gl-ui-title>
+                    <gl-ui-title h2 :text="$t('t.other') + ':'"></gl-ui-title>
                     <gl-ui-icon-button :opacity="update.update" type="update" name="update" ></gl-ui-icon-button>
                 </v-flex>
 
             </v-layout>
         </v-container>
-        <v-btn color="primary" @click="getList()"> 尋找</v-btn>
-        <v-btn color="primary" v-if="humanoid === 0" outline @click="getGirlTime()">人形製作時間列表</v-btn>
+        <v-btn color="primary" @click="getList()">{{$t('t.search')}}</v-btn>
+        <v-btn color="primary" v-if="humanoid === 0" outline @click="getGirlTime()">{{$t('time.girl-list')}}</v-btn>
         <div class="list_output">
             <a v-for="item in listDate" :key="item.no" :href="'https://zh.moegirl.org/zh-hant/少女前线:' + item.n " target='_blank'><img :src='item.s' :alt='item.n' :title='item.n'></a>
         </div>
@@ -72,7 +72,7 @@
         name: 'gl-ui-list-content',
         data() {
             return {
-                humanoidItems: [{"i": 0, "t": "戰術人形"}, {"i": 1, "t": "特典人形"}, {"i": 2, "t": "心智升級人形"}],
+                humanoidItems: [{"i": 0, "t": "time.t-doll"}, {"i": 1, "t": "time.other-doll"}, {"i": 2, "t": "time.update-doll"}],
                 humanoid: 0,
                 type: {"HG": true, "SMG": true, "RF": true, "AR": true, "MG": true, "SG": true},
                 star: {"star_2": true, "star_3": true, "star_4": true, "star_5": true},
@@ -90,7 +90,7 @@
                 isShow:false,
                 model:"tab-1",
                 errorText:"not-text",
-                items:[{"t":"時間查詢","to":"/time/girl","i":"access_time"},{"t":"時間列表","to":"/list/girl?f=time&fn=tag","i":"list"}],
+                items:[{"t":"time.search","to":"/time/girl","i":"access_time"},{"t":"time.list","to":"/list/girl?f=time&fn=tag","i":"list"}],
 
             }
         },
@@ -247,6 +247,10 @@
             }
 
         }, created: function () {
+            for(let i = 0 ; i < this.humanoidItems.length ;i++){
+                this.humanoidItems[i].t = this.$t(this.humanoidItems[i].t);
+            }
+
             let _this = this , contList = 0;
 
             var query = function () {

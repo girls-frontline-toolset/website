@@ -3,7 +3,7 @@
         <v-layout row wrap>
                     <v-flex xs12>
                         <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                        <gl-ui-title text="相關網址" h1></gl-ui-title>
+                        <gl-ui-title :text="$t('title.h1.more.link')" h1></gl-ui-title>
                     </v-flex>
                    <v-flex sm4 xs12 v-for="item in listData" :key="item.src" class="c-p">
                        <a :href="item.src" target="_blank" style="text-decoration: unset"><v-card>

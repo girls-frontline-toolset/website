@@ -1,39 +1,39 @@
 [{
-  "t": "製造時間", "h": "", "i":"access_time","list": [
-    {"t": "人型", "h": "/time/girl"},
-    {"t": "裝備", "h": "/time/device"},
-    {"t": "妖精", "h": "/time/fairy"}
+  "t": "nav.make-time.s", "h": "", "i":"access_time","list": [
+    {"t": "nav.make-time.girl", "h": "/time/girl"},
+    {"t": "nav.make-time.device", "h": "/time/device"},
+    {"t": "nav.make-time.fairy", "h": "/time/fairy"}
   ]
 },{
-  "t": "模擬建造", "h": "", "i":"icon-make","list": [
-    {"t": "模擬造槍", "h": "/make/girl"},
-    {"t": "模擬重造-槍", "h": "/make/hGirl"},
-    {"t": "模擬造裝", "h": "/make/device"},
-    {"t": "模擬重造-裝", "h": "/make/hDevice"}
+  "t": "nav.make.s", "h": "", "i":"icon-make","list": [
+    {"t": "nav.make.girl", "h": "/make/girl"},
+    {"t": "nav.make.hGirl", "h": "/make/hGirl"},
+    {"t": "nav.make.device", "h": "/make/device"},
+    {"t": "nav.make.hDevice", "h": "/make/hDevice"}
   ]
 },
   {
-    "t": "圖鑑", "h": "", "i":"icon-il-hb","list": [
-    {"t": "人型圖鑑", "h": "/list/girl"},
-    {"t": "妖精圖鑑", "h": "/list/fairy"}
+    "t": "nav.illustration.s", "h": "", "i":"icon-il-hb","list": [
+    {"t": "nav.illustration.girl", "h": "/list/girl"},
+    {"t": "nav.illustration.fairy", "h": "/list/fairy"}
   ]
   },
-  {"t": "圖片庫", "h": "/image/all", "i":"photo_library", "list":[]},
+  {"t": "nav.image-library", "h": "/image/all", "i":"photo_library", "list":[]},
   {
-    "t": "好友區域", "h": "", "i":"icon-friends","list": [
-    {"t": "招募區域","h": "/fb/list"},
-    {"t": "讚友區域", "h": "/like/list"}
+    "t": "nav.friends-list.s", "h": "", "i":"icon-friends","list": [
+    {"t": "nav.friends-list.fb-list","h": "/fb/list"},
+    {"t": "nav.friends-list.like-list", "h": "/like/list"}
 
   ]
   },
   {
-  "t": "其他平台", "h": "", "i":"phone_android", "list": [
-    {"t": "Android 版", "h": "/tool/android"},
-    {"t": "Chrome 版", "h": "/tool/chrome"},
-    {"t": "Line 機械人","h":"/bot/line"}
+  "t": "nav.other-platform.s", "h": "", "i":"phone_android", "list": [
+    {"t": "nav.other-platform.android", "h": "/tool/android"},
+    {"t": "nav.other-platform.chrome", "h": "/tool/chrome"},
+    {"t": "nav.other-platform.line","h":"/bot/line"}
     ]
 },
   {
-    "t": "LINE群", "h": "/more/line", "i":"icon-line", "list": []
+    "t": "nav.line-group", "h": "/more/line", "i":"icon-line", "list": []
   }
 ]

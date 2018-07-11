@@ -161,7 +161,11 @@ Vue.use(VueAnalytics, {
 export default router;
 
 router.afterEach(route => {
-    document.title = (!route.meta.title )? '少女前線工具集' : route.meta.title + "-少女前線工具集";
-    $("#count_num").attr("src","//counter1.fc2.com/counter_img.php?id=89451780")
+    let title = "少女前線 工具集";
+    if(this.a.app.t !== undefined){
+        title = this.a.app.t('title.s');
+    }
+    document.title = (!route.meta.title )? title : route.meta.title + "-"+  title;
+    $("#count_num").attr("src","//counter1.fc2.com/counter_img.php?id=89451780");
     $('html,body').animate({scrollTop: 0});
 });

@@ -3,14 +3,14 @@
         <v-layout row wrap>
             <v-flex xs12>
                 <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                <gl-ui-title text="圖片庫" h1 ></gl-ui-title>
+                <gl-ui-title :text="$t('title.h1.img')" h1 ></gl-ui-title>
             </v-flex>
             <v-flex xs12 pa-1>
-                    <gl-ui-title h2 text="種類: "></gl-ui-title>
+                    <gl-ui-title h2 :text="$t('t.type') + ':' "></gl-ui-title>
                     <gl-ui-icon-button v-for="item,key in type" :key="key" :opacity="item" type="type" :name="key" ></gl-ui-icon-button>
             </v-flex>
             <v-flex xs12 pa-1>
-                    <gl-ui-title h2 text="星數: "></gl-ui-title>
+                    <gl-ui-title h2 :text="$t('t.star') + ':' "></gl-ui-title>
                     <gl-ui-icon-button v-for="item,key in star" :key="key" :opacity="item" type="star" :name="key" ></gl-ui-icon-button>
             </v-flex>
             <v-flex class="input-sangvis" v-if="type.sangvis" xs12 pa-1>
@@ -19,14 +19,14 @@
                       v-for="(item, key, index) in sangvis" :alt="item.name">{{item.name}}</span>
             </v-flex>
             <v-flex class="input-girl" xs12 pa-1>
-                <gl-ui-title h2 text="角色:"></gl-ui-title>
+                <gl-ui-title h2 :text="$t('t.character') + ':'"></gl-ui-title>
                 <v-chip label color="primary" class="c-p no-select" style="height: 20px;" small text-color="white"  v-for="t,key in selectList" @click="tagClick(key)" :key="key">#{{t}} X</v-chip>
                 <v-alert :value="isAll" outline color="primary" icon="priority_high">
-                    !! 所有角色 !!
+                    !! {{$t("img.all-character")}} !!
                 </v-alert>
             </v-flex>
             <v-flex xs12 pa-1>
-                <v-btn color="primary" @click="moreImage()"> 尋找</v-btn>
+                <v-btn color="primary" @click="moreImage()">{{$t('t.search')}}</v-btn>
             </v-flex>
             <v-flex xs12 sm6 md4 pa-1 ref="list-1">
                 <gl-ui-image-card :completedFunction="completed" :item="item" :ref="item.id"
@@ -54,8 +54,8 @@
              </v-flex>
 
              <v-flex xs12 pa-1>
-                 <v-btn v-if="!isNone" block color="primary" outline @click="moreImage()">顯示更多作品</v-btn>
-                 <v-btn v-if="isNone" block color="error">!!沒有相關作品 歡迎添加!!</v-btn>
+                 <v-btn v-if="!isNone" block color="primary" outline @click="moreImage()">{{$t('img.more')}}</v-btn>
+                 <v-btn v-if="isNone" block color="error">!!{{$t('img.add')}}!!</v-btn>
              </v-flex>
          </v-layout>
      </v-container>

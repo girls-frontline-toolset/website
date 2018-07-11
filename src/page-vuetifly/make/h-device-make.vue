@@ -3,19 +3,19 @@
         <v-layout row wrap>
             <v-flex md8 sm8 xs12>
                 <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                <gl-ui-alert-text text="只是玩樂用途 與遊戲未必相同" strong="!!本頁閾和遊戲不相同!!"></gl-ui-alert-text>
-                <gl-ui-title text="模擬重造-裝" h1 icon="icon-make"></gl-ui-title>
+                <gl-ui-alert-text :text="$t('make.msg1')" :strong="$t('make.msg2')"></gl-ui-alert-text>
+                <gl-ui-title :text="$t('title.h1.make.hDevice')" h1 icon="icon-make"></gl-ui-title>
 
                 <v-container grid-list-md pt-1>
                     <v-layout row wrap class="no-select div-make">
                         <gl-ui-h-number-control  color="#c5143a" icon="/common/img/manpower.png" :number="number[0]"
-                                                 :addFunction="addNumber" index="0" title="人力"></gl-ui-h-number-control>
+                                                 :addFunction="addNumber" index="0" :title="$t('make.manpower')"></gl-ui-h-number-control>
                         <gl-ui-h-number-control  color="#c5143a" icon="/common/img/ammunition.png" :number="number[1]"
-                                                 :addFunction="addNumber" index="1" title="彈藥"></gl-ui-h-number-control>
+                                                 :addFunction="addNumber" index="1" :title="$t('make.ammunition')"></gl-ui-h-number-control>
                         <gl-ui-h-number-control  color="#c5143a" icon="/common/img/material.png" :number="number[2]"
-                                                 :addFunction="addNumber" index="2" title="口糧"></gl-ui-h-number-control>
+                                                 :addFunction="addNumber" index="2" :title="$t('make.material')"></gl-ui-h-number-control>
                         <gl-ui-h-number-control  color="#c5143a" icon="/common/img/parts.png" :number="number[3]"
-                                                 :addFunction="addNumber" index="3" title="零件"></gl-ui-h-number-control>
+                                                 :addFunction="addNumber" index="3" :title="$t('make.parts')"></gl-ui-h-number-control>
 
                         <v-flex xs12 class="div-h-make-select" text--xs--center>
                             <v-icon class="white--text c-p" size="60px" @click="next(-1)">keyboard_arrow_left</v-icon>
@@ -25,9 +25,9 @@
                         </v-flex>
                     </v-layout>
                 </v-container>
-                <v-btn color="primary" @click="start()" >開始製作</v-btn>
-                <v-btn color="primary" @click="getList()" >查看列表</v-btn>
-                <v-btn color="primary" outline @click="init()">清理結果</v-btn>
+                <v-btn color="primary" @click="start()" >{{$t('make.start')}}</v-btn>
+                <v-btn color="primary" @click="getList()" >{{$t('make.list')}}</v-btn>
+                <v-btn color="primary" outline @click="init()">{{$t('make.clear')}}</v-btn>
                 <gl-ui-output-list v-if="!show" type="hDevice" :dataMake="dataMake" :dataList="dataList" ></gl-ui-output-list>
             </v-flex>
             <v-flex md4 sm4 xs12>
@@ -56,14 +56,14 @@
                         <v-card pa-1>
                             <v-card-title primary-title class="f-18 pa-3">
                                 <div>
-                                    <h3 class="headline mb-0 primary--text">機率</h3>
+                                    <h3 class="headline mb-0 primary--text">{{$t('make.probability')}}</h3>
                                     <div >
-                                        重造1檔（低檔）<br>
-                                        妖精: 27% 5星:11% 4星:22% <br>3星:40%<br>
-                                        重造2檔（中檔）<br>
-                                        妖精: 37% 5星:18% 4星:45% <br>3星:0%<br>
-                                        重造3檔（高檔）<br>
-                                        妖精: 47% 5星:26% 4星:27% <br>3星:0%
+                                        重造1檔（{{$t('make.low-tier')}}）<br>
+                                        {{$t('nav.make-time.fairy')}}: 27% 5{{$t('make.star')}}:11% 4{{$t('make.star')}}:22% <br>3{{$t('make.star')}}:40%<br>
+                                        重造2檔（{{$t('make.mid-tier')}}）<br>
+                                        {{$t('nav.make-time.fairy')}}: 37% 5{{$t('make.star')}}:18% 4{{$t('make.star')}}:45% <br>3{{$t('make.star')}}:0%<br>
+                                        重造3檔（{{$t('make.high-tier')}}）<br>
+                                        {{$t('nav.make-time.fairy')}}: 47% 5{{$t('make.star')}}:26% 4{{$t('make.star')}}:27% <br>3{{$t('make.star')}}:0%
                                     </div>
                                 </div>
                             </v-card-title>
@@ -73,13 +73,13 @@
                         <v-card pa-1>
                             <v-card-title primary-title class="f-18 pa-3">
                                 <div>
-                                    <h3 class="headline mb-0 primary--text">統計</h3>
+                                    <h3 class="headline mb-0 primary--text">{{$t('make.statistics')}}</h3>
                                     <div >
-                                       製作數: {{total}} <br>
-                                       妖精: {{star[4]}} <br>
-                                       5星: {{star[3]}} <br>
-                                       4星: {{star[2]}} <br>
-                                       3星: {{star[1]}}
+                                        {{$t('make.no-of-production')}}: {{total}} <br>
+                                        {{$t('nav.make-time.fairy')}}: {{star[4]}} <br>
+                                       5{{$t('make.star')}}: {{star[3]}} <br>
+                                       4{{$t('make.star')}}: {{star[2]}} <br>
+                                       3{{$t('make.star')}}: {{star[1]}}
                                     </div>
                                 </div>
                             </v-card-title>
@@ -89,7 +89,7 @@
                         <v-card pa-1>
                             <v-card-title primary-title class="f-18 pa-3">
                                 <div>
-                                    <h3 class="headline mb-0 primary--text">核心數</h3>
+                                    <h3 class="headline mb-0 primary--text">{{$t('make.no-of-core')}}</h3>
                                     <div >{{core}}</div>
                                 </div>
                             </v-card-title>
@@ -99,7 +99,7 @@
                         <v-card pa-1>
                             <v-card-title primary-title class="f-18 pa-3">
                                 <div>
-                                    <h3 class="headline mb-0 primary--text">最後更新</h3>
+                                    <h3 class="headline mb-0 primary--text">{{$t('make.last-update')}}</h3>
                                     <div >{{time}}</div>
                                 </div>
                             </v-card-title>

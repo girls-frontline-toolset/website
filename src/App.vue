@@ -10,12 +10,12 @@
                             <v-flex xs12 sm12 md9 pa-1 mt-0>
                                 <router-view :style="'margin-top:' + mt"></router-view>
                             </v-flex>
-                            <gl-ui-right-content v-if="isShow"></gl-ui-right-content>
+                            <gl-ui-right-content v-if="isShow && isSim"></gl-ui-right-content>
                         </v-layout>
                     </v-container>
                 </v-layout>
         </v-container>
-        <gl-ui-footer v-if="isShow"></gl-ui-footer>
+        <gl-ui-footer v-if="isShow && isSim"></gl-ui-footer>
         <div class="topButton" >
                 <v-icon @click="toTop()" size="50">keyboard_arrow_up</v-icon>
         </div>
@@ -48,6 +48,7 @@
                 isShow: true,
                 height: "53px",
                 mt:"10px",
+                isSim:true
             }
         },
         methods: {
@@ -58,6 +59,7 @@
             toTop: function () {
                 $('html,body').animate({scrollTop: 0}, 'slow');
             },
+
         },
         beforeCreate: function () {
             let  _this = this;
@@ -76,7 +78,9 @@
                 }
             }
          }, mounted: function () {
+                this.$s.appVue = this;
 
+                //console.log(this);
         }
     }
 </script>

@@ -9,13 +9,31 @@ import colors from 'vuetify/es5/util/colors'
 //import 'bootstrap/dist/js/bootstrap.min.js'
 
 import 'jquery/src/jquery';
-
 import 'vuetify/dist/vuetify.min.css'
-import 'babel-polyfill';
+
+// lang
+import VueI18n from 'vue-i18n'
+Vue.use( VueI18n );
+
+import cn from './lang/cn.json';
+import ja from './lang/ja.json';
+import tw from './lang/tw.json';
+
+const messages = {
+    cn,
+    tw
+}
+
+const i18n = new VueI18n({
+    locale:"tw",
+    fallbackLocale:"tw",
+    messages ,
+});
 
 import setting from  './setting.js';
 import global from './global';
 import nav from  './nav.js';
+import router from "./router/router.config";
 
 setting.install = function () {
     Object.defineProperty(Vue.prototype, '$s', {
@@ -52,13 +70,23 @@ Vue.use(Vuetify, {
     }
 });
 
+routes.$i18n = i18n;
+//console.log(routes.i18n.$t());
 
-new Vue({
+let v = new Vue({
     el: '#app',
     router: routes,
-    render: h => h(App)
+    render: h => h(App),
+    i18n
 });
 
+
+
+v.t = function(text) {
+    return this.$i18n.t(text);
+}
+//console.log(v);
+Vue.config.fallbackLang = 'tw';
 
 
 

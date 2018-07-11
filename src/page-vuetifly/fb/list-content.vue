@@ -3,34 +3,34 @@
         <v-layout row wrap>
             <v-flex md8 sm8 xs12>
                 <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                <gl-ui-title text="好友招募區域" h1 icon="icon-friends"></gl-ui-title>
-                <gl-ui-title text="搜尋:" h2></gl-ui-title>
+                <gl-ui-title :text="$t('title.h1.fb.list')" h1 icon="icon-friends"></gl-ui-title>
+                <gl-ui-title :text="$t('t.search') + ':'" h2></gl-ui-title>
                 <v-container grid-list-md>
                     <v-layout row wrap>
                         <v-flex xs6 pa-1>
-                            <v-select label="種類:" item-text="t" item-value="i" :items="type" v-model="select.s.type"
+                            <v-select :label="$t('t.type') + ':'" item-text="t" item-value="i" :items="type" v-model="select.s.type"
                                       @input="getGirl('select')"></v-select>
                         </v-flex>
                         <v-flex xs6 pa-1>
-                            <v-select label="星數:" item-text="t" item-value="i" :items="star" v-model="select.s.star"
+                            <v-select :label="$t('t.star') + ':'" item-text="t" item-value="i" :items="star" v-model="select.s.star"
                                       @input="getGirl('select')"></v-select>
                         </v-flex>
                         <v-flex xs3 pa-1>
-                            <v-select label="角色:" item-text="name" item-value="no" :items="girlSearch"
+                            <v-select :label="$t('t.character') + ':'" item-text="name" item-value="no" :items="girlSearch"
                                       v-model="select.s.girl"
                             ></v-select>
                         </v-flex>
                         <v-flex xs3 pa-1>
-                            <v-select label="伺服:" item-text="t" item-value="i" :items="server" v-model="select.s.server"
+                            <v-select :label="$t('t.server.s') + ':'" item-text="t" item-value="i" :items="server" v-model="select.s.server"
                             ></v-select>
                         </v-flex>
                         <v-flex xs3 pa-1>
-                            <v-select label="顯示數目:" item-text="t" item-value="i" :items="number"
+                            <v-select :label="$t('t.display-no') + ':'" item-text="t" item-value="i" :items="number"
                                       v-model="select.s.number"
                             ></v-select>
                         </v-flex>
                         <v-flex xs3 pa-1>
-                            <v-btn color="primary" @click="search()" block> 尋找</v-btn>
+                            <v-btn color="primary" @click="search()" block> {{$t('t.search')}}</v-btn>
                         </v-flex>
                         <v-flex xs12 pa-1>
                             <div class="bd primary--text" v-for="item,key in fbList" :key="item.ID +'-'+key">
@@ -39,10 +39,10 @@
                                         <img :src="'/common/girl/girl_' + item.select_no + '.jpg'" :alt="allGirl[item.select_no - 1].name"
                                              :title="allGirl[item.select_no - 1].name">
                                     </div>
-                                    用戶名: <span>{{item.user_name}}</span> <br>
-                                    ID: <span>{{item.ID}}</span>等級:<span>{{item.grade}}</span>
-                                    伺服:<span>{{item.server}}</span> <br>
-                                    備註: <br>
+                                    {{$t('t.user-name')}}: <span>{{item.user_name}}</span> <br>
+                                    UID: <span>{{item.ID}}</span>{{$t('t.rank')}}:<span>{{item.grade}}</span>
+                                    {{$t('t.server.s')}}:<span>{{item.server}}</span> <br>
+                                    {{$t('t.remark')}}: <br>
                                     <span>{{item.content}}</span>
                                 </div>
                             </div>
@@ -54,19 +54,19 @@
             <v-btn color="primary" @click="showMenuButton = false" outline block>登記</v-btn>
             </v-flex>
             <v-flex md4 sm4 xs12 v-if="!showMenuButton">
-                <gl-ui-title text="招募登記" h2></gl-ui-title>
+                <gl-ui-title :text="$t('register.s')" h2></gl-ui-title>
                 <v-form ref="form" v-model="valid" >
                 <v-container grid-list-md>
                     <v-layout row wrap>
                         <v-flex xs7 pa-1>
-                            <gl-ui-title text="常用角色:" h2></gl-ui-title>
-                            <v-select label="種類:" item-text="t" item-value="i" :items="type" v-model="select.a.type"
+                            <gl-ui-title :text="$t('register.commonly-used-character') + ':'" h2></gl-ui-title>
+                            <v-select :label="$t('t.type') + ':'" item-text="t" item-value="i" :items="type" v-model="select.a.type"
                                       required @input="getGirl('add')"></v-select>
-                            <v-select label="星數:" item-text="t" item-value="i" :items="star" v-model="select.a.star"
+                            <v-select :label="$t('t.star') + ':'" item-text="t" item-value="i" :items="star" v-model="select.a.star"
                                       required @input="getGirl('add')"></v-select>
-                            <v-select label="角色:" item-text="name" item-value="no" :items="girlAdd"
+                            <v-select :label="$t('t.character') + ':'" item-text="name" item-value="no" :items="girlAdd"
                                      v-model="select.a.girl"
-                                      required  :rules="[() => select.a.girl !== 0 || '必須' ]"
+                                      required  :rules="[() => select.a.girl !== 0 || $t('register.must') ]"
                             ></v-select>
                         </v-flex>
                         <v-flex xs5 pa-1>
@@ -76,9 +76,9 @@
                             <v-text-field
                                     v-model="select.a.name"
                                     type="text"
-                                    label="用戶名:"
+                                    :label="$t('t.user-name') + ':'"
                                     required
-                                    :rules="[() => !!select.a.name || '必須' ]"
+                                    :rules="[() => !!select.a.name || $t('register.must') ]"
                             ></v-text-field>
                         </v-flex>
                         <v-flex xs6>
@@ -88,7 +88,7 @@
                                     label="UID:"
                                     mask="##########"
                                     required
-                                    :rules="[() => !!select.a.uid || '必須' ]"
+                                    :rules="[() => !!select.a.uid || $t('register.must') ]"
                             ></v-text-field>
                         </v-flex>
                         <v-flex xs6>
@@ -98,10 +98,10 @@
                         <v-text-field
                                 v-model="select.a.lv"
                                 type="number"
-                                label="等級:"
+                                :label="$t('t.rank') + ':'"
                                 mask="###"
                                 required
-                                :rules="[() => !!select.a.lv || '必須' ]"
+                                :rules="[() => !!select.a.lv || $t('register.must') ]"
                         ></v-text-field>
                         </v-flex>
                         <v-flex xs8>
@@ -119,14 +119,14 @@
                         <v-text-field
                                 v-model="select.a.text"
                                 type="text"
-                                label="備註:"
+                                :label="$t('t.remark') + ':'"
                                 required
-                                :rules="[() => !!select.a.text || '必須' ]"
+                                :rules="[() => !!select.a.text || $t('register.must') ]"
                         ></v-text-field>
                         </v-flex>
                         <v-flex xs12>
-                            <v-btn color="primary" @click="addFriend()" :disabled="!valid"> 登記</v-btn>
-                            <v-btn color="primary" outline @click="clear()">清除</v-btn>
+                            <v-btn color="primary" @click="addFriend()" :disabled="!valid">{{$t('register.register')}}</v-btn>
+                            <v-btn color="primary" outline @click="clear()">{{$t('register.clear')}}</v-btn>
                         </v-flex>
 
                     </v-layout>
@@ -159,11 +159,11 @@
                 fbList: null,
                 prompt: "",
                 allGirl: null,
-                type: [{"i": '', "t": "選擇"}, {"i": 'HG', "t": "HG"}, {"i": 'SMG', "t": "SMG"}, {"i": 'RF',"t": "RF"}, {"i": 'AR', "t": "AR"}, {"i": 'MG', "t": "MG"}, {"i": 'SG', "t": "SG"}],
-                star: [{"i": '', "t": "選擇"}, {"i": 5, "t": "5"}, {"i": 4, "t": "4"}, {"i": 3, "t": "3"}, {"i": 2,"t": "2"}],
-                girlSearch: [{"no": 0, "name": "選擇"}],
-                girlAdd: [{"no": 0, "name": "選擇"}],
-                server: [{"i": "TW", "t": "台"}, {"i": "CN", "t": "陸"}],
+                type: [{"i": '', "t": "select"}, {"i": 'HG', "t": "HG"}, {"i": 'SMG', "t": "SMG"}, {"i": 'RF',"t": "RF"}, {"i": 'AR', "t": "AR"}, {"i": 'MG', "t": "MG"}, {"i": 'SG', "t": "SG"}],
+                star: [{"i": '', "t": "select"}, {"i": 5, "t": "5"}, {"i": 4, "t": "4"}, {"i": 3, "t": "3"}, {"i": 2,"t": "2"}],
+                girlSearch: [{"no": 0, "name": "select"}],
+                girlAdd: [{"no": 0, "name": "select"}],
+                server: [{"i": "TW", "t": "t.server.tw"}, {"i": "CN", "t": "t.server.cn"}],
                 number: [{"i": 5, "t": "5"}, {"i": 10, "t": "10"}, {"i": 15, "t": "15"}, {"i": 20, "t": "20"}, {"i": 30, "t": "30" }],
                 select: {
                     s: {type: '', star: '', girl: '', server: 'TW', number: 5},
@@ -245,7 +245,7 @@
                         success: function (data) {
                             data = JSON.parse(data);
                             if (data.status === "success") {
-                                _this.$s.glDialogText("招募登記", "已成功!!");
+                                _this.$s.glDialogText(_this.$t('register.s'), _this.$t('dialog.success')  + "!!");
                                 $.getJSON('/api/inquiry/friendList', function (data) {
                                     if (data.status === "success") {
                                         _this.fbList = data.data;
@@ -254,7 +254,7 @@
                                     }
                                 });
                             } else {
-                                _this.$s.glDialogText("出現問題","出現問題 請再試!!<br>請確定全部資料正確!!",1);
+                                _this.$s.glDialogText(_this.$t('dialog.error'), _this.$t('dialog.error-1'),1);
                             }
                             return false;
                         }
@@ -266,6 +266,12 @@
         created: function () {
             this.showMenuButton = this.$s.less600();
             this.show = !this.$s.less600();
+
+            for(let i = 0 ; this.server.length ; i++){
+                this.server[i].t = this.$t(this.server[i].t);
+            }
+
+
         },
         mounted: function () {
             this.$g.getFriendList('fbList', this);

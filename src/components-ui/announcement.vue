@@ -1,6 +1,6 @@
 <template>
     <v-alert :value="true" icon="announcement" class="f-18" color="gl-announcement-color">
-        公告:<strong>{{announcement}}</strong>
+        {{$t('t.announcement')}}:<strong>{{announcement}}</strong>
     </v-alert>
 </template>
 <script>

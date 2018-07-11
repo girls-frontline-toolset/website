@@ -14,12 +14,12 @@
 
             </v-flex>
            <v-btn  v-for="link in links" v-if="link.to.search('http') === -1" :key="link.t" :to="link.to"  color="white" flat >
-                {{ link.t }}
+                {{$t(link.t)}}
             </v-btn>
 
             <a v-else class="unLine" href="https://drive.google.com/drive/folders/0B_CazUUBPCsWSDgxMU9NNEl6eDQ" target="_blank" >
                 <v-btn color="white" flat >
-                    {{ link.t }}
+                    {{$t(link.t)}}
                 </v-btn>
             </a>
             <v-flex xs12 py-2 text-xs-center white--text>
@@ -39,7 +39,7 @@
         name: 'gl-ui-footer',
         data() {
             return {
-                links: [{"t":'回報或建議',"to":"/more/feedback"}, {"t":'相關網址',"to":"/more/link"}, {"t":'上載欠缺的圖片',"to":"https//drive.google.com/drive/folders/0B_CazUUBPCsWSDgxMU9NNEl6eDQ"}, {"t":'添加作品',"to":"/tool/image_add"}, {"t":'關於',"to":"/more/about"},{"t":'更新日誌',"to":"/log/update"}]
+                links: [{"t":'footer.feedback',"to":"/more/feedback"}, {"t":'footer.link',"to":"/more/link"}, {"t":'footer.uploadImg',"to":"https//drive.google.com/drive/folders/0B_CazUUBPCsWSDgxMU9NNEl6eDQ"}, {"t":'footer.add-image',"to":"/tool/image_add"}, {"t":'footer.about',"to":"/more/about"},{"t":'footer.update-log',"to":"/log/update"}]
             }
         }, methods: {}, beforeCreate: function () {
         }, created: function () {

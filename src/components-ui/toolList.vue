@@ -5,7 +5,7 @@
                 <router-link :to="item.to" v-on:click.native="click(key)" class="unLine"><v-avatar class="w-100"  size="70%" >
                     <img :src="item.s" :alt="item.a">
                 </v-avatar>
-                <span class="w-100 d-b primary--text"  style="font-size: 24px;" >{{item.a}}</span>
+                <span class="w-100 d-b primary--text"  style="font-size: 24px;" >{{$t(item.a)}}</span>
                 </router-link>
             </v-flex>
 
@@ -20,10 +20,10 @@
         name: 'gl-ui-tool-list',
         data() {
             return {
-                data: [{"s": "/common/img/line-bot-icon.jpg", "a": "Line 機械人", "to": "/bot/line"},
-                    {"s": "/common/img/touch-icon-iphone-retina.png", "a": "Android App", "to": "/tool/android"},
-                    {"s": "/common/img/chrome-icon.png", "a": "Chrome App", "to": "/tool/chrome"},
-                    {"s": "/common/img/group-icon.jpg", "a": "Line 群","to": "/more/line" }]
+                data: [{"s": "/common/img/line-bot-icon.jpg", "a": "nav.other-platform.line", "to": "/bot/line"},
+                    {"s": "/common/img/touch-icon-iphone-retina.png", "a": "nav.other-platform.android", "to": "/tool/android"},
+                    {"s": "/common/img/chrome-icon.png", "a": "nav.other-platform.chrome", "to": "/tool/chrome"},
+                    {"s": "/common/img/group-icon.jpg", "a": "nav.line-group","to": "/more/line" }]
             }
         }, methods: {
             click(index){

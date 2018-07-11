@@ -2,7 +2,7 @@
     <router-link to="/tool/image_add" class="unLine">
         <div class="no-select img-div " style="font-size: 50%;">
             <v-icon size="90px" color="primary" style="width: 100%">add</v-icon>
-            <span>添加更多作品!!</span>
+            <span>{{$t('img.add-more')}}</span>
         </div>
     </router-link>
 </template>

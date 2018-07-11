@@ -1,6 +1,6 @@
 <template>
     <v-container pa-1>
-        <gl-ui-title text="精選圖片" h2></gl-ui-title>
+        <gl-ui-title :text="$t('title.h2.featured-image')" h2></gl-ui-title>
         <v-layout row wrap>
             <v-flex sm4 xs12 md4 v-for="item,key in data" :key="key" :ref="'list-'+key">
                 <gl-ui-image-card :completedFunction="completed"

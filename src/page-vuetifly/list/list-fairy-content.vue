@@ -2,26 +2,26 @@
     <div>
         <gl-ui-tag-list v-if="isShow || $s.app" :select="model" :items="items"></gl-ui-tag-list>
         <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-        <gl-ui-title text="妖精圖鑑" h1 icon="icon-equipment"></gl-ui-title>
+        <gl-ui-title :text="$t('title.h1.list.fairy')" h1 icon="icon-equipment"></gl-ui-title>
 
         <v-container grid-list-md>
             <v-layout row wrap>
                 <v-flex xs6>
-                    <v-select label="篩選條件" item-text="t" item-value="i" :items="fairyItems" v-model="fairy"
+                    <v-select :label="$t('time.filter')" item-text="t" item-value="i" :items="fairyItems" v-model="fairy"
                               single-line></v-select>
                 </v-flex>
                 <v-flex xs3 pa-1>
-                    <v-text-field mask="###" type="number" v-model="range[0]" label="開始編號" tabindex="1"></v-text-field>
+                    <v-text-field mask="###" type="number" v-model="range[0]" :label="$t('time.start-no')" tabindex="1"></v-text-field>
                 </v-flex>
                 <v-flex xs3 pa-1 v-if="fairy === 0">
-                    <v-text-field mask="###" type="number" v-model="range[1]" label="結束編號" tabindex="2"></v-text-field>
+                    <v-text-field mask="###" type="number" v-model="range[1]" :label="$t('time.end-no')" tabindex="2"></v-text-field>
                 </v-flex>
                 <v-flex xs3 pa-1 v-if="fairy === 1">
-                    <v-text-field mask="###" type="number" v-model="range[2]" label="結束編號" tabindex="2"></v-text-field>
+                    <v-text-field mask="###" type="number" v-model="range[2]" :label="$t('time.end-no')" tabindex="2"></v-text-field>
                 </v-flex>
 
                 <v-flex xs12 pa-1>
-                    <gl-ui-title h2 text="種類: "></gl-ui-title>
+                    <gl-ui-title h2 :text="$t('t.type') + ': '"></gl-ui-title>
                     <gl-ui-icon-button v-for="item, key in type" :key="key" :opacity="item" type="type"
                                        :name="key"></gl-ui-icon-button>
                 </v-flex>
@@ -29,8 +29,8 @@
             </v-layout>
         </v-container>
 
-        <v-btn color="primary" @click="getList()"> 尋找</v-btn>
-        <v-btn color="primary" v-if="fairy === 0" outline @click="getFairyTime()">妖精製作時間列表</v-btn>
+        <v-btn color="primary" @click="getList()">{{$t('t.search')}}</v-btn>
+        <v-btn color="primary" v-if="fairy === 0" outline @click="getFairyTime()">{{$t('time.fairy-list')}}</v-btn>
 
 
         <div class="fairy_list_output">
@@ -78,7 +78,7 @@
                 fairyList: null,
                 range: [1, 0, 0],
                 type: {"fairyType_0": true, "fairyType_1": true},
-                fairyItems: [{"i": 0, "t": "妖精"}, {"i": 1, "t": "特典妖精"}],
+                fairyItems: [{"i": 0, "t": "time.fairy"}, {"i": 1, "t": "time.other-fairy"}],
                 fairyTimeList: null,
                 fairy: 0,
                 exFairyList: null,
@@ -180,6 +180,10 @@
             }
         },
         mounted: function () {
+            for(let i = 0; this.fairyItems.length ; i++){
+                this.fairyItems[i].t = this.$t(this.fairyItems[i].t);
+            }
+
             let contList = 0, _this = this;
 
             let query = function () {

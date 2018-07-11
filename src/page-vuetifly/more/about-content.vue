@@ -3,7 +3,7 @@
         <v-layout row wrap>
             <v-flex xs12>
                 <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                <gl-ui-title text="關於" h1></gl-ui-title>
+                <gl-ui-title :text="$t('title.h1.more.about')" h1></gl-ui-title>
             </v-flex>
             <v-flex md4 sm4 xs12>
                 <v-layout row wrap>

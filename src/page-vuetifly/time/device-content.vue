@@ -1,17 +1,17 @@
 <template>
     <div>
         <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-        <gl-ui-title text="裝備製造時間查詢" h1 icon="icon-equipment"></gl-ui-title>
+        <gl-ui-title :text="$t('title.h1.time.device')" h1 icon="icon-equipment"></gl-ui-title>
         <gl-ui-hot-time :list="hotTime" :clickF="badge"></gl-ui-hot-time>
 
         <v-container grid-list-md>
                 <v-layout row wrap pa1>
                     <v-flex xs8 pa-1>
-                        <v-text-field mask="##" type="number" v-model="mm" label="分鐘" tabindex="1"
+                        <v-text-field mask="##" type="number" v-model="mm" :label="$t('t.minute')" tabindex="1"
                                       autofocus @keyup.enter.native="search()"></v-text-field>
                     </v-flex>
                     <v-flex xs4 pa-1>
-                        <v-btn color="primary" block dark @click="search()" tabindex="2">查詢</v-btn>
+                        <v-btn color="primary" block dark @click="search()" tabindex="2">{{$t('t.inquiry')}}</v-btn>
                     </v-flex>
                 </v-layout>
 

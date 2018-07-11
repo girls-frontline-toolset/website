@@ -3,23 +3,23 @@
         <v-layout row wrap>
             <v-flex md8 sm8 xs12>
                 <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                <gl-ui-title text="讚友招募區域" h1 icon="icon-friends"></gl-ui-title>
+                <gl-ui-title :text="$t('title.h1.like.list')" h1 icon="icon-friends"></gl-ui-title>
 
                 <div class="bd">
-                    <span class="primary--text">用戶名:</span>蘿莉控蘿莉<span class="primary--text">ID:</span>147867
-                    <span class="primary--text">伺服:</span>TW<br>
-                    <span class="primary--text">備註:</span>來互相點讚喔 ~ <- 這是站長 W
+                    <span class="primary--text">{{$t("t.user-name")}}:</span>蘿莉控蘿莉<span class="primary--text">ID:</span>147867
+                    <span class="primary--text">{{$t("t.server.s")}}:</span>TW<br>
+                    <span class="primary--text">{{$t("t.remark")}}:</span>來互相點讚喔 ~ <- 這是站長 W
                 </div>
-                <gl-ui-title text="讚友列表" h2 ></gl-ui-title>
+                <gl-ui-title :text="$t('t.like-fb-list')" h2 ></gl-ui-title>
 
                 <div class="bd" v-for="item in likeList">
-                    <span class="primary--text">用戶名:</span>{{item.user_name}}<span class="primary--text">ID:</span>{{item.ID}}
-                    <span class="primary--text">伺服:</span>{{item.server}}<br>
-                    <span class="primary--text">備註:</span>{{item.content}}
+                    <span class="primary--text">{{$t("t.user-name")}}:</span>{{item.user_name}}<span class="primary--text">ID:</span>{{item.ID}}
+                    <span class="primary--text">{{$t("t.server.s")}}:</span>{{item.server}}<br>
+                    <span class="primary--text">{{$t("t.remark")}}:</span>{{item.content}}
                 </div>
             </v-flex>
             <v-flex md4 sm4 xs12 v-if="showMenuButton" >
-                <v-btn color="primary" @click="showMenuButton = false" outline block>登記</v-btn>
+                <v-btn color="primary" @click="showMenuButton = false" outline block>{{$t('register.register')}}</v-btn>
             </v-flex>
             <v-flex md4 sm4 xs12 v-if="!showMenuButton">
                 <v-form ref="form" v-model="valid" >
@@ -28,24 +28,24 @@
                         <v-flex xs12>
                             <v-card>
                                 <v-card-title>
-                                    <gl-ui-title text="規則" h2></gl-ui-title>
+                                    <gl-ui-title :text="$t('like.rule')" h2></gl-ui-title>
                                     <div class="f-18">
-                                        參觀者 <span class='primary--text'>需對登記者按讚</span><br>
-                                        登記者 <span class='primary--text'>將會回讚</span><br>
-                                        登記者 <span class='primary--text'>需對其他玩家開放宿舍</span><br>
-                                        登記者 <span class='primary--text'>需對所有到訪者按讚</span>
+                                        {{$t('like.visitor')}} <span class='primary--text'> {{$t('like.ru1')}}</span><br>
+                                        {{$t('like.registrant')}} <span class='primary--text'>{{$t('like.ru2')}}</span><br>
+                                        {{$t('like.registrant')}}<span class='primary--text'>{{$t('like.ru3')}}</span><br>
+                                        {{$t('like.registrant')}} <span class='primary--text'>{{$t('like.ru4')}}</span>
                                     </div>
                                 </v-card-title>
                             </v-card>
-                            <gl-ui-title text="招募登記" h2></gl-ui-title>
+                            <gl-ui-title :text="$t('register.s')" h2></gl-ui-title>
                         </v-flex>
                         <v-flex xs12>
                             <v-text-field
                                     v-model="add.name"
                                     type="text"
-                                    label="用戶名:"
+                                    :label="$t('t.user-name') + ':'"
                                     required
-                                    :rules="[() => !!add.name || '必須' ]"
+                                    :rules="[() => !!add.name || $t('register.must')  ]"
                             ></v-text-field>
                         </v-flex>
                         <v-flex xs6>
@@ -55,7 +55,7 @@
                                     label="UID:"
                                     mask="##########"
                                     required
-                                    :rules="[() => !!add.uid || '必須' ]"
+                                    :rules="[() => !!add.uid || $t('register.must')  ]"
                             ></v-text-field>
                         </v-flex>
                         <v-flex xs1>
@@ -76,14 +76,14 @@
                             <v-text-field
                                     v-model="add.text"
                                     type="text"
-                                    label="備註:"
+                                    :label="$t('t.remark') + ':'"
                                     required
-                                    :rules="[() => !!add.text || '必須' ]"
+                                    :rules="[() => !!add.text || $t('register.must')  ]"
                             ></v-text-field>
                         </v-flex>
                         <v-flex  xs12>
-                            <v-btn color="primary" @click="addLikeFb()" :disabled="!valid"> 登記</v-btn>
-                            <v-btn color="primary" outline @click="$refs.form.reset()">清除</v-btn>
+                            <v-btn color="primary" @click="addLikeFb()" :disabled="!valid">{{$t('register.register')}}</v-btn>
+                            <v-btn color="primary" outline @click="$refs.form.reset()">{{$t('register.clear')}}</v-btn>
                         </v-flex>
                     </v-layout>
                 </v-container>
@@ -110,13 +110,13 @@
                 showMenuButton: false,
                 show: false,
                 likeList: null,
-                server: [{"i": "TW", "t": "台"}, {"i": "CN", "t": "陸"}],
+                server: [{"i": "TW", "t": "t.server.tw"}, {"i": "CN", "t": "t.server.cn"}],
                 add:{name:"",uid:"",server:"TW",text:""},
                 valid:false
             }
         }, methods: {
             showHelp: function () {
-                this.$s.glDialogImg("位置查詢","/common/img/UID_check.jpg");
+                this.$s.glDialogImg(this.$t('dialog.location'),"/common/img/UID_check.jpg");
             },
             addLikeFb(){
                 let _this = this;
@@ -132,10 +132,10 @@
                         success: function(data){
                             data = JSON.parse(data);
                             if(data.status === "success"){
-                                _this.$s.glDialogText("招募登記","已成功!!");
+                                _this.$s.glDialogText(_this.$t('register.s'),_this.$t('dialog.success') + "!!");
                                 _this.$refs.form.reset();
                             }else{
-                                _this.$s.glDialogText("招募登記","出現問題 請再試!!<br>請確定全部資料正確!!",1);
+                                _this.$s.glDialogText(_this.$t('register.s'),_this.$t('dialog.error-1'),1);
                             }
                         }
                     }
@@ -152,6 +152,10 @@
             });
         },
         created: function () {
+            for(let i = 0 ; this.server.length ; i++){
+                this.server[i].t = this.$t(this.server[i].t);
+            }
+
             this.showMenuButton = this.$s.less600();
             this.show = !this.$s.less600();
         },

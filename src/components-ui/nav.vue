@@ -3,12 +3,12 @@
         <v-layout v-if="Small">
             <v-toolbar fixed color="gl-main-color" dark height="35" style="transform: translateY(0px)">
                 <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-                <v-toolbar-title class="white--text"><router-link to="/" class="unLine white--text">少女前線 工具集</router-link></v-toolbar-title>
+                <v-toolbar-title class="white--text"><router-link to="/" class="unLine white--text">{{$t('title.s')}}</router-link></v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-tabs value="" slot="extension" v-if="subSubNav" color="gl-main-color" grow >
                     <v-tabs-slider color="yellow"></v-tabs-slider>
                     <v-tab :href="`#tab-${key}`" v-model="model" :to="item.to" v-for="item,key in items" class="white--text" :key="item.t">
-                        {{item.t}} <v-icon>{{item.i}}</v-icon>
+                        {{$t(item.t)}}<v-icon>{{item.i}}</v-icon>
                     </v-tab>
                 </v-tabs>
             </v-toolbar>
@@ -17,17 +17,17 @@
                 <v-navigation-drawer temporary fixed v-model="drawer" class="white">
                     <v-list>
                         <v-list-tile color="orange">
-                            <span class="title">少女前線 工具集</span>
+                            <span class="title">{{$t('title.s')}}</span>
                         </v-list-tile>
                         <v-list-group color="grey" :prepend-icon="items.i" v-for="items in list" :key="items.i+'-b'" v-if="items.list.length != 0" no-action >
 
                             <v-list-tile slot="activator" value="false">
-                                <v-list-tile-title class="black--text">{{items.t}}</v-list-tile-title>
+                                <v-list-tile-title class="black--text">{{$t(items.t)}}</v-list-tile-title>
                             </v-list-tile>
 
                             <v-list-tile v-for="item in items.list" :key="item.t+'-b'" :to="item.h">
                                 <v-list-tile-content>
-                                    <v-list-tile-title >{{item.t}}</v-list-tile-title>
+                                    <v-list-tile-title >{{$t(item.t)}}</v-list-tile-title>
                                 </v-list-tile-content>
                             </v-list-tile>
                         </v-list-group>
@@ -37,12 +37,24 @@
                                 <v-icon >{{items.i}}</v-icon>
                             </v-list-tile-action>
                             <v-list-tile-content>
-                                <v-list-tile-title :to="items.h">{{items.t}}</v-list-tile-title>
+                                <v-list-tile-title :to="items.h">{{$t(items.t)}}</v-list-tile-title>
                             </v-list-tile-content>
                         </v-list-tile>
+
+                        <v-list-group color="grey"  no-action  prepend-icon="translate">
+                            <v-list-tile slot="activator" value="false" >
+                                <v-list-tile-title class="black--text" >{{$t("language")}}</v-list-tile-title>
+                            </v-list-tile>
+
+                            <v-list-tile v-for="item in languages" :key="items.i" @click="lan(item)">
+                                <v-list-tile-content>
+                                    <v-list-tile-title >{{$t(item.t)}}</v-list-tile-title>
+                                </v-list-tile-content>
+                            </v-list-tile>
+                        </v-list-group>
                         <v-list-tile >
                             <v-switch
-                                    :label="`簡易模式${simpleMode}`"
+                                    :label="$t('nav.easy-mode')"
                                     v-model="simpleMode"
                                     color="primary"
                             ></v-switch>
@@ -61,11 +73,26 @@
 
         <v-layout v-else>
             <v-toolbar fixed color="gl-main-color" dark scroll-off-screen scroll-target="#scrolling-techniques" height="53" style="transform: translateY(0px)" >
-                <v-toolbar-title class="white--text"> <router-link to="/" class="white--text unLine">少女前線 工具集</router-link></v-toolbar-title>
+                <v-toolbar-title class="white--text"> <router-link to="/" class="white--text unLine">{{$t('title.s')}}</router-link></v-toolbar-title>
                 <v-spacer></v-spacer>
 
+                <v-menu offset-y>
+                    <v-btn slot="activator" color="primary" dark>
+                        {{language.t}}
+                    </v-btn>
+                    <v-list>
+                        <v-list-tile
+                                v-for="(item, index) in languages"
+                                :key="index"
+                                @click="lan(item)"
+                        >
+                            <v-list-tile-title>{{item.t}}</v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
+                </v-menu>
+
                 <v-toolbar-items class="hidden-sm-and-down">
-                    <v-btn flat v-for="items,key in list" :to="items.h" :key="items.i+'-s'" @mousemove="subList(key,$event)" @click="subList(key,$event)" v-if="items.t != 'LINE群'"><v-icon left dark>{{items.i}}</v-icon>{{items.t}}</v-btn>
+                    <v-btn flat v-for="items,key in list" :to="items.h" :key="items.i+'-s'" @mousemove="subList(key,$event)" @click="subList(key,$event)" v-if="items.t != 'nav.line-group'"><v-icon left dark>{{items.i}}</v-icon>{{$t(items.t)}}</v-btn>
                 </v-toolbar-items>
                 <v-btn icon to="/more/line" @click="subList(list.length - 1 ,$event)">
                     <v-icon >icon-line</v-icon>
@@ -75,7 +102,7 @@
             <v-layout id="sub-nav" @click.self="close()" @mousemove.self="close()" style="display:none;position: fixed;top: 53px;width:100%;height: 100%;z-index:50;" row>
                 <v-flex xs12 order-lg2 class="orange lighten-5" style="height: 45px;">
                     <div class="toRight" style="height: 100%;display:block" :style="'padding-right:'+boxWidth + 'px'"></div>
-                    <v-btn @click.native="close()" flat :to="btn.h" class="toRight" v-for="btn,key in list[active].list.slice().reverse()" :key="btn.t+'-s'">{{btn.t}}</v-btn>
+                    <v-btn @click.native="close()" flat :to="btn.h" class="toRight" v-for="btn,key in list[active].list.slice().reverse()" :key="btn.t+'-s'">{{$t(btn.t)}}</v-btn>
                 </v-flex>
             </v-layout>
         </v-layout>
@@ -102,7 +129,9 @@
                 items: [],
                 subSubNav:false,
                 model:"tab-1",
-                simpleMode:false
+                simpleMode:false,
+                language:{t:'繁體中文',i:'tw'},
+                languages:[{ t: '简体中文',i:'cn'},{ t: '繁體中文',i:'tw'}]
             }
         }, methods: {
             onResize() {
@@ -119,15 +148,18 @@
             },
             close(){
                 $("#sub-nav").fadeOut(500);
+            },
+            lan(data){
+                this.language = data;
+                this.$i18n.locale = data.i;
+                this.drawer = false;
             }
         },
         beforeCreate() {
             this.$nav.nav = this;
-
             if (this.$route.query.fn !== undefined && this.$route.query.fn === "nbar") {
                     this.isShow = false;
             }
-
             $.getJSON('/common/data/nav.json',json=>this.list = json);
 
         }, created: function () {
@@ -136,6 +168,10 @@
             this.onResize()
         }, beforeUpdate: function () {
         }, updated: function () {
+        },watch:{
+            simpleMode(data){
+                this.$s.appVue.isSim = !data;
+            }
         }
 
     }

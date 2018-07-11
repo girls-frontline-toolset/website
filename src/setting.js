@@ -20,6 +20,7 @@ const setting = {
     },
     glDialog:null,
     app:false,
+    appVue:undefined,
     serverError:function () {
         window.location = "https://www1.ntw-20.com" + window.location.pathname;
     }
