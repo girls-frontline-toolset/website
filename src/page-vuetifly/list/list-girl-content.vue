@@ -183,6 +183,9 @@
                             case '4':
                                 star = this.star["star_" + 5];
                                 break;
+                            case '3':
+                                star = this.star["star_" + 4];
+                                break;
                         }
                         url = "/common/digiMindGirl/digiMindGirl_";
                     }
