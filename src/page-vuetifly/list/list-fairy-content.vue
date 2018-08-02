@@ -180,8 +180,9 @@
             }
         },
         mounted: function () {
-            for(let i = 0; this.fairyItems.length ; i++){
-                this.fairyItems[i].t = this.$t(this.fairyItems[i].t);
+
+            for(let i = 0; i < this.fairyItems.length ; i++){
+             this.fairyItems[i].t = this.$t(this.fairyItems[i].t);
             }
 
             let contList = 0, _this = this;

@@ -21,7 +21,8 @@ import tw from './lang/tw.json';
 
 const messages = {
     cn,
-    tw
+    tw,
+    ja
 }
 
 const i18n = new VueI18n({

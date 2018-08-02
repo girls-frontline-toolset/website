@@ -79,9 +79,9 @@ const routes = [
     {path: '/', component: GlIndexContent,meta: {title: ''}},
     {path: '/index.html', redirect:'/'},
     {path: '/time', component: inquire,children:[
-            {path: 'girl', component: girl,props:{promptData:glCardLeftData.time_girl},meta: {title: '人形製造時間查詢'}},
-            {path: 'fairy', component: fairy,props:{promptData:glCardLeftData.time_fairy},meta: {title: '妖精製造時間查詢'}},
-            {path: 'device',  component: device,props:{promptData:glCardLeftData.time_device},meta: {title: '裝備製造時間查詢'}},
+            {path: 'girl', component: girl,props:{promptData:glCardLeftData.time_girl},meta: {title: {"cn":"人形制造时间查询","tw":'人形製造時間查詢',"ja":"人形製造時間問合せ"}}},
+            {path: 'fairy', component: fairy,props:{promptData:glCardLeftData.time_fairy},meta: {title: {"cn":"妖精制造时间查询","tw":'妖精製造時間查詢',"ja":"妖精製造時間問合せ"}}},
+            {path: 'device',  component: device,props:{promptData:glCardLeftData.time_device},meta: {title: {"cn":"装备制造时间查询","tw":'裝備製造時間查詢',"ja":"裝備製造時間問合せ"}}},
             {path: '/time/list',redirect: '/list/girl'},
             {path: '/time/list_fairy',redirect: '/list/fairy'},
             {path: '/time/make',redirect: '/make/girl'},
@@ -91,60 +91,60 @@ const routes = [
             {path: '*', redirect: '/'},
         ]},
     {path: '/list', component: inquire,children:[
-            {path: 'girl', component: list,props:{promptData:glCardLeftData.time_list},meta: {title: '人形圖鑑'}},
-            {path: 'fairy', component: listFairy ,props:{promptData:glCardLeftData.list_fairy},meta: {title: '妖精圖鑑'}},
+            {path: 'girl', component: list,props:{promptData:glCardLeftData.time_list},meta: {title: {"cn":"人形图鉴","tw":'人形圖鑑',"ja":"人形図鑑"}}},
+            {path: 'fairy', component: listFairy ,props:{promptData:glCardLeftData.list_fairy},meta: {title: {"cn":"妖精图鉴","tw":'妖精圖鑑',"ja":"妖精図鑑"}}},
             {path: '*', redirect: '/'},
         ]},
     {path: '/tool', component: inquire,children:[
-            {path: 'android', component:android, props:{promptData:glCardLeftData.cAndroid},meta: {title: 'Android版'}},
-            {path: 'chrome', component:chrome, props:{promptData:glCardLeftData.cChrome},meta: {title: 'Chrome版'}},
+            {path: 'android', component:android, props:{promptData:glCardLeftData.cAndroid},meta: {title: {"cn":"Android版","tw":'Android版',"ja":"Android App"}}},
+            {path: 'chrome', component:chrome, props:{promptData:glCardLeftData.cChrome},meta: {title: {"cn":"Chrome版","tw":'Chrome版',"ja":"Chrome App"}}},
             {path: '/tool/image/all',redirect: '/image/all'},
             {path: '/tool/image_add',redirect: '/image/add'},
             {path: '*', redirect: '/'},
         ]},
     {path: '/bot', component: inquire,children:[
-            {path: 'line', component:lineBot, props:{promptData:glCardLeftData.line_bot},meta: {title: 'LINE機械人'}},
+            {path: 'line', component:lineBot, props:{promptData:glCardLeftData.line_bot},meta: {title: {"cn":"LINE机械人","tw":'LINE機械人',"ja":"Line ロボット"}}},
             {path: '*', redirect: '/'},
         ]},
     {path:'/more', component: inquire,children:[
-            {path: 'line', component:line, props:{promptData:glCardLeftData.line},meta: {title: 'LINE群'}},
-            {path: 'about', component:about,props:{promptData:glCardLeftData.about},meta: {title: '關於'}},
-            {path: 'link', component:link,props:{promptData:glCardLeftData.link},meta: {title: '相關網址'}},
-            {path: 'feedback', component:feedback, props:{promptData:glCardLeftData.feedback},meta: {title: '問題回報或建議'}},
+            {path: 'line', component:line, props:{promptData:glCardLeftData.line},meta: {title: {"cn":"LINE群","tw":'LINE群',"ja":"LINEグループ(台湾語)"}}},
+            {path: 'about', component:about,props:{promptData:glCardLeftData.about},meta: {title: {"cn":"关于","tw":'關於',"ja":"について"}}},
+            {path: 'link', component:link,props:{promptData:glCardLeftData.link},meta: {title: {"cn":"相关网址","tw":'相關網址',"ja":"関連URL"}}},
+            {path: 'feedback', component:feedback, props:{promptData:glCardLeftData.feedback},meta: {title: {"cn":"问题回报或建议","tw":'問題回報或建議',"ja":""}}},
             {path: '*', redirect: '/'},
         ]},
     {path:'/fb',component: inquire,children:[
-            {path: 'list', component: fbList,props:{promptData:glCardLeftData.fb_list},meta: {title: '好友招募'}},
+            {path: 'list', component: fbList,props:{promptData:glCardLeftData.fb_list},meta: {title: {"cn":"好友招募","tw":'好友招募',"ja":"友人の募集エリア"}}},
             {path: '*', redirect: '/'},
         ]},
     {path:'/log',component:inquire,children:[
-            {path: 'update', component: updateLog,meta: {title: '更新記錄'},props:{promptData:glCardLeftData.log_update}},
+            {path: 'update', component: updateLog,meta: {title: {"cn":"更新记录","tw":'更新記錄',"ja":"レコードを更新"}},props:{promptData:glCardLeftData.log_update}},
             {path: '*', redirect: '/'},
         ]},
     {path:'/like',component:inquire,children:[
-            {path: 'list', component: likeList,props:{promptData:glCardLeftData.like_list},meta: {title: '讚友招募'}},
+            {path: 'list', component: likeList,props:{promptData:glCardLeftData.like_list},meta: {title: {"cn":"赞友招募","tw":'讚友招募',"ja":"讚友の募集エリア"}}},
             {path: '*', redirect: '/'},
         ]},
     {path:'/make',component:inquire,children:[
-            {path: 'girl', component: makeGirl,props:{promptData:glCardLeftData.time_make},meta: {title: '模擬造槍'}},
-            {path: 'device', component:makeDevice, props:{promptData:glCardLeftData.device_make},meta: {title: '模擬造裝'}},
-            {path: 'hGirl', component:hMake, props:{promptData:glCardLeftData.hMake},meta: {title: '模擬重造-槍'}},
-            {path: 'hDevice', component:hMakeDevice, props:{promptData:glCardLeftData.hDevice_make},meta: {title: '模擬重造-裝'}},
+            {path: 'girl', component: makeGirl,props:{promptData:glCardLeftData.time_make},meta: {title: {"cn":"模拟造枪","tw":'模擬造槍',"ja":"模擬造銃"}}},
+            {path: 'device', component:makeDevice, props:{promptData:glCardLeftData.device_make},meta: {title: {"cn":"模拟造装","tw":'模擬造裝',"ja":"模擬造裝備"}}},
+            {path: 'hGirl', component:hMake, props:{promptData:glCardLeftData.hMake},meta: {title: {"cn":"模拟重造-枪","tw":'模擬重造-槍',"ja":"模擬大型製作-銃"}}},
+            {path: 'hDevice', component:hMakeDevice, props:{promptData:glCardLeftData.hDevice_make},meta: {title: {"cn":"模拟重造-装","tw":'模擬重造-裝',"ja":"模擬大型製作-裝備"}}},
             {path: '*', redirect: '/'},
         ]},
     {path:'/image',component:inquire,children:[
-            {path: 'add', component:imageAdd, props:{promptData:glCardLeftData.addImage}, meta: {title: '圖片庫'}},
-            {path: ':name', component:image, props:{promptData:glCardLeftData.image},meta: {title: '圖片庫'}},
+            {path: 'add', component:imageAdd, props:{promptData:glCardLeftData.addImage}, meta: {title: {"cn":"图片库","tw":'圖片庫',"ja":"フォトギャラリー"}}},
+            {path: ':name', component:image, props:{promptData:glCardLeftData.image},meta: {title: {"cn":"图片库","tw":'圖片庫',"ja":"フォトギャラリー"}}},
             {path: '*', redirect: '/'},
         ]},
-    {path:'/admin',component:adminIndex,meta: {title: '管理面板'},children:[
-            {path: 'image', component: adminImage,meta: {title: '圖片管理'}},
-            {path:'errorImg',component: errorImg,meta: {title: '問題圖片'}},
+    {path:'/admin',component:adminIndex,meta: {title: {"cn":"管理面板","tw":'管理面板',"ja":"管理面板"}},children:[
+            {path: 'image', component: adminImage,meta: {title: {"cn":"圖片管理","tw":'圖片管理',"ja":"圖片管理"}}},
+            {path:'errorImg',component: errorImg,meta: {title: {"cn":"問題圖片","tw":'問題圖片',"ja":"問題圖片"}}},
             {path: '*', redirect: '/'},
         ]},
-    {path: '/login', component: login,meta: {title: '登入'}},
-    {path: '/logout', component: logout,meta: {title: '登出'}},
-    { path: "*", component: pageNotFound ,meta: {title: '404'}},
+    {path: '/login', component: login,meta: {title: {"cn":"登入","tw":'登入',"ja":"登入"}}},
+    {path: '/logout', component: logout,meta: {title: {"cn":"登出","tw":'登出',"ja":"登出"}}},
+    { path: "*", component: pageNotFound ,meta: {title: {"cn":"404","tw":'404',"ja":"404"}}},
 ];
 
 const app = new Vue({
@@ -162,10 +162,14 @@ export default router;
 
 router.afterEach(route => {
     let title = "少女前線 工具集";
+    let title2 = route.meta.title['tw'];
     if(this.a.app.t !== undefined){
         title = this.a.app.t('title.s');
+        title2 = route.meta.title[this.a.locale];
+    }else{
+        this.a.meta = route.meta;
     }
-    document.title = (!route.meta.title )? title : route.meta.title + "-"+  title;
+    document.title = (!title2 )? title : title2 + "-"+  title;
     $("#count_num").attr("src","//counter1.fc2.com/counter_img.php?id=89451780");
     $('html,body').animate({scrollTop: 0});
 });
