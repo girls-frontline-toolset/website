@@ -29,19 +29,17 @@
                 <v-layout row wrap>
                     <v-flex xs12>
                         <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
+                        <div style="height: 48px">
+                            <v-tabs  slot="extension" v-model="model" centered slider-color="gl-main-color">
+                                <v-tab v-for="item , key in items" :key="key" :href="`#tab-${key}`" :to="item.to">
+                                    {{$t(item.t)}}
+                                    <v-icon >{{item.i}}</v-icon>
+                                </v-tab>
+                            </v-tabs>
+                        </div>
                         <gl-ui-title text="教學" h2></gl-ui-title>
                     </v-flex>
-                    <v-flex xs12 class="line-help">
-                            <div v-for="(list , index ) in description">
-                                <span>{{list.title}}</span>
-                                指令:
-                                <div class="code" v-for="code in list.code">{{code}}</div>
-                                例子:
-                                <div class="example" v-for="example in list.example">{{example}}</div>
-                                <span class="high"> {{list.high}}</span>
-                                <hr v-show="index + 1  !== description.length">
-                            </div>
-                    </v-flex>
+                    <router-view></router-view>
                     <gl-ui-line-bot-about v-if="!show"></gl-ui-line-bot-about>
                 </v-layout>
             </v-flex>
@@ -67,7 +65,9 @@
             return {
                 show: false,
                 showMenuButton: false,
-                description: null,
+                model:"tab-0",
+                items:[{"t":"line.command","to":"/bot/line","i":"access_time"},{"t":"line.img","to":"/bot/line/img","i":"list"}],
+
             }
         }, methods: {
             clicked: function () {
@@ -87,12 +87,6 @@
         }, created: function () {
             this.showMenuButton = (window.innerWidth < 768);
             this.show = !this.$s.less600();
-        },
-        beforeCreate: function () {
-            var _this = this;
-            $.getJSON('/common/data/bot-line.json', function (json) {
-                _this.description = json;
-            });
         }
     }
 </script>

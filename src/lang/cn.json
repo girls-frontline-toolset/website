@@ -171,6 +171,10 @@
     "line-group":"LINE群",
     "easy-mode":"简易模式"
   },
+  "line":{
+  "command":"指令表",
+  "img":"梗图表"
+  },
   "footer":{
     "feedback":"回报或建议",
     "link":"相关网址",

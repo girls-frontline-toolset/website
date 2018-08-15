@@ -171,6 +171,10 @@
     "line-group":"LINEグループ(台湾語)",
     "easy-mode":"簡易モード"
   },
+  "line":{
+  "command":"コマンド",
+  "img":"梗图"
+  },
   "footer":{
     "feedback":"報告や提案",
     "link":"関連URL",

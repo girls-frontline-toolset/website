@@ -14,6 +14,8 @@ import android from '../page-vuetifly/tool/android-content.vue';
 import chrome from '../page-vuetifly/tool/chrome-content.vue';
 //bot
 import lineBot from '../page-vuetifly/bot/line-content.vue';
+import lineCommand from '../components-ui/bot/command.vue';
+import lineImg from '../components-ui/bot/image.vue';
 //more
 import line from '../page-vuetifly/more/line-content.vue';
 import about from '../page-vuetifly/more/about-content.vue';
@@ -100,18 +102,18 @@ const routes = [
             {path: 'chrome', component:chrome, props:{promptData:glCardLeftData.cChrome},meta: {title: {"cn":"Chrome版","tw":'Chrome版',"ja":"Chrome App"}}},
             {path: '/tool/image/all',redirect: '/image/all'},
             {path: '/tool/image_add',redirect: '/image/add'},
-            {path: '*', redirect: '/'},
         ]},
     {path: '/bot', component: inquire,children:[
-            {path: 'line', component:lineBot, props:{promptData:glCardLeftData.line_bot},meta: {title: {"cn":"LINE机械人","tw":'LINE機械人',"ja":"Line ロボット"}}},
-            {path: '*', redirect: '/'},
+            {path: 'line', component:lineBot, props:{promptData:glCardLeftData.line_bot},meta: {title: {"cn":"LINE机械人","tw":'LINE機械人',"ja":"Line ロボット"}},children:[
+                    {path: 'img',component:lineImg , meta: {title: {"cn":"梗图表-LINE机械人","tw":'梗图表-LINE機械人',"ja":"Line ロボット"}}},
+                    {path: '/',component:lineCommand ,meta: {title: {"cn":"指令表-LINE机械人","tw":'指令表-LINE機械人',"ja":"指令表-Line ロボット"}}},
+                ]},
         ]},
     {path:'/more', component: inquire,children:[
             {path: 'line', component:line, props:{promptData:glCardLeftData.line},meta: {title: {"cn":"LINE群","tw":'LINE群',"ja":"LINEグループ(台湾語)"}}},
             {path: 'about', component:about,props:{promptData:glCardLeftData.about},meta: {title: {"cn":"关于","tw":'關於',"ja":"について"}}},
             {path: 'link', component:link,props:{promptData:glCardLeftData.link},meta: {title: {"cn":"相关网址","tw":'相關網址',"ja":"関連URL"}}},
             {path: 'feedback', component:feedback, props:{promptData:glCardLeftData.feedback},meta: {title: {"cn":"问题回报或建议","tw":'問題回報或建議',"ja":""}}},
-            {path: '*', redirect: '/'},
         ]},
     {path:'/fb',component: inquire,children:[
             {path: 'list', component: fbList,props:{promptData:glCardLeftData.fb_list},meta: {title: {"cn":"好友招募","tw":'好友招募',"ja":"友人の募集エリア"}}},
