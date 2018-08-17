@@ -21,6 +21,7 @@ import line from '../page-vuetifly/more/line-content.vue';
 import about from '../page-vuetifly/more/about-content.vue';
 import link from '../page-vuetifly/more/link-content.vue';
 import feedback from '../page-vuetifly/more/feedback-content.vue';
+import privacy_policy from '../page-vuetifly/more/privacy-policy-content.vue';
 //fb
 import fbList from '../page-vuetifly/fb/list-content.vue';
 //log
@@ -113,7 +114,8 @@ const routes = [
             {path: 'line', component:line, props:{promptData:glCardLeftData.line},meta: {title: {"cn":"LINE群","tw":'LINE群',"ja":"LINEグループ(台湾語)"}}},
             {path: 'about', component:about,props:{promptData:glCardLeftData.about},meta: {title: {"cn":"关于","tw":'關於',"ja":"について"}}},
             {path: 'link', component:link,props:{promptData:glCardLeftData.link},meta: {title: {"cn":"相关网址","tw":'相關網址',"ja":"関連URL"}}},
-            {path: 'feedback', component:feedback, props:{promptData:glCardLeftData.feedback},meta: {title: {"cn":"问题回报或建议","tw":'問題回報或建議',"ja":""}}},
+            {path: 'feedback', component:feedback, props:{promptData:glCardLeftData.feedback},meta: {title: {"cn":"问题回报或建议","tw":'問題回報或建議',"ja":"報告や提案"}}},
+            {path: 'privacy_policy', component:privacy_policy,meta: {title: {"cn":"隐私政策","tw":'隱私政策',"ja":"プライバシーポリシー"}}},
         ]},
     {path:'/fb',component: inquire,children:[
             {path: 'list', component: fbList,props:{promptData:glCardLeftData.fb_list},meta: {title: {"cn":"好友招募","tw":'好友招募',"ja":"友人の募集エリア"}}},
