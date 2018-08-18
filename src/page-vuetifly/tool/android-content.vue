@@ -12,14 +12,15 @@
                             </v-avatar>
                         </v-flex>
                         <v-flex xs12 text-xs-center>
-                            <span class="left-text">少女前線 時間查詢</span>
+                            <span class="left-text">少女前線-工具集</span>
                         </v-flex>
                         <v-flex xs12 text-xs-center>
                             版本:V{{version}}
                         </v-flex>
                         <v-flex xs12 text-xs-center>
-                            <v-btn @click="open(0)" color="primary">下載</v-btn>
-                            <v-btn @click="open(1)" color="primary" outline>Google 雲載點</v-btn>
+                            <v-btn @click="open(0)" color="primary">Google play下載</v-btn>
+                            <v-btn @click="open(1)" color="primary">下載</v-btn>
+                            <v-btn @click="open(2)" color="primary" outline>Google 雲載點</v-btn>
                         </v-flex>
                         <gl-ui-android-about v-if="show" :ver="version"></gl-ui-android-about>
                     </v-layout>
@@ -66,9 +67,12 @@
                 this.$ga.event('android', 'download');
                 switch (num) {
                     case 0:
-                        window.open(this.link);
+                        window.open("https://play.google.com/store/apps/details?id=com.ntw_20.girlsfrontlinetime");
                         break;
                     case 1:
+                        window.open(this.link);
+                        break;
+                    case 2:
                         window.open(this.googleLink);
                         break;
                 }

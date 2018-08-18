@@ -182,13 +182,10 @@
             }
         },
         beforeCreate() {
-            this.$nav.nav = this;
-            if (this.$route.query.fn !== undefined && this.$route.query.fn === "nbar") {
-                this.isShow = false;
-            }
             $.getJSON('/common/data/nav.json', json => this.list = json);
 
         }, created: function () {
+            this.$nav.nav = this;
             let language = window.navigator.userLanguage || window.navigator.language;
             switch (language.toLowerCase()) {
                 case "zh-hk":
@@ -204,18 +201,7 @@
                     break;
             }
 
-            if (this.$route.query.lang !== undefined) {
-                if (this.$route.query.lang === "tw" || this.$route.query.lang === "cn" || this.$route.query.lang === "ja") {
-                    for (let i = 0; i < this.languages.length; i++) {
-                        if (this.languages[i].i === this.$route.query.lang) {
-                            this.lan(this.languages[i]);
-                            let title = this.$t('title.s');
-                            document.title = (!this.$router.meta.title[this.$route.query.lang])? title : this.$router.meta.title[this.$route.query.lang] + "-"+  title;
-                        }
-                    }
 
-                }
-            }
         }, beforeMount: function () {
         }, mounted: function () {
             this.onResize()

@@ -48,7 +48,8 @@
                 isShow: true,
                 height: "53px",
                 mt:"10px",
-                isSim:true
+                isSim:true,
+                languages: [{t: '简体中文', i: 'cn'}, {t: '繁體中文', i: 'tw'}, {t: '日本語', i: 'ja'}]
             }
         },
         methods: {
@@ -59,13 +60,20 @@
             toTop: function () {
                 $('html,body').animate({scrollTop: 0}, 'slow');
             },
-
+            lan(data) {
+                this.language = data;
+                this.$i18n.locale = data.i;
+                this.$router.locale = data.i;
+            }
         },
         beforeCreate: function () {
             let  _this = this;
-
             window.pushPush = function (path) {
                 _this.$router.push({path: path});
+            };
+
+            window.goBack = function(){
+                _this.$router.go(-1);
             };
             window.__pixiv__ = [];
         }, created: function () {
@@ -77,6 +85,20 @@
                     this.$s.app = true;
                 }
             }
+
+            if (this.$route.query.lang !== undefined) {
+                if (this.$route.query.lang === "tw" || this.$route.query.lang === "cn" || this.$route.query.lang === "ja") {
+                    for (let i = 0; i < this.languages.length; i++) {
+                        if (this.languages[i].i === this.$route.query.lang) {
+                            this.lan(this.languages[i]);
+                            let title = this.$t('title.s');
+                            document.title = (!this.$router.meta.title[this.$route.query.lang])? title : this.$router.meta.title[this.$route.query.lang] + "-"+  title;
+                        }
+                    }
+
+                }
+            }
+
          }, mounted: function () {
                 this.$s.appVue = this;
 
