@@ -48,7 +48,7 @@
                                     :rules="[() => !!add.name || $t('register.must')  ]"
                             ></v-text-field>
                         </v-flex>
-                        <v-flex xs6>
+                        <v-flex xs5>
                             <v-text-field
                                     v-model="add.uid"
                                     type="number"
@@ -61,7 +61,7 @@
                         <v-flex xs1>
                             <v-icon style="padding: 18px 0 0;" class="c-p" @click="showHelp()">help</v-icon>
                         </v-flex>
-                        <v-flex xs5>
+                        <v-flex xs6>
                             <v-radio-group v-model="add.server" row>
                                 <v-radio
                                         :label="item.t"
@@ -110,7 +110,7 @@
                 showMenuButton: false,
                 show: false,
                 likeList: null,
-                server: [{"i": "TW", "t": "t.server.tw"}, {"i": "CN", "t": "t.server.cn"}],
+                server: [{"i": "TW", "t": "t.server.tw"}, {"i": "CN", "t": "t.server.cn"}, {"i": "JP", "t": "t.server.jp"}],
                 add:{name:"",uid:"",server:"TW",text:""},
                 valid:false
             }

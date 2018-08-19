@@ -1,2 +1,2 @@
-[{"text": "主頁", "href": "/admin"},{"text": "圖片管理", "href": "/admin/image"},{"text": "問題圖片", "href": "/admin/errorImg"}
+[{"text": "主頁", "href": "/admin"},{"text": "設定", "href": "/admin/setting"},{"text": "圖片管理", "href": "/admin/image"},{"text": "問題圖片", "href": "/admin/errorImg"}
 ]

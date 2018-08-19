@@ -40,8 +40,9 @@ import imageAdd from '../page-vuetifly/img/image-add-content.vue';
 import adminIndex from '../page-vuetifly/admin/index-content.vue';
 import login from '../page-vuetifly/admin/login-content.vue';
 import adminImage from '../page-vuetifly/admin/image-content.vue';
-import logout from '../page-vuetifly/admin/logout.vue'
-import errorImg from '../page-vuetifly/admin/errorImage-content.vue'
+import logout from '../page-vuetifly/admin/logout.vue';
+import errorImg from '../page-vuetifly/admin/errorImage-content.vue';
+import setting from '../page-vuetifly/admin/setting.vue';
 
 //404
 import pageNotFound from '../page-vuetifly/error/page-not-found-content.vue';
@@ -91,18 +92,17 @@ const routes = [
             {path: '/time/make_device',redirect: '/make/device'},
             {path:'/time/h_make',redirect: '/make/hGirl'},
             {path:'/time/h_make_device',redirect: '/make/hDevice'},
-            {path: '*', redirect: '/'},
         ]},
     {path: '/list', component: inquire,children:[
             {path: 'girl', component: list,props:{promptData:glCardLeftData.time_list},meta: {title: {"cn":"人形图鉴","tw":'人形圖鑑',"ja":"人形図鑑"}}},
             {path: 'fairy', component: listFairy ,props:{promptData:glCardLeftData.list_fairy},meta: {title: {"cn":"妖精图鉴","tw":'妖精圖鑑',"ja":"妖精図鑑"}}},
-            {path: '*', redirect: '/'},
         ]},
     {path: '/tool', component: inquire,children:[
             {path: 'android', component:android, props:{promptData:glCardLeftData.cAndroid},meta: {title: {"cn":"Android版","tw":'Android版',"ja":"Android App"}}},
             {path: 'chrome', component:chrome, props:{promptData:glCardLeftData.cChrome},meta: {title: {"cn":"Chrome版","tw":'Chrome版',"ja":"Chrome App"}}},
-            {path: '/tool/image/all',redirect: '/image/all'},
-            {path: '/tool/image_add',redirect: '/image/add'},
+            {path: 'image/all',redirect: '/image/all'},
+            {path: 'image_add',redirect: '/image/add'},
+            {path: 'image',redirect: '/image/all'},
         ]},
     {path: '/bot', component: inquire,children:[
             {path: 'line', component:lineBot, props:{promptData:glCardLeftData.line_bot},meta: {title: {"cn":"LINE机械人","tw":'LINE機械人',"ja":"Line ロボット"}},children:[
@@ -119,31 +119,27 @@ const routes = [
         ]},
     {path:'/fb',component: inquire,children:[
             {path: 'list', component: fbList,props:{promptData:glCardLeftData.fb_list},meta: {title: {"cn":"好友招募","tw":'好友招募',"ja":"友人の募集エリア"}}},
-            {path: '*', redirect: '/'},
         ]},
     {path:'/log',component:inquire,children:[
             {path: 'update', component: updateLog,meta: {title: {"cn":"更新记录","tw":'更新記錄',"ja":"レコードを更新"}},props:{promptData:glCardLeftData.log_update}},
-            {path: '*', redirect: '/'},
         ]},
     {path:'/like',component:inquire,children:[
             {path: 'list', component: likeList,props:{promptData:glCardLeftData.like_list},meta: {title: {"cn":"赞友招募","tw":'讚友招募',"ja":"讚友の募集エリア"}}},
-            {path: '*', redirect: '/'},
         ]},
     {path:'/make',component:inquire,children:[
             {path: 'girl', component: makeGirl,props:{promptData:glCardLeftData.time_make},meta: {title: {"cn":"模拟造枪","tw":'模擬造槍',"ja":"模擬造銃"}}},
             {path: 'device', component:makeDevice, props:{promptData:glCardLeftData.device_make},meta: {title: {"cn":"模拟造装","tw":'模擬造裝',"ja":"模擬造裝備"}}},
             {path: 'hGirl', component:hMake, props:{promptData:glCardLeftData.hMake},meta: {title: {"cn":"模拟重造-枪","tw":'模擬重造-槍',"ja":"模擬大型製作-銃"}}},
             {path: 'hDevice', component:hMakeDevice, props:{promptData:glCardLeftData.hDevice_make},meta: {title: {"cn":"模拟重造-装","tw":'模擬重造-裝',"ja":"模擬大型製作-裝備"}}},
-            {path: '*', redirect: '/'},
         ]},
     {path:'/image',component:inquire,children:[
             {path: 'add', component:imageAdd, props:{promptData:glCardLeftData.addImage}, meta: {title: {"cn":"图片库","tw":'圖片庫',"ja":"フォトギャラリー"}}},
             {path: ':name', component:image, props:{promptData:glCardLeftData.image},meta: {title: {"cn":"图片库","tw":'圖片庫',"ja":"フォトギャラリー"}}},
-            {path: '*', redirect: '/'},
         ]},
     {path:'/admin',component:adminIndex,meta: {title: {"cn":"管理面板","tw":'管理面板',"ja":"管理面板"}},children:[
             {path: 'image', component: adminImage,meta: {title: {"cn":"圖片管理","tw":'圖片管理',"ja":"圖片管理"}}},
             {path:'errorImg',component: errorImg,meta: {title: {"cn":"問題圖片","tw":'問題圖片',"ja":"問題圖片"}}},
+            {path:'setting',component: setting,meta: {title: {"cn":"設定","tw":'設定',"ja":"設定"}}},
             {path: '*', redirect: '/'},
         ]},
     {path: '/login', component: login,meta: {title: {"cn":"登入","tw":'登入',"ja":"登入"}}},

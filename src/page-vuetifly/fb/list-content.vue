@@ -163,7 +163,7 @@
                 star: [{"i": '', "t": "select"}, {"i": 5, "t": "5"}, {"i": 4, "t": "4"}, {"i": 3, "t": "3"}, {"i": 2,"t": "2"}],
                 girlSearch: [{"no": 0, "name": "select"}],
                 girlAdd: [{"no": 0, "name": "select"}],
-                server: [{"i": "TW", "t": "t.server.tw"}, {"i": "CN", "t": "t.server.cn"}],
+                server: [{"i": "TW", "t": "t.server.tw"}, {"i": "CN", "t": "t.server.cn"},{"i": "JP", "t": "t.server.jp"}],
                 number: [{"i": 5, "t": "5"}, {"i": 10, "t": "10"}, {"i": 15, "t": "15"}, {"i": 20, "t": "20"}, {"i": 30, "t": "30" }],
                 select: {
                     s: {type: '', star: '', girl: '', server: 'TW', number: 5},
