@@ -41,5 +41,5 @@ $.ajax({
         window.location = "https://www1.ntw-20.com" + window.location.pathname;
     }
 });
-
+//test
 export default setting;
