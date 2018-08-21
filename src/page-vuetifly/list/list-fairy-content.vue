@@ -77,7 +77,7 @@
                 fairyListCount: null,
                 fairyList: null,
                 range: [1, 0, 0],
-                type: {"fairyType_0": true, "fairyType_1": true},
+                type: {"fairyType_0": false, "fairyType_1": false},
                 fairyItems: [{"i": 0, "t": "time.fairy"}, {"i": 1, "t": "time.other-fairy"}],
                 fairyTimeList: null,
                 fairy: 0,
@@ -97,6 +97,10 @@
                 this.listTime = [[],[]];
                 this.listData = [];
                 this.error = 0 ;
+            },openAll() {
+                for(let i in this.type){
+                    this.type[i] = true;
+                }
             },
             getFairyTime: function () {
                 this.$ga.event('list', 'fairy_time_list');
@@ -207,8 +211,10 @@
                         }
 
                         if (_this.$route.query.f === "list") {
+                            _this.openAll();
                             _this.getList();
                         } else if (_this.$route.query.f === "time") {
+                            _this.openAll();
                             _this.getFairyTime();
                         }
 

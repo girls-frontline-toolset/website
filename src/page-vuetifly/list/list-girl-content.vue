@@ -74,10 +74,10 @@
             return {
                 humanoidItems: [{"i": 0, "t": "time.t-doll"}, {"i": 1, "t": "time.other-doll"}, {"i": 2, "t": "time.update-doll"}],
                 humanoid: 0,
-                type: {"HG": true, "SMG": true, "RF": true, "AR": true, "MG": true, "SG": true},
-                star: {"star_2": true, "star_3": true, "star_4": true, "star_5": true},
-                update: {"update":true},
-                other: {"star_other":true},
+                type: {"HG":false, "SMG":false, "RF": false, "AR": false, "MG": false, "SG": false},
+                star: {"star_2": false, "star_3": false, "star_4": false, "star_5": false },
+                update: {"update":false},
+                other: {"star_other":false},
                 girlListCount: 0,
                 exGirlListCount: 0,
                 girlList: null,
@@ -205,6 +205,19 @@
                 return null;
 
             },
+            openAll(){
+                for(let ti in this.type){
+                    this.type[ti] = true;
+                }
+
+                for(let si in this.star){
+                    this.star[si] = true;
+
+                }
+                this.update.update = true;
+                this.other.star_other = true;
+
+            },
             getGirlTime() {
                 this.$ga.event('list', 'girl_time_list');
                 this.init();
@@ -286,8 +299,10 @@
                         }
 
                         if (_this.$route.query.f === "list") {
+                            _this.openAll();
                             _this.getList();
                         } else if (_this.$route.query.f === "time") {
+                            _this.openAll();
                             _this.getGirlTime();
                         }
 
