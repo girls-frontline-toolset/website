@@ -98,6 +98,19 @@
             setData(a, b, c) {
                 this.$set(this[a], b, c);
             },
+            openAll(){
+                for(let ti in this.type){
+                    this.type[ti] = true;
+                }
+
+                for(let si in this.star){
+                    this.star[si] = true;
+
+                }
+                this.update.update = true;
+                this.other.star_other = true;
+
+            },
             init(){
                 this.listTime = [[],[]];
                 this.listDate = [];
@@ -203,19 +216,6 @@
                     return {"no":index + 1 ,"n":name,"s": url + (index + 1 ) + '.jpg'};
                 }
                 return null;
-
-            },
-            openAll(){
-                for(let ti in this.type){
-                    this.type[ti] = true;
-                }
-
-                for(let si in this.star){
-                    this.star[si] = true;
-
-                }
-                this.update.update = true;
-                this.other.star_other = true;
 
             },
             getGirlTime() {

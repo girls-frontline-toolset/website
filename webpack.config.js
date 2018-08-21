@@ -70,7 +70,7 @@ module.exports = {
         extensions: ['*', '.js', '.vue', '.json']
     },
     devServer: {
-        host: '192.168.10.196',
+        host: '192.168.10.235',
         port: 8080,
         proxy: {
             '/api/*': {
