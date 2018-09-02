@@ -1,12 +1,15 @@
 <script>
     export default {
-        props: {h1:Boolean,h2:Boolean,h3:Boolean,text:{type:String,default:"Default text"},icon:String},
+        props: {h1:Boolean,h2:Boolean,h3:Boolean,text:{type:String,default:"Default text"},icon:String,button:String,clickF:Function,item:String},
         commponents: {},
         name: 'gl-ui-title',
         data() {
             return {
             }
         }, methods: {
+            click(){
+                this.clickF(this.item)
+            }
         },
         beforeCreate: function () {
         }, created: function () {
@@ -16,18 +19,22 @@
         }, updated: function () {
         },
         render: function (h) {
-            let el,icon;
-            if(this.icon) icon = h("v-icon",{'class':['s35']},[this.icon]);
+            let el,icon,btn;
+            if(this.button){
+                btn =  h('v-btn',{'attrs':{'depressed':true,'small':true,'color':'primary','style':'float: right;margin: 0;'},'on':{click:()=>{this.click()}}},[this.button]);
+            }
+
+            if(this.icon) icon = h("v-icon",{'class':['s35']},[this.icon,btn]);
             switch (true){
                 case this.h1:
-                    el = h("h1",{'class':['bb','headline']},[icon,this.text]);
+                    el = h("h1",{'class':['bb','headline']},[icon,this.text,btn]);
                     break;
                 case this.h2:
-                    el = h("h2",{'class':['gl-lf','title']},[this.text]);
+                    el = h("h2",{'class':['gl-lf','title']},[this.text,btn]);
                     break;
                 case this.h3:
                 default:
-                    el = h("h3",{'class':['gl-lf','subheading']},[this.text]);
+                    el = h("h3",{'class':['gl-lf','subheading']},[this.text,btn]);
                     break;
             }
 

@@ -21,8 +21,8 @@
             </v-flex>
         </v-layout>
 
-        <v-dialog pr-1 v-model="dialog" max-width="570" flat dark tile content-class="glScrollbar white">
-            <v-toolbar dark color="gl-main-color">
+        <v-dialog :activator="resizeDialogImgHeight()" pr-1 v-model="dialog" max-width="570" flat dark tile content-class="glScrollbar white">
+            <v-toolbar ref="dia"  dark color="gl-main-color">
                 <v-toolbar-title class="white--text">{{picker}}</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-btn icon @click.native="dialog = false">
@@ -31,7 +31,7 @@
             </v-toolbar>
             <v-card class="mt-0 mb-2" style="box-shadow:unset" v-for="item,key in data[s[0]][s[1]][s[2]]"
                     :href="item.h" target="_blank" :key="key">
-                <v-card-media class="white--text" height="220" :src="item.src">
+                <v-card-media class="white--text" :height="dialogImgHeight" :src="item.src" >
                 </v-card-media>
                 <v-card-title v-if="item.i">
                     <div v-html="item.i">
@@ -63,9 +63,17 @@
                 s: [0, 0, 0],
                 now: [0, 0, 0],
                 loadedImg:0,
-                haveEvent:false
+                haveEvent:false,
+                dialogImgHeight:321
             }
         }, methods: {
+            resizeDialogImgHeight(){
+                if(this.dialog){
+                    this.$nextTick(function () {
+                        this.dialogImgHeight = this.$refs.dia.$el.clientWidth / 1.7757 ;
+                    });
+                }
+            },
             loaded(){
               this.loadedImg++;
               if(this.loadedImg === this.data[this.now[0]][this.now[1]][this.now[2]].length){
@@ -188,3 +196,11 @@
         }
     }
 </script>
+
+<style>
+    .card__media__background{
+        background-size: 100% !important;
+    }
+
+
+</style>

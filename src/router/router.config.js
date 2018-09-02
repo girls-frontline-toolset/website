@@ -9,6 +9,10 @@ import device from '../page-vuetifly/time/device-content.vue'
 //list
 import list from '../page-vuetifly/list/list-girl-content';
 import listFairy from '../page-vuetifly/list/list-fairy-content.vue';
+import listDoc from '../page-vuetifly/list/doc-content.vue';
+import listSearch from '../page-vuetifly/list/doc-search.vue';
+import listAdd from '../page-vuetifly/list/listAdd.vue';
+import listIndex from '../page-vuetifly/list/doc-index.vue';
 //tool
 import android from '../page-vuetifly/tool/android-content.vue';
 import chrome from '../page-vuetifly/tool/chrome-content.vue';
@@ -43,6 +47,10 @@ import adminImage from '../page-vuetifly/admin/image-content.vue';
 import logout from '../page-vuetifly/admin/logout.vue';
 import errorImg from '../page-vuetifly/admin/errorImage-content.vue';
 import setting from '../page-vuetifly/admin/setting.vue';
+import docSetting from '../page-vuetifly/admin/doc-content.vue';
+//referrer
+import referrer from '../page-vuetifly/referrer.vue';
+
 
 //404
 import pageNotFound from '../page-vuetifly/error/page-not-found-content.vue';
@@ -76,6 +84,7 @@ let glCardLeftData = {
     "addImage":["支援 pixiv 及 twitter","可以不加上tag"],
     "hDevice_make":["! 此列表只供參考!","右下角的圖示可製作喔","!!本頁閾和遊戲不相同!!"],
     "log_update":["最近的更新!"],
+    "doc":['歡迎加入新的文章','可搜尋喔!!']
 };
 
 
@@ -96,6 +105,11 @@ const routes = [
     {path: '/list', component: inquire,children:[
             {path: 'girl', component: list,props:{promptData:glCardLeftData.time_list},meta: {title: {"cn":"人形图鉴","tw":'人形圖鑑',"ja":"人形図鑑"}}},
             {path: 'fairy', component: listFairy ,props:{promptData:glCardLeftData.list_fairy},meta: {title: {"cn":"妖精图鉴","tw":'妖精圖鑑',"ja":"妖精図鑑"}}},
+            {path: 'doc' ,  component: listDoc ,props:{promptData:glCardLeftData.doc},meta: {title: {"cn":"实用文集","tw":'實用文集',"ja":"エッセンスセット"}},children:[
+                    {path: '/',component:listIndex , meta: {title: {"cn":"实用文集","tw":'實用文集',"ja":"エッセンスセット"}}},
+                    {path: 'search',component:listSearch , meta: {title: {"cn":"实用文集","tw":'實用文集',"ja":"エッセンスセット"}}},
+                    {path: 'add',component:listAdd , meta: {title: {"cn":"实用文集","tw":'實用文集',"ja":"エッセンスセット"}}},
+                ],}
         ]},
     {path: '/tool', component: inquire,children:[
             {path: 'android', component:android, props:{promptData:glCardLeftData.cAndroid},meta: {title: {"cn":"Android版","tw":'Android版',"ja":"Android App"}}},
@@ -140,10 +154,12 @@ const routes = [
             {path: 'image', component: adminImage,meta: {title: {"cn":"圖片管理","tw":'圖片管理',"ja":"圖片管理"}}},
             {path:'errorImg',component: errorImg,meta: {title: {"cn":"問題圖片","tw":'問題圖片',"ja":"問題圖片"}}},
             {path:'setting',component: setting,meta: {title: {"cn":"設定","tw":'設定',"ja":"設定"}}},
+            {path:'doc',component: docSetting,meta: {title: {"cn":"實用文庫管理","tw":'實用文庫管理',"ja":"實用文庫管理"}}},
             {path: '*', redirect: '/'},
         ]},
     {path: '/login', component: login,meta: {title: {"cn":"登入","tw":'登入',"ja":"登入"}}},
     {path: '/logout', component: logout,meta: {title: {"cn":"登出","tw":'登出',"ja":"登出"}}},
+    {path: '/referrer', component: referrer ,meta: {title: {"cn":"url","tw":'url',"ja":"url"}}},
     { path: "*", component: pageNotFound ,meta: {title: {"cn":"404","tw":'404',"ja":"404"}}},
 ];
 

@@ -2,6 +2,7 @@
     <div>
         <gl-ui-announcement></gl-ui-announcement>
         <gl-ui-jumbotron></gl-ui-jumbotron>
+        <gl-ui-event-doc></gl-ui-event-doc>
         <gl-ui-tool-list></gl-ui-tool-list>
         <gl-ui-featured-image v-if="! less960"></gl-ui-featured-image>
     </div>
@@ -14,9 +15,12 @@
     import GlUiTitle from "../components-ui/title";
     import GlUiFeaturedImage from "../components-ui/featuredImage";
     import GlUiFbNewPost from "../components-ui/facebook/fbNewPost";
+    import GlUiEventDoc from "../components-ui/event-doc";
 
     export default {
-        components: {GlUiFbNewPost, GlUiFeaturedImage, GlUiTitle, GlUiToolList, GlUiAnnouncement, GlUiJumbotron},
+        components: {
+            GlUiEventDoc,
+            GlUiFbNewPost, GlUiFeaturedImage, GlUiTitle, GlUiToolList, GlUiAnnouncement, GlUiJumbotron},
         props: [''],
         commponents: {},
         name: 'gl-ui-index',

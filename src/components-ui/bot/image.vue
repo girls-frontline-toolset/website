@@ -12,13 +12,13 @@
         </div>
         <div v-for="(item,index) in role">
             文字:
-            <div class="code" v-for="text in item.role">{{text}}</div>
+            <div class="code" v-for="text in item.role" :key="text">{{text}}</div>
             圖片:
             <v-flex xs12 v-if="item.imgUrl.length == 1">
                 <img :src="'/api/line/img/' + img" v-for="img in item.imgUrl" style="width: 100%">
             </v-flex>
             <v-layout row wrap v-else>
-                <v-flex xs12 sm6 v-for="img in item.imgUrl">
+                <v-flex xs12 sm6 v-for="img in item.imgUrl" :key="img">
                     <img :src="'/api/line/img/' + img" style="width: 100%">
                 </v-flex>
             </v-layout>

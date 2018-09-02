@@ -97,7 +97,12 @@ const global = {
     sangvislList:{"data":""},
     getSangvisl:function(name,vue,callback){
         ajax.getJson(this.sangvislList,vue,'/api/inquiry/sangvisl',name,callback);
+    },
+    docList:{"data":""},
+    getDocList:function(name,vue,callback){
+        ajax.getJson(this.docList,vue,'/api/inquiry/doc/getDocList',name,callback);
     }
+
 
 };
 
