@@ -113,7 +113,7 @@
                     this.progress = true;
                     let _this = this;
 
-                    $.getJSON("/api/inquiry/schedule/" + this.tmpDate.year + "-" +  this.tmpDate.month , function (json) {
+                    $.getJSON("/api/inquiry/schedule/getSchedule/" + this.tmpDate.year + "-" +  this.tmpDate.month , function (json) {
                         if(json.status === "success"){
                             for(let i = 0 ; i < json.data.length ; i++){
                                 _this.addData(json.data[i].start, json.data[i].end, json.data[i].src,json.data[i].i, json.data[i].h);

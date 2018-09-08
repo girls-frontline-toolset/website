@@ -149,9 +149,10 @@
 
 <script>
     import GlUiTitle from "../../components-ui/title";
+    import MDataFormat from "../../mixin/mDataFormat";
     export default {
         components: {GlUiTitle},
-        mixins: [],
+        mixins: [MDataFormat],
         props: [''],
         commponents: {},
         name: 'gl-ui-setting',
@@ -235,22 +236,6 @@
                     _this.date = [_this.jsonDate(json['time/make'].updateTime),_this.jsonDate(json['time/make_device'].updateTime),_this.jsonDate(json['time/h_make'].updateTime),_this.jsonDate(json['time/h_make_device'].updateTime)];
                 });
             },
-            jsonDate (date) {
-                if (!date) return null;
-                const [day, month, year] = date.split('-');
-                return `${year}-${month}-${day}`;
-            },
-            parseDate (date) {
-                if (!date) return null;
-                const [month, day, year] = date.split('/');
-                return `${day.padStart(2, '0')}-${month.padStart(2, '0')}-${year}`;
-            },
-            formatDate (date) {
-                if (!date) return null;
-                const [year, month,day] = date.split('-');
-                return `${day}-${month}-${year}`;
-            },
-
         }, beforeCreate() {
         }, created() {
             this.getDefine();

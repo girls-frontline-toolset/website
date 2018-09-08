@@ -48,6 +48,9 @@ import logout from '../page-vuetifly/admin/logout.vue';
 import errorImg from '../page-vuetifly/admin/errorImage-content.vue';
 import setting from '../page-vuetifly/admin/setting.vue';
 import docSetting from '../page-vuetifly/admin/doc-content.vue';
+import scheduleSetting from '../page-vuetifly/admin/schedule-content.vue'
+
+
 //referrer
 import referrer from '../page-vuetifly/referrer.vue';
 
@@ -98,6 +101,7 @@ const routes = [
             {path: '/time/list',redirect: '/list/girl'},
             {path: '/time/list_fairy',redirect: '/list/fairy'},
             {path: '/time/make',redirect: '/make/girl'},
+            {path: '/time/make.html',redirect: '/make/girl'},
             {path: '/time/make_device',redirect: '/make/device'},
             {path:'/time/h_make',redirect: '/make/hGirl'},
             {path:'/time/h_make_device',redirect: '/make/hDevice'},
@@ -155,6 +159,7 @@ const routes = [
             {path:'errorImg',component: errorImg,meta: {title: {"cn":"問題圖片","tw":'問題圖片',"ja":"問題圖片"}}},
             {path:'setting',component: setting,meta: {title: {"cn":"設定","tw":'設定',"ja":"設定"}}},
             {path:'doc',component: docSetting,meta: {title: {"cn":"實用文庫管理","tw":'實用文庫管理',"ja":"實用文庫管理"}}},
+            {path: 'schedule' ,component: scheduleSetting,meta: {title: {"cn":"增加時間表活動","tw":'增加時間表活動',"ja":"增加時間表活動"}}},
             {path: '*', redirect: '/'},
         ]},
     {path: '/login', component: login,meta: {title: {"cn":"登入","tw":'登入',"ja":"登入"}}},
