@@ -1,7 +1,7 @@
 <template>
     <v-layout v-resize="onResize" v-if="isShow">
         <v-layout v-if="Small">
-            <v-toolbar fixed color="gl-main-color" dark height="35" style="transform: translateY(0px)">
+            <v-toolbar fixed tabs color="gl-main-color" dark height="35" style="transform: translateY(0px)">
                 <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
                 <v-toolbar-title class="white--text">
                     <router-link to="/" class="unLine white--text">{{$t('title.s')}}</router-link>

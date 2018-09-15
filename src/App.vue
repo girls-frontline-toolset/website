@@ -17,7 +17,7 @@
         </v-container>
         <gl-ui-footer v-if="isShow && isSim"></gl-ui-footer>
         <div class="topButton" >
-                <v-icon @click="toTop()" size="50">keyboard_arrow_up</v-icon>
+                <v-icon @click="toTop()" size="50" class="white--text" >keyboard_arrow_up</v-icon>
         </div>
         </v-app>
 </template>

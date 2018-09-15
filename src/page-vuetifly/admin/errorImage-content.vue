@@ -17,6 +17,7 @@
                     <template slot="items" slot-scope="props">
                         <td>{{  props.item.type }}</td>
                         <td class="text-xs-right" v-if="props.item.type === 'twitter'"><a target="_blank" :href="'https://twitter.com/statuses/' + props.item.id ">{{props.item.id }}</a></td>
+                        <td class="text-xs-right" v-else-if="props.item.type === 'pixiv'"><a target="_blank" :href="'https://www.pixiv.net/member_illust.php?mode=medium&illust_id=' + props.item.id ">{{props.item.id }}</a></td>
                         <td class="text-xs-right" v-else>{{props.item.id }}</td>
                         <td class="text-xs-right">{{  props.item.md5 }}</td>
                         <td class="justify-center layout px-0">

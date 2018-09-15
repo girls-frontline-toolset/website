@@ -1,5 +1,6 @@
-
-
+<template>
+    <div class="bd"><div class="title">{{this.title}}</div> <v-icon style="color: #ffb300;">{{icon}}</v-icon>{{this.content}}</div>
+</template>
 <script>
     export default {
         props: ['title','content','icon'],
@@ -14,7 +15,7 @@
         }, beforeUpdate() {
         }, updated() {
         }, render(h) {
-            return h("div",{'class':{'bd':true}},[h("div",{'class':{'title':true}},this.title),h("v-icon",{'class':{'title':true}},this.icon),this.content])
+           //return h("div",{'class':{'bd':true}},[h("div",{'class':{'title':true}},this.title),h("i",{'attrs':{'aria-hidden':true},'class':['material-icons','title','icon','material-icons']},this.icon),this.content])
         }
     }
 </script>

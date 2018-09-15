@@ -1,2 +1,2 @@
-[{"text": "主頁", "href": "/admin"},{"text": "設定", "href": "/admin/setting"},{"text": "實用文庫管理", "href": "/admin/doc"},{"text":"時間表管理","href":"/admin/schedule"},{"text": "圖片管理", "href": "/admin/image"},{"text": "問題圖片", "href": "/admin/errorImg"}
+[{"text": "主頁", "href": "/admin"},{"text": "設定", "href": "/admin/setting"},{"text": "實用文庫管理", "href": "/admin/doc"},{"text":"時間表管理","href":"/admin/schedule"},{"text":"人型編輯","href":"/admin/girl"},{"text": "圖片管理", "href": "/admin/image"},{"text": "問題圖片", "href": "/admin/errorImg"}
 ]

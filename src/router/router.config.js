@@ -49,6 +49,7 @@ import errorImg from '../page-vuetifly/admin/errorImage-content.vue';
 import setting from '../page-vuetifly/admin/setting.vue';
 import docSetting from '../page-vuetifly/admin/doc-content.vue';
 import scheduleSetting from '../page-vuetifly/admin/schedule-content.vue'
+import girlSetting from '../page-vuetifly/admin/girl-setting-content.vue';
 
 
 //referrer
@@ -160,6 +161,7 @@ const routes = [
             {path:'setting',component: setting,meta: {title: {"cn":"設定","tw":'設定',"ja":"設定"}}},
             {path:'doc',component: docSetting,meta: {title: {"cn":"實用文庫管理","tw":'實用文庫管理',"ja":"實用文庫管理"}}},
             {path: 'schedule' ,component: scheduleSetting,meta: {title: {"cn":"增加時間表活動","tw":'增加時間表活動',"ja":"增加時間表活動"}}},
+            {path: 'girl' ,component: girlSetting,meta: {title: {"cn":"人型編輯","tw":'人型編輯',"ja":"人型編輯"}}},
             {path: '*', redirect: '/'},
         ]},
     {path: '/login', component: login,meta: {title: {"cn":"登入","tw":'登入',"ja":"登入"}}},

@@ -1,7 +1,9 @@
 <template>
     <div class="card-twitter" style="max-width: 520px;margin: 0 auto">
         <div class="image-twitter loadImg" ref="content" @click="click()">
-            <div class='glyphicon-load load' style="text-align: center;"><v-progress-circular :size="50" indeterminate color="primary"></v-progress-circular></div>
+            <div class='glyphicon-load load' style="text-align: center;"><v-progress-circular :size="50" indeterminate color="primary"></v-progress-circular>
+            <v-btn block color="red" class="white--text" @click="errorImg">問題滙報</v-btn>
+            </div>
             <div v-if="item.img" class="pixiv-img" ref="img" :style="getHeight()">
                 <iframe v-if="item.img != ''" v-on:load="completed" class="pixiv-ifame" style="overflow: hidden;" :style="zoom()" :width="item.img_w" :height="item.img_h" :src="'https://embed.pixiv.net/embed_mk2.php?id='+item.id+'_'+item.md5+'&size=large&border=off&done=null'" ></iframe>
             </div>
@@ -28,15 +30,31 @@
                 h: 0,
             }
         }, methods: {
-            clickTag:function(name){
+            errorImg(){
+              let _this = this;
+                $.ajax({
+                url: "/api/inquiry/errorImage/"+ _this.item.type +"/" + _this.item.id,
+                type: "GET",
+                success: function(data){
+                    data = JSON.parse(data);
+                    if(data.status === "success"){
+                        _this.$s.glDialogText("問題滙報",_this.$t('dialog.success') + "!!");
+                    }else{
+                        _this.$s.glDialogText("問題滙報",_this.$t('dialog.error-1'),1);
+                    }
+
+                    }
+                });
+            },
+            clickTag(name){
                 this.$router.push({path:'/image/'+name});
             },
-            completed:function(){
+            completed(){
                 if(this.item.img){
                     this.completedFunction();
                 }
             },
-            getDateFormat:function(date){
+            getDateFormat(date){
 
                 var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 

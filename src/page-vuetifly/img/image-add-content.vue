@@ -130,7 +130,7 @@
                         type: "POST",
                         data: {
                             data: postList,
-                            email: _this.email
+                            email: _this.select.email
                         },
                         success: function (data) {
                             data = JSON.parse(data);

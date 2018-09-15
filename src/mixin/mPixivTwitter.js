@@ -35,10 +35,10 @@ var mPixivTwitter = {
                     }
                 ).then(function (el) {
                    if(!el){
-                       $.ajax({
-                               url: "/api/inquiry/errorImage/twitter/" + _this.data[i].id,
-                               type: "GET",
-                           });
+                       //$.ajax({
+                               //url: "/api/inquiry/errorImage/twitter/" + _this.data[i].id,
+                               //type: "GET",
+                           //});
                    }else{
                        el.parentElement.getElementsByClassName("load")[0].remove();
                        el.parentElement.classList.remove("loadImg");
@@ -56,8 +56,32 @@ var mPixivTwitter = {
                 var script = document.createElement('script');
                 script.setAttribute("type", "text/javascript");
                 script.async;
+                //script.onerror = function(event) { console.log(event)}
                 script.src = "https://embed.pixiv.net/embed_json.php?callback=__pixiv__[%22pixiv-embed-0.00%22]&id=" + id + "_" + md5Data + "&size=large";
+                //script.onload = function(data){ console.log(data)};
+                //script.onreadystatechange= function () {
+                //    console.log(this.readyState );
+                //}
                 dom.appendChild(script);
+
+                //window.onerror = function() {  console.log(arguments)}
+
+                //var a = function (){ console.log('id',id); console.log(script)};
+                //window.__defineGetter__("error51", function() { a(); return '123' });
+
+
+                //window.error51 = function(){
+                  //  console.log('123')
+                //};
+
+                //window.onerror = function () {
+                  //  if(id){
+                       // $.ajax({
+                         //   url: "/api/inquiry/errorImage/pixiv/" + id,
+                         //   type: "GET",
+                        //});
+                    //}
+                //};
 
                 __pixiv__['pixiv-embed-0.00'] = function(data){
                     _this.pixiv(data);
@@ -66,12 +90,6 @@ var mPixivTwitter = {
             }
         },
         pixiv: function (data) {
-
-            //if(_this.$refs[_this.data[i].id][0] !== undefined){
-            //    var piv = _this.$refs[_this.data[i].id][0].$refs.content;
-            // }else {
-            //    var piv = _this.$refs[_this.data[i].id].$refs.content;
-            // }
             if (this.$refs[data.img_id][0].$refs.addCard === undefined) {
                 var piv = this.$refs[data.img_id][0].$refs.content;
             } else {

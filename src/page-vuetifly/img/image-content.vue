@@ -97,6 +97,7 @@
                 showBlock: [false, false, false],
                 point: 0,
                 less960: false,
+                less600:false,
                 isNone: false,
                 npcList: [],
                 sangvislList: [],
@@ -106,6 +107,8 @@
             show(index,num){
                 if(!this.less960){
                     return (index %3 === num)
+                }else if(this.less600){
+                    return (num === 0)
                 }else{
                     return (index %2 === num)
                 }
@@ -186,6 +189,8 @@
                     var height ;
                     if (!this.less960) {
                         height = [getHeight("list-1"), getHeight("list-2"), getHeight("list-3")];
+                    }else if(this.less600){
+                        height = [getHeight("list-1")];
                     } else {
                         height = [getHeight("list-1"), getHeight("list-2")];
                     }
@@ -293,6 +298,7 @@
         }, created: function () {
             this.isShow = this.$s.less768;
             this.less960 = this.$s.less960();
+            this.less600 = this.$s.less600();
             this.$g.getAllGirlList('girlList', this);
             this.$g.getNpc('npcList', this);
             this.$g.getSangvisl('sangvislList', this);
