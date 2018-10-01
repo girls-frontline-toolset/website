@@ -67,7 +67,7 @@
                 this.$ga.event('android', 'download');
                 switch (num) {
                     case 0:
-                        window.open("https://play.google.com/store/apps/details?id=com.ntw_20.girlsfrontlinetime");
+                        window.open("https://play.google.com/store/apps/details?id=com.ntw_20.girlsfronttime.release");
                         break;
                     case 1:
                         window.open(this.link);
