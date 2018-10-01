@@ -59,15 +59,9 @@
 </script>
 
 <style>
-
-
     .updateLog {
         color: hsla(42, 100%, 50%, 0.8);
         font-size: 20px;
         font-weight:bolder;
     }
-</style>
-
-<style scoped>
-
 </style>

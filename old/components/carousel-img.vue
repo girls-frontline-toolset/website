@@ -41,14 +41,3 @@
         }
     }
 </script>
-
-<style>
-    /**  .carousel-img img{
-          width: 100%;
-
-      }
-</style>
-
-<style scoped>
-
-</style>

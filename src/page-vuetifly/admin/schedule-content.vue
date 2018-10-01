@@ -119,10 +119,10 @@
                         success: function(data){
                             data = JSON.parse(data);
                             if(data.status === "success"){
-                                _this.$s.glDialogText("添加文章", "已成功!!");
-                                _this.data = {type:'1',content:'',title:'',url:''} ;
+                                _this.$s.glDialogText("添加時間表", "已成功!!");
+                                _this.data = {start:'0-0-1997',end:'0-0-1997',src:"",text:""} ;
                             }else{
-                                _this.$s.glDialogText("添加文章", "出現問題!!", 1);
+                                _this.$s.glDialogText("添加時間表", "出現問題!!", 1);
                             }
                         }
                     }
@@ -151,9 +151,5 @@
 </script>
 
 <style>
-
-</style>
-
-<style scoped>
 
 </style>

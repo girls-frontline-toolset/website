@@ -201,6 +201,4 @@
     .card__media__background{
         background-size: 100% !important;
     }
-
-
 </style>

@@ -421,7 +421,3 @@
     }
 
 </style>
-
-<style scoped>
-
-</style>

@@ -742,7 +742,3 @@
         width: 20%;
     }
 </style>
-
-<style scoped>
-
-</style>

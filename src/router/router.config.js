@@ -26,6 +26,7 @@ import about from '../page-vuetifly/more/about-content.vue';
 import link from '../page-vuetifly/more/link-content.vue';
 import feedback from '../page-vuetifly/more/feedback-content.vue';
 import privacy_policy from '../page-vuetifly/more/privacy-policy-content.vue';
+
 //fb
 import fbList from '../page-vuetifly/fb/list-content.vue';
 //log
@@ -40,6 +41,8 @@ import hMakeDevice from '../page-vuetifly/make/h-device-make.vue';
 //image
 import image from '../page-vuetifly/img/image-content.vue';
 import imageAdd from '../page-vuetifly/img/image-add-content.vue';
+//event
+import schedule from '../page-vuetifly/event/schedule-content.vue';
 //admin
 import adminIndex from '../page-vuetifly/admin/index-content.vue';
 import login from '../page-vuetifly/admin/login-content.vue';
@@ -167,7 +170,10 @@ const routes = [
     {path: '/login', component: login,meta: {title: {"cn":"登入","tw":'登入',"ja":"登入"}}},
     {path: '/logout', component: logout,meta: {title: {"cn":"登出","tw":'登出',"ja":"登出"}}},
     {path: '/referrer', component: referrer ,meta: {title: {"cn":"url","tw":'url',"ja":"url"}}},
-    { path: "*", component: pageNotFound ,meta: {title: {"cn":"404","tw":'404',"ja":"404"}}},
+    {path:'/event',component:inquire,children:[
+            {path: 'schedule', component:schedule,meta: {title: {"cn":"活动时间表(繁中版)","tw":'活動時間表(繁中版)',"ja":"活動スケジュール(台湾版)"}}},
+        ]},
+    {path: "*", component: pageNotFound ,meta: {title: {"cn":"404","tw":'404',"ja":"404"}}},
 ];
 
 const app = new Vue({

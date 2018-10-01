@@ -94,7 +94,3 @@
         margin-top: 10px;
     }
 </style>
-
-<style scoped>
-
-</style>

@@ -31,7 +31,7 @@
                     <gl-ui-icon-button v-if="humanoid === 1" :opacity="other.star_other" type="other" name="star_other" ></gl-ui-icon-button>
                 </v-flex>
 
-                <v-flex xs12 pa-1 v-if="humanoid === 0">
+                <v-flex xs12 pa-1 v-if="humanoid === 0 || humanoid === 2">
                     <gl-ui-title h2 :text="$t('t.other') + ':'"></gl-ui-title>
                     <gl-ui-icon-button :opacity="update.update" type="update" name="update" ></gl-ui-icon-button>
                 </v-flex>

@@ -25,7 +25,3 @@
 <style>
 
 </style>
-
-<style scoped>
-
-</style>
