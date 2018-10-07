@@ -15,7 +15,8 @@
   {
     "t": "nav.illustration.s", "h": "", "i":"icon-il-hb","list": [
     {"t": "nav.illustration.girl", "h": "/list/girl"},
-    {"t": "nav.illustration.fairy", "h": "/list/fairy"}
+    {"t": "nav.illustration.fairy", "h": "/list/fairy"},
+    {"t": "title.h1.list.wafer", "h": "/list/wafer"}
   ]
   },
   {"t": "nav.image-library", "h": "/image/all", "i":"photo_library", "list":[]},

@@ -158,7 +158,7 @@
                 let day = (now.getDate());
                 day = ((day < 10) ? "0" + day : day);
                 month = (month < 10) ? "0" + month : month;
-                return [now.getFullYear().toString(),month,day];
+                return [now.getFullYear().toString(),""+month,day];
             }
 
         },

@@ -14,7 +14,9 @@
       },
       "list":{
         "girl":"人型图鉴",
-        "fairy":"妖精图鉴"
+        "fairy":"妖精图鉴",
+        "doc":"实用文库",
+        "wafer":"晶片图鉴"
       },
       "make":{
         "girl":"模拟造枪",
@@ -44,6 +46,8 @@
     "other":"其他",
     "star":"星数",
     "type":"种类",
+    "color":"颜色",
+    "cells":"格数",
     "character":"角色",
     "server":{
       "s":"伺服器",

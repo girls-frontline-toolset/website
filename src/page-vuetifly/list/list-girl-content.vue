@@ -360,6 +360,11 @@
         margin-right: 10px;
     }
 
+    .cell_list_output img{
+        width: 47%;
+        margin-right: 10px;
+    }
+
     @media (min-width: 600px) {
         .list_output img ,.fairy_list_output img{
             max-width: 115px;
@@ -367,7 +372,13 @@
             margin-bottom: 5px;
         }
 
-        .list_output img, .fairy_list_output img {
+        .cell_list_output img{
+            max-width: 160px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .list_output img, .fairy_list_output img .cell_list_output img {
             width: 20%;
 
         }

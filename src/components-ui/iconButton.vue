@@ -36,7 +36,7 @@
 </script>
 
 <style>
-    .sangvis, .update , .AR, .SG, .SMG, .HG, .MG, .RF, .star_other, .star_2, .star_3, .star_4, .star_5, .GK, .fairyType_1, .fairyType_0 {
+    .cells_1, .cells_2, .cells_3, .cells_4, .cells_5, .cells_6,.orange_type, .blue_type, .sangvis, .update , .AR, .SG, .SMG, .HG, .MG, .RF, .star_other, .star_2, .star_3, .star_4, .star_5, .GK, .fairyType_1, .fairyType_0 {
         background: url('/common/img/sprites.png') no-repeat;
         opacity: .5;
         cursor: pointer;
@@ -44,7 +44,7 @@
     }
 
     @media (max-width: 600px) {
-        .sangvis, .update ,  .AR, .SG, .SMG, .HG, .MG, .RF, .star_other, .star_2, .star_3, .star_4, .star_5, .GK, .fairyType_1, .fairyType_0 {
+        .cells_1, .cells_2, .cells_3, .cells_4, .cells_5, .cells_6,.orange_type, .blue_type, .sangvis, .update ,  .AR, .SG, .SMG, .HG, .MG, .RF, .star_other, .star_2, .star_3, .star_4, .star_5, .GK, .fairyType_1, .fairyType_0 {
             zoom: 0.7;
         }
     }
@@ -145,5 +145,53 @@
         height: 54px;
     }
 
+
+    .orange_type{
+        background-position: -2px -179px;
+        width: 104px;
+        height: 54px;
+    }
+
+    .blue_type{
+        background-position: -110px -179px;
+        width: 104px;
+        height: 54px;
+    }
+
+    .cells_6{
+        background-position: -12px -237px;
+        width: 104px;
+        height: 54px;
+    }
+
+    .cells_5{
+        background-position: -122px -237px;
+        width: 104px;
+        height: 54px;
+    }
+
+    .cells_4{
+        background-position: -228px -237px;
+        width: 104px;
+        height: 54px;
+    }
+
+    .cells_3{
+        background-position: -332px -237px;
+        width: 104px;
+        height: 54px;
+    }
+
+    .cells_2{
+        background-position: -440px -237px;
+        width: 104px;
+        height: 54px;
+    }
+
+    .cells_1{
+        background-position: -522px -237px;
+        width: 104px;
+        height: 54px;
+    }
 
 </style>

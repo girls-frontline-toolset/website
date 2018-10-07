@@ -101,7 +101,11 @@ const global = {
     docList:{"data":""},
     getDocList:function(name,vue,callback){
         ajax.getJson(this.docList,vue,'/api/inquiry/doc/getDocList',name,callback);
-    }
+    },
+    cellList:{"data":""},
+    getCellList:function(name,vue,callback){
+        ajax.getJson(this.cellList,vue,'/api/inquiry/cell/getCell',name,callback);
+    },
 
 
 };

@@ -14,7 +14,9 @@
       },
       "list":{
         "girl":"人形図鑑",
-        "fairy":"妖精図鑑"
+        "fairy":"妖精図鑑",
+        "doc":"實用文庫",
+        "wafer":"晶片図鑑"
       },
       "make":{
         "girl":"模擬造銃",
@@ -44,7 +46,9 @@
     "other":"別の",
     "star":"星の数",
     "type":"タイプ",
-    "character":"キャラ",
+    "color":"カラー",
+    "cells":"格數",
+    "character":"セル数",
     "server":{
       "s":"サーバー",
       "tw":"台湾",

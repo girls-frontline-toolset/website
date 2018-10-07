@@ -13,6 +13,7 @@ import listDoc from '../page-vuetifly/list/doc-content.vue';
 import listSearch from '../page-vuetifly/list/doc-search.vue';
 import listAdd from '../page-vuetifly/list/listAdd.vue';
 import listIndex from '../page-vuetifly/list/doc-index.vue';
+import listWafer from '../page-vuetifly/list/list-wafer-content.vue';
 //tool
 import android from '../page-vuetifly/tool/android-content.vue';
 import chrome from '../page-vuetifly/tool/chrome-content.vue';
@@ -77,6 +78,7 @@ let glCardLeftData = {
     "fb_list":["! 可只選擇種類喔~","! 可只選擇星數喔~","! 可只選擇角色喔~","! 不選擇角色為任意"],
     "like_list":["! 列表是隨機喔~","! 第一個是站長喔~"],
     "list_fairy":["! 可選擇種類喔!","! 可篩選妖精在列表上喔"],
+    "list_wafer":["總共有76種喔!"],
     "device_make":["! 此列表只供參考!","右下角的圖示可製作喔"],
     "line":["歡迎加入LINE群"],
     "line_bot":["可加入群喔","加入好友就可使用喔"],
@@ -113,6 +115,7 @@ const routes = [
     {path: '/list', component: inquire,children:[
             {path: 'girl', component: list,props:{promptData:glCardLeftData.time_list},meta: {title: {"cn":"人形图鉴","tw":'人形圖鑑',"ja":"人形図鑑"}}},
             {path: 'fairy', component: listFairy ,props:{promptData:glCardLeftData.list_fairy},meta: {title: {"cn":"妖精图鉴","tw":'妖精圖鑑',"ja":"妖精図鑑"}}},
+            {path: 'wafer', component: listWafer ,props:{promptData:glCardLeftData.list_wafer},meta: {title: {"cn":"晶片图鉴","tw":'晶片圖鑑',"ja":"晶片図鑑"}}},
             {path: 'doc' ,  component: listDoc ,props:{promptData:glCardLeftData.doc},meta: {title: {"cn":"实用文集","tw":'實用文集',"ja":"エッセンスセット"}},children:[
                     {path: '/',component:listIndex , meta: {title: {"cn":"实用文集","tw":'實用文集',"ja":"エッセンスセット"}}},
                     {path: 'search',component:listSearch , meta: {title: {"cn":"实用文集","tw":'實用文集',"ja":"エッセンスセット"}}},

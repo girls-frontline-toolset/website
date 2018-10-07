@@ -19,6 +19,7 @@
         <div class="topButton" >
                 <v-icon @click="toTop()" size="50" class="white--text" >keyboard_arrow_up</v-icon>
         </div>
+            <gl-ui-cookies></gl-ui-cookies>
         </v-app>
 </template>
 
@@ -30,9 +31,11 @@
     import GlUiFacebook from "./components-ui/facebook";
     import GlUiRightContent from "./components-ui/rightContent";
     import GlUiDialog from "./components-ui/dialog";
+    import GlUiCookies from "./components-ui/cookies";
 
     export default {
         components: {
+            GlUiCookies,
             GlUiDialog,
             GlUiRightContent,
             GlUiFacebook,
@@ -177,6 +180,7 @@
         background: hsla(42, 100%, 50%, 0.8);
         color: #fff;
         cursor: pointer;
+        z-index: 15;
     }
 
     .topButton span {
