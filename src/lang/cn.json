@@ -48,6 +48,7 @@
     "type":"种类",
     "color":"颜色",
     "cells":"格数",
+    "all":"全部",
     "character":"角色",
     "server":{
       "s":"伺服器",

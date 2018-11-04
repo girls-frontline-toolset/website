@@ -48,6 +48,7 @@
     "type":"タイプ",
     "color":"カラー",
     "cells":"格數",
+    "all":"すべて",
     "character":"セル数",
     "server":{
       "s":"サーバー",

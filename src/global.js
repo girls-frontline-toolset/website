@@ -106,7 +106,10 @@ const global = {
     getCellList:function(name,vue,callback){
         ajax.getJson(this.cellList,vue,'/api/inquiry/cell/getCell',name,callback);
     },
-
+    supportUnitList:{"data":""},
+    getSupportUnitList:function(name,vue,callback){
+    ajax.getJson(this.supportUnitList,vue,'/api/inquiry/supportUnit/getAll',name,callback);
+    },
 
 };
 

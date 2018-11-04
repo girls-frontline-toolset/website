@@ -16,7 +16,8 @@
         "girl":"人型圖鑑",
         "fairy":"妖精圖鑑",
         "doc":"實用文庫",
-        "wafer":"晶片圖鑑"
+        "wafer":"晶片圖鑑",
+        "support-unit":"重裝圖鑑"
       },
       "make":{
         "girl":"模擬造槍",
@@ -48,6 +49,7 @@
     "type":"種類",
     "color":"顏色",
     "cells":"格數",
+    "all":"全部",
     "character":"角色",
     "server":{
       "s":"伺服器",

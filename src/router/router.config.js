@@ -14,6 +14,7 @@ import listSearch from '../page-vuetifly/list/doc-search.vue';
 import listAdd from '../page-vuetifly/list/listAdd.vue';
 import listIndex from '../page-vuetifly/list/doc-index.vue';
 import listWafer from '../page-vuetifly/list/list-wafer-content.vue';
+import listSupportUnit from '../page-vuetifly/list/list-support-unit.vue';
 //tool
 import android from '../page-vuetifly/tool/android-content.vue';
 import chrome from '../page-vuetifly/tool/chrome-content.vue';
@@ -27,6 +28,7 @@ import about from '../page-vuetifly/more/about-content.vue';
 import link from '../page-vuetifly/more/link-content.vue';
 import feedback from '../page-vuetifly/more/feedback-content.vue';
 import privacy_policy from '../page-vuetifly/more/privacy-policy-content.vue';
+import game from '../page-vuetifly/more/game-content.vue';
 
 //fb
 import fbList from '../page-vuetifly/fb/list-content.vue';
@@ -78,7 +80,7 @@ let glCardLeftData = {
     "fb_list":["! 可只選擇種類喔~","! 可只選擇星數喔~","! 可只選擇角色喔~","! 不選擇角色為任意"],
     "like_list":["! 列表是隨機喔~","! 第一個是站長喔~"],
     "list_fairy":["! 可選擇種類喔!","! 可篩選妖精在列表上喔"],
-    "list_wafer":["總共有76種喔!"],
+    "list_wafer":["總共有74種喔!","點擊可轉向喔"],
     "device_make":["! 此列表只供參考!","右下角的圖示可製作喔"],
     "line":["歡迎加入LINE群"],
     "line_bot":["可加入群喔","加入好友就可使用喔"],
@@ -93,7 +95,8 @@ let glCardLeftData = {
     "addImage":["支援 pixiv 及 twitter","可以不加上tag"],
     "hDevice_make":["! 此列表只供參考!","右下角的圖示可製作喔","!!本頁閾和遊戲不相同!!"],
     "log_update":["最近的更新!"],
-    "doc":['歡迎加入新的文章','可搜尋喔!!']
+    "doc":['歡迎加入新的文章','可搜尋喔!!'],
+    "list_support_unit":[""]
 };
 
 
@@ -116,6 +119,7 @@ const routes = [
             {path: 'girl', component: list,props:{promptData:glCardLeftData.time_list},meta: {title: {"cn":"人形图鉴","tw":'人形圖鑑',"ja":"人形図鑑"}}},
             {path: 'fairy', component: listFairy ,props:{promptData:glCardLeftData.list_fairy},meta: {title: {"cn":"妖精图鉴","tw":'妖精圖鑑',"ja":"妖精図鑑"}}},
             {path: 'wafer', component: listWafer ,props:{promptData:glCardLeftData.list_wafer},meta: {title: {"cn":"晶片图鉴","tw":'晶片圖鑑',"ja":"晶片図鑑"}}},
+            {path: 'support_unit', component: listSupportUnit ,props:{promptData:glCardLeftData.list_support_unit},meta: {title: {"cn":"晶片图鉴","tw":'晶片圖鑑',"ja":"晶片図鑑"}}},
             {path: 'doc' ,  component: listDoc ,props:{promptData:glCardLeftData.doc},meta: {title: {"cn":"实用文集","tw":'實用文集',"ja":"エッセンスセット"}},children:[
                     {path: '/',component:listIndex , meta: {title: {"cn":"实用文集","tw":'實用文集',"ja":"エッセンスセット"}}},
                     {path: 'search',component:listSearch , meta: {title: {"cn":"实用文集","tw":'實用文集',"ja":"エッセンスセット"}}},
@@ -135,12 +139,15 @@ const routes = [
                     {path: '/',component:lineCommand ,meta: {title: {"cn":"指令表-LINE机械人","tw":'指令表-LINE機械人',"ja":"指令表-Line ロボット"}}},
                 ]},
         ]},
+
     {path:'/more', component: inquire,children:[
             {path: 'line', component:line, props:{promptData:glCardLeftData.line},meta: {title: {"cn":"LINE群","tw":'LINE群',"ja":"LINEグループ(台湾語)"}}},
             {path: 'about', component:about,props:{promptData:glCardLeftData.about},meta: {title: {"cn":"关于","tw":'關於',"ja":"について"}}},
             {path: 'link', component:link,props:{promptData:glCardLeftData.link},meta: {title: {"cn":"相关网址","tw":'相關網址',"ja":"関連URL"}}},
             {path: 'feedback', component:feedback, props:{promptData:glCardLeftData.feedback},meta: {title: {"cn":"问题回报或建议","tw":'問題回報或建議',"ja":"報告や提案"}}},
             {path: 'privacy_policy', component:privacy_policy,meta: {title: {"cn":"隐私政策","tw":'隱私政策',"ja":"プライバシーポリシー"}}},
+            {path: 'game', component:game,meta: {title: {"cn":"隐私政策","tw":'隱私政策',"ja":"プライバシーポリシー"}}},
+
         ]},
     {path:'/fb',component: inquire,children:[
             {path: 'list', component: fbList,props:{promptData:glCardLeftData.fb_list},meta: {title: {"cn":"好友招募","tw":'好友招募',"ja":"友人の募集エリア"}}},
