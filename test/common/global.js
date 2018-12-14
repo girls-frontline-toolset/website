@@ -94,7 +94,7 @@ const global = {
     },
     npcList:{"data":""},
     getNpc:function(name,vue,callback){
-    ajax.getJson(this.npcList,vue,'/api/inquiry/npc',name,callback);
+        ajax.getJson(this.npcList,vue,'/api/inquiry/npc',name,callback);
     },
     sangvislList:{"data":""},
     getSangvisl:function(name,vue,callback){
@@ -110,7 +110,7 @@ const global = {
     },
     supportUnitList:{"data":""},
     getSupportUnitList:function(name,vue,callback){
-    ajax.getJson(this.supportUnitList,vue,'/api/inquiry/supportUnit/getAll',name,callback);
+        ajax.getJson(this.supportUnitList,vue,'/api/inquiry/supportUnit/getAll',name,callback);
     },
 
 };

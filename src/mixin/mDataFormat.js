@@ -16,6 +16,6 @@ var MDataFormat = {
             return `${day}-${month}-${year}`;
         },
     }
-}
+};
 
 export default  MDataFormat;

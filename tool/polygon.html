@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+<script>
+    function get(){
+        var str = "";
+        for(var i = 0 ; i < 36 ; i++){
+            var check = document.getElementById(i);
+            if(check.checked){
+                str += "1"
+
+            }else{
+                str += "0"
+            }
+            if((i + 1) % 6 == 0 ){
+                str += "-"
+            }
+
+        }
+
+        if(document.getElementById("color_1").checked){
+            str += "0"
+        }else{
+            str += "1"
+        }
+
+        document.getElementById("output").value = str ;
+
+        var copyText = document.getElementById("output");
+        copyText.select();
+        document.execCommand("copy");
+    }
+
+    function reset(){
+        for(var i = 0 ; i < 36 ; i++){
+            var check = document.getElementById(i);
+            check.checked = false
+
+        }
+
+
+    }
+
+    function pro(){
+      let a = document.getElementById('output');
+      let b = a.value;
+      console.log(b);
+
+      // language=JSRegexp
+      b = b.replace(new RegExp('.000 ', 'g'),",");
+
+      // language=JSRegexp
+      b = b.replace(new RegExp(".000", 'g'),"");
+      console.log(b);
+      document.getElementById('output').value = b;
+
+      document.getElementById('output').select();
+      document.execCommand("copy");
+      // console.log();
+      // //
+      // //
+      // // a  = a.innerText.replace(".000 ",",");
+      // // a  = a.value.replace(".000","");
+      // alert(a)
+    }
+
+
+
+</script>
+<body>
+
+
+<input type="text" id="output" style="width: 500px" onkeyup="pro()">
+</body>
+</html>

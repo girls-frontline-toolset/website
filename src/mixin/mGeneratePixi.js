@@ -1,3 +1,5 @@
+import mArray from './mArray';
+
 let mGeneratePixi = {
   data (){
     return {
@@ -42,12 +44,40 @@ let mGeneratePixi = {
         sprite.zOrder = +sprite.y;
       });
     },
+    bestArrange(array,color){
+      this.data = array;
+      let _this = this;
+
+      function getCellListById(id){
+        for (let i = 0; i < _this.cellList.length; i++) {
+          if(parseInt(_this.cellList[i].no) === id ){
+            return _this.cellList[i];
+          }
+        }
+        return null;
+      }
+
+      this.changeGird(array,color);
+      let max = mArray.getMaxNum(array);
+
+      let dataList = [];
+
+      for (let i = 1; i <= max; i++) {
+        dataList.push(this.getCellByNum(array,i));
+      }
+
+      for (let i = 0; i < dataList.length; i++) {
+        if(dataList[i] === 0 ) continue;
+        let data = getCellListById(dataList[i].no);
+        let cell = this.createWafer(data.gird,data.position,this.selectColor,eval(data.polygon),eval(dataList[i].rotate));
+        this.paste(cell,dataList[i].x,dataList[i].y)
+      }
+    },
     changeGird(key,color){
       this.drawer = false;
-      this.selectColor = (color === "blue")?0 : 1;
-
+      this.selectColor = (color === "blue")? 1: 0 ;
       this.select.type = this.color[color];
-      this.data = eval(key);
+      this.data = key;
 
       while (this.container.gird.children[0]) {
         this.container.gird.removeChild(this.container.gird.children[0]);
@@ -61,10 +91,13 @@ let mGeneratePixi = {
         this.container.data.removeChild(this.container.data.children[0]);
       }
 
-
+      this.generateWatermark()
     },
     generateWatermark(){
-      // let text = new PIXI.Text('www.ntw-20.com', { font: '12px Snippet', fill: this.select.type.bg, align: 'right' });
+      while ( this.container.watermark.children[0]) {
+        this.container.watermark.removeChild( this.container.watermark.children[0]);
+      }
+
       let style =  new PIXI.TextStyle({
         fontFamily: "Comic Sans MS",
         fontWeight: "bold",
@@ -79,18 +112,6 @@ let mGeneratePixi = {
       text.x = textMetrics.maxLineWidth / 2 + 10;
       text.y = textMetrics.height / 2;
       text.anchor.set(0.5);
-
-      console.log(textMetrics);
-      console.log(textMetrics.height * this.scale);
-      console.log(textMetrics.maxLineWidth * this.scale -20 );
-
-      console.log((this.width * this.data[0].length + this.start.y * 2) * this.scale);
-      //  text.position.x = (this.width * this.data.length + this.start.x * 2 ) * this.scale  - textMetrics.height * this.scale;
-      // // // text.position.y = (this.width * this.data[0].length + this.start.y * 2 ) * this.scale  - textMetrics;
-      //  text.position.y = (this.width * this.data[0].length + this.start.y * 2 ) * this.scale - textMetrics.maxLineWidth * this.scale  ;
-
-      // PIXI.TextMetrics.clearMetrics(text);
-      //console.log(text.position.x);
       this.container.watermark.addChild(text);
 
     },
@@ -113,7 +134,17 @@ let mGeneratePixi = {
       this.container.watermark = new PIXI.Container();
       this.app.stage.addChild(this.container.watermark);
     },
+    generateBg(){
+      let bg = new PIXI.Graphics();
+      bg.beginFill(0x303231);
+      bg.x = 0;
+      bg.y = 0;
+      bg.drawRect(0, 0, 600,600);
+      bg.parentGroup = this.layer.gird;
+      this.container.gird.addChild(bg);
+    },
     generateGird() {
+      this.generateBg();
       let point = {x: this.start.x, y: this.start.y};
 
       for (let i = 0; i < this.data.length; i++) {
@@ -136,7 +167,6 @@ let mGeneratePixi = {
           line.y = point.y;
 
           line.parentGroup = this.layer.gird;
-          //console.log(this.container);
 
           this.container.gird.addChild(line);
           point.x += this.width;

@@ -3,18 +3,17 @@
     <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
     <gl-ui-title :text="$t('title.h1.list.support-unit')" h1 icon="icon-equipment"></gl-ui-title>
 
-
     <v-container grid-list-md>
       <v-layout row wrap>
 
         <v-flex xs12 pa-1>
           <gl-ui-title h2 :text="$t('t.type') + ':'"></gl-ui-title>
-          <gl-ui-icon-button v-for="item,key in type" :key="key" :opacity="item" type="type"
+          <gl-ui-icon-button v-for="(item,key) in type" :key="key" :opacity="item" type="type"
                              :name="key"></gl-ui-icon-button>
         </v-flex>
         <v-flex xs12 pa-1>
           <gl-ui-title h2 :text="$t('t.star') + ':'"></gl-ui-title>
-          <gl-ui-icon-button v-for="item,key in star" :key="key" :opacity="item" type="star"
+          <gl-ui-icon-button v-for="(item,key) in star" :key="key" :opacity="item" type="star"
                              :name="key"></gl-ui-icon-button>
         </v-flex>
       </v-layout>
@@ -24,14 +23,11 @@
 
     <v-container grid-list-md>
       <v-layout row wrap>
-        <v-flex xs12 pa-1 sm4 v-for="item, key in dataList" :key="key">
-          <img :src="'/common/supportUnit/support-unit-' + item.id + '.jpg'" style="width: 100%"/>
-          <div v-for="star, starKey in item.star" :key="starKey">
-            <gl-ui-title h2 :text="''+star.num"></gl-ui-title>
-            <img :src="'/common/supportUnit/' + item.id + '/' + star.num +'.png'" style="width: 100%">
-            <!--<div :ref="item.id + '-' + star.num">-->
-              <!--&lt;!&ndash;{{loadApp({id:item.id,num:star.num,data:star.data,app:star.app,color:item.color})}}&ndash;&gt;-->
-            <!--</div>-->
+        <v-flex xs12 pa-1 sm4 v-for="(item, key) in dataList" :key="key">
+          <img :alt="item.name" :src="'/common/supportUnit/support-unit-' + item.id + '.jpg'" style="width: 100%"/>
+          <div v-for="(star, starKey) in item.star" :key="starKey">
+            <gl-ui-title h2 :text="''+star.num + '' + $t('make.star')"></gl-ui-title>
+            <img :alt="'star ' + star.num" :src="'/common/supportUnit/' + item.id + '/' + star.num +'.png'" style="width: 100%">
           </div>
         </v-flex>
 

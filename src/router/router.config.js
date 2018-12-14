@@ -28,7 +28,6 @@ import about from '../page-vuetifly/more/about-content.vue';
 import link from '../page-vuetifly/more/link-content.vue';
 import feedback from '../page-vuetifly/more/feedback-content.vue';
 import privacy_policy from '../page-vuetifly/more/privacy-policy-content.vue';
-import game from '../page-vuetifly/more/game-content.vue';
 
 //fb
 import fbList from '../page-vuetifly/fb/list-content.vue';
@@ -41,6 +40,7 @@ import makeGirl from '../page-vuetifly/make/make-content.vue';
 import makeDevice from '../page-vuetifly/make/device-content.vue';
 import hMake from '../page-vuetifly/make/h-make-content.vue';
 import hMakeDevice from '../page-vuetifly/make/h-device-make.vue';
+import makeWafer from '../page-vuetifly/make/wafer-content.vue';
 //image
 import image from '../page-vuetifly/img/image-content.vue';
 import imageAdd from '../page-vuetifly/img/image-add-content.vue';
@@ -96,7 +96,8 @@ let glCardLeftData = {
     "hDevice_make":["! 此列表只供參考!","右下角的圖示可製作喔","!!本頁閾和遊戲不相同!!"],
     "log_update":["最近的更新!"],
     "doc":['歡迎加入新的文章','可搜尋喔!!'],
-    "list_support_unit":[""]
+    "list_support_unit":["各星的重裝格數"],
+    "wafer_make":["桌面版可以用拉來加入晶片","如有問題歡迎回報","可以下截圖片喔","連點可以轉動晶片"]
 };
 
 
@@ -146,8 +147,6 @@ const routes = [
             {path: 'link', component:link,props:{promptData:glCardLeftData.link},meta: {title: {"cn":"相关网址","tw":'相關網址',"ja":"関連URL"}}},
             {path: 'feedback', component:feedback, props:{promptData:glCardLeftData.feedback},meta: {title: {"cn":"问题回报或建议","tw":'問題回報或建議',"ja":"報告や提案"}}},
             {path: 'privacy_policy', component:privacy_policy,meta: {title: {"cn":"隐私政策","tw":'隱私政策',"ja":"プライバシーポリシー"}}},
-            {path: 'game', component:game,meta: {title: {"cn":"隐私政策","tw":'隱私政策',"ja":"プライバシーポリシー"}}},
-
         ]},
     {path:'/fb',component: inquire,children:[
             {path: 'list', component: fbList,props:{promptData:glCardLeftData.fb_list},meta: {title: {"cn":"好友招募","tw":'好友招募',"ja":"友人の募集エリア"}}},
@@ -163,7 +162,8 @@ const routes = [
             {path: 'device', component:makeDevice, props:{promptData:glCardLeftData.device_make},meta: {title: {"cn":"模拟造装","tw":'模擬造裝',"ja":"模擬造裝備"}}},
             {path: 'hGirl', component:hMake, props:{promptData:glCardLeftData.hMake},meta: {title: {"cn":"模拟重造-枪","tw":'模擬重造-槍',"ja":"模擬大型製作-銃"}}},
             {path: 'hDevice', component:hMakeDevice, props:{promptData:glCardLeftData.hDevice_make},meta: {title: {"cn":"模拟重造-装","tw":'模擬重造-裝',"ja":"模擬大型製作-裝備"}}},
-        ]},
+            {path: 'wafer', component:makeWafer, props:{promptData:glCardLeftData.wafer_make},meta: {title: {"cn":"模拟重造-装","tw":'模擬重造-裝',"ja":"模擬大型製作-裝備"}}},
+      ]},
     {path:'/image',component:inquire,children:[
             {path: 'add', component:imageAdd, props:{promptData:glCardLeftData.addImage}, meta: {title: {"cn":"图片库","tw":'圖片庫',"ja":"フォトギャラリー"}}},
             {path: ':name', component:image, props:{promptData:glCardLeftData.image},meta: {title: {"cn":"图片库","tw":'圖片庫',"ja":"フォトギャラリー"}}},

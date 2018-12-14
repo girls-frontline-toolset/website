@@ -3,7 +3,7 @@
         <v-layout row wrap >
           <v-flex xs12 sm6 md12 pr-1 v-if="haveEvent">
                 <gl-ui-title :text="$t('title.h2.event-tw')" h2 ></gl-ui-title>
-                <a :href="img.h" target="_blank" v-for="img,key in data[now[0]][now[1]][now[2]]" :key="now[0] + '-'+now[1] + '-' + now[2] + '-' + key"><img :src="img.src" style="width: 100%" @load="loaded"></a>
+                <a :href="img.h" target="_blank" v-for="(img,key) in data[now[0]][now[1]][now[2]]" :key="now[0] + '-'+now[1] + '-' + now[2] + '-' + key"><img :src="img.src" style="width: 100%" @load="loaded"></a>
             </v-flex>
 
             <v-flex xs12 sm6 md12 pr-1>
@@ -29,10 +29,13 @@
                     <v-icon>highlight_off</v-icon>
                 </v-btn>
             </v-toolbar>
-            <v-card class="mt-0 mb-2" style="box-shadow:unset" v-for="item,key in data[s[0]][s[1]][s[2]]"
+            <v-card class="mt-0 mb-2" style="box-shadow:unset" v-for="(item,key) in data[s[0]][s[1]][s[2]]"
                     :href="item.h" target="_blank" :key="key">
-                <v-card-media class="white--text" :height="dialogImgHeight" :src="item.src" >
-                </v-card-media>
+                <!--<v-card-media class="white&#45;&#45;text" :height="dialogImgHeight" :src="item.src" >-->
+                <!--</v-card-media>-->
+              <v-card-title style="padding: 0;">
+                <img :src="item.src"  alt="event img" style="padding: 0;width: 100%">
+              </v-card-title>
                 <v-card-title v-if="item.i">
                     <div v-html="item.i">
                     </div>
@@ -70,6 +73,7 @@
             resizeDialogImgHeight(){
                 if(this.dialog){
                     this.$nextTick(function () {
+
                         this.dialogImgHeight = this.$refs.dia.$el.clientWidth / 1.7757 ;
                     });
                 }

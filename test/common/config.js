@@ -17,3 +17,8 @@ global.common = {
      return this.data;
    }
  };
+
+
+global.window.requestAnimationFrame = function(...args){
+    console.log(...args);
+};

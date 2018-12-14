@@ -16,13 +16,15 @@
         "girl":"人型图鉴",
         "fairy":"妖精图鉴",
         "doc":"实用文库",
-        "wafer":"晶片图鉴"
+        "wafer":"晶片图鉴",
+        "support-unit":"重装图鉴"
       },
       "make":{
         "girl":"模拟造枪",
         "hGirl":"模拟重造-枪",
         "device":"模拟造装",
-        "hDevice":"模拟重造-装"
+        "hDevice":"模拟重造-装",
+        "wafer":"模拟组合-晶片 测试版"
       },
       "like":{
         "list":"赞友招募区域"
@@ -95,8 +97,20 @@
     "device-2":"2星装备机率",
     "low-tier":"低档",
     "mid-tier":"中档",
-    "high-tier":"高档"
-
+    "high-tier":"高档",
+    "support-unit-list": "重装列表",
+    "wafer-list": "晶片列表",
+    "best-sorting": "最佳排列",
+    "grid6": "6 格",
+    "grid5": "5 格",
+    "grid5-type1": "5 格 一类",
+    "grid5-type2": "5 格 二类",
+    "grid4": "4 格",
+    "grid3": "3 格",
+    "grid2": "2 格",
+    "grid1": "1 格",
+    "type1": "一类",
+    "type2": "二类"
   },
   "like":{
     "rule":"规则",

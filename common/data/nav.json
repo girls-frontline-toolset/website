@@ -9,14 +9,16 @@
     {"t": "nav.make.girl", "h": "/make/girl"},
     {"t": "nav.make.hGirl", "h": "/make/hGirl"},
     {"t": "nav.make.device", "h": "/make/device"},
-    {"t": "nav.make.hDevice", "h": "/make/hDevice"}
+    {"t": "nav.make.hDevice", "h": "/make/hDevice"},
+    {"t": "title.h1.make.wafer", "h": "/make/wafer"}
   ]
 },
   {
     "t": "nav.illustration.s", "h": "", "i":"icon-il-hb","list": [
     {"t": "nav.illustration.girl", "h": "/list/girl"},
     {"t": "nav.illustration.fairy", "h": "/list/fairy"},
-    {"t": "title.h1.list.wafer", "h": "/list/wafer"}
+    {"t": "title.h1.list.wafer", "h": "/list/wafer"},
+    {"t": "title.h1.list.support-unit", "h": "/list/support_unit"}
   ]
   },
   {"t": "nav.image-library", "h": "/image/all", "i":"photo_library", "list":[]},

@@ -23,7 +23,8 @@
         "girl":"模擬造槍",
         "hGirl":"模擬重造-槍",
         "device":"模擬造裝",
-        "hDevice":"模擬重造-裝"
+        "hDevice":"模擬重造-裝",
+        "wafer":"模擬組合-晶片 測試版"
       },
       "like":{
         "list":"讚友招募區域"
@@ -96,8 +97,20 @@
     "device-2":"2星裝備機率",
     "low-tier":"低檔",
     "mid-tier":"中檔",
-    "high-tier":"高檔"
-
+    "high-tier":"高檔",
+    "support-unit-list": "重裝列表",
+    "wafer-list": "晶片列表",
+    "best-sorting": "最佳排列",
+    "grid6": "6 格",
+    "grid5": "5 格",
+    "grid5-type1": "5 格 一類",
+    "grid5-type2": "5 格 二類",
+    "grid4": "4 格",
+    "grid3": "3 格",
+    "grid2": "2 格",
+    "grid1": "1 格",
+    "type1": "一類",
+    "type2": "二類"
   },
   "like":{
     "rule":"規則",

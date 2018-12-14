@@ -1,13 +1,13 @@
 <template>
   <v-expansion-panel class="wafer-list">
     <v-expansion-panel-content
-      v-for="item ,key in items"
+      v-for="(item ,key) in items"
       :key="item.title"
     >
-      <div slot="header">{{item.title}}</div>
+      <div slot="header">{{$t(item.title)}}</div>
       <v-card>
-          <img @click="addWafer(subItem)" v-on:dragstart="dragStart" @mousedown="mouseDown" :data-key="key" :data-id="subKey" draggable="true" v-if="color === 1" v-for="subItem , subKey in item.items.blue" :src="'/common/cell/'+ subItem.gird +'/'+ subItem.position + '-' + subItem.color+'.png' ">
-          <img @click="addWafer(subItem)" v-on:dragstart="dragStart" @mousedown="mouseDown" :data-key="key" :data-id="subKey" draggable="true" v-if="color === 0" v-for="subItem , subKey in item.items.orange" :src="'/common/cell/'+ subItem.gird +'/'+ subItem.position + '-' + subItem.color+'.png' ">
+          <img :alt="item.no" v-for="(subItem , subKey) in item.items.blue" @click="addWafer(subItem)" v-on:dragstart="dragStart" @mousedown="mouseDown" :data-key="key" :data-id="subKey" draggable="true" v-if="color === 1"  :src="'/common/cell/'+ subItem.gird +'/'+ subItem.position + '-1.png' ">
+          <img :alt="item.no" v-for="(subItem , subKey) in item.items.orange" @click="addWafer(subItem)" v-on:dragstart="dragStart" @mousedown="mouseDown" :data-key="key" :data-id="subKey" draggable="true" v-if="color === 0"  :src="'/common/cell/'+ subItem.gird +'/'+ subItem.position + '-0.png' ">
       </v-card>
     </v-expansion-panel-content>
   </v-expansion-panel>
@@ -15,31 +15,30 @@
 
 <script>
   export default {
-    props: ['color','createWafer'],
+    props: ['color','createWafer',"cellList"],
     commponents: {},
     name: 'gl-ui-wafer-list',
     data() {
       return {
-        cellList:null,
         items: [
           {
-            title: '6 格',
+            title: 'make.grid6',
             items: {blue:[],orange:[]}
           },
           {
-            title: '5 格 一類',
+            title: 'make.grid5-type1',
             items: {blue:[],orange:[]}
           },
           {
-            title: '5 格 二類',
+            title: 'make.grid5-type2',
             items: {blue:[],orange:[]}
           },
           {
-            title: '4 格',
+            title: 'make.grid4',
             items: {blue:[],orange:[]}
           },
           {
-            title: '3 格',
+            title: 'make.grid3',
             items: {blue:[],orange:[]}
           },
         ],
@@ -52,48 +51,53 @@
       dragStart(event){
         let map = ["orange","blue"];
         event.dataTransfer.setData("data", JSON.stringify(this.items[event.target.getAttribute("data-key")].items[map[this.color]][event.target.getAttribute("data-id")]));
-        event.dataTransfer.setData("pos", JSON.stringify(this.pos));
 
       },
       addWafer(obj){
-         this.createWafer(obj.gird, obj.position, obj.color, eval(obj.polygon));
+        console.log(obj.color);
+        this.createWafer(obj.gird, obj.position, obj.color, eval(obj.polygon));
+      },
+      initItem(){
+        let map  = ["orange","blue"];
 
+        for (let i = 0; i <this.cellList.length; i++) {
+          switch (this.cellList[i].gird) {
+            case '6':
+              this.items[0].items[map[this.cellList[i].color]].push(this.cellList[i]);
+              break;
+            case '5':
+              if(this.cellList[i].type === "1"){
+                this.items[1].items[map[this.cellList[i].color]].push(this.cellList[i]);
+              }else{
+                this.items[2].items[map[this.cellList[i].color]].push(this.cellList[i]);
+              }
+              break;
+            case '4':
+              this.items[3].items[map[this.cellList[i].color]].push(this.cellList[i]);
+              break;
+            case '3':
+              this.items[4].items[map[this.cellList[i].color]].push(this.cellList[i]);
+              break;
+          }
+        }
       }
     },
     beforeCreate() {
     }, created() {
-      let _this = this;
-      this.$g.getCellList("cellList",this,function(){
-        let map  = ["blue","orange"];
-
-        for (let i = 0; i <_this.cellList.length; i++) {
-          switch (_this.cellList[i].gird) {
-            case '6':
-              _this.items[0].items[map[_this.cellList[i].color]].push(_this.cellList[i]);
-              break;
-            case '5':
-                if(_this.cellList[i].type === "1"){
-                  _this.items[1].items[map[_this.cellList[i].color]].push(_this.cellList[i]);
-                }else{
-                  _this.items[2].items[map[_this.cellList[i].color]].push(_this.cellList[i]);
-                }
-              break;
-            case '4':
-              _this.items[3].items[map[_this.cellList[i].color]].push(_this.cellList[i]);
-              break;
-            case '3':
-              _this.items[4].items[map[_this.cellList[i].color]].push(_this.cellList[i]);
-              break;
-          }
-        }
-
-        console.log(_this.items);
-      });
-
     }, beforeMount() {
     }, mounted() {
+          if(this.cellList){
+            this.initItem()
+          }
+
+
     }, beforeUpdate() {
     }, updated() {
+    },watch:{
+      cellList(data){
+        this.cellList = data;
+        this.initItem()
+      }
     }
   }
 </script>

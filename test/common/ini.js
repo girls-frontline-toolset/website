@@ -9,10 +9,14 @@ let ga = {
 };
 
 
+let s = {
+  less600(){
+    return false;
+  }
+};
 
 
-
-let mountSetting = { mocks:{ $g:g, $t:t, $ga:ga  },
+let mountSetting = { mocks:{ $g:g, $t:t, $ga:ga ,$s:s },
   propsData: {
   promptData: ["1231"]
 }

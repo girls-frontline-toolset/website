@@ -16,13 +16,15 @@
         "girl":"人形図鑑",
         "fairy":"妖精図鑑",
         "doc":"實用文庫",
-        "wafer":"晶片図鑑"
+        "wafer":"晶片図鑑",
+        "support-unit":"重裝図鑑"
       },
       "make":{
         "girl":"模擬造銃",
         "hGirl":"模擬大型製作-銃",
         "device":"模擬造裝備",
-        "hDevice":"模擬大型製作-裝備"
+        "hDevice":"模擬大型製作-裝備",
+        "wafer":"アナログコンビネーション-チップ ベータ"
       },
       "like":{
         "list":"讚友の募集エリア"
@@ -95,7 +97,20 @@
     "device-2":"2星裝備確率",
     "low-tier":"低檔",
     "mid-tier":"中檔",
-    "high-tier":"高檔"
+    "high-tier":"高檔",
+    "support-unit-list": "重機リスト",
+    "wafer-list": "チップ一覧",
+    "best-sorting": "最適な配置",
+    "grid6": "6 グリッド",
+    "grid5": "5 グリッド",
+    "grid5-type1": "5 グリッド type1",
+    "grid5-type2": "5 グリッド type2",
+    "grid4": "4 グリッド",
+    "grid3": "3 グリッド",
+    "grid2": "2 グリッド",
+    "grid1": "1 グリッド",
+    "type1": "type1",
+    "type2": "type2"
 
   },
   "like":{

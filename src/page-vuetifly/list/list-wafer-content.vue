@@ -20,7 +20,7 @@
                 </v-flex>
                 <v-flex xs12 pa-1 class="input-sangvis" v-if="cells['cells_5']">
                     <span class="get no-select" @click="click('type',key)" :style="isClick('type',key)"
-                        v-for="(item, key, index) in type" :alt="item.name">{{item.name}}</span>
+                        v-for="(item, key, index) in type" :alt="item.name">{{$t(item.name)}}</span>
                 </v-flex>
             </v-layout>
         </v-container>
@@ -52,14 +52,19 @@
                 color: {"orange_type":false,"blue_type":false},
                 cells:{"cells_1":false,"cells_2":false,"cells_3":false,"cells_4":false,"cells_5":false,"cells_6":false},
                 cellList:null,
-                type: [{"name": "一類", "s": true}, {"name": "二類", "s": true}],
+                type: [{"name": "make.type1", "s": true}, {"name": "make.type2", "s": true}],
                 error:0,
                 errorText:"not-text",
                 itemData:[]
             }
         }, methods: {
             setData(a, b, c) {
-                this.$set(this[a], b, c);
+              if(b === "cells_5" && !c){
+                this.$set(this.type[0],"s",true);
+                this.$set(this.type[1],"s",true);
+              }
+
+              this.$set(this[a], b, c);
             },
             showHelp: function () {
                 this.$s.glDialogText("關於","5格分為兩類，5格1類和6格一樣好，比5格2類參數高一些。<br>5星6格 = 5星5格1类(1.0) > 5星5格2类(0.92) > 5星4格 = 4星6格 = 4星5格1类(0.8) > 5星3格(0.76) > 4星5格2类(0.72)。<br><a href='http://nga.178.com/read.php?tid=14732027&fav=c56e1723'>來源</a>");
@@ -126,11 +131,6 @@
             }
         }, beforeCreate() {
         }, created() {
-        //console.log(this)
-       // console.log(this.$logger)
-         // this.$logger.log("1234");
-
-        //console.log(this)
             this.$g.getCellList('cellList', this);
         }, beforeMount() {
         }, mounted() {
