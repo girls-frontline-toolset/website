@@ -110,7 +110,12 @@
     "grid2": "2 格",
     "grid1": "1 格",
     "type1": "一類",
-    "type2": "二類"
+    "type2": "二類",
+    "generate": "生成",
+    "string": "文字",
+    "download":"下載",
+    "bigImg": "大圖",
+    "smallImg": "小圖"
   },
   "like":{
     "rule":"規則",
@@ -186,6 +191,10 @@
       "android":"Android App",
       "chrome":"Chrome App",
       "line":"Line 機械人"
+    },
+    "magical-tool": {
+      "s": "神奇工具",
+      "so-appetizing": "真香生成器"
     },
     "line-group":"LINE群",
     "easy-mode":"簡易模式"

@@ -60,9 +60,9 @@
     import mTagManagement from "../../mixin/mTagManagement";
     import GlUiTitle from "../../components-ui/title";
     import GlUiImageAddCard from "../../components-ui/image/imageAddCard";
-
+    import mMeta from "../../mixin/mMeta.js";
     export default {
-        mixins: [mPixivTwitter, mTagManagement],
+        mixins: [mPixivTwitter, mTagManagement,mMeta],
         components: {
             GlUiImageAddCard,
             GlUiTitle

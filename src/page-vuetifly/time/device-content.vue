@@ -41,9 +41,9 @@
     import mPrompt from "../../mixin/mPrompt.js";
     import GlUiError from "../../components-ui/error";
     import GlUiIconButton from "../../components-ui/iconButton";
-
+    import mMeta from "../../mixin/mMeta.js";
     export default {
-        mixins: [mPrompt],
+        mixins: [mPrompt,mMeta],
         components: {
             GlUiIconButton,
             GlUiError,
@@ -87,6 +87,22 @@
 
                         }
                         _this.$set(_this, 'data', dataList);
+
+                        if(dataList.length > 0 ){
+                          console.log(dataList);
+
+                          _this.metaDescription = "裝備製造時間查詢 " + _this.mm;
+                          for (let i = 0; i < dataList.length; i++) {
+                            _this.metaDescription += " " + dataList[i].attribute + " " + dataList[i].name + " " + dataList[i].star;
+                          }
+
+                          _this.metaImage = {
+                            url: "/common/device/" + dataList[0].img + ".png",
+                            width: "240",
+                            height: "240"
+                          };
+                        }
+
                         _this.error = 0;
                     } else if ($data.status === "empty") {
                         _this.data = [];
@@ -102,9 +118,20 @@
             this.$g.getHotTimeDevice('hotTime', this);
         },
         mounted: function () {
+          let _this = this;
+          function updateMeta(){
+            _this.metaTitle = _this.mm + " "  + _this.metaTitle;
+            document.title = _this.metaTitle;
+          }
+
             if (this.$route.query.search !== undefined) {
                 this.mm = this.$route.query.search;
+                updateMeta()
                 this.search();
+            }else if(this.$route.params.MM !== undefined){
+              this.mm = this.$route.params.MM;
+              updateMeta()
+              this.search();
             }
         }
     }

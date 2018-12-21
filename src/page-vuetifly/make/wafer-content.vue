@@ -100,10 +100,10 @@
   import GlUiWaferToolList from "../../components-ui/wafer/wafer-tool";
   import mPrompt from "../../mixin/mPrompt.js";
   import GlUiCardLeft from "../../components-ui/cardLeft";
-
+  import mMeta from "../../mixin/mMeta.js";
   export default {
     components: {GlUiCardLeft, GlUiWaferToolList, GlUiSupportUnitList, GlUiWaferList, GlUiTitle},
-    mixins: [mGeneratePixi, mHandlePixi,mHandleDataPixi,mPrompt],
+    mixins: [mGeneratePixi, mHandlePixi,mHandleDataPixi,mPrompt,mMeta],
     props: [''],
     commponents: {},
     name: 'gl-ui-wafer-content',
@@ -133,6 +133,7 @@
         }
 
       },downloadCanvas(){
+        this.$ga.event('make-wafer', 'download');
         let canvas = this.getCanvas();
         let image = null;
 

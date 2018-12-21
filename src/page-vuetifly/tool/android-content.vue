@@ -46,11 +46,11 @@
     import GlUiAndroidAbout from "../../components-ui/tool/androidAbout";
     import GlUiCardLeft from "../../components-ui/cardLeft";
     import mPrompt from "../../mixin/mPrompt.js";
-
+    import mMeta from "../../mixin/mMeta.js";
     export default {
         components: {GlUiCardLeft, GlUiAndroidAbout, GlUiTitle},
         name: 'gl-ui-android',
-        mixins: [mPrompt],
+        mixins: [mPrompt,mMeta],
         data() {
             return {
                 show: true,

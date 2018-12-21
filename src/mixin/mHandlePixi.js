@@ -101,6 +101,7 @@ let mHandlePixi = {
 
     },
     createWafer: function (gird, position, color, points, angle = 0) {
+      this.$ga.event('make-wafer', 'create-wafer');
       this.drawer = false;
       let _this = this;
 

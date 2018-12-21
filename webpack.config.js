@@ -1,8 +1,15 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractLibStyle = new ExtractTextPlugin("lib/lib.css");
 const extractProjectStyle = new ExtractTextPlugin("css/styles.css");
+var PrerenderSpaPlugin = require('prerender-spa-plugin');
+const Renderer = PrerenderSpaPlugin.PuppeteerRenderer;
+var fs = require("fs");
+
+var indexText = fs.readFileSync('index.html', 'utf8');
+
+let bodyString = indexText.match(new RegExp(/<body class="glScrollbar">[\w\W]*<\/body>/gi))[0];
 
 module.exports = {
     entry: {
@@ -61,7 +68,64 @@ module.exports = {
     },
     plugins: [
         extractLibStyle,
-        extractProjectStyle
+        extractProjectStyle,
+      //    new PrerenderSpaPlugin({
+      //      staticDir:path.join(__dirname, 'page'),
+      //      indexPath: path.join(__dirname, 'index.html'),
+      //      routes: [ "/","/time/girl",
+      //                "/time/fairy",
+      //                "/time/device",
+      //                "/list/girl",
+      //                "/list/fairy",
+      //                "/list/wafer",
+      //                "/list/support_unit",
+      //                "/list/doc",
+      //                "/list/doc/search",
+      //                "/list/doc/add",
+      //                "/tool/android",
+      //                "/tool/chrome",
+      //                "/bot/line",
+      //                "/bot/line/img",
+      //                "/more/line",
+      //                "/more/about",
+      //                "/more/link",
+      //                "/more/feedback",
+      //                "/more/privacy_policy",
+      //                "/fb/list",
+      //                "/log/update",
+      //                "/like/list",
+      //                "/make/girl",
+      //                "/make/device",
+      //                "/make/hGirl",
+      //                "/make/hDevice",
+      //                "/make/wafer",
+      //                "/image/add",
+      //                "/image/all",
+      //                "/event/schedule",
+      //                "/magical-tool/so-appetizing"],
+      //
+      //        server: {
+      //         proxy: {
+      //           '/**': {
+      //             target: 'http://192.168.10.235:8080',
+      //             secure: false
+      //           }
+      //         }
+      //       },
+      //
+      //       postProcess (renderedRoute) {
+      //         renderedRoute.html = renderedRoute.html.replace(/<body class="glScrollbar">[\w\W]*<\/body>/gi, bodyString);
+      //         renderedRoute.html = renderedRoute.html.replace(/<style type="text\/css" id="vuetify-theme-stylesheet">[\w\W]*<\/style>/gmi,"");
+      //         return renderedRoute
+      //       },
+      //
+      //       renderer: new Renderer({
+      //         headless: false,
+      //         skipThirdPartyRequests : true,
+      //         renderAfterDocumentEvent: 'render-event',
+      //       }),
+      //   }
+      // )
     ],
     resolve: {
         alias: {

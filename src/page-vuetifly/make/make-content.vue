@@ -122,9 +122,9 @@
     import GlUiAlertText from "../../components-ui/make/alertText";
     import GlUiNumberControl from "../../components-ui/make/numberControl";
     import GlUiOutputList from "../../components-ui/make/outputList";
-
+    import mMeta from "../../mixin/mMeta.js";
     export default {
-        mixins: [mPrompt],
+        mixins: [mPrompt,mMeta],
         components: {
             GlUiOutputList,
             GlUiNumberControl,

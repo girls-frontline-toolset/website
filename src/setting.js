@@ -7,6 +7,7 @@ const setting = {
     less960: function(){
         return window.innerWidth < 960;
     },
+    domain:"https://www.ntw-20.com",
     make_device:"",
     make:"",
     h_make_device:"",

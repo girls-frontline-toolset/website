@@ -43,8 +43,9 @@
     import GlUiError from "../../components-ui/error";
     import mPrompt from "../../mixin/mPrompt.js";
     import mTimeTag from "../../mixin/mTimeTag.js";
+    import mMeta from "../../mixin/mMeta.js";
     export default {
-        mixins: [mPrompt,mTimeTag],
+        mixins: [mPrompt,mTimeTag,mMeta],
         components: {GlUiError, GlUiHotTime, GlUiTitle, GlUiCardLeft, GlUiTagList},
         name: 'gl-ui-fairy-content',
         props: ['promptData'],
@@ -82,6 +83,20 @@
                             }
                         }
                         _this.$set(_this,'data',dataList);
+
+                        if(dataList.length > 0){
+                          _this.metaDescription = "妖精製造時間查詢 " + _this.hh + ":" + _this.mm;
+                          for (let i = 0; i < dataList.length; i++) {
+                            _this.metaDescription += " " + dataList[i].name;
+                          }
+
+                          _this.metaImage = {
+                            url: "/common/fairy/fairy_" + dataList[0].no + ".jpg",
+                            width: "246",
+                            height: "432"
+                          };
+                        }
+
                         _this.error = 0;
                     } else if ($data.status === "empty") {
                         _this.data = [];
@@ -97,10 +112,21 @@
             this.$g.getHotTimeFairy('hotTime', this);
         },
         mounted: function () {
+          let _this = this;
+          function updateMeta(){
+            _this.metaTitle = _this.hh + ":" + _this.mm + " "  + _this.metaTitle;
+            document.title = _this.metaTitle;
+          }
             if (this.$route.query.search !== undefined) {
                 [this.hh,this.mm] = this.$route.query.search.split(":");
+                updateMeta();
                 this.search();
-            }
+            }else if(this.$route.params.HH !== undefined){
+                this.hh = this.$route.params.HH;
+                this.mm = this.$route.params.MM;
+                updateMeta();
+                this.search();
+          }
         }
     }
 </script>

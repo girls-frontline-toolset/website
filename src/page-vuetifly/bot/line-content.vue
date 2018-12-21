@@ -52,9 +52,9 @@
     import GlUiTitle from "../../components-ui/title";
     import mPrompt from "../../mixin/mPrompt.js";
     import GlUiLineBotAbout from "../../components-ui/bot/lineBotAbout";
-
+    import mMeta from "../../mixin/mMeta.js";
     export default {
-        mixins: [mPrompt],
+        mixins: [mPrompt,mMeta],
         components: {
             GlUiLineBotAbout,
             GlUiTitle,

@@ -124,8 +124,9 @@
     import GlUiTitle from "../../components-ui/title";
     import GlUiHNumberControl from "../../components-ui/make/h-numberControl";
     import GlUiOutputList from "../../components-ui/make/outputList";
+    import mMeta from "../../mixin/mMeta.js";
     export default {
-        mixins: [mPrompt],
+        mixins: [mPrompt,mMeta],
         components: {
             GlUiOutputList,
             GlUiHNumberControl,

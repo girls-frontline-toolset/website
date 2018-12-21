@@ -1,6 +1,6 @@
 {
   "title":{
-    "s":"ドールズフロントライン  工具セット",
+    "s":"ドルフロ 工具セット",
     "h2":{
       "featured-image":"選ばれた作品",
       "event-schedule-tw":"活動スケジュール(台湾版)",
@@ -110,8 +110,12 @@
     "grid2": "2 グリッド",
     "grid1": "1 グリッド",
     "type1": "type1",
-    "type2": "type2"
-
+    "type2": "type2",
+    "generate": "生成する",
+    "string": "テキスト",
+    "download":"ダウンロード",
+    "bigImg": "大きな画像",
+    "smallImg": "小さい絵"
   },
   "like":{
     "rule":"規則",
@@ -187,6 +191,10 @@
       "android":"Android App",
       "chrome":"Chrome App",
       "line":"Line ロボット"
+    },
+    "magical-tool": {
+      "s": "魔法の道具",
+      "so-appetizing": "本当の香ジェネレータ"
     },
     "line-group":"LINEグループ(台湾語)",
     "easy-mode":"簡易モード"

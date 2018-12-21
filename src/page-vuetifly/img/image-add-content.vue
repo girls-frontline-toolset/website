@@ -70,8 +70,9 @@
     import GlUiImageAddCard from "../../components-ui/image/imageAddCard";
     import GlUiImageUrlHelp from "../../components-ui/image/imageUrlHelp";
     import mTagManagement from "../../mixin/mTagManagement";
+    import mMeta from "../../mixin/mMeta.js";
     export default {
-        mixins: [mTagManagement,mPixivTwitter, mPrompt],
+        mixins: [mTagManagement,mPixivTwitter, mPrompt,mMeta],
         components: {
             GlUiImageUrlHelp,
             GlUiImageAddCard,

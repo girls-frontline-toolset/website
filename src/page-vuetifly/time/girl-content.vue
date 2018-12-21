@@ -41,8 +41,9 @@
     import GlUiTagList from "../../components-ui/tagList";
     import mPrompt from "../../mixin/mPrompt.js";
     import mTimeTag from "../../mixin/mTimeTag.js";
+    import mMeta from "../../mixin/mMeta.js";
     export default {
-        mixins: [mPrompt,mTimeTag],
+        mixins: [mPrompt,mTimeTag,mMeta],
         components: {
             GlUiTagList,
             GlUiError,
@@ -83,14 +84,28 @@
                         for (let listdata in $data.data) {
                             for (let star in $data.data[listdata]) {
                                 let name = $data.data[listdata][star].name;
-                                if ($data.data[listdata][star].src != null) {
+                              if ($data.data[listdata][star].src != null && $data.data[listdata][star].src !== "") {
                                     name = $data.data[listdata][star].src;
                                 }
                                 tmpList.push({"name":name,"number":$data.data[listdata][star].no,"className":getClass[$data.data[listdata][star].heavy]});
                             }
                         }
                         _this.$set(_this,"data",tmpList);
-                        _this.error = 0;
+
+                      if (tmpList.length > 0 ) {
+                        _this.metaDescription = "人型製造時間查詢 " + _this.hh + ":" + _this.mm;
+                        for (let i = 0; i < tmpList.length; i++) {
+                          _this.metaDescription += " " + tmpList[i].name;
+                        }
+
+                        _this.metaImage = {
+                          url: "/common/girl/girl_" + tmpList[0].number + ".jpg",
+                          width: "242",
+                          height: "429"
+                        };
+                      }
+
+                      _this.error = 0;
                     } else if ($data.status === "empty") {
                         _this.data = [];
                         _this.error = 1;
@@ -103,12 +118,28 @@
         },
         created() {
             this.$g.getHotTimeGirl('hotTime', this);
-        }
-        ,
+        },
         mounted: function () {
-            if (this.$route.query.search !== undefined) {
-                [this.hh,this.mm] = this.$route.query.search.split(":");
-                this.search();
+          let _this = this;
+          function updateMeta(){
+            _this.metaTitle = _this.hh + ":" + _this.mm + " "  + _this.metaTitle;
+            document.title = _this.metaTitle;
+          }
+
+          if (this.$route.query.search !== undefined){
+              [this.hh,this.mm] = this.$route.query.search.split(":");
+              updateMeta();
+              this.search();
+            }else if(this.$route.params.HH !== undefined){
+              if (!this.$route.params.MM){
+                this.hh = 0;
+                this.mm = this.$route.params.HH;
+              }else{
+                this.hh = this.$route.params.HH;
+                this.mm = this.$route.params.MM;
+              }
+              updateMeta();
+              this.search();
             }
         }
     }

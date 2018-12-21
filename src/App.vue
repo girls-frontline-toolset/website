@@ -34,6 +34,28 @@
     import GlUiCookies from "./components-ui/cookies";
 
     export default {
+      // metaInfo () {
+      //   return {
+      //     title: "this.pageName",
+      //     meta: [{                 // set meta
+      //              name: 'keyWords',
+      //              content: 'My Example App'
+      //     }]
+      //   }
+      // },
+      // metaInfo() {
+      //   return {
+      //     title: 'My Example App', // set a title
+      //     meta: [{                 // set meta
+      //       name: 'keyWords',
+      //       content: 'My Example App'
+      //     }],
+      //     link: [{                 // set link
+      //       rel: 'asstes',
+      //       href: 'https://assets-cdn.github.com/'
+      //     }]
+      //   }
+      // },
         components: {
             GlUiCookies,
             GlUiDialog,
@@ -80,7 +102,7 @@
             };
             window.__pixiv__ = [];
         }, created: function () {
-           //console.log(this.$route.query);
+           console.log(this.$route.query);
             if (this.$route.query.fn !== undefined) {
                 if (this.$route.query.fn === "nbar") {
                     this.isShow = false;
@@ -89,23 +111,24 @@
                 }
             }
 
-            if (this.$route.query.lang !== undefined) {
-                if (this.$route.query.lang === "tw" || this.$route.query.lang === "cn" || this.$route.query.lang === "ja") {
-                    for (let i = 0; i < this.languages.length; i++) {
-                        if (this.languages[i].i === this.$route.query.lang) {
-                            this.lan(this.languages[i]);
-                            let title = this.$t('title.s');
-                            document.title = (!this.$router.meta.title[this.$route.query.lang])? title : this.$router.meta.title[this.$route.query.lang] + "-"+  title;
-                        }
-                    }
+         }, mounted: function () {
+        this.$s.appVue = this;
 
-                }
+        if (this.$route.query.lang !== undefined || this.$route.params.lang !== undefined) {
+          if (this.$route.query.lang === "tw" || this.$route.query.lang === "cn" || this.$route.query.lang === "ja"||
+              this.$route.params.lang === "tw" || this.$route.params.lang === "cn" || this.$route.params.lang === "ja") {
+            let lang = this.$route.query.lang ||  this.$route.params.lang;
+            for (let i = 0; i < this.languages.length; i++) {
+              if (this.languages[i].i === lang) {
+                this.lan(this.languages[i]);
+                let title = this.$t('title.s');
+                document.title = (!this.$router.meta.title[lang])? title : this.$router.meta.title[lang] + "-"+  title;
+              }
             }
 
-         }, mounted: function () {
-                this.$s.appVue = this;
+          }
+        }
 
-                //console.log(this);
         }
     }
 </script>

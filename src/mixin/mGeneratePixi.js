@@ -45,6 +45,7 @@ let mGeneratePixi = {
       });
     },
     bestArrange(array,color){
+      this.$ga.event('make-wafer', 'best-arrange');
       this.data = array;
       let _this = this;
 
@@ -74,6 +75,7 @@ let mGeneratePixi = {
       }
     },
     changeGird(key,color){
+      this.$ga.event('make-wafer', 'change-gird');
       this.drawer = false;
       this.selectColor = (color === "blue")? 1: 0 ;
       this.select.type = this.color[color];

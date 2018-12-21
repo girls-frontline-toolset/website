@@ -14,9 +14,10 @@
 <script>
     import GlUiTitle from "../../components-ui/title";
     import GlUiEventSchedule from "../../components-ui/eventSchedule";
+    import mMeta from "../../mixin/mMeta.js";
     export default {
         components: {GlUiEventSchedule, GlUiTitle},
-        mixins: [],
+        mixins: [mMeta],
         props: [''],
         commponents: {},
         name: 'gl-ui-schedule',

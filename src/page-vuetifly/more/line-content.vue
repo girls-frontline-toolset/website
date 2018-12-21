@@ -25,7 +25,7 @@
     import mPrompt from "../../mixin/mPrompt.js";
     import GlUiTitle from "../../components-ui/title";
     import GlUiCardLeft from "../../components-ui/cardLeft";
-
+    import mMeta from "../../mixin/mMeta.js";
     export default {
         components: {
             GlUiCardLeft,
@@ -33,7 +33,7 @@
 
         },
         name: 'gl-ui-line',
-        mixins: [mPrompt],
+        mixins: [mPrompt,mMeta],
         data() {
             return {}
         }, methods: {},
@@ -44,26 +44,3 @@
         }
     }
 </script>
-
-<style>
-    /** .line-group-content span {
-         font-size: 28px;
-         width: 100%;
-         display:block;
-         color: hsla(42, 100%, 50%, 0.8);
-         font-weight: bolder;
-     }
-
-     .line-group-content {
-         font-size: 18px;
-         text-align:center;
-     }
-
-     .circle{
-         width:100%;
-         border-radius:50%;
-         overflow:hidden;
-         margin: 0 auto;
-
-     } **/
-</style>

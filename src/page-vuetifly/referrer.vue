@@ -2,10 +2,11 @@
 </template>
 
 <script>
-    export default {
-        mixins: [],
+  import mMeta from "../mixin/mMeta.js";
+  export default {
+        mixins: [mMeta],
         props: [''],
-        commponents: {},
+        components: {},
         name: 'gl-referrer',
         data() {
             return {}

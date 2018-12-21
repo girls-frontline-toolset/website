@@ -175,8 +175,9 @@
 
 <script>
     import GlUiTitle from "../../components-ui/title";
-
+    import mMeta from "../../mixin/mMeta.js";
     export default {
+        mixins: [mMeta],
         components: {GlUiTitle},
         name: 'gl-ui-privacy-policy',
         data() {

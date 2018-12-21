@@ -53,10 +53,11 @@
     import GlUiCardLeft from "../../components-ui/cardLeft";
     import mPrompt from "../../mixin/mPrompt.js";
     import GlUiChromeAbout from "../../components-ui/tool/chromeAbout";
+    import mMeta from "../../mixin/mMeta.js";
     export default {
         components: {GlUiChromeAbout, GlUiCardLeft, GlUiTitle},
         name: 'gl-ui-chrome',
-        mixins: [mPrompt],
+        mixins: [mPrompt,mMeta],
         data() {
             return {
                 show:true,

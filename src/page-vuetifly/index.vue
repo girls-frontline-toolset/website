@@ -16,12 +16,13 @@
     import GlUiFeaturedImage from "../components-ui/featuredImage";
     import GlUiFbNewPost from "../components-ui/facebook/fbNewPost";
     import GlUiEventDoc from "../components-ui/event-doc";
-
+    import mMeta from "../mixin/mMeta.js";
     export default {
         components: {
             GlUiEventDoc,
             GlUiFbNewPost, GlUiFeaturedImage, GlUiTitle, GlUiToolList, GlUiAnnouncement, GlUiJumbotron},
         props: [''],
+        mixins: [mMeta],
         commponents: {},
         name: 'gl-ui-index',
         data() {

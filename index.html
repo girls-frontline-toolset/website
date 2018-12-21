@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/WebSite">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
@@ -12,6 +12,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/common/img/touch-icon-ipad.png" />
     <link rel="apple-touch-icon" sizes="120x120" href="/common/img/touch-icon-iphone-retina.png" />
     <link rel="apple-touch-icon" sizes="152x152" href="/common/img/touch-icon-ipad-retina.png" />
+    <link rel="manifest" href="/manifest.json">
     <script async src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6"></script>
     <script async src="https://platform.twitter.com/widgets.js"></script>
     <script async src="/common/lib/md5.min.js"></script>
@@ -24,6 +25,19 @@
         gtag('config', 'UA-108349832-1');
     </script>
     <style>
+
+      @font-face {
+        font-family: 'Material Icons';
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+        src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(/fonts/MaterialIcons-Regular.woff2) format('woff2'),
+        url(/fonts/MaterialIcons-Regular.woff) format('woff'),
+        url(/fonts/MaterialIcons-Regular.ttf) format('truetype');
+      }
+
       .loader {
         font-size: 20px;
         position: relative;
@@ -96,6 +110,6 @@
       <div class="dot dot4"></div>
     </div>
   </div>
-    <script async src="/common/build.js?v=08102018"></script>
+    <script async src="/common/build.js?v=18122018"></script>
   </body>
 </html>

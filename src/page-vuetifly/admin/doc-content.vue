@@ -41,9 +41,10 @@
 
 <script>
     import GlUiTitle from "../../components-ui/title";
+    import mMeta from "../../mixin/mMeta.js";
     export default {
         components: {GlUiTitle},
-        mixins: [],
+        mixins: [mMeta],
         props: [''],
         commponents: {},
         name: 'gl-ui-doc',

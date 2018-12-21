@@ -15,6 +15,9 @@ import 'vuetify/dist/vuetify.min.css'
 import VueI18n from 'vue-i18n'
 Vue.use( VueI18n );
 
+import MetaInfo from 'vue-meta-info'
+Vue.use(MetaInfo);
+
 import cn from './lang/cn.json';
 import ja from './lang/ja.json';
 import tw from './lang/tw.json';
@@ -23,7 +26,7 @@ const messages = {
     cn,
     tw,
     ja
-}
+};
 
 const i18n = new VueI18n({
     locale:"tw",
@@ -75,17 +78,17 @@ routes.$i18n = i18n;
 //console.log(routes.i18n.$t());
 
 let v = new Vue({
-    el: '#app',
-    router: routes,
-    render: h => h(App),
-    i18n
+  el: '#app',
+  router: routes,
+  render: h => h(App),
+  i18n
 });
 
 
 
 v.t = function(text) {
     return this.$i18n.t(text);
-}
+};
 //console.log(v);
 Vue.config.fallbackLang = 'tw';
 

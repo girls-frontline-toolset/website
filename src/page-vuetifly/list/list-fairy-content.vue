@@ -59,9 +59,9 @@
     import GlUiIconButton from "../../components-ui/iconButton";
     import GlUiError from "../../components-ui/error";
     import GlUiTagList from "../../components-ui/tagList";
-
+    import mMeta from "../../mixin/mMeta.js";
     export default {
-        mixins: [mPrompt],
+        mixins: [mPrompt,mMeta],
         components: {
             GlUiTagList,
             GlUiError,

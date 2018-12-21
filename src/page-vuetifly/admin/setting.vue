@@ -150,9 +150,10 @@
 <script>
     import GlUiTitle from "../../components-ui/title";
     import MDataFormat from "../../mixin/mDataFormat";
+    import mMeta from "../../mixin/mMeta.js";
     export default {
         components: {GlUiTitle},
-        mixins: [MDataFormat],
+        mixins: [MDataFormat,mMeta],
         props: [''],
         commponents: {},
         name: 'gl-ui-setting',

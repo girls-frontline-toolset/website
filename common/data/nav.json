@@ -41,5 +41,10 @@
   },
   {
     "t": "title.h1.list.doc", "h": "/list/doc", "i":"insert_drive_file", "list": []
+  },
+  {
+    "t": "nav.magical-tool.s", "h": "", "i":"build", "list": [
+    {"t": "nav.magical-tool.so-appetizing", "h": "/magical-tool/so-appetizing"}
+  ]
   }
 ]

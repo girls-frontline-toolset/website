@@ -71,8 +71,9 @@
     import GlUiImageCard from "../../components-ui/image/imageCard";
     import GlUiImageAdd from "../../components-ui/image/imageAdd";
     import GlUiImageDelete from "../../components-ui/image/imageDelete";
+    import mMeta from "../../mixin/mMeta.js";
     export default {
-        mixins: [mPixivTwitter,mPrompt],
+        mixins: [mPixivTwitter,mPrompt,mMeta],
         components: {
             GlUiImageDelete,
             GlUiImageAdd,
@@ -307,6 +308,13 @@
             if (this.$route.params.name !== undefined && this.$route.params.name !== "all") {
                 this.selectList.push(this.$route.params.name);
                 this.isAll = false;
+
+                let name = this.$route.params.name;
+              this.$nextTick(function () {
+                this.metaTitle = name + " - " + this.$route.meta.pageTitle;
+                this.metaDescription = "少前前線圖片庫 " + name + " 精選圖片";
+              });
+
             }
 
             //console.log(this.$route.query);
@@ -342,6 +350,11 @@
                     this.isAll = true;
                     this.$ga.event('imageGallery','all');
                 }else{
+                  this.$nextTick(function () {
+                    this.metaTitle = name + " - " + this.$route.meta.pageTitle;
+                    this.metaDescription = "少前前線圖片庫 " + name + " 精選圖片";
+                  });
+
                     this.$set(this,'selectList',[name]);
                     this.isAll = false;
                     this.$ga.event('imageGallery',name);

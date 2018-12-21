@@ -98,8 +98,9 @@
     import mPrompt from "../../mixin/mPrompt.js";
     import GlUiCardLeft from "../../components-ui/cardLeft";
     import GlUiTitle from "../../components-ui/title";
+    import mMeta from "../../mixin/mMeta.js";
     export default {
-        mixins: [mPrompt],
+        mixins: [mPrompt,mMeta],
         components: {
             GlUiTitle,
             GlUiCardLeft

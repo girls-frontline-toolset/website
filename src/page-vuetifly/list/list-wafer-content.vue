@@ -41,9 +41,10 @@
     import GlUiCardLeft from "../../components-ui/cardLeft";
     import GlUiIconButton from "../../components-ui/iconButton";
     import GlUiError from "../../components-ui/error";
+    import mMeta from "../../mixin/mMeta.js";
     export default {
         components: {GlUiError, GlUiIconButton, GlUiCardLeft, GlUiTitle},
-        mixins: [mPrompt],
+        mixins: [mPrompt,mMeta],
         props: [''],
         commponents: {},
         name: 'gl-ui-list-wafer-content',
