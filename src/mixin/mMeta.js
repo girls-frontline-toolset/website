@@ -98,7 +98,7 @@ let mMeta = {
 
     for (let i = 0; i < breadcrumbList.length; i++) {
 
-        if(url === "/time/girl"){
+        if(url === "/time/girl" || url === "/time/fairy" || url.indexOf("/time/girl") === 3|| url.indexOf("/time/fairy") === 3){
           if(breadcrumbList.length - i >= 2){
             ldJson.itemListElement.push({
               "@type": "ListItem",
@@ -139,8 +139,9 @@ let mMeta = {
     ldScript.append(JSON.stringify(ldJson));
     document.getElementsByTagName('head')[0].appendChild(ldScript);
 
-
-    document.dispatchEvent(new Event('render-event'));
+    if(!this.isWaitMeta){
+      document.dispatchEvent(new Event('render-event'));
+    }
   }
 };
 

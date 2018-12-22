@@ -34,28 +34,6 @@
     import GlUiCookies from "./components-ui/cookies";
 
     export default {
-      // metaInfo () {
-      //   return {
-      //     title: "this.pageName",
-      //     meta: [{                 // set meta
-      //              name: 'keyWords',
-      //              content: 'My Example App'
-      //     }]
-      //   }
-      // },
-      // metaInfo() {
-      //   return {
-      //     title: 'My Example App', // set a title
-      //     meta: [{                 // set meta
-      //       name: 'keyWords',
-      //       content: 'My Example App'
-      //     }],
-      //     link: [{                 // set link
-      //       rel: 'asstes',
-      //       href: 'https://assets-cdn.github.com/'
-      //     }]
-      //   }
-      // },
         components: {
             GlUiCookies,
             GlUiDialog,

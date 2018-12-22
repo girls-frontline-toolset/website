@@ -12,18 +12,19 @@
                 清除緩存或使用無痕式視窗以得到最新版的網頁
             </v-flex>
             <v-flex xs4>
-                <img src="/common/img/IDW_LOVE.jpg" style="width: 100%;max-width: 300px">
+                <img alt="IDW 404" src="/common/img/IDW_LOVE.jpg" style="width: 100%;max-width: 300px">
             </v-flex>
         </v-layout>
     </v-container>
 </template>
 
 <script>
-
+    import mMeta from "../../mixin/mMeta.js";
     import GlUiTitle from "../../components-ui/title";
     export default {
         components: {GlUiTitle},
         name: 'gl-ui-page-not-found',
+        mixins: [mMeta],
         data() {
             return {
                 carousel: null

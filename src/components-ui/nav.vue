@@ -24,7 +24,7 @@
                             <span class="title">{{$t('title.s')}}</span>
                         </v-list-tile>
                         <v-list-group color="grey" :prepend-icon="items.i" v-for="items in list" :key="items.i+'-b'"
-                                      v-if="items.list.length != 0" no-action>
+                                      v-if="items.list.length !== 0" no-action>
 
                             <v-list-tile slot="activator" value="false">
                                 <v-list-tile-title class="black--text">{{$t(items.t)}}</v-list-tile-title>
@@ -115,7 +115,7 @@
                         {{$t(items.t)}}
                     </v-btn>
                 </v-toolbar-items>
-                <v-btn icon to="/more/line" @click="subList(list.length - 1 ,$event)">
+                <v-btn icon :to="langUrl() +'/more/line'" @click="subList(list.length - 1 ,$event)">
                     <v-icon>icon-line</v-icon>
                 </v-btn>
             </v-toolbar>
@@ -126,7 +126,7 @@
                     <div class="toRight" style="height: 100%;display:block"
                          :style="'padding-right:'+boxWidth + 'px'"></div>
                     <v-btn @click.native="close()" flat :to="btn.h" class="toRight"
-                           v-for="btn,key in list[active].list.slice().reverse()" :key="btn.t+'-s'">{{$t(btn.t)}}
+                           v-for="(btn,key) in list[active].list.slice().reverse()" :key="btn.t+'-s'">{{$t(btn.t)}}
                     </v-btn>
                 </v-flex>
             </v-layout>
@@ -179,7 +179,7 @@
                 this.$i18n.locale = data.i;
                 this.drawer = false;
                 this.$router.locale = data.i;
-            }
+            },
         },
         beforeCreate() {
             $.getJSON('/common/data/nav.json', json => this.list = json);

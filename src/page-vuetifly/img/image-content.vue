@@ -86,6 +86,7 @@
         data() {
             return {
                 data: [],
+                isWaitMeta:true,
                 isShow: false,
                 friendList: {},
                 type: {"HG": true, "SMG": true, "RF": true, "AR": true, "MG": true, "SG": true,"sangvis":false,"GK":false},
@@ -313,8 +314,14 @@
               this.$nextTick(function () {
                 this.metaTitle = name + " - " + this.$route.meta.pageTitle;
                 this.metaDescription = "少前前線圖片庫 " + name + " 精選圖片";
+                document.dispatchEvent(new Event('render-event'));
+                document.title = this.metaTitle;
               });
 
+            }else{
+              this.$nextTick(function () {
+                document.dispatchEvent(new Event('render-event'));
+              });
             }
 
             //console.log(this.$route.query);
@@ -349,10 +356,15 @@
                     this.$set(this,'selectList',[]);
                     this.isAll = true;
                     this.$ga.event('imageGallery','all');
+                    this.$nextTick(function () {
+                      document.dispatchEvent(new Event('render-event'));
+                    });
                 }else{
                   this.$nextTick(function () {
                     this.metaTitle = name + " - " + this.$route.meta.pageTitle;
                     this.metaDescription = "少前前線圖片庫 " + name + " 精選圖片";
+                    document.title = this.metaTitle;
+                    document.dispatchEvent(new Event('render-event'));
                   });
 
                     this.$set(this,'selectList',[name]);

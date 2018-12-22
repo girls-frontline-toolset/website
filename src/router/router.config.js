@@ -395,7 +395,7 @@ let childrenRoutes = [
       {path: 'add', component:imageAdd, props:{promptData:glCardLeftData.addImage}, meta: GetMetaData("image.add")},
       {path: ':name', component:image, props:{promptData:glCardLeftData.image},meta: GetMetaData("image.name")},
     ]},
-  {path:'/event',component:inquire,children:[
+  {path:'event',component:inquire,children:[
       {path: 'schedule', component:schedule,meta: GetMetaData("event.schedule")},
     ]},
   {path: 'magical-tool',component:inquire,children:[

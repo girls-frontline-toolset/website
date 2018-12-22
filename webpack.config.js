@@ -5,12 +5,19 @@ const extractLibStyle = new ExtractTextPlugin("lib/lib.css");
 const extractProjectStyle = new ExtractTextPlugin("css/styles.css");
 var PrerenderSpaPlugin = require('prerender-spa-plugin');
 const Renderer = PrerenderSpaPlugin.PuppeteerRenderer;
-var fs = require("fs");
+let fs = require("fs");
 
-var indexText = fs.readFileSync('index.html', 'utf8');
-
+let indexText = fs.readFileSync('index.html', 'utf8');
 let bodyString = indexText.match(new RegExp(/<body class="glScrollbar">[\w\W]*<\/body>/gi))[0];
 
+//let urlList = require('./url.json');
+//let urlList = require('./url-tw.json');
+//let urlList = require('./url-cn.json');
+//let urlList = require('./url-ja.json');
+//let urlList = require('./url-image.json');
+//let urlList = require('./url-image-tw.json');
+//let urlList = require('./url-image-cn.json');
+let urlList = require('./url-image-ja.json');
 module.exports = {
     entry: {
         'app': './src/main.js',
@@ -69,63 +76,36 @@ module.exports = {
     plugins: [
         extractLibStyle,
         extractProjectStyle,
-      //    new PrerenderSpaPlugin({
-      //      staticDir:path.join(__dirname, 'page'),
-      //      indexPath: path.join(__dirname, 'index.html'),
-      //      routes: [ "/","/time/girl",
-      //                "/time/fairy",
-      //                "/time/device",
-      //                "/list/girl",
-      //                "/list/fairy",
-      //                "/list/wafer",
-      //                "/list/support_unit",
-      //                "/list/doc",
-      //                "/list/doc/search",
-      //                "/list/doc/add",
-      //                "/tool/android",
-      //                "/tool/chrome",
-      //                "/bot/line",
-      //                "/bot/line/img",
-      //                "/more/line",
-      //                "/more/about",
-      //                "/more/link",
-      //                "/more/feedback",
-      //                "/more/privacy_policy",
-      //                "/fb/list",
-      //                "/log/update",
-      //                "/like/list",
-      //                "/make/girl",
-      //                "/make/device",
-      //                "/make/hGirl",
-      //                "/make/hDevice",
-      //                "/make/wafer",
-      //                "/image/add",
-      //                "/image/all",
-      //                "/event/schedule",
-      //                "/magical-tool/so-appetizing"],
-      //
-      //        server: {
-      //         proxy: {
-      //           '/**': {
-      //             target: 'http://192.168.10.235:8080',
-      //             secure: false
-      //           }
-      //         }
-      //       },
-      //
-      //       postProcess (renderedRoute) {
-      //         renderedRoute.html = renderedRoute.html.replace(/<body class="glScrollbar">[\w\W]*<\/body>/gi, bodyString);
-      //         renderedRoute.html = renderedRoute.html.replace(/<style type="text\/css" id="vuetify-theme-stylesheet">[\w\W]*<\/style>/gmi,"");
-      //         return renderedRoute
-      //       },
-      //
-      //       renderer: new Renderer({
-      //         headless: false,
-      //         skipThirdPartyRequests : true,
-      //         renderAfterDocumentEvent: 'render-event',
-      //       }),
-      //   }
-      // )
+         new PrerenderSpaPlugin({
+           staticDir:path.join(__dirname, 'page'),
+           indexPath: path.join(__dirname, 'index.html'),
+           routes: urlList,
+           // routes: ["/image/all/"],
+
+             server: {
+              proxy: {
+                '/**': {
+                  target: 'http://192.168.10.235:8080',
+                  secure: false
+                }
+              }
+            },
+
+            postProcess (renderedRoute) {
+              console.log(renderedRoute.route);
+              renderedRoute.html = renderedRoute.html.replace(/<body class="glScrollbar">[\w\W]*<\/body>/gi, bodyString);
+              renderedRoute.html = renderedRoute.html.replace(/<style type="text\/css" id="vuetify-theme-stylesheet">[\w\W]*<\/style>/gmi,"");
+              return renderedRoute
+            },
+
+            renderer: new Renderer({
+              headless: false,
+              maxConcurrentRoutes: 15,
+              skipThirdPartyRequests : true,
+              renderAfterDocumentEvent: 'render-event',
+            }),
+        }
+      )
     ],
     resolve: {
         alias: {

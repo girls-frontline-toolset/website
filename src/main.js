@@ -77,11 +77,23 @@ Vue.use(Vuetify, {
 routes.$i18n = i18n;
 //console.log(routes.i18n.$t());
 
+
+Vue.prototype.langUrl = function(){
+  let lang = this.$route.params.lang;
+  console.log(lang);
+  if(!lang){
+    return '';
+  }
+  console.log("/" + lang);
+  return "/" + lang;
+};
+
+
 let v = new Vue({
   el: '#app',
   router: routes,
   render: h => h(App),
-  i18n
+  i18n,
 });
 
 
