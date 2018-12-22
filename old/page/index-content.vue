@@ -4,7 +4,7 @@
             <span  class="glyphicon glyphicon-bell"></span>
             公告: {{announcement}}
         </div>
-        <router-link to="/tool/image/all"><div class="alert alert-info max-width-929" style="margin-bottom: 5px">
+        <router-link :to="langUrl() + '/tool/image/all'"><div class="alert alert-info max-width-929" style="margin-bottom: 5px">
             <span class="glyphicon glyphicon-picture"></span>
             <strong>圖片庫總數目:</strong>{{countNum}}<strong>最近加入:</strong>{{number}}
         </div></router-link>

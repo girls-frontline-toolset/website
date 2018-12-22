@@ -22,7 +22,7 @@
 
                 <v-flex xs12 pa-1>
                     <gl-ui-title h2 :text="$t('t.type') + ':'"></gl-ui-title>
-                    <gl-ui-icon-button v-for="item,key in type" :key="key" :opacity="item" type="type" :name="key" ></gl-ui-icon-button>
+                    <gl-ui-icon-button v-for="(item,key) in type" :key="key" :opacity="item" type="type" :name="key" ></gl-ui-icon-button>
                 </v-flex>
 
                 <v-flex xs12 pa-1>
@@ -39,6 +39,7 @@
             </v-layout>
         </v-container>
         <v-btn color="primary" @click="getList()">{{$t('t.search')}}</v-btn>
+        <v-btn color="primary" @click="getAll()">{{$t('t.all')}}</v-btn>
         <v-btn color="primary" v-if="humanoid === 0" outline @click="getGirlTime()">{{$t('time.girl-list')}}</v-btn>
         <div class="list_output">
             <a v-for="item in listDate" :key="item.no" :href="'https://zh.moegirl.org/zh-hant/少女前线:' + item.n " target='_blank'><img :src='item.s' :alt='item.n' :title='item.n'></a>
@@ -116,7 +117,17 @@
                 this.listTime = [[],[]];
                 this.listDate = [];
                 this.error = 0 ;
-            },getList() {
+            },
+            getAll(){
+              this.$ga.event('list', 'girl_list_all');
+              this.type =  {"HG":true, "SMG":true, "RF": true, "AR": true, "MG": true, "SG": true};
+              this.star =  {"star_2": true, "star_3": true, "star_4": true, "star_5": true};
+              this.update = {"update":true};
+              this.other = {"star_other":true};
+
+              this.getList();
+            },
+            getList() {
                 this.$ga.event('list', 'girl_list');
                 this.init();
 

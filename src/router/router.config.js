@@ -447,7 +447,7 @@ export default router;
 
 router.afterEach(route => {
 
-  console.log(route);
+  //console.log(route);
   let title = "少女前線 工具集";
     let title2 = route.meta.title['tw'];
     if(this.a.app.t !== undefined){

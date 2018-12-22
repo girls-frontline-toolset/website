@@ -80,7 +80,7 @@
             };
             window.__pixiv__ = [];
         }, created: function () {
-           console.log(this.$route.query);
+           //console.log(this.$route.query);
             if (this.$route.query.fn !== undefined) {
                 if (this.$route.query.fn === "nbar") {
                     this.isShow = false;

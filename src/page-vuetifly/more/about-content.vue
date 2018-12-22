@@ -25,13 +25,13 @@
                         <span style="font-size: 50px">少女前線很休閒!</span> <br>
                         <br>
                         歡迎加入本LINE群啊
-                        <router-link to="/more/line">>>點這<<</router-link>
+                        <router-link :to="langUrl() + '/more/line'">>>點這<<</router-link>
                         <br>
                         使用LINE 機械人很方便喔
-                        <router-link to="/more/line">>>點這<<</router-link>
+                        <router-link :to="langUrl() + '/more/line'">>>點這<<</router-link>
                         <br>
                         如有任何問題回報及建議
-                        <router-link to="/more/feedback">>>點這<<</router-link>
+                        <router-link :to="langUrl() + '/more/feedback'">>>點這<<</router-link>
                         <br>
                         本人的網頁: <a href="http://kurumichan.com/">http://kurumichan.com/</a><br>
                         Email: admin@ntw-20.com

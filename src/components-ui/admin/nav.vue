@@ -1,9 +1,9 @@
 <template>
     <v-tabs fixed-tabs slider-color="gl-main-color">
-        <v-tab v-for="n,key in  navList" :key="key" :to="n.href">
+        <v-tab v-for="(n,key) in  navList" :key="key" :to="langUrl() + n.href">
             {{n.text}}
         </v-tab>
-        <v-tab to="/logout">
+        <v-tab :to="langUrl() + '/logout'">
             <v-icon>power_settings_new</v-icon>
         </v-tab>
     </v-tabs>

@@ -4,12 +4,12 @@
             <v-toolbar fixed tabs color="gl-main-color" dark height="35" style="transform: translateY(0px)">
                 <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
                 <v-toolbar-title class="white--text">
-                    <router-link to="/" class="unLine white--text">{{$t('title.s')}}</router-link>
+                    <router-link :to="langUrl() + '/'" class="unLine white--text">{{$t('title.s')}}</router-link>
                 </v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-tabs value="" slot="extension" v-if="subSubNav" color="gl-main-color" grow>
                     <v-tabs-slider color="yellow"></v-tabs-slider>
-                    <v-tab :href="`#tab-${key}`" v-model="model" :to="item.to" v-for="item,key in items"
+                    <v-tab :href="`#tab-${key}`" v-model="model" :to="langUrl() + item.to" v-for="(item,key) in items"
                            class="white--text" :key="item.t">
                         {{$t(item.t)}}
                         <v-icon>{{item.i}}</v-icon>
@@ -30,19 +30,19 @@
                                 <v-list-tile-title class="black--text">{{$t(items.t)}}</v-list-tile-title>
                             </v-list-tile>
 
-                            <v-list-tile v-for="item in items.list" :key="item.t+'-b'" :to="item.h">
+                            <v-list-tile v-for="item in items.list" :key="item.t+'-b'" :to="langUrl() + item.h">
                                 <v-list-tile-content>
                                     <v-list-tile-title>{{$t(item.t)}}</v-list-tile-title>
                                 </v-list-tile-content>
                             </v-list-tile>
                         </v-list-group>
 
-                        <v-list-tile v-else :to="items.h">
+                        <v-list-tile v-else :to="langUrl() + items.h">
                             <v-list-tile-action>
                                 <v-icon>{{items.i}}</v-icon>
                             </v-list-tile-action>
                             <v-list-tile-content>
-                                <v-list-tile-title :to="items.h">{{$t(items.t)}}</v-list-tile-title>
+                                <v-list-tile-title :to="langUrl() + items.h">{{$t(items.t)}}</v-list-tile-title>
                             </v-list-tile-content>
                         </v-list-tile>
 
@@ -88,7 +88,7 @@
             <v-toolbar fixed color="gl-main-color" dark scroll-off-screen scroll-target="#scrolling-techniques"
                        height="53" style="transform: translateY(0px)">
                 <v-toolbar-title class="white--text">
-                    <router-link to="/" class="white--text unLine">{{$t('title.s')}}</router-link>
+                    <router-link :to="langUrl() + '/'" class="white--text unLine">{{$t('title.s')}}</router-link>
                 </v-toolbar-title>
                 <v-spacer></v-spacer>
 
@@ -108,7 +108,7 @@
                 </v-menu>
 
                 <v-toolbar-items class="hidden-sm-and-down">
-                    <v-btn flat v-for="items,key in list" :to="items.h" :key="items.i+'-s'"
+                    <v-btn flat v-for="(items,key) in list" :to="langUrl() + items.h" :key="items.i+'-s'"
                            @mousemove="subList(key,$event)" @click="subList(key,$event)"
                            v-if="items.t != 'nav.line-group'">
                         <v-icon left dark>{{items.i}}</v-icon>
@@ -125,7 +125,7 @@
                 <v-flex xs12 order-lg2 class="orange lighten-5" style="height: 45px;">
                     <div class="toRight" style="height: 100%;display:block"
                          :style="'padding-right:'+boxWidth + 'px'"></div>
-                    <v-btn @click.native="close()" flat :to="btn.h" class="toRight"
+                    <v-btn @click.native="close()" flat :to="langUrl() + btn.h" class="toRight"
                            v-for="(btn,key) in list[active].list.slice().reverse()" :key="btn.t+'-s'">{{$t(btn.t)}}
                     </v-btn>
                 </v-flex>

@@ -8,7 +8,7 @@
                 404 error<br>
                 此網頁不存在<br>
                 如有問題 請回報!! 感謝!!<br>
-                <router-link to="/more/feedback">>>點這<<</router-link><br>
+                <router-link :to="langUrl() + '/more/feedback'">>>點這<<</router-link><br>
                 清除緩存或使用無痕式視窗以得到最新版的網頁
             </v-flex>
             <v-flex xs4>

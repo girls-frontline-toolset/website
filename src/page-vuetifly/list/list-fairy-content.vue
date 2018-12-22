@@ -30,6 +30,7 @@
         </v-container>
 
         <v-btn color="primary" @click="getList()">{{$t('t.search')}}</v-btn>
+        <v-btn color="primary" @click="getAll()">{{$t('t.all')}}</v-btn>
         <v-btn color="primary" v-if="fairy === 0" outline @click="getFairyTime()">{{$t('time.fairy-list')}}</v-btn>
 
 
@@ -127,7 +128,12 @@
                 this.listTime = [leftSide, dataList];
                 this.error = (!leftSide.length) ? 1 :  0 ;
 
-            }, getList: function () {
+            }, getAll:function (){
+                this.$ga.event('list', 'fairy_list_all');
+                this.type =  {"fairyType_0": true, "fairyType_1": true};
+                this.getList();
+
+            },getList: function () {
                 this.$ga.event('list', 'fairy_list');
                 this.init();
 

@@ -12,7 +12,7 @@
       <v-btn flat icon dark color="primary" @click="downloadCanvas" >
          <v-icon>arrow_downward</v-icon>
       </v-btn>
-        <v-btn flat icon dark color="primary" to="/more/feedback">
+        <v-btn flat icon dark color="primary" :to="langUrl() + '/more/feedback'">
          <v-icon>bug_report</v-icon>
       </v-btn>
 
@@ -33,7 +33,7 @@
           <v-btn flat icon dark color="primary" @click="downloadCanvas">
             <v-icon>arrow_downward</v-icon>
           </v-btn>
-          <v-btn flat icon dark color="primary" to="/more/feedback">
+          <v-btn flat icon dark color="primary" :to="langUrl() + '/more/feedback'">
             <v-icon>bug_report</v-icon>
           </v-btn>
         </div>

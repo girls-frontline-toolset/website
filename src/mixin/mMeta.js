@@ -104,7 +104,7 @@ let mMeta = {
               "@type": "ListItem",
               "position": i + 1 ,
               "name": breadcrumbList[i] + ":" +breadcrumbList[i+1],
-              "item": this.$route.path
+              "item": this.$s.domain  + this.$route.path
             });
             break;
           }

@@ -10,6 +10,7 @@ let fs = require("fs");
 let indexText = fs.readFileSync('index.html', 'utf8');
 let bodyString = indexText.match(new RegExp(/<body class="glScrollbar">[\w\W]*<\/body>/gi))[0];
 
+let urlList = [];
 //let urlList = require('./url.json');
 //let urlList = require('./url-tw.json');
 //let urlList = require('./url-cn.json');
@@ -17,7 +18,7 @@ let bodyString = indexText.match(new RegExp(/<body class="glScrollbar">[\w\W]*<\
 //let urlList = require('./url-image.json');
 //let urlList = require('./url-image-tw.json');
 //let urlList = require('./url-image-cn.json');
-let urlList = require('./url-image-ja.json');
+//let urlList = require('./url-image-ja.json');
 module.exports = {
     entry: {
         'app': './src/main.js',
@@ -92,7 +93,7 @@ module.exports = {
             },
 
             postProcess (renderedRoute) {
-              console.log(renderedRoute.route);
+              //console.log(renderedRoute.route);
               renderedRoute.html = renderedRoute.html.replace(/<body class="glScrollbar">[\w\W]*<\/body>/gi, bodyString);
               renderedRoute.html = renderedRoute.html.replace(/<style type="text\/css" id="vuetify-theme-stylesheet">[\w\W]*<\/style>/gmi,"");
               return renderedRoute

@@ -2,8 +2,8 @@
     <div id="gl-footer" :style="displayNone()">
         <div class="footer_content">
         <ul>
-            <li><router-link to="/more/feedback">問題回報</router-link></li>
-            <li><router-link to="/more/about">Powered by 從車站用血換了個蘿莉</router-link></li>
+            <li><router-link :to="langUrl() + '/more/feedback'">問題回報</router-link></li>
+            <li><router-link :to="langUrl() + '/more/about'">Powered by 從車站用血換了個蘿莉</router-link></li>
             <li><img id="count_num" src="//counter1.fc2.com/counter_img.php?id=89451780" /></li>
         </ul>
         </div>

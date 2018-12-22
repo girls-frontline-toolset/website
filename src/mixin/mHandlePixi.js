@@ -470,7 +470,7 @@ let mHandlePixi = {
       let scale = this.scale;
       let outOfBoxX = 0 ,  outOfBoxY = 0 ;
 
-      console.log(this.scale);
+      //console.log(this.scale);
 
       if(canvas == null){
       scale = 1 ;

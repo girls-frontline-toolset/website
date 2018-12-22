@@ -2,10 +2,10 @@
     <div v-if="url" style="margin-top: 10px">
         <v-layout row wrap >
             <v-flex xs12 hidden-sm-and-down>
-                <router-link :to="url"><img :src="'/common/img/event_doc/' + img_l" style="width: 100%"/></router-link>
+                <router-link :to="langUrl() + url"><img :src="'/common/img/event_doc/' + img_l" style="width: 100%"/></router-link>
             </v-flex>
             <v-flex xs12 hidden-md-and-up >
-                <router-link :to="url"><img :src="'/common/img/event_doc/' + img_s" style="width: 100%"/></router-link>
+                <router-link :to="langUrl() + url"><img :src="'/common/img/event_doc/' + img_s" style="width: 100%"/></router-link>
             </v-flex>
         </v-layout>
     </div>

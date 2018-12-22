@@ -1,6 +1,6 @@
 <template>
     <div class="gl-nav-button-button" >
-        <router-link :to="href">
+        <router-link :to="langUrl() + 'href'">
             <div class="nav-button-button-gl">
                 <div class="icon"></div>
                 {{ message }}

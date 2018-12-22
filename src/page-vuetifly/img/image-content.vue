@@ -350,7 +350,7 @@
         },
         beforeRouteUpdate (to, from, next) {
             if (to.path.match(/^\/image\/[\w\W]*$/gm) !== null) {
-                var name = to.path.split("/")[2];
+                var name = to.path.split("/")[2].replace("%2F","/");
 
                 if(name === "all"){
                     this.$set(this,'selectList',[]);

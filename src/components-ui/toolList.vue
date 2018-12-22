@@ -1,8 +1,8 @@
 <template>
     <v-container>
         <v-layout align-center row wrap>
-            <v-flex text-xs-center sm6 md3 xs6 v-for="item,key in data" :key="'tool-'+key">
-                <router-link :to="item.to" v-on:click.native="click(key)" class="unLine"><v-avatar class="w-100"  size="70%" >
+            <v-flex text-xs-center sm6 md3 xs6 v-for="(item,key) in data" :key="'tool-'+key">
+                <router-link :to="langUrl() + item.to" v-on:click.native="click(key)" class="unLine"><v-avatar class="w-100"  size="70%" >
                     <img :src="item.s" :alt="item.a">
                 </v-avatar>
                 <span class="w-100 d-b primary--text"  style="font-size: 24px;" >{{$t(item.a)}}</span>

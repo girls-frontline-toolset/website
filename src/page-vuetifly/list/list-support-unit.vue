@@ -83,7 +83,7 @@
           listData.push(data);
         }
         this.dataList = listData;
-          console.log(this.dataList)
+          //console.log(this.dataList)
         },
       getAll() {
         this.type = {"FST": true};

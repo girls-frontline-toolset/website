@@ -59,7 +59,7 @@
             addGirl(){
                 let _this = this;
 
-                console.log(this.select.s);
+                //console.log(this.select.s);
                 let formData = new FormData();
 
                 if($('#girlFile')[0].files[0] !== undefined){
@@ -80,7 +80,7 @@
                         processData: false,
                         contentType: false,
                         success: function(data){
-                            console.log(data);
+                            //console.log(data);
                             data = JSON.parse(data);
                             if(data.status === "success"){
                                 _this.$s.glDialogText("人型編輯", "已成功!!");

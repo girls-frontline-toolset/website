@@ -1,5 +1,5 @@
 <template>
-    <router-link to="/tool/image_add" class="unLine">
+    <router-link :to="langUrl() + '/tool/image_add'" class="unLine">
         <div class="no-select img-div " style="font-size: 50%;">
             <v-icon size="90px" color="primary" style="width: 100%">add</v-icon>
             <span>{{$t('img.add-more')}}</span>

@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="twitter-tag no-select" v-if="item.tag.length != 0">
-            <v-chip label color="primary" class="c-p" small text-color="white"  v-for="t,key in item.tag" :key="key" @click="clickTag(t)">#{{t}}</v-chip>
+            <v-chip label color="primary" class="c-p" small text-color="white"  v-for="(t,key) in item.tag" :key="key" @click="clickTag(t)">#{{t}}</v-chip>
         </div>
     </div>
 </template>
@@ -47,7 +47,7 @@
                 });
             },
             clickTag(name){
-                this.$router.push({path:'/image/'+name});
+              this.$router.push({path: this.langUrl() + '/image/' + name.replace("/","%2F")});
             },
             completed(){
                 if(this.item.img){

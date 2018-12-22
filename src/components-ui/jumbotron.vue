@@ -9,11 +9,11 @@
                             <v-divider class="my-3"></v-divider>
                         </v-flex>
                         <v-flex xs12 hidden-xs-only pa-0 ma-0>
-                            <v-btn large color="primary" class="mx-1" v-for="item,key in data" :to="item.to" :key="key+'jumbotron'">
+                            <v-btn large color="primary" class="mx-1" v-for="(item,key) in data" :to="langUrl() + item.to" :key="key+'jumbotron'">
                                 {{$t(item.t)}}
                                 <v-icon right dark>{{item.i}}</v-icon>
                             </v-btn>
-                            <v-btn large color="primary"  v-if="showImg" class="mx-0" to="/image/all">{{$t('nav.image-library')}}
+                            <v-btn large color="primary"  v-if="showImg" class="mx-0" :to="langUrl() + '/image/all'">{{$t('nav.image-library')}}
                                 <v-badge color="red">
                                     <span slot="badge" v-if="number">{{number}}</span>
                                     <v-icon right dark>photo_library</v-icon>
@@ -80,7 +80,7 @@
 
         }, beforeMount() {
         }, mounted() {
-            console.log(this.$route.query.fn);
+            //console.log(this.$route.query.fn);
             if (this.$route.query.fn !== undefined){
                 if(this.$route.query.fn === "nbar"){
                     this.showImg = false

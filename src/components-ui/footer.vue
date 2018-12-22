@@ -13,7 +13,7 @@
                     <v-btn class="mx-3 white--text" icon><v-icon size="24px">icon-line</v-icon></v-btn></a>
 
             </v-flex>
-           <v-btn  v-for="link in links" v-if="link.to.search('http') === -1" :key="link.t" :to="link.to"  color="white" flat >
+           <v-btn  v-for="link in links" v-if="link.to.search('http') === -1" :key="link.t" :to="langUrl() + link.to"  color="white" flat >
                 {{$t(link.t)}}
             </v-btn>
 
@@ -23,7 +23,7 @@
                 </v-btn>
             </a>
             <v-flex xs12 py-2 text-xs-center white--text>
-                powered by <strong><router-link to="/more/about" class="unLine white--text">andy19974a22</router-link></strong>
+                powered by <strong><router-link :to="langUrl() + '/more/about'" class="unLine white--text">andy19974a22</router-link></strong>
             </v-flex>
             <v-flex xs12 py-2 text-xs-center white--text>
                 <img id="count_num" src="//counter1.fc2.com/counter_img.php?id=89451780">

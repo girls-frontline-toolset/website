@@ -75,16 +75,12 @@ Vue.use(Vuetify, {
 });
 
 routes.$i18n = i18n;
-//console.log(routes.i18n.$t());
-
 
 Vue.prototype.langUrl = function(){
   let lang = this.$route.params.lang;
-  console.log(lang);
   if(!lang){
     return '';
   }
-  console.log("/" + lang);
   return "/" + lang;
 };
 

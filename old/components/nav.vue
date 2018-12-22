@@ -2,7 +2,7 @@
     <nav class="navbar navbar-gl" id="nav">
         <div class="container-fluid container-fluid-gl">
             <div class="navbar-header">
-                <router-link to="/" @click.native="collapseHide()" class="navbar-brand navbar-brand-gl" style="color: #fff ;font-size: 25px;" >少女前線 工具集</router-link>
+                <router-link :to="langUrl() + '/'" @click.native="collapseHide()" class="navbar-brand navbar-brand-gl" style="color: #fff ;font-size: 25px;" >少女前線 工具集</router-link>
                 <button type="button" class="navbar-toggle navbar-toggle-gl" data-toggle="collapse"
                         data-target="#myNavbar">
                     <span class="icon-bar icon-bar-gl"></span>
@@ -16,7 +16,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ data.text }}<span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li v-for="li in data.list"> <router-link :to="li.href" @click.native="collapseHide()">{{li.text}}</router-link></li>
+                            <li v-for="li in data.list"> <router-link :to="langUrl() + li.href" @click.native="collapseHide()">{{li.text}}</router-link></li>
                         </ul>
                     </li>
                 </ul>

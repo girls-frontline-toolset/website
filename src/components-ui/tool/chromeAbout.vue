@@ -7,7 +7,7 @@
         <br>
         版本:V{{ver}}<br>
         問題回報及建議:
-        <router-link to="/more/feedback">>點這<</router-link>
+        <router-link :to="langUrl() + '/more/feedback'">>點這<</router-link>
         <br>
         作者:本站長<br>
         **禁止用作商業用途**

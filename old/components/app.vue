@@ -1,6 +1,6 @@
 <template>
     <div class="app-gl">
-        <router-link :to="item.link" v-on:click.native="click(index)" v-for="item,index in data"><div class="app-item col-sm-3" :style="isMO()">
+        <router-link :to="langUrl() + item.link" v-on:click.native="click(index)" v-for="item,index in data"><div class="app-item col-sm-3" :style="isMO()">
             <img class="circle" :src="item.icon" style="width: 50%">
             <span>{{item.text}}</span>
         </div></router-link>
