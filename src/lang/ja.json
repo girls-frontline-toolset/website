@@ -36,7 +36,8 @@
       "more":{
         "link":"関連URL",
         "about":"について"
-      }
+      },
+      "breadcrumbList": "パンくずリスト"
     }
   },
   "t":{

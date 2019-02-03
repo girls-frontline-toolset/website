@@ -7,7 +7,7 @@
       <v-flex xs12 md4>
           <v-layout row wrap pa1>
             <v-flex xs8 md12 pa-1>
-              <v-text-field type="text" maxlength="2" v-model="text" :label="$t('make.string')" tabindex="1" @keyup.enter.native="generate()"></v-text-field>
+              <v-text-field type="text" maxlength="3" v-model="text" :label="$t('make.string')" tabindex="1" @keyup.enter.native="generate()"></v-text-field>
             </v-flex>
             <v-flex xs4 md12 pa-1>
               <v-btn color="primary" block dark @click="generate()" tabindex="2">{{$t('make.generate')}}</v-btn>
@@ -41,8 +41,8 @@
         name: 'so-appetizing-content',
         data() {
             return {
-              text:"真香",
-              str:"真香",
+              text:"真香。",
+              str:"真香。",
               canvas:null,
               base64String:""
             }
@@ -52,7 +52,7 @@
             this.str = this.text;
           },
           imgLoaded() {
-            var img = this.$refs['img'];
+            let img = this.$refs['img'];
             let ctx = this.canvas.getContext('2d');
 
             img.crossOrigin = "anonymous";

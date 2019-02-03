@@ -5,12 +5,12 @@
             這是同好寫的line 機械人喔! <br>
             可以加入群組 <br>
             <br>
-            版本:V1.1<br>
+            版本:{{ver}}<br>
             問題回報及建議:
-            <router-link :to="langUrl() + '/more/feedback'">>點這<</router-link>
+            <router-link :to="langUrl() + '/more/feedback'">>點這<</router-link><br>
+            Github:<a href="https://github.com/girls-frontline-toolset/line-bot">>點這<</a>
             <br>
             作者:本站長<br>
-            **禁止用作商業用途**
         </div>
     </v-flex>
 </template>
@@ -24,8 +24,16 @@
         commponents: {},
         name: 'gl-ui-line-bot-about',
         data() {
-            return {}
-        }, methods: {}, beforeCreate() {
+            return {
+              ver:"V0.0"
+            }
+        }, methods: {},
+      beforeCreate() {
+        var _this = this;
+        $.getJSON('/api/line/text.json', function (json) {
+          _this.ver = json.ver;
+        });
+
         }, created() {
         }, beforeMount() {
         }, mounted() {

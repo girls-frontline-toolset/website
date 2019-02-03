@@ -36,7 +36,8 @@
       "more":{
         "link":"相关网址",
         "about":"关于"
-      }
+      },
+      "breadcrumbList": "面包屑导航表"
     }
   },
   "t":{

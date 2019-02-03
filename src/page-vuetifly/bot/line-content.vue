@@ -2,7 +2,7 @@
     <v-container grid-list-md pt-0>
         <v-layout row wrap>
             <v-flex md4 sm4 xs12>
-                <v-layout row wrap>
+                <v-layout row wrap v-if="showInfo">
                     <v-flex xs12>
                         <gl-ui-title text="好友資料" h1></gl-ui-title>
                     </v-flex>
@@ -28,7 +28,7 @@
             <v-flex md8 sm8 xs12>
                 <v-layout row wrap>
                     <v-flex xs12>
-                        <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
+                        <gl-ui-card-left v-if="showInfo" :content="prompt" icon="notifications"></gl-ui-card-left>
                         <div style="height: 48px">
                             <v-tabs  slot="extension" v-model="model" centered slider-color="gl-main-color">
                                 <v-tab v-for="(item , key) in items" :key="key" :href="`#tab-${key}`" :to="langUrl() + item.to">
@@ -67,7 +67,7 @@
                 showMenuButton: false,
                 model:"tab-0",
                 items:[{"t":"line.command","to":"/bot/line","i":"access_time"},{"t":"line.img","to":"/bot/line/img","i":"list"}],
-
+                showInfo: true
             }
         }, methods: {
             clicked: function () {
@@ -87,6 +87,12 @@
         }, created: function () {
             this.showMenuButton = (window.innerWidth < 768);
             this.show = !this.$s.less600();
+
+        if (this.$route.query.text !== undefined) {
+            this.showInfo = false;
+            this.$ga.event('line', 'Liff_help');
+        }
+
         }
     }
 </script>
@@ -125,7 +131,7 @@
         border: 1px solid hsla(42, 100%, 50%, 0.8);
         margin-left: 20px;
         margin-top: 5px;
-        background-color: #ffab4073;
+        background-color: hsla(34, 100%, 63%, 0.45098039215686275);
         padding: 5px;
         border-radius: .25rem;
 

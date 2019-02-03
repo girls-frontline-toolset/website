@@ -2,20 +2,20 @@
   "name": "少女前線 工具集",
   "short_name": "少女前線 工具集",
   "icons": [{
-    "src": "common/img/touch-icon-iphone-retina.png",
+    "src": "/common/img/touch-icon-iphone-retina.png",
     "sizes": "120x120",
     "type": "image/png"
   }, {
-    "src": "common/img/touch-icon-ipad-retina.png",
+    "src": "/common/img/touch-icon-ipad-retina.png",
     "sizes": "152x152",
     "type": "image/png"
   }, {
-    "src": "common/img/touch-icon-ipad.png",
+    "src": "/common/img/touch-icon-ipad.png",
     "sizes": "76x76",
     "type": "image/png"
   }],
-  "start_url": "/",
+  "start_url": "/?type=webapp",
   "display": "standalone",
-  "background_color": "#3E4EB8",
-  "theme_color": "#2F3BA2"
+  "background_color": "#ffc800",
+  "theme_color": "#ffc800"
 }

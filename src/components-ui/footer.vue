@@ -39,7 +39,7 @@
         name: 'gl-ui-footer',
         data() {
             return {
-                links: [{"t":'footer.feedback',"to":"/more/feedback"}, {"t":'footer.link',"to":"/more/link"}, {"t":'footer.uploadImg',"to":"https//drive.google.com/drive/folders/0B_CazUUBPCsWSDgxMU9NNEl6eDQ"}, {"t":'footer.add-image',"to":"/tool/image_add"}, {"t":'footer.about',"to":"/more/about"},{"t":'footer.update-log',"to":"/log/update"},{"t":"footer.privacy-policy","to":"/more/privacy_policy"}]
+                links: [{"t":'footer.feedback',"to":"/more/feedback"}, {"t":'footer.link',"to":"/more/link"}, {"t":'footer.uploadImg',"to":"https//drive.google.com/drive/folders/0B_CazUUBPCsWSDgxMU9NNEl6eDQ"}, {"t":'footer.add-image',"to":"/image/add"}, {"t":'footer.about',"to":"/more/about"},{"t":'footer.update-log',"to":"/log/update"},{"t":"footer.privacy-policy","to":"/more/privacy_policy"}]
             }
         }, methods: {}, beforeCreate: function () {
         }, created: function () {

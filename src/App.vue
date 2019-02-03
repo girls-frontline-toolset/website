@@ -89,6 +89,13 @@
                 }
             }
 
+        if (this.$route.query.type !== undefined) {
+          if (this.$route.query.type === "webapp") {
+            console.log("webapp");
+            this.$ga.event('webapp', 'use_in_app');
+          }
+        }
+
          }, mounted: function () {
         this.$s.appVue = this;
 

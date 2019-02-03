@@ -36,7 +36,8 @@
       "more":{
         "link":"相關網址",
         "about":"關於"
-      }
+      },
+      "breadcrumbList": "麵包屑導航表"
     }
   },
   "t":{

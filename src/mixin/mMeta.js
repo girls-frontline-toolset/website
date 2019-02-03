@@ -85,9 +85,48 @@ let mMeta = {
 
     }
   },
+  methods:{
+    /** @param {string} domain
+     * @param {'zh-Hant','zh-Hans','ja','x-default'}lang
+     * @param {string} href
+     * @param {'tw','cm','ja',''} urlLang
+     * @param {boolean} isDefault
+     * @default false
+     */
+      addLink: function (domain, lang, href, urlLang , isDefault = false){
+          if(isDefault){
+            lang = "x-default";
+          }else{
+            href = "/" + urlLang +  href;
+          }
+
+      const checkLink = document.querySelector("link[hreflang=\"" + lang + "\"]");
+      if(checkLink){
+        checkLink.remove();
+      }
+
+
+      let link = document.createElement("link");
+          link.setAttribute("rel","alternate");
+          link.setAttribute("hreflang",lang);
+          link.setAttribute("href",domain + href);
+
+      document.getElementsByTagName('head')[0].appendChild(link);
+
+      }
+
+  },
   mounted: function () {
     let ldScript = document.createElement("script");
     ldScript.setAttribute("type","application/ld+json");
+
+    const langList = {"tw":"zh-Hant","cn":"zh-Hans","ja":"ja"};
+
+    for (const key in langList) {
+      this.addLink(this.$s.domain,langList[key],this.$route.path.replace("/cn","").replace("/tw","").replace("/ja",""),key);
+    }
+
+    this.addLink(this.$s.domain,"x-default",this.$route.path.replace("/cn","").replace("/tw","").replace("/ja",""),"",true);
 
     let ldJson  =    {
       "@context": "http://schema.org",
@@ -128,8 +167,6 @@ let mMeta = {
         })
       }
     }
-
-    console.log(ldJson);
 
     let checkLdJson = document.querySelector("script[type=\"application/ld+json\"]");
     if(checkLdJson){

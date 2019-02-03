@@ -24,6 +24,17 @@
         gtag('js', new Date());
         gtag('config', 'UA-108349832-1');
     </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js').then(function (reg) {
+          // registration worked
+          console.log('Registration succeeded. Scope is ' + reg.scope);
+        }).catch(function (error) {
+          // registration failed
+          console.log('Registration failed with ' + error);
+        });
+      }
+    </script>
     <style>
 
       @font-face {
@@ -110,6 +121,6 @@
       <div class="dot dot4"></div>
     </div>
   </div>
-    <script async src="/common/build.js?v=22122018"></script>
+    <script async src="/common/build.js?v=22122018_1"></script>
   </body>
 </html>

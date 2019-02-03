@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import GlIndexContent from '../page-vuetifly/index.vue';
 import inquire from '../page-vuetifly/inquire-content.vue';
+import breadcrumbList from '../page-vuetifly/breadcrumbList-content.vue';
 //time
 import girl from '../page-vuetifly/time/girl-content.vue';
 import fairy from '../page-vuetifly/time/fairy-content.vue';
@@ -291,9 +292,12 @@ let metaData = {
   magical_tool:{
     so_appetizing:{
       title: {"cn":cn.nav["magical-tool"]["so-appetizing"],"tw":tw.nav["magical-tool"]["so-appetizing"],"ja":ja.nav["magical-tool"]["so-appetizing"]},
-      description:"",
-      image:{url:"",width:"",height:""}
+      description:"一個TMP真香生成器! 真香!!",
+      image:{url:"/api/line/ImgCool.php?str=真香",width:"960",height:"655"}
     }
+  },
+  breadcrumbList:{
+    title: {"cn":cn.title.h1.breadcrumbList,"tw":tw.title.h1.breadcrumbList,"ja":ja.title.h1.breadcrumbList},
   }
 };
 
@@ -339,11 +343,11 @@ let childrenRoutes = [
         ]},
       {path: 'fairy', component: fairy,props:{promptData:glCardLeftData.time_fairy},meta: GetMetaData("time.fairy"),children:[
           {path: ':HH/:MM',meta: GetMetaData("time.fairy")},
-          {path: '*', redirect: '/time/fairy'},
         ]},
       {path: 'device',  component: device,props:{promptData:glCardLeftData.time_device},meta:GetMetaData("time.device") ,children:[
           {path: ':MM',meta: GetMetaData("time.fairy")},
-        ]}]},
+        ]},
+      {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}]},
     {path: 'list', component: inquire,children:[
       {path: 'girl', component: list,props:{promptData:glCardLeftData.time_list},meta: GetMetaData("list.girl") },
       {path: 'fairy', component: listFairy ,props:{promptData:glCardLeftData.list_fairy},meta: GetMetaData("list.fairy")},
@@ -353,20 +357,20 @@ let childrenRoutes = [
           {path: '/',component:listIndex , meta: GetMetaData("list.doc")},
           {path: 'search',component:listSearch , meta: GetMetaData("list.doc")},
           {path: 'add',component:listAdd , meta: GetMetaData("list.doc")},
-        ],}
-    ]},
+        ],},
+      {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
+      ]},
   {path: 'tool', component: inquire,children:[
       {path: 'android', component:android, props:{promptData:glCardLeftData.cAndroid},meta: GetMetaData("tool.android")},
       {path: 'chrome', component:chrome, props:{promptData:glCardLeftData.cChrome},meta: GetMetaData("tool.chrome")},
-      {path: 'image/all',redirect: '/image/all'},
-      {path: 'image_add',redirect: '/image/add'},
-      {path: 'image',redirect: '/image/all'},
+      {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path: 'bot', component: inquire,children:[
       {path: 'line', component:lineBot, props:{promptData:glCardLeftData.line_bot},meta:  GetMetaData("bot.line") ,children:[
           {path: 'img',component:lineImg , meta:  GetMetaData("bot.img")},
           {path: '/',component:lineCommand ,meta:  GetMetaData("bot.line")},
         ]},
+      {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path:'more', component: inquire,children:[
       {path: 'line', component:line, props:{promptData:glCardLeftData.line},meta: GetMetaData("more.line")},
@@ -374,15 +378,19 @@ let childrenRoutes = [
       {path: 'link', component:link,props:{promptData:glCardLeftData.link},meta: GetMetaData("more.link")},
       {path: 'feedback', component:feedback, props:{promptData:glCardLeftData.feedback},meta: GetMetaData("more.feedback")},
       {path: 'privacy_policy', component:privacy_policy,meta: GetMetaData("more.privacy_policy")},
+      {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path:'fb',component: inquire,children:[
       {path: 'list', component: fbList,props:{promptData:glCardLeftData.fb_list},meta:GetMetaData("fb.list")},
+      {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path:'log',component:inquire,children:[
       {path: 'update', component: updateLog,meta: GetMetaData("log.update"),props:{promptData:glCardLeftData.log_update}},
+      {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path:'like',component:inquire,children:[
       {path: 'list', component: likeList,props:{promptData:glCardLeftData.like_list},meta: GetMetaData("like.list")},
+      {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path:'make',component:inquire,children:[
       {path: 'girl', component: makeGirl,props:{promptData:glCardLeftData.time_make},meta: GetMetaData("make.girl")},
@@ -390,16 +398,20 @@ let childrenRoutes = [
       {path: 'hGirl', component:hMake, props:{promptData:glCardLeftData.hMake},meta: GetMetaData("make.hGirl")},
       {path: 'hDevice', component:hMakeDevice, props:{promptData:glCardLeftData.hDevice_make},meta: GetMetaData("make.hDevice")},
       {path: 'wafer', component:makeWafer, props:{promptData:glCardLeftData.wafer_make},meta: GetMetaData("make.wafer")},
+      {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path:'image',component:inquire,children:[
       {path: 'add', component:imageAdd, props:{promptData:glCardLeftData.addImage}, meta: GetMetaData("image.add")},
       {path: ':name', component:image, props:{promptData:glCardLeftData.image},meta: GetMetaData("image.name")},
+      {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path:'event',component:inquire,children:[
       {path: 'schedule', component:schedule,meta: GetMetaData("event.schedule")},
+      {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path: 'magical-tool',component:inquire,children:[
       {path: 'so-appetizing', component:soAppetizing,meta: GetMetaData("magical_tool.so_appetizing")},
+      {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path: '/',component: GlIndexContent,meta: GetMetaData("/")}
 ];

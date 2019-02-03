@@ -23,7 +23,7 @@ const setting = {
     app:false,
     appVue:undefined,
     serverError:function () {
-        window.location = "https://www1.ntw-20.com" + window.location.pathname;
+      //  window.location = "https://www1.ntw-20.com" + window.location.pathname;
     }
 };
 
@@ -39,7 +39,7 @@ $.ajax({
         setting.announcement = data.announcement;
     },
     error: function (request, status, error) {
-        window.location = "https://www1.ntw-20.com" + window.location.pathname;
+        //window.location = "https://www1.ntw-20.com" + window.location.pathname;
     }
 });
 //test
