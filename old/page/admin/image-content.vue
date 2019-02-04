@@ -114,7 +114,10 @@
                 girlList: null,
                 npcList: [],
                 sangvislList: [],
-                isNone: true
+                isNone: true,
+                militaryList: [],
+                whiteForcesList: [],
+                eildList: [],
             }
         }, methods: {
             getImage:function(){
@@ -194,6 +197,9 @@
             this.$g.getAllGirlList('girlList', this);
             this.$g.getNpc('npcList', this);
             this.$g.getSangvisl('sangvislList', this);
+            this.$g.getMilitary('militaryList', this);
+            this.$g.getEild('eildList', this);
+            this.$g.getWhiteForces('whiteForcesList', this);
             this.getImage();
         }
     }

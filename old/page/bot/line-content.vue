@@ -107,8 +107,8 @@
         },
         beforeCreate: function () {
             var _this = this;
-             $.getJSON('/common/data/bot-line.json', function (json) {
-                    _this.description = json;
+             $.getJSON('/api/line/text.json', function (json) {
+                    _this.description = json.help;
                 });
 
 

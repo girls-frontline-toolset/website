@@ -15,6 +15,15 @@ var mSelectImg = {
                 } else if (type === "sangvis") {
                     this.$set(this.selectOption, index, [{"val": "common", "text": "常規"}, {"val": "armor", "text": "裝甲"}, {"val": "unusual", "text": "特殊"}, {"val": "boss", "text": "頭目"}]);
                     $("#" + index + '_star').val("");
+                } else if (type === "military") {
+                  this.$set(this.selectOption, index, [{"val": "common", "text": "常規"}, {"val": "armor", "text": "裝甲"}, {"val": "unusual", "text": "特殊"}, {"val": "boss", "text": "頭目"}]);
+                  $("#" + index + '_star').val("");
+                } else if (type === "eild") {
+                  this.$set(this.selectOption, index, [{"val": "common", "text": "常規"}, {"val": "armor", "text": "裝甲"}, {"val": "unusual", "text": "特殊"}, {"val": "boss", "text": "頭目"}]);
+                  $("#" + index + '_star').val("");
+                } else if (type === "whiteforces") {
+                  this.$set(this.selectOption, index, [{"val": "common", "text": "常規"}, {"val": "armor", "text": "裝甲"}, {"val": "unusual", "text": "特殊"}, {"val": "boss", "text": "頭目"}]);
+                  $("#" + index + '_star').val("");
                 } else if (type === "GK") {
                     this.$set(this.selectOption, index, [{"val": "npc", "text": "npc"}]);
                     $("#" + index + '_star').val("");
@@ -49,11 +58,23 @@ var mSelectImg = {
                 case "armor":
                 case "unusual":
                 case "boss":
-                    for (var ii = 0; ii < this.sangvislList.length; ii++) {
-                        if (this.sangvislList[ii].type === option2) {
-                            list.push({"name": this.sangvislList[ii].name, "no": this.sangvislList[ii].no});
-                        }
+
+                  var characterList = [];
+                  if (type === "sangvis") {
+                    characterList = this.sangvislList;
+                  } else if (type === "military") {
+                    characterList = this.militaryList;
+                  } else if (type === "eild") {
+                    characterList = this.eildList;
+                  } else if (type === "whiteforces") {
+                    characterList = this.whiteForcesList;
+                  }
+
+                  for (var ii = 0; ii < characterList.length; ii++) {
+                    if (characterList[ii].type === option2) {
+                      list.push({"name": characterList[ii].name, "no": characterList[ii].no});
                     }
+                  }
                     break;
 
             }

@@ -7,13 +7,13 @@
             </v-flex>
             <v-flex xs12 pa-1>
                     <gl-ui-title h2 :text="$t('t.type') + ':' "></gl-ui-title>
-                    <gl-ui-icon-button v-for="item,key in type" :key="key" :opacity="item" type="type" :name="key" ></gl-ui-icon-button>
+                    <gl-ui-icon-button v-for="(item,key) in type" :key="key" :opacity="item" type="type" :name="key" ></gl-ui-icon-button>
             </v-flex>
             <v-flex xs12 pa-1>
                     <gl-ui-title h2 :text="$t('t.star') + ':' "></gl-ui-title>
-                    <gl-ui-icon-button v-for="item,key in star" :key="key" :opacity="item" type="star" :name="key" ></gl-ui-icon-button>
+                    <gl-ui-icon-button v-for="(item,key) in star" :key="key" :opacity="item" type="star" :name="key" ></gl-ui-icon-button>
             </v-flex>
-            <v-flex class="input-sangvis" v-if="type.sangvis" xs12 pa-1>
+            <v-flex class="input-sangvis" v-if="type.sangvis||type.military || type.whiteForces || type.EILD" xs12 pa-1>
                 <gl-ui-title h2 text="鐵血人形:"></gl-ui-title>
                 <span class="get no-select" @click="click('sangvis',key)" :style="isClick('sangvis',key)"
                       v-for="(item, key, index) in sangvis" :alt="item.name">{{item.name}}</span>
@@ -30,7 +30,7 @@
             </v-flex>
             <v-flex xs12 sm6 md4 pa-1 ref="list-1">
                 <gl-ui-image-card :completedFunction="completed" :item="item" :ref="item.id"
-                                 v-for="item,index in data"
+                                 v-for="(item,index) in data"
                                   :key="index"
                                  v-if="show(index,0)"></gl-ui-image-card>
                 <gl-ui-image-add v-if="showBlock[0]"></gl-ui-image-add>
@@ -38,7 +38,7 @@
              </v-flex>
              <v-flex xs12 sm6 md4 pa-1 ref="list-2">
                  <gl-ui-image-card :completedFunction="completed" :item="item" :ref="item.id"
-                                   v-for="item,index in data"
+                                   v-for="(item,index) in data"
                                    :key="index"
                                    v-if="show(index,1)"></gl-ui-image-card>
                  <gl-ui-image-add v-if="showBlock[1]"></gl-ui-image-add>
@@ -46,7 +46,7 @@
              </v-flex>
              <v-flex xs12 sm6 md4 pa-1 hidden-sm-and-down ref="list-3">
                  <gl-ui-image-card :completedFunction="completed" :item="item" :ref="item.id"
-                                   v-for="item,index in data"
+                                   v-for="(item,index) in data"
                                    :key="index"
                                    v-if="show(index,2)"></gl-ui-image-card>
                  <gl-ui-image-add v-if="showBlock[2]"></gl-ui-image-add>
@@ -89,7 +89,7 @@
                 isWaitMeta:true,
                 isShow: false,
                 friendList: {},
-                type: {"HG": true, "SMG": true, "RF": true, "AR": true, "MG": true, "SG": true,"sangvis":false,"GK":false},
+                type: {"HG": true, "SMG": true, "RF": true, "AR": true, "MG": true, "SG": true,"sangvis":false,"military":false,"whiteForces":false,"EILD":false,"GK":false},
                 star: {"star_2": false, "star_3": false, "star_4": false, "star_5": false},
                 sangvis: [{"name": "常規", "s": false}, {"name": "裝甲", "s": false}, {"name": "特殊","s": false}, {"name": "頭目", "s": false}],
                 girlList: null,
@@ -104,6 +104,9 @@
                 npcList: [],
                 sangvislList: [],
                 limit: 0,
+                militaryList: [],
+                whiteForcesList: [],
+                eildList: [],
             }
         }, methods: {
             show(index,num){
@@ -268,6 +271,30 @@
                     }
                 }
 
+                if (this.type.military) {
+                 for (var zz = 0; zz < this.militaryList.length; zz++) {
+                    if (this.sangvis[map[this.militaryList[zz]['type']]].s) {
+                      list.push(this.militaryList[zz].name);
+                    }
+                 }
+                }
+
+              if (this.type.whiteForces) {
+                for (var zzz = 0; zzz < this.whiteForcesList.length; zzz++) {
+                  if (this.sangvis[map[this.whiteForcesList[zzz]['type']]].s) {
+                    list.push(this.whiteForcesList[zzz].name);
+                  }
+                }
+              }
+
+              if (this.type.EILD) {
+                for (var zzzz = 0; zzzz < this.eildList.length; zzzz++) {
+                  if (this.sangvis[map[this.eildList[zzzz]['type']]].s) {
+                    list.push(this.eildList[zzzz].name);
+                  }
+                }
+              }
+
                 if (this.type.GK) {
                     for (var s = 0; s < this.npcList.length; s++) {
                         list.push(this.npcList[s].name);
@@ -304,6 +331,9 @@
             this.$g.getAllGirlList('girlList', this);
             this.$g.getNpc('npcList', this);
             this.$g.getSangvisl('sangvislList', this);
+            this.$g.getMilitary('militaryList', this);
+            this.$g.getEild('eildList', this);
+            this.$g.getWhiteForces('whiteForcesList', this);
             var _this = this;
 
             if (this.$route.params.name !== undefined && this.$route.params.name !== "all") {

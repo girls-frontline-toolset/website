@@ -98,6 +98,18 @@ const global = {
     getSangvisl:function(name,vue,callback){
         ajax.getJson(this.sangvislList,vue,'/api/inquiry/sangvisl',name,callback);
     },
+    militaryList:{"data":""},
+    getMilitary:function(name,vue,callback){
+        ajax.getJson(this.militaryList,vue,'/api/inquiry/military',name,callback);
+    },
+    eildList:{"data":""},
+    getEild:function(name,vue,callback){
+       ajax.getJson(this.eildList,vue,'/api/inquiry/eild',name,callback);
+    },
+    whiteForcesList:{"data":""},
+    getWhiteForces:function(name,vue,callback){
+       ajax.getJson(this.whiteForcesList,vue,'/api/inquiry/whiteforces',name,callback);
+    },
     docList:{"data":""},
     getDocList:function(name,vue,callback){
         ajax.getJson(this.docList,vue,'/api/inquiry/doc/getDocList',name,callback);

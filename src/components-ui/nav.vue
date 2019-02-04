@@ -94,7 +94,7 @@
 
                 <v-menu offset-y>
                     <v-btn slot="activator" color="primary" dark>
-                        {{language.t}}
+                        {{$t(language.t)}}
                     </v-btn>
                     <v-list>
                         <v-list-tile
@@ -102,7 +102,7 @@
                                 :key="index"
                                 @click="lan(item)"
                         >
-                            <v-list-tile-title>{{item.t}}</v-list-tile-title>
+                            <v-list-tile-title>{{$t(item.t)}}</v-list-tile-title>
                         </v-list-tile>
                     </v-list>
                 </v-menu>
@@ -155,8 +155,8 @@
                 subSubNav: false,
                 model: "tab-1",
                 simpleMode: false,
-                language: {t: '繁體中文', i: 'tw'},
-                languages: [{t: '简体中文', i: 'cn'}, {t: '繁體中文', i: 'tw'}, {t: '日本語', i: 'ja'}]
+                language: {t: 'zh-tw', i: 'tw'},
+                languages: [{t: 'zh-cn', i: 'cn'}, {t: 'zh-tw', i: 'tw'}, {t: 'ja', i: 'ja'}]
             }
         }, methods: {
             onResize() {

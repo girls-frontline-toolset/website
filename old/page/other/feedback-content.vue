@@ -3,9 +3,9 @@
             <gl-card-left title="提示" :content="prompt"></gl-card-left>
             <gl-title message="問題回報,建議或移除作品"></gl-title>
             <form class="feedback" @submit.prevent="send($event)">
-                <span class='gl-label'>Email (選擇填寫):</span>
-                <input type="email" name="email">
-                <span class='gl-label' >內容:</span>
+                <label for="email" class='gl-label'>Email (選擇填寫):</label>
+                <input type="email" name="email" id="email">
+                <label for="feedback" class='gl-label' >內容:</label>
                 <textarea id="feedback" name="content" required  @keyup="addLine($event)" style="  height: 200px"></textarea>
                 <input type="submit" value="提交"  class='btn gl-btn-primary'>
                 <input type="reset" value="清除" class="btn gl-btn-default">

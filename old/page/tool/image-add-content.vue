@@ -130,8 +130,10 @@
                 sangvislList: [],
                 isShow: false,
                 less540: false,
-                valueIsClick:false
-
+                valueIsClick:false,
+                militaryList: [],
+                whiteForcesList: [],
+                eildList: [],
             }
         }, methods: {
             showValue:function(){
@@ -296,6 +298,9 @@
             this.$g.getAllGirlList('girlList', this);
             this.$g.getNpc('npcList', this);
             this.$g.getSangvisl('sangvislList', this);
+            this.$g.getMilitary('militaryList', this);
+            this.$g.getEild('eildList', this);
+            this.$g.getWhiteForces('whiteForcesList', this);
 
         },
 

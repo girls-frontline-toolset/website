@@ -16,6 +16,9 @@
                 <option value="MG">MG</option>
                 <option value="SG">SG</option>
                 <option value="sangvis">鐵血</option>
+                <option value="military">正規軍</option>
+                <option value="eild">感染者</option>
+                <option value="whiteforces">帕拉帝斯</option>
                 <option value="GK">其他</option>
             </select>
 

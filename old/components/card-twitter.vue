@@ -37,34 +37,34 @@
                     this.completedFunction();
                 }
             },
-            getDateFormat:function(date){
+            getDateFormat:function(baseDate){
 
-                var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-                var d = new Date(date);
-                var hr = d.getHours();
-                var min = d.getMinutes();
+                let d = new Date(baseDate);
+                let hr = d.getHours();
+                let min = d.getMinutes();
 
                 if (min < 10) {
                     min = "0" + min;
                 }
 
-                var ampm = "AM";
+                let ampm = "AM";
                 if( hr > 12 ) {
                     hr -= 12;
                     ampm = "PM";
                 }
-                var date = d.getDate();
-                var month = months[d.getMonth()];
-                var year = d.getFullYear();
+                let date = d.getDate();
+                let month = months[d.getMonth()];
+                let year = d.getFullYear();
                 return(hr + ":"+ min + " " +  ampm + " - " + month + " " + date + ", " + year);
             },click:function(){
                 if(this.item.img){
                     window.open("https://www.pixiv.net/member_illust.php?mode=medium&illust_id="+this.item.id);
                 }
-            },zoom:function(event){
-                var clientWidth = this.$refs.content.clientWidth;
-                var width = clientWidth / this.item.img_w ;
+            },zoom:function(){
+                let clientWidth = this.$refs.content.clientWidth;
+                let width = clientWidth / this.item.img_w ;
 
                 this.h = this.item.img_h * width;
                 //var clientHeight =  this.$refs.img.clientHeight
@@ -81,9 +81,6 @@
 
             }
         }, beforeCreate: function () {
-          //  console.log(this.item);
-           // console.log(this.completedFunction);
-            //console.log("created")
         },mounted:function(){
         },updated:function(){
         }
