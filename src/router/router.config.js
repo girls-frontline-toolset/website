@@ -57,6 +57,8 @@ import setting from '../page-vuetifly/admin/setting.vue';
 import docSetting from '../page-vuetifly/admin/doc-content.vue';
 import scheduleSetting from '../page-vuetifly/admin/schedule-content.vue'
 import girlSetting from '../page-vuetifly/admin/girl-setting-content.vue';
+import dailyTask from '../page-vuetifly/admin/daily-task.vue';
+import updateLogAdmin from '../page-vuetifly/admin/update-log.vue';
 
 //referrer
 import referrer from '../page-vuetifly/referrer.vue';
@@ -431,6 +433,8 @@ let routes = [
       {path: 'doc',component: docSetting,meta: GetMetaData("admin.doc")},
       {path: 'schedule' ,component: scheduleSetting,meta: GetMetaData("admin.schedule")},
       {path: 'girl' ,component: girlSetting,meta: GetMetaData("admin.girl")},
+      {path: 'dailyTask' ,component: dailyTask,meta: GetMetaData("admin.dailyTask")},
+      {path: 'updateLog' ,component: updateLogAdmin,meta: GetMetaData("admin.updateLog")},
       {path: '*', redirect: '/'},
     ]},
     {path: "/:lang",component:inquire,children:childrenRoutes},

@@ -16,14 +16,14 @@ let urlList = [];
 //   "/cn/time/", "/cn/list/","/cn/tool/","/cn/bot/","/cn/more/","/cn/fb/","/cn/log/","/cn/like/","/cn/make/","/cn/image/","/cn/event/", "/cn/magical-tool/",
 //   "/ja/time/", "/ja/list/","/ja/tool/","/ja/bot/","/ja/more/","/ja/fb/","/ja/log/","/ja/like/","/ja/make/","/ja/image/","/ja/event/", "/ja/magical-tool/",
 // ];
-//let urlList = require('./url.json');
-//let urlList = require('./url-tw.json');
-//let urlList = require('./url-cn.json');
-//let urlList = require('./url-ja.json');
-//let urlList = require('./url-image.json');
-//let urlList = require('./url-image-tw.json');
-//let urlList = require('./url-image-cn.json');
-//let urlList = require('./url-image-ja.json');
+//let urlList = require('./urlList/url.json');
+//let urlList = require('./urlList/url-tw.json');
+//let urlList = require('./urlList/url-cn.json');
+//let urlList = require('./urlList/url-ja.json');
+//let urlList = require('./urlList/url-image.json');
+//let urlList = require('./urlList/url-image-tw.json');
+//let urlList = require('./urlList/url-image-cn.json');
+//let urlList = require('./urlList/url-image-ja.json');
 module.exports = {
     entry: {
         'app': './src/main.js',

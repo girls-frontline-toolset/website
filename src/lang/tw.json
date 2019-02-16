@@ -215,7 +215,9 @@
     "about":"關於",
     "update-log":"更新日誌",
     "privacy-policy":"隱私政策"
+  },
+  "about": {
+    "webmaster": "站長",
+    "contributor": "貢獻者"
   }
-
-
 }

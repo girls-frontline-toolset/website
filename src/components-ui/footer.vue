@@ -23,7 +23,7 @@
                 </v-btn>
             </a>
             <v-flex xs12 py-2 text-xs-center white--text>
-                powered by <strong><router-link :to="langUrl() + '/more/about'" class="unLine white--text">andy19974a22</router-link></strong>
+                powered by <strong><router-link :to="langUrl() + '/more/about'" class="unLine white--text">girls-frontline-toolset</router-link></strong>
             </v-flex>
             <v-flex xs12 py-2 text-xs-center white--text>
                 <img id="count_num" src="//counter1.fc2.com/counter_img.php?id=89451780">

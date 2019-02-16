@@ -1,8 +1,14 @@
 <template>
-    <div>
+  <v-container grid-list-md pt-0 style="height: 100%">
+    <v-layout row wrap style="height: 100%">
+      <v-flex xs3>
         <gl-ui-admin-nav></gl-ui-admin-nav>
+      </v-flex>
+      <v-flex xs9>
         <router-view></router-view>
-    </div>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
