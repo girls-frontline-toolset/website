@@ -1,12 +1,12 @@
 <template>
     <v-container pa-0 v-resize="onResize">
         <v-layout align-center row wrap v-if="isShow">
-            <v-jumbotron height="295px" src="/common/img/material2.jpg" dark>
+            <v-img height="295px" max-width="100%"  src="/common/img/material2.jpg" dark>
                 <v-container fill-height>
                     <v-layout align-center row wrap>
                         <v-flex xs12>
-                            <h4 class="display-3">{{$t('jumbotron.msg')}}</h4>
-                            <v-divider class="my-3"></v-divider>
+                            <h4 class="display-3 white--text">{{$t('jumbotron.msg')}}</h4>
+                            <v-divider class="my-3" style="background-color: hsla(0,0%,100%,.12);"></v-divider>
                         </v-flex>
                         <v-flex xs12 hidden-xs-only pa-0 ma-0>
                             <v-btn large color="primary" class="mx-1" v-for="(item,key) in data" :to="langUrl() + item.to" :key="key+'jumbotron'">
@@ -22,22 +22,22 @@
                         </v-flex>
                     </v-layout>
                 </v-container>
-            </v-jumbotron>
+            </v-img>
         </v-layout>
         <v-layout align-center v-else row wrap>
             <v-layout align-center row wrap>
                 <v-flex hidden-xs-and-down text-xs-center xs12 style="position: absolute;width: 100%;">
-                    <h3  v-if="less600" class=" white--text" style="font-size: 2em;    font-weight: 400;">{{$t('jumbotron.msg')}}</h3>
-                    <h3  v-else class="white--text" style="font-size: 4em;    font-weight: 400;">{{$t('jumbotron.msg')}}</h3>
+                    <h3  v-if="less600" class=" white--text" style="font-size: 2em;font-weight: 400;">{{$t('jumbotron.msg')}}</h3>
+                    <h3  v-else class="white--text" style="font-size: 4em;font-weight: 400;">{{$t('jumbotron.msg')}}</h3>
 
                 </v-flex>
                 <v-flex xs12>
-                    <img src="/common/img/material2.jpg" class='w-100'>
+                    <img alt="material2" src="/common/img/material2.jpg" class='w-100'>
                 </v-flex>
             </v-layout>
             <v-flex xs12>
                 <v-expansion-panel>
-                    <v-expansion-panel-content  v-for="item,key in data" :key="key" hide-actions>
+                    <v-expansion-panel-content  v-for="(item,key) in data" :key="key" hide-actions>
                         <div slot="header" @click="click(data[key].to)">{{$t(item.t)}} <v-icon style="float: right;">{{item.i}}</v-icon></div>
                     </v-expansion-panel-content>
                     <v-expansion-panel-content hide-actions v-if="showImg">

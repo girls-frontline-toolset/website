@@ -225,7 +225,7 @@
                         }
 
                         if (_this.$route.query.fn === "tag") {
-                           if(_this.$s.less960() && !this.$s.app){
+                           if(_this.$s.less960() && !_this.$s.app){
                               _this.$nav.nav.items = JSON.parse(JSON.stringify(_this.items));
                               _this.$nav.nav.subSubNav = true;
                            }
