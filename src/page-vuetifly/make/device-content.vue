@@ -1,5 +1,5 @@
 <template>
-    <v-container grid-list-md pt-0>
+    <v-container grid-list-md pt-0 pa-0 mt-1>
         <v-layout row wrap>
             <v-flex md8 sm8 xs12>
                 <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>

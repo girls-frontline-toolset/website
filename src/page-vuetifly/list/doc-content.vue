@@ -3,7 +3,7 @@
         <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
         <gl-ui-title :text="$t('title.h1.list.doc')" h1 ></gl-ui-title>
 
-        <v-container grid-list-md>
+        <v-container grid-list-md pa-0>
             <v-layout row wrap>
                 <v-flex xs12>
                     <v-card >

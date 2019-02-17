@@ -6,9 +6,10 @@
                         <gl-ui-title :text="$t('title.h1.more.link')" h1></gl-ui-title>
                     </v-flex>
                    <v-flex sm4 xs12 v-for="item in listData" :key="item.src" class="c-p">
-                       <a :href="item.src" target="_blank" style="text-decoration: unset"><v-card>
-                            <v-card-media :src="'/common/img/link/' + item.bgImg " height="150px">
-                            </v-card-media>
+                       <a :href="item.src" target="_blank" style="text-decoration: unset">
+                         <v-card>
+                            <v-img :src="'/common/img/link/' + item.bgImg " height="150px">
+                            </v-img>
                             <v-card-title primary-title>
                                 <div>
                                     <h3 class="headline mb-0">{{item.name}}</h3>

@@ -1,6 +1,7 @@
 let path = require('path');
 let webpack = require('webpack');
 let ExtractTextPlugin = require("extract-text-webpack-plugin");
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const extractLibStyle = new ExtractTextPlugin("lib/lib.css");
 const extractProjectStyle = new ExtractTextPlugin("css/styles.css");
 let PrerenderSpaPlugin = require('prerender-spa-plugin');
@@ -80,6 +81,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new VueLoaderPlugin(),
         extractLibStyle,
         extractProjectStyle,
     //      new PrerenderSpaPlugin({

@@ -1,5 +1,5 @@
 <template>
-    <v-container grid-list-md pt-0>
+    <v-container grid-list-md pt-0 >
         <v-layout row wrap>
             <v-flex xs12>
                 <gl-ui-title text="添加文章" h2></gl-ui-title>
@@ -17,9 +17,9 @@
                             required
                             :rules="[() => !!data.title|| $t('register.must') ]"
                     ></v-text-field>
-                    <v-text-field  multi-line label="內容:"
+                    <v-textarea label="內容:"
                                    :rules="[() => !!data.content || $t('register.must') ]"
-                                   v-model="data.content" required></v-text-field>
+                                   v-model="data.content" required></v-textarea>
                     <v-text-field
                             name="url"
                             v-model="data.url"

@@ -4,7 +4,7 @@
         <gl-ui-title :text="$t('title.h1.time.device')" h1 icon="icon-equipment"></gl-ui-title>
         <gl-ui-hot-time :list="hotTime" :clickF="badge"></gl-ui-hot-time>
 
-        <v-container grid-list-md>
+        <v-container grid-list-md pa-0>
                 <v-layout row wrap pa1>
                     <v-flex xs8 pa-1>
                         <v-text-field mask="##" type="number" v-model="mm" :label="$t('t.minute')" tabindex="1"
@@ -58,7 +58,7 @@
                 error: 0,
                 content: null,
                 mm: null,
-                hotTime: null,
+                hotTime: [],
                 data: [],
                 valid:false
             }

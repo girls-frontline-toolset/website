@@ -15,18 +15,14 @@
         name: 'gl-ui-hot-time',
         data() {
             return {}
-        }, methods: {}, beforeCreate() {
+        }, methods: {},
+      beforeCreate() {
         }, created() {
         }, beforeMount() {
         }, mounted() {
         }, beforeUpdate() {
         }, updated() {
         }, watch: {
-
-            list(data) {
-               // console.log(list);
-
-            }
         }
     }
 </script>

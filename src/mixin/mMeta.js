@@ -173,7 +173,7 @@ let mMeta = {
       checkLdJson.remove();
     }
 
-    ldScript.append(JSON.stringify(ldJson));
+    ldScript.innerText = JSON.stringify(ldJson);
     document.getElementsByTagName('head')[0].appendChild(ldScript);
 
     if(!this.isWaitMeta){

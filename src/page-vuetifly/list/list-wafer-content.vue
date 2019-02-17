@@ -4,15 +4,15 @@
         <gl-ui-title :text="$t('title.h1.list.wafer')" h1 icon="icon-equipment"></gl-ui-title>
 
 
-        <v-container grid-list-md>
+        <v-container grid-list-md pa-0 mt-1>
             <v-layout row wrap>
                 <v-flex xs12 pa-1>
                     <gl-ui-title h2 :text="$t('t.color') + ':'"></gl-ui-title>
-                    <gl-ui-icon-button v-for="item,key in color" :key="key" :opacity="item" type="color" :name="key" ></gl-ui-icon-button>
+                    <gl-ui-icon-button v-for="(item,key) in color" :key="key" :opacity="item" type="color" :name="key" ></gl-ui-icon-button>
                 </v-flex>
                 <v-flex xs12 pa-1>
                     <gl-ui-title h2 :text="$t('t.cells') + ':'"></gl-ui-title>
-                    <gl-ui-icon-button v-for="item,key in cells" :key="key" :opacity="item" type="cells" :name="key" ></gl-ui-icon-button>
+                    <gl-ui-icon-button v-for="(item,key) in cells" :key="key" :opacity="item" type="cells" :name="key" ></gl-ui-icon-button>
                 </v-flex>
 
                 <v-flex xs12 pa-1 v-if="cells['cells_5']">
@@ -131,6 +131,7 @@
                 }
             }
         }, beforeCreate() {
+          var a = 0;
         }, created() {
             this.$g.getCellList('cellList', this);
         }, beforeMount() {

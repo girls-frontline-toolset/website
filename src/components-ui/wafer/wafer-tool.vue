@@ -14,17 +14,17 @@
       </v-tab>
 
       <v-tabs-items>
-        <v-tab-item id="tab-0" key="0" :style="'height:' + height + ';overflow: auto'">
+        <v-tab-item value="tab-0" key="0" :style="'height:' + height + ';overflow: auto'">
           <v-card flat>
             <gl-ui-wafer-list :cell-list="cellList" :create-wafer="createWafer" :color="selectColor"></gl-ui-wafer-list>
           </v-card>
         </v-tab-item>
-        <v-tab-item id="tab-1" key="1" :style="'height:' + height + ';overflow: auto'">
+        <v-tab-item value="tab-1" key="1" :style="'height:' + height + ';overflow: auto'">
           <v-card flat>
             <gl-ui-support-unit-list :support-unit-list="supportUnitList" click-type="0" :change-data="changeGird"></gl-ui-support-unit-list>
           </v-card>
         </v-tab-item>
-        <v-tab-item id="tab-2" key="2" :style="'height:' + height + ';overflow: auto'">
+        <v-tab-item value="tab-2" key="2" :style="'height:' + height + ';overflow: auto'">
           <v-card flat>
             <gl-ui-support-unit-list :support-unit-list="supportUnitList"  click-type="1" :best-arrange="bestArrange" ></gl-ui-support-unit-list>
           </v-card>

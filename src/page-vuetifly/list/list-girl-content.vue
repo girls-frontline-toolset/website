@@ -4,7 +4,7 @@
         <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
         <gl-ui-title :text="$t('title.h1.list.girl')" h1 icon="icon-equipment"></gl-ui-title>
 
-        <v-container grid-list-md>
+        <v-container grid-list-md pa-0 mt-1>
             <v-layout row wrap >
                 <v-flex xs6>
                     <v-select :label="$t('time.filter')" item-text="t" item-value="i" :items="humanoidItems" v-model="humanoid"

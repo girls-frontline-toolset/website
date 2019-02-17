@@ -1,5 +1,5 @@
 <template>
-    <v-container grid-list-md pt-0>
+    <v-container grid-list-md pa-0 mt-1>
         <v-layout row wrap>
             <v-flex xs12>
                 <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
@@ -7,9 +7,9 @@
                 <v-form ref="form" v-model="valid">
                     <v-text-field v-model="data.email" type="email"
                                   label="E-mail  (選擇填寫)" name="email"></v-text-field>
-                    <v-text-field  multi-line label="內容:"
+                    <v-textarea label="內容:"
                                   :rules="[() => !!data.content || '必須' ]"
-                                  v-model="data.content" required></v-text-field>
+                                  v-model="data.content" required></v-textarea>
                     <v-btn color="primary" @click="send()" :disabled="!valid"> 登記</v-btn>
                     <v-btn color="primary" outline @click="$refs.form.reset()">清除</v-btn>
                 </v-form>

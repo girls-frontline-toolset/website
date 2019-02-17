@@ -5,7 +5,7 @@ describe('Test get Girl time API', () => {
   let host = "" ;
 
   beforeEach(() => {
-      host  = config.getHost();
+      host  = common.getHost();
   });
 
   let time  = [

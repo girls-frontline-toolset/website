@@ -1,5 +1,6 @@
 import { mount , createLocalVue   } from '@vue/test-utils'
 import MyComponent from '../../../../src/page-vuetifly/list/list-wafer-content.vue'
+import Vue from "vue";
 import Vuetify from 'vuetify';
 import { snapshots , mountSetting} from '../../../common/ini.js';
 
@@ -9,7 +10,7 @@ describe('Test wafer list', () => {
 
   beforeAll(() => {
     const localVue = createLocalVue();
-    localVue.use(Vuetify);
+    Vue.use(Vuetify);
     mountSetting.localVue = localVue;
 
     wrapper = mount(MyComponent,mountSetting);

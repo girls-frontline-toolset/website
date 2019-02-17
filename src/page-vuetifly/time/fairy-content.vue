@@ -5,7 +5,7 @@
         <gl-ui-title :text="$t('title.h1.time.fairy')" h1 icon="icon-equipment"></gl-ui-title>
         <gl-ui-hot-time :list="hotTime" :clickF="badge"></gl-ui-hot-time>
 
-        <v-container grid-list-md>
+        <v-container grid-list-md  pa-0>
             <form>
                 <v-layout row wrap pa1>
                     <v-flex xs4 pa-1>
@@ -54,7 +54,7 @@
                 content: null,
                 hh: null,
                 mm: null,
-                hotTime: null,
+                hotTime: [],
                 model: "tab-0",
                 error: 0,
                 data:[],
