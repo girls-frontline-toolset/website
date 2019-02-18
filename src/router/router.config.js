@@ -29,6 +29,7 @@ import about from '../page-vuetifly/more/about-content.vue';
 import link from '../page-vuetifly/more/link-content.vue';
 import feedback from '../page-vuetifly/more/feedback-content.vue';
 import privacy_policy from '../page-vuetifly/more/privacy-policy-content.vue';
+import sitemap from '../page-vuetifly/more/sitemap-content.vue';
 
 //fb
 import fbList from '../page-vuetifly/fb/list-content.vue';
@@ -157,6 +158,12 @@ let metaData = {
     },
     doc:{
       title: {"cn":cn.title.h1.list.doc,"tw":tw.title.h1.list.doc,"ja":ja.title.h1.list.doc},
+      search:{
+        title: {"cn":cn.doc.search,"tw":tw.doc.search,"ja":ja.doc.search},
+      },
+      add:{
+        title: {"cn":cn.doc.add,"tw":tw.doc.add,"ja":ja.doc.add},
+      }
     }
   },
   tool:{
@@ -285,10 +292,10 @@ let metaData = {
     referrer:{
       title: {"cn":"url","tw":'url',"ja":"url"}
     },
-    event:{
-      schedule:{
-        title: {"cn":"活动时间表(繁中版)","tw":'活動時間表(繁中版)',"ja":"活動スケジュール(台湾版)"}
-      }
+  },
+  event:{
+    schedule:{
+      title: {"cn":"活动时间表(繁中版)","tw":'活動時間表(繁中版)',"ja":"活動スケジュール(台湾版)"}
     }
   },
   magical_tool:{
@@ -357,8 +364,8 @@ let childrenRoutes = [
       {path: 'support_unit', component: listSupportUnit ,props:{promptData:glCardLeftData.list_support_unit},meta: GetMetaData("list.support_unit")},
       {path: 'doc' ,  component: listDoc ,props:{promptData:glCardLeftData.doc},meta: GetMetaData("list.doc"),children:[
           {path: '/',component:listIndex , meta: GetMetaData("list.doc")},
-          {path: 'search',component:listSearch , meta: GetMetaData("list.doc")},
-          {path: 'add',component:listAdd , meta: GetMetaData("list.doc")},
+          {path: 'search',component:listSearch , meta: GetMetaData("list.doc.search")},
+          {path: 'add',component:listAdd , meta: GetMetaData("list.doc.add")},
         ],},
       {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
       ]},
@@ -369,7 +376,7 @@ let childrenRoutes = [
     ]},
   {path: 'bot', component: inquire,children:[
       {path: 'line', component:lineBot, props:{promptData:glCardLeftData.line_bot},meta:  GetMetaData("bot.line") ,children:[
-          {path: 'img',component:lineImg , meta:  GetMetaData("bot.img")},
+          {path: 'img',component:lineImg , meta:  GetMetaData("bot.line.img")},
           {path: '/',component:lineCommand ,meta:  GetMetaData("bot.line")},
         ]},
       {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
@@ -380,6 +387,7 @@ let childrenRoutes = [
       {path: 'link', component:link,props:{promptData:glCardLeftData.link},meta: GetMetaData("more.link")},
       {path: 'feedback', component:feedback, props:{promptData:glCardLeftData.feedback},meta: GetMetaData("more.feedback")},
       {path: 'privacy_policy', component:privacy_policy,meta: GetMetaData("more.privacy_policy")},
+      {path: 'sitemap', component:sitemap,meta: GetMetaData("more.privacy_policy")},
       {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path:'fb',component: inquire,children:[

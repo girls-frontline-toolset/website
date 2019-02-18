@@ -35,7 +35,8 @@
       },
       "more":{
         "link":"関連URL",
-        "about":"について"
+        "about":"について",
+        "sitemap": "Webマップ"
       },
       "breadcrumbList": "パンくずリスト"
     }
@@ -71,6 +72,10 @@
     "must":"必要",
     "register":"登録",
     "clear":"削除します"
+  },
+  "doc": {
+    "search": "實用文庫 - 検索する",
+    "add": "實用文庫 - 新しい"
   },
   "make":{
     "msg1":"ただ游用途 ゲームとは必ずしも同じ",

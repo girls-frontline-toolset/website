@@ -35,7 +35,8 @@
       },
       "more":{
         "link":"相关网址",
-        "about":"关于"
+        "about":"关于",
+        "sitemap": "网页地图"
       },
       "breadcrumbList": "面包屑导航表"
     }
@@ -71,6 +72,10 @@
     "must":"必须",
     "register":"登记",
     "clear":"清除"
+  },
+  "doc": {
+    "search": "实用文库 - 搜寻",
+    "add": "实用文库 - 新增"
   },
   "make":{
     "msg1":"只是玩乐用途 与游戏未必相同",
