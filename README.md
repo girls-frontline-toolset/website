@@ -12,7 +12,6 @@ https://www.ntw-20.com
 
 ## 3. TODO
 - [ ] Unit Test
-- [ ] Sitemaps page
 
 ## 4. Language
 * 正體中文 (zh-tw)
