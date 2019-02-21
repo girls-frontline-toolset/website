@@ -53,7 +53,8 @@
                     ></v-text-field>
                     <v-date-picker v-model="date[1]" no-title @input="menu[1] = false"></v-date-picker>
                 </v-menu>
-                <input type="file" id="file">
+                <input ref="file" type="file" id="file" @change="imgChange()"><br>
+                <img ref="previewImg" src="/common/img/bg.jpg" alt="Preview Image" style="width: 100%; max-width: 600px;" />
                 <v-text-field
                         v-model="data.text"
                         type="text"
@@ -97,13 +98,13 @@
             }
         }, methods: {
             add(){
-                if($('#file')[0].files[0] == undefined){
+                if(this.$refs.file.files[0] === undefined){
                     this.$s.glDialogText("添加文章", "請選擇文件!!", 1);
                     return;
                 }
 
-                var formData = new FormData();
-                formData.append('file', $('#file')[0].files[0]);
+                let formData = new FormData();
+                formData.append('file', this.$refs.file.files[0]);
                 formData.append('start',this.data.start);
                 formData.append('end',this.data.end);
                 formData.append('src',this.data.src);
@@ -114,7 +115,7 @@
                         url:"/api/inquiry/schedule/addSchedule",
                         type:"POST",
                         data: formData,
-                       cache: false,
+                        cache: false,
                         processData: false,
                         contentType: false,
                         success: function(data){
@@ -131,6 +132,16 @@
             },
             clear(){
                 this.data = {start:'0-0-1997',end:'0-0-1997',src:"",text:""};
+            },
+            imgChange() {
+              let _this = this ;
+              let reader = new FileReader();
+
+              reader.onload = function (e) {
+                _this.$refs.previewImg.setAttribute("src",e.target.result);
+              };
+
+              reader.readAsDataURL(_this.$refs.file.files[0]);
             }
         }, beforeCreate() {
         }, created() {
