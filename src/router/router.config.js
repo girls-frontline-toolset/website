@@ -60,6 +60,7 @@ import scheduleSetting from '../page-vuetifly/admin/schedule-content.vue'
 import girlSetting from '../page-vuetifly/admin/girl-setting-content.vue';
 import dailyTask from '../page-vuetifly/admin/daily-task.vue';
 import updateLogAdmin from '../page-vuetifly/admin/update-log.vue';
+import dataBoard from '../page-vuetifly/admin/data-board-content.vue';
 
 //referrer
 import referrer from '../page-vuetifly/referrer.vue';
@@ -316,8 +317,9 @@ function GetMetaData(strPath){
    if( data.length > 0 ){
      let text = metaData;
      for (const key in data) {
-
-       text = text[data[key]];
+       if(data.hasOwnProperty(key)) {
+         text = text[data[key]];
+       }
 
        if (!text){
          return metaData.default;
@@ -435,6 +437,7 @@ let routes = [
     {path: '/logout', component: logout,meta: GetMetaData("logout")},
     {path: '/referrer', component: referrer ,meta: GetMetaData("referrer")},
     {path:'/admin',component:adminIndex,meta: GetMetaData("admin.name"),children:[
+      {path: '/', component: dataBoard,meta: GetMetaData("admin.image")},
       {path: 'image', component: adminImage,meta: GetMetaData("admin.image")},
       {path: 'errorImg',component: errorImg,meta: GetMetaData("admin.errorImg")},
       {path: 'setting',component: setting,meta: GetMetaData("admin.setting")},
