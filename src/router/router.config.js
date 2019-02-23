@@ -61,6 +61,7 @@ import girlSetting from '../page-vuetifly/admin/girl-setting-content.vue';
 import dailyTask from '../page-vuetifly/admin/daily-task.vue';
 import updateLogAdmin from '../page-vuetifly/admin/update-log.vue';
 import dataBoard from '../page-vuetifly/admin/data-board-content.vue';
+import docMan from '../page-vuetifly/admin/doc-management.vue';
 
 //referrer
 import referrer from '../page-vuetifly/referrer.vue';
@@ -437,11 +438,12 @@ let routes = [
     {path: '/logout', component: logout,meta: GetMetaData("logout")},
     {path: '/referrer', component: referrer ,meta: GetMetaData("referrer")},
     {path:'/admin',component:adminIndex,meta: GetMetaData("admin.name"),children:[
-      {path: '/', component: dataBoard,meta: GetMetaData("admin.image")},
+      {path: '/', component: dataBoard,meta: GetMetaData("admin.name")},
       {path: 'image', component: adminImage,meta: GetMetaData("admin.image")},
       {path: 'errorImg',component: errorImg,meta: GetMetaData("admin.errorImg")},
       {path: 'setting',component: setting,meta: GetMetaData("admin.setting")},
       {path: 'doc',component: docSetting,meta: GetMetaData("admin.doc")},
+      {path: 'docMgmt', component: docMan,meta: GetMetaData("admin.name")},
       {path: 'schedule' ,component: scheduleSetting,meta: GetMetaData("admin.schedule")},
       {path: 'girl' ,component: girlSetting,meta: GetMetaData("admin.girl")},
       {path: 'dailyTask' ,component: dailyTask,meta: GetMetaData("admin.dailyTask")},
