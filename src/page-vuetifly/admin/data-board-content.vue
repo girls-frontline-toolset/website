@@ -27,7 +27,7 @@
         name: 'gl-ui-data-board',
         data() {
             return {
-              card:[{type:"img",title:"圖片庫待批核總數",count:0,url:"/admin/image"},{type:"doc",title:"Doc 待批核總數",count:0,url:""},{type:"errorImg",title:"問題圖片待處理總數",count:0,url:"/admin/errorImg"},{type:"imgCount",title:"圖片總數",count:0,url:""}]
+              card:[{type:"img",title:"圖片庫待批核總數",count:0,url:"/admin/image"},{type:"doc",title:"Doc 待批核總數",count:0,url:"/admin/docMgmt"},{type:"errorImg",title:"問題圖片待處理總數",count:0,url:"/admin/errorImg"},{type:"imgCount",title:"圖片總數",count:0,url:""}]
             }
         }, methods: {
         }, beforeCreate() {
