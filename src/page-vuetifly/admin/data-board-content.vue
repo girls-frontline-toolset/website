@@ -4,7 +4,7 @@
             <v-flex xs12>
                 <gl-ui-title text="數據板" h1></gl-ui-title>
             </v-flex>
-          <v-flex xs6 v-for="item in card">
+          <v-flex xs6 v-for="item in card" :key="item.title">
             <v-card :color="(item.count >10 && item.type !== 'imgCount')?'#ff0000':'#ffb300'" class="white--text" :to="item.url">
               <v-card-title primary-title text-xs-center>
                 <div style="width: 100%">{{item.title}}</div>
