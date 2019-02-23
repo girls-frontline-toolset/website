@@ -31,7 +31,7 @@
                         </div>
                     </v-flex>
                     <v-flex xs12 sm6 md4 pa-1 ref="list-1">
-                        <div v-for="item,index in data" v-if="show(index,2)">
+                        <div v-for="(item,index) in data" v-if="show(index,2)">
                             <gl-ui-image-add-card :item="item" :ref="item.id"
                                                   :completed="completed" :tag-click="tagClick"
                                                   :change-option="changeOption" :index="index"
