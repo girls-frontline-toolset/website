@@ -450,7 +450,6 @@ let routes = [
       {path: 'updateLog' ,component: updateLogAdmin,meta: GetMetaData("admin.updateLog")},
       {path: '*', redirect: '/'},
     ]},
-    {path: "/:lang",component:inquire,children:childrenRoutes},
     {path: '/time/list',redirect: '/list/girl'},
     {path: '/time/list_fairy',redirect: '/list/fairy'},
     {path: '/time/make',redirect: '/make/girl'},
@@ -458,6 +457,7 @@ let routes = [
     {path: '/time/make_device',redirect: '/make/device'},
     {path: '/time/h_make',redirect: '/make/hGirl'},
     {path: '/time/h_make_device',redirect: '/make/hDevice'},
+    {path: "/:lang",component:inquire,children:childrenRoutes},
     {path: "*", component: pageNotFound ,meta: {title: {"cn":"404","tw":'404',"ja":"404"}}}
 ];
 
