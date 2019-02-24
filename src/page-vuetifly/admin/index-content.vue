@@ -1,10 +1,10 @@
 <template>
-  <v-container grid-list-md pt-0 style="height: 100%">
+  <v-container grid-list-md pt-0 pa-0 style="height: 100%">
     <v-layout row wrap style="height: 100%">
-      <v-flex xs3>
-        <gl-ui-admin-nav></gl-ui-admin-nav>
+      <v-flex :class="(less600)?'xs12':'xs3'">
+        <gl-ui-admin-nav :horizontal="less600"></gl-ui-admin-nav>
       </v-flex>
-      <v-flex xs9>
+      <v-flex :class="(less600)?'xs12':'xs9'">
         <router-view></router-view>
       </v-flex>
     </v-layout>
@@ -13,28 +13,30 @@
 
 <script>
 
-    import GlUiAdminNav from "../../components-ui/admin/nav";
-    export default {
-        components: {GlUiAdminNav},
-        name: 'gl-ui-admin-index',
-        data() {
-            return {
-                isShow: false
-            }
-        }, methods: function () {
+  import GlUiAdminNav from "../../components-ui/admin/nav";
+
+  export default {
+    components: {GlUiAdminNav},
+    name: 'gl-ui-admin-index',
+    data() {
+      return {
+        less600: false
+      }
+    }, methods: function () {
 
 
-        },beforeCreate: function () {
-            var _this = this;
-            $.getJSON('/api/inquiry/status', function (json) {
-                if(json.status === "success"){
-                    if(json.message === "isLogin"){
-                        _this.isShow = true;
-                    }else{
-                        _this.$router.push({path:'/login'});
-                    }
-                }
-            });
+    }, beforeCreate: function () {
+      var _this = this;
+      $.getJSON('/api/inquiry/status', function (json) {
+        if (json.status === "success") {
+          if (json.message === "isLogin") {
+          } else {
+            _this.$router.push({path: '/login'});
+          }
         }
+      });
+    }, created() {
+      this.less600 = this.$s.less600();
     }
+  }
 </script>
