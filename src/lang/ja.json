@@ -225,5 +225,9 @@
     "webmaster": "ウェブマスター",
     "contributor": "協力者"
   },
+  "contributor": {
+    "img": "フォトギャラリー協力者",
+    "zoom": "ズームイン"
+  },
   "github": "Github"
 }

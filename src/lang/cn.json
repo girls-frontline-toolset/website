@@ -225,5 +225,9 @@
     "webmaster": "站长",
     "contributor": "贡献者"
   },
+  "contributor": {
+    "img": "图片库贡献者",
+    "zoom": "放大"
+  },
   "github": "Github"
 }

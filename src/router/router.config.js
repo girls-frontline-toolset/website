@@ -66,6 +66,9 @@ import docMan from '../page-vuetifly/admin/doc-management.vue';
 //referrer
 import referrer from '../page-vuetifly/referrer.vue';
 
+//contributor
+import registered from '../page-vuetifly/contributor/registered-content.vue';
+
 //404
 import pageNotFound from '../page-vuetifly/error/page-not-found-content.vue';
 
@@ -211,6 +214,9 @@ let metaData = {
     },
     privacy_policy:{
       title: {"cn":cn.footer["privacy-policy"],"tw":tw.footer["privacy-policy"],"ja":ja.footer["privacy-policy"]},
+    },
+    sitemap:{
+      title: {"cn":cn.title.h1.more.sitemap,"tw":tw.title.h1.more.sitemap,"ja":ja.title.h1.more.sitemap},
     }
   },
   fb:{
@@ -309,6 +315,11 @@ let metaData = {
   },
   breadcrumbList:{
     title: {"cn":cn.title.h1.breadcrumbList,"tw":tw.title.h1.breadcrumbList,"ja":ja.title.h1.breadcrumbList},
+  },
+  contributor:{
+    register: {
+      title:{"cn":cn.contributor.img,"tw":tw.contributor.img,"ja":ja.contributor.img}
+      },
   }
 };
 
@@ -390,7 +401,7 @@ let childrenRoutes = [
       {path: 'link', component:link,props:{promptData:glCardLeftData.link},meta: GetMetaData("more.link")},
       {path: 'feedback', component:feedback, props:{promptData:glCardLeftData.feedback},meta: GetMetaData("more.feedback")},
       {path: 'privacy_policy', component:privacy_policy,meta: GetMetaData("more.privacy_policy")},
-      {path: 'sitemap', component:sitemap,meta: GetMetaData("more.privacy_policy")},
+      {path: 'sitemap', component:sitemap,meta: GetMetaData("more.sitemap")},
       {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path:'fb',component: inquire,children:[
@@ -424,6 +435,10 @@ let childrenRoutes = [
     ]},
   {path: 'magical-tool',component:inquire,children:[
       {path: 'so-appetizing', component:soAppetizing,meta: GetMetaData("magical_tool.so_appetizing")},
+      {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
+    ]},
+  {path: 'contributor',component:inquire,children:[
+      {path:'register/:id',component:registered,meta:GetMetaData("contributor.register")},
       {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path: '/',component: GlIndexContent,meta: GetMetaData("/")}
