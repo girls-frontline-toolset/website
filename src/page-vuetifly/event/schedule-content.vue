@@ -13,7 +13,7 @@
 
 <script>
     import GlUiTitle from "../../components-ui/title";
-    import GlUiEventSchedule from "../../components-ui/eventSchedule";
+    import GlUiEventSchedule from "../../components-ui/rightContent/eventSchedule";
     import mMeta from "../../mixin/mMeta.js";
     export default {
         components: {GlUiEventSchedule, GlUiTitle},

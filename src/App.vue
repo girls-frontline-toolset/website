@@ -26,9 +26,7 @@
 <script>
     import GlUiNav from "./components-ui/nav";
     import GlUiFooter from "./components-ui/footer";
-    import GlUiEventSchedule from "./components-ui/eventSchedule";
     import GlUiTitle from "./components-ui/title";
-    import GlUiFacebook from "./components-ui/facebook";
     import GlUiRightContent from "./components-ui/rightContent";
     import GlUiDialog from "./components-ui/dialog";
     import GlUiCookies from "./components-ui/cookies";
@@ -38,9 +36,7 @@
             GlUiCookies,
             GlUiDialog,
             GlUiRightContent,
-            GlUiFacebook,
             GlUiTitle,
-            GlUiEventSchedule,
             GlUiFooter,
             GlUiNav,
         },
@@ -80,7 +76,6 @@
             };
             window.__pixiv__ = [];
         }, created: function () {
-           //console.log(this.$route.query);
             if (this.$route.query.fn !== undefined) {
                 if (this.$route.query.fn === "nbar") {
                     this.isShow = false;
@@ -91,7 +86,6 @@
 
         if (this.$route.query.type !== undefined) {
           if (this.$route.query.type === "webapp") {
-            console.log("webapp");
             this.$ga.event('webapp', 'use_in_app');
           }
         }

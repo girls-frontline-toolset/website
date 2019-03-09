@@ -12,14 +12,12 @@
 </template>
 
 <script>
-    import GlUiTitle from "./title";
-    import GlUiFbPageBig from "./facebook/fbPageBig";
-    import GlUiFbPageSmall from "./facebook/fbPageSmall";
+    import GlUiTitle from "../title";
+    import GlUiFbPageBig from "../facebook/fbPageBig";
+    import GlUiFbPageSmall from "../facebook/fbPageSmall";
 
     export default {
         components: {GlUiFbPageSmall, GlUiFbPageBig, GlUiTitle},
-        props: [''],
-        commponents: {},
         name: 'gl-ui-facebook',
         data() {
             return {
@@ -29,13 +27,6 @@
             onResize(){
                 this.isShow = (this.$s.less960());
             }
-        }, beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

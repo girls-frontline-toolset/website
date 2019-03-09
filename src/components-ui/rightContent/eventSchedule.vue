@@ -46,7 +46,7 @@
 </template>
 
 <script>
-    import GlUiTitle from "./title";
+    import GlUiTitle from "../title";
 
     export default {
         components: {GlUiTitle},
