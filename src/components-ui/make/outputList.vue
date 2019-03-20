@@ -2,13 +2,13 @@
     <div v-if="type === 'girl' || type === 'hGirl'">
         <v-flex xs12 class="make_output" pt-0 mt-0>
             <a v-for="item in dataMake" :href="'https://zh.moegirl.org/zh-hant/少女前线:' + item.name" target='_blank'>
-                <img :src="'/common/girl/girl_' + item.no + '.jpg'" :alt='item.name' :title='item.name'></a>
+                <img :src="'/common/girl/' + $t('resourcePath') + 'girl_' + item.no + '.jpg'" :alt='item.name' :title='item.name'></a>
         </v-flex>
         <v-flex xs12 class="make_output" pt-0 mt-0>
             <div v-for="items in dataList" v-if="items.data.length !== 0 ">
                 <gl-ui-title h2 :text="items.title" ></gl-ui-title>
                 <a v-for="item in items.data" :href="'https://zh.moegirl.org/zh-hant/少女前线:' + items.n"
-                   target="_blank"><img :src="'/common/girl/girl_' + item.s + '.jpg'" :alt='item.n' :title='item.n'></a>
+                   target="_blank"><img :src="'/common/girl/' + $t('resourcePath') + 'girl_' + item.s + '.jpg'" :alt='item.n' :title='item.n'></a>
             </div>
         </v-flex>
     </div>

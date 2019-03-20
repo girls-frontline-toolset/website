@@ -24,7 +24,7 @@
                 <v-layout row wrap pa1>
                     <v-flex xs12 pa-1 class="girl_output">
                             <a v-for="girl in data" :href='"https://zh.moegirl.org/zh-hant/少女前线:" + girl.name' target='_blank'>
-                            <img :class='girl.className' :src='"/common/girl/girl_" + girl.number + ".jpg"' :alt='girl.name' :title='girl.name'></a>
+                            <img :class='girl.className' :src='"/common/girl/" + $t("resourcePath")  + "girl_" + girl.number + ".jpg"' :alt='girl.name' :title='girl.name'></a>
                      </v-flex>
                     <gl-ui-error :error="error"></gl-ui-error>
                 </v-layout>

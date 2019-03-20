@@ -50,7 +50,7 @@
             <v-flex md6 sm6 xs12 pa-1 v-for="i in 2" :key="i">
                 <div v-for="items in listTime[i - 1]">
                     <gl-ui-title h2 :text="items.title"></gl-ui-title>
-                    <a v-for="item in items.data" :key="item.no" :href="'https://zh.moegirl.org/zh-hant/少女前线:' + item.n " target='_blank'><img :class="item.c"  :src="'/common/girl/girl_' + item.num + '.jpg'" :alt='item.n' :title='item.n'></a>
+                    <a v-for="item in items.data" :key="item.no" :href="'https://zh.moegirl.org/zh-hant/少女前线:' + item.n " target='_blank'><img :class="item.c"  :src="'/common/girl/' + $t('resourcePath') +'girl_' + item.num + '.jpg'" :alt='item.n' :title='item.n'></a>
                 </div>
             </v-flex>
             </v-layout>
@@ -197,7 +197,7 @@
                     data = this.girlList[index];
 
                     star = this.star["star_" + data.star];
-                    url = "/common/girl/girl_";
+                    url = "/common/girl/" + this.$t('resourcePath') + "girl_";
 
                     if (this.update["update"] && data.isUpdate === "1") {
 
@@ -212,7 +212,7 @@
                                 star = this.star["star_" + 4];
                                 break;
                         }
-                        url = "/common/digiMindGirl/digiMindGirl_";
+                        url = "/common/digiMindGirl/" + this.$t('resourcePath') + "digiMindGirl_";
                     }
 
                     name = (data.src)? data.src:data.name;
@@ -220,7 +220,7 @@
                 } else if (type === "exGirl") {
                     data = this.exGirlList[index];
                     star = this.other["star_other"];
-                    url = "/common/exGirl/exgirl_";
+                    url = "/common/exGirl/" + this.$t('resourcePath') + "exgirl_";
                     name = (data.src)? data.src:data.name;
                 }
 
@@ -275,7 +275,9 @@
             }
 
         }, created: function () {
-            for(let i = 0 ; i < this.humanoidItems.length ;i++){
+        console.log(this.$router.locale);
+
+        for(let i = 0 ; i < this.humanoidItems.length ;i++){
                 this.humanoidItems[i].t = this.$t(this.humanoidItems[i].t);
             }
 
