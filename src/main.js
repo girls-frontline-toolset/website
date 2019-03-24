@@ -21,11 +21,13 @@ Vue.use(MetaInfo);
 import cn from './lang/cn.json';
 import ja from './lang/ja.json';
 import tw from './lang/tw.json';
+import en from './lang/en.json';
 
 const messages = {
     cn,
     tw,
-    ja
+    ja,
+    en
 };
 
 const i18n = new VueI18n({

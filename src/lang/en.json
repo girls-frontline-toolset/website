@@ -1,0 +1,235 @@
+{
+  "resourcePath": "en/",
+  "title":{
+    "s":"Girls' Frontline toolset",
+    "h2":{
+      "featured-image":"Featured Image",
+      "event-schedule-tw":"Event Schedule (tw Ver)",
+      "event-tw":"Today's Event (tw Ver)"
+    },
+    "h1":{
+      "time":{
+        "girl":"Search T-Doll Time",
+        "fairy":"Search Fairy Time",
+        "device":"Search Equipment Time"
+      },
+      "list":{
+        "girl":"T-Doll Index",
+        "fairy":"Fairy Index",
+        "doc":"Doc",
+        "wafer":"Wafer Index",
+        "support-unit":"Support Unit Index"
+      },
+      "make":{
+        "girl":"Simulated T-Doll production",
+        "hGirl":"Simulated Heavy T-Doll production",
+        "device":"Simulated Equipment production",
+        "hDevice":"Simulated Heavy Equipment production",
+        "wafer":"Analog Combination - wafer test version"
+      },
+      "like":{
+        "list":"Like Friend Area"
+      },
+      "img":"Illustration",
+      "fb":{
+        "list":"Recruitment Area"
+      },
+      "more":{
+        "link":"link",
+        "about":"about",
+        "sitemap": "sitemap"
+      },
+      "breadcrumbList": "breadcrumbList"
+    }
+  },
+  "t":{
+    "announcement":"Announcement",
+    "hour":"hour",
+    "minute":"minute",
+    "inquiry":"inquiry",
+    "search":"search",
+    "other":"other",
+    "star":"star",
+    "type":"type",
+    "color":"color",
+    "cells":"cells",
+    "all":"all",
+    "character":"character",
+    "server":{
+      "s":"server",
+      "tw":"台",
+      "cn":"陸",
+      "jp":"日"
+    },
+    "user-name":"User Name",
+    "rank":"Rank",
+    "remark":"Remark",
+    "display-no":"Display No",
+    "like-fb-list":"like fb list"
+  },
+  "register":{
+    "s":"register",
+    "commonly-used-character":"Common character",
+    "must":"must",
+    "register":"register",
+    "clear":"clear"
+  },
+  "doc": {
+    "search": "Document - search",
+    "add": "Document - add"
+  },
+  "make":{
+    "msg1":"Just for fun, not necessarily the same as the game.",
+    "msg2":"!!This page threshold is not the same as the game.!!",
+    "manpower":"Manpower",
+    "ammunition":"Ammunition",
+    "material":"Material",
+    "parts":"Parts",
+    "start":"Start Production",
+    "list":"List",
+    "clear":"Clear",
+    "no-of-production":"No Of Production",
+    "no-of-core":"No of Core",
+    "star":" Star",
+    "last-update":"Latest Update",
+    "statistics":"Statistics",
+    "probability":"Probability",
+    "t-doll-5":"5 Star T-Doll Probability",
+    "t-doll-4":"4 Star T-Doll Probability",
+    "t-doll-3":"3 Star T-Doll Probability",
+    "t-doll-2":"2 Star T-Doll Probability",
+    "device-5":"5 Star Equipment Probability",
+    "device-4":"4 Star Equipment Probability",
+    "device-3":"3 Star Equipment Probability",
+    "device-2":"2 Star Equipment Probability",
+    "low-tier":"Low Tier",
+    "mid-tier":"Mid Tier",
+    "high-tier":"High Tier",
+    "support-unit-list": "Support Unit List",
+    "wafer-list": "Wafer List",
+    "best-sorting": "Best Sorting",
+    "grid6": "6 grid",
+    "grid5": "5 grid",
+    "grid5-type1": "5 grid type1",
+    "grid5-type2": "5 grid type2",
+    "grid4": "4 grid",
+    "grid3": "3 grid",
+    "grid2": "2 grid",
+    "grid1": "1 grid",
+    "type1": "type 1",
+    "type2": "type 2",
+    "generate": "generate",
+    "string": "string",
+    "download":"download",
+    "bigImg": "big image",
+    "smallImg": "small image"
+  },
+  "like":{
+    "rule":"Rule",
+    "visitor":"visitor",
+    "registrant":"Registrant",
+    "ru1":"You need to like the registrant",
+    "ru2":"Will be praised",
+    "ru3":"You need to open the dormitory to other players",
+    "ru4":"Need to like all visitors"
+  },
+  "dialog":{
+    "error":"Error",
+    "error-1":"Error! Please try again!!<br>Please make sure all information is correct!!",
+    "success":"Success",
+    "location":"Location Search"
+  },
+  "img":{
+    "all-character":"All Character",
+    "more":"Display More Illustration",
+    "add":"No related Illustration, welcome to add",
+    "add-more":"Add Illustration",
+    "remote":"Remote Illustration"
+  },
+  "time":{
+    "list":"Time list",
+    "search":"search",
+    "girl-list":"T-Doll Time List",
+    "fairy-list":"Fairy Time List",
+    "t-doll":"T-Doll",
+    "other-doll":"Extra T-Doll",
+    "update-doll":"DigiMind T-doll",
+    "fairy":"fairy",
+    "other-fairy":"Extra fairy",
+    "start-no":"start no",
+    "end-no":"end no",
+    "filter":"filter"
+  },
+  "jumbotron":{
+    "msg":"Web page for the commander",
+    "girl-time":"T-Doll Time",
+    "fairy-time":"Fairy Time",
+    "make-girl":"Simulated T-Doll production",
+    "il-girl":"Index"
+  },
+  "language":"language",
+  "ja": "日本語",
+  "zh-tw": "繁體中文",
+  "zh-cn": "简体中文",
+  "en": "English",
+  "nav":{
+    "make-time":{
+      "s":"Production  time",
+      "girl":"T-Doll",
+      "device":"Equipment",
+      "fairy":"Fairy"
+    },
+    "make":{
+      "s":"Simulated production",
+      "girl":"T-Doll",
+      "hGirl":"Heavy T-Doll",
+      "device":"Equipment",
+      "hDevice":"Heavy Equipment"
+    },
+    "illustration":{
+      "s":"index",
+      "girl":"T-Doll index",
+      "fairy":"fairy index"
+    },
+    "image-library":"Illustration",
+    "friends-list":{
+      "s":"Friend Area",
+      "fb-list":"Recruitment Area",
+      "like-list":"Like Friend Area"
+    },
+    "other-platform":{
+      "s":"Other platforms",
+      "android":"Android App",
+      "chrome":"Chrome App",
+      "line":"Line bot"
+    },
+    "magical-tool": {
+      "s": "magical tool",
+      "so-appetizing": "So appetizing generation"
+    },
+    "line-group":"LINE Group (Chinese)",
+    "easy-mode":"Easy Mode"
+  },
+  "line":{
+    "command":"command list",
+    "img":"meme list"
+  },
+  "footer":{
+    "feedback":"feedback",
+    "link":"link",
+    "uploadImg":"Upload missing images",
+    "add-image":"Add image",
+    "about":"about",
+    "update-log":"update log",
+    "privacy-policy":"privacy policy"
+  },
+  "about": {
+    "webmaster": "webmaster",
+    "contributor": "contributor"
+  },
+  "contributor": {
+    "img": "Illustration contributor",
+    "zoom": "Zoom"
+  },
+  "github": "Github"
+}

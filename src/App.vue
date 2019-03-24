@@ -48,7 +48,7 @@
                 height: "53px",
                 mt:"10px",
                 isSim:true,
-                languages: [{t: '简体中文', i: 'cn'}, {t: '繁體中文', i: 'tw'}, {t: '日本語', i: 'ja'}]
+                languages: [{t: '简体中文', i: 'cn'}, {t: '繁體中文', i: 'tw'}, {t: '日本語', i: 'ja'},{t:'English',i:'en'}]
             }
         },
         methods: {
@@ -94,8 +94,8 @@
         this.$s.appVue = this;
 
         if (this.$route.query.lang !== undefined || this.$route.params.lang !== undefined) {
-          if (this.$route.query.lang === "tw" || this.$route.query.lang === "cn" || this.$route.query.lang === "ja"||
-              this.$route.params.lang === "tw" || this.$route.params.lang === "cn" || this.$route.params.lang === "ja") {
+          if (this.$route.query.lang === "tw" || this.$route.query.lang === "cn" || this.$route.query.lang === "ja"|| this.$route.query.lang === "en"||
+              this.$route.params.lang === "tw" || this.$route.params.lang === "cn" || this.$route.params.lang === "ja"|| this.$route.params.lang === "en") {
             let lang = this.$route.query.lang ||  this.$route.params.lang;
             for (let i = 0; i < this.languages.length; i++) {
               if (this.languages[i].i === lang) {
