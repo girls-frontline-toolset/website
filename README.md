@@ -17,6 +17,7 @@ https://www.ntw-20.com
 * 正體中文 (zh-tw)
 * 簡體中文 (zh-cn)
 * 日本語 (ja-jp)
+* English (en)
 
 Please help to add another language. Thank you.
 
