@@ -156,7 +156,7 @@
                 model: "tab-1",
                 simpleMode: false,
                 language: {t: 'zh-tw', i: 'tw'},
-                languages: [{t: 'zh-cn', i: 'cn'}, {t: 'zh-tw', i: 'tw'}, {t: 'ja', i: 'ja'}]
+                languages: [{t: 'zh-cn', i: 'cn'}, {t: 'zh-tw', i: 'tw'}, {t: 'ja', i: 'ja'},{t:'en',i:'en'}]
             }
         }, methods: {
             onResize() {
@@ -199,12 +199,46 @@
                 case "zh-cn":
                     this.lan(this.languages[0]);
                     break;
+              default:
+                this.lan(this.languages[3]);
+                break;
             }
 
 
         }, beforeMount: function () {
         }, mounted: function () {
-            this.onResize()
+            this.onResize();
+        if (this.$route.query.lang !== undefined || this.$route.params.lang !== undefined) {
+          switch (this.$route.query.lang) {
+            case "tw":
+              this.language = this.languages[1];
+              break;
+            case "cn":
+              this.language = this.languages[0];
+              break;
+            case "ja":
+              this.language = this.languages[2];
+              break;
+            case "en":
+              this.language = this.languages[3];
+              break;
+          }
+
+          switch (this.$route.params.lang) {
+            case "tw":
+              this.language = this.languages[1];
+              break;
+            case "cn":
+              this.language = this.languages[0];
+              break;
+            case "ja":
+              this.language = this.languages[2];
+              break;
+            case "en":
+              this.language = this.languages[3];
+              break;
+          }
+        }
         }, beforeUpdate: function () {
         }, updated: function () {
         }, watch: {
