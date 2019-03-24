@@ -4,7 +4,7 @@
             <v-flex xs12>
                 <gl-ui-title :text="$t('title.h1.more.sitemap')" h1></gl-ui-title>
             </v-flex>
-          <v-flex xs6 >
+          <v-flex xs12 md6 sm6>
             <div style="margin-top: 10px">
               <gl-ui-title text="image" h2></gl-ui-title>
               <v-layout row wrap>
@@ -16,7 +16,7 @@
               </v-layout>
             </div>
           </v-flex>
-          <v-flex xs3 v-for=" index in 2" :key="index">
+          <v-flex xs12 md3 sm6 v-for=" index in 2" :key="index">
             <div v-for="(items, key,dataIndex) in dataList" :key="key" v-if="(dataIndex % 3 === index - 1) && key !=='image' " style="margin-top: 10px">
             <gl-ui-title :text="key" h2></gl-ui-title>
               <v-layout row wrap>
