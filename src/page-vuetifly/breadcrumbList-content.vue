@@ -40,7 +40,7 @@
 
     for (let i = 0; i < childrenList.length; i++) {
 
-      const path = this.$route.path.replace("/cn","").replace("/tw","").replace("/ja","");
+      const path = this.$route.path.replace("/cn","").replace("/tw","").replace("/ja","").replace("/en","");
 
       if(childrenList[i].path === path.replace(/\//g,"")){
 
