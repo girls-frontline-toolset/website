@@ -62,6 +62,7 @@ import dailyTask from '../page-vuetifly/admin/daily-task.vue';
 import updateLogAdmin from '../page-vuetifly/admin/update-log.vue';
 import dataBoard from '../page-vuetifly/admin/data-board-content.vue';
 import docMan from '../page-vuetifly/admin/doc-management.vue';
+import lineRegister from '../page-vuetifly/admin/line-register-content.vue';
 
 //referrer
 import referrer from '../page-vuetifly/referrer.vue';
@@ -464,6 +465,7 @@ let routes = [
       {path: 'girl' ,component: girlSetting,meta: GetMetaData("admin.girl")},
       {path: 'dailyTask' ,component: dailyTask,meta: GetMetaData("admin.dailyTask")},
       {path: 'updateLog' ,component: updateLogAdmin,meta: GetMetaData("admin.updateLog")},
+      {path: 'lineRegister' ,component: lineRegister,meta: GetMetaData("admin.updateLog")},
       {path: '*', redirect: '/'},
     ]},
     {path: '/time/list',redirect: '/list/girl'},
