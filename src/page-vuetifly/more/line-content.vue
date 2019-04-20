@@ -8,7 +8,7 @@
       <v-flex sm12>
         <gl-ui-card-left content="少前同好群 歡迎各位新手,大佬和萌新" ></gl-ui-card-left>
       </v-flex>
-      <v-flex sm12>
+      <v-flex sm12 v-if="!$s.app">
         <gl-ui-title text="Line群 加入登記" h2 ></gl-ui-title>
         <v-stepper v-model="e1" vertical>
           <v-stepper-step :complete="e1 > 1" step="1">認證</v-stepper-step>
@@ -92,6 +92,13 @@
             <v-stepper-step :complete="e1 > 5" step="5">完成</v-stepper-step>
           </v-stepper-items>
         </v-stepper>
+      </v-flex >
+      <v-flex sm12 v-else>
+        <gl-ui-card-left content="不支援應用程式版本, 請前往網頁版. https://ntw-20.com" ></gl-ui-card-left>
+        <a href="https://ntw-20.com/more/line" target="_blank">
+          <v-btn color="primary">
+            網頁版
+          </v-btn></a>
       </v-flex>
     </v-layout>
 
