@@ -20,6 +20,7 @@
                 <v-icon @click="toTop()" size="50" class="white--text" >keyboard_arrow_up</v-icon>
         </div>
             <gl-ui-cookies></gl-ui-cookies>
+            <gl-ui-load></gl-ui-load>
         </v-app>
 </template>
 
@@ -30,9 +31,11 @@
     import GlUiRightContent from "./components-ui/rightContent";
     import GlUiDialog from "./components-ui/dialog";
     import GlUiCookies from "./components-ui/cookies";
+    import GlUiLoad from "./components-ui/load";
 
     export default {
         components: {
+          GlUiLoad,
             GlUiCookies,
             GlUiDialog,
             GlUiRightContent,

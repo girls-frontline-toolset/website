@@ -19,7 +19,11 @@ const setting = {
     glDialogImg:function(title,img){
         this.glDialog.glDialogImg(title,img);
     },
+    load:function(isStart){
+        this.loadBar.process(isStart);
+    },
     glDialog:null,
+    loadBar:null,
     app:false,
     appVue:undefined,
     serverError:function () {

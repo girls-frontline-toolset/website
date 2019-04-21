@@ -56,7 +56,7 @@
                 ></v-text-field>
                 <gl-ui-gl-card-help></gl-ui-gl-card-help>
                 <gl-ui-title text="名片圖片" h2 icon="icon-line-other"></gl-ui-title>
-                <input type="file" ref="UIDFile" accept=".jpg,.png,.gif"  >
+                <input type="file" ref="UIDFile" accept="image/*"  >
                 <br><br>
                 <v-btn color="primary" @click="add()" :disabled="!valid">{{$t('register.register')}}</v-btn>
                 <v-btn color="primary" outline @click="clear()">{{$t('register.clear')}}</v-btn>
@@ -160,6 +160,7 @@
         formData.append('email',  this.info.email);
         formData.append('UID',   this.info.UID);
 
+        this.$s.load(true);
         $.ajax({
             url: "/api/inquiry/line/register",
             type:"POST",
@@ -169,7 +170,7 @@
             contentType: false,
             success: function (data) {
               data = JSON.parse(data);
-
+              _this.$s.load(false);
               switch (data.status) {
                 case "typeError":
                   _this.$s.glDialogText("Line群 加入登記", "只支援 jpg,png,gif 圖片", 1);
@@ -181,6 +182,8 @@
                   _this.token = data.token;
                   _this.e1 = 3;
                   break;
+                default:
+                  _this.$s.glDialogText("Line群 加入登記", "出現問題!! 請再試", 1);
               }
             }
         }
