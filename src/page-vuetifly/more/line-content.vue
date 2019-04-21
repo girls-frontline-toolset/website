@@ -77,6 +77,7 @@
 
             <v-stepper-step :complete="e1 > 4" step="4">加入Line好友,發送代碼</v-stepper-step>
             <v-stepper-content step="4">
+              <span style="color:red;font-weight: bolder;">***加Line好友,發送代碼***</span>
               <div class="bd primary--text">
                 <div class="bd-title">
                   Line 名稱: <span>少女前線 工具集</span><br>
@@ -90,6 +91,9 @@
 
             </v-stepper-content>
             <v-stepper-step :complete="e1 > 5" step="5">完成</v-stepper-step>
+            <v-stepper-content step="5">
+              已完成! 請細心等待批核!
+            </v-stepper-content>
           </v-stepper-items>
         </v-stepper>
       </v-flex >

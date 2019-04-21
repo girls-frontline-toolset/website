@@ -44,6 +44,7 @@
 
 
                 <img :src="'/common/line/register/' + data.card" alt="card" style="width: 100%;">
+                <input type="file" ref="UIDFile" accept="image/*"  >
                 <v-text-field
                   v-model="data.lineName" type="text"
                   name="lineName" label="Line Name"
@@ -103,15 +104,26 @@
       },
       update() {
         let _this = this;
+        let file = this.$refs.UIDFile;
+        let formData = new FormData();
+
+        if (file.files.length > 0) {
+          formData.append('file',  file.files[0]);
+        }
+
+        formData.append('lineName',  _this.data.lineName);
+        formData.append('email',   _this.data.email);
+        formData.append('uid',   _this.data.uid);
+        formData.append('id',   _this.data.id);
+        formData.append('card',   _this.data.card);
+
         $.ajax({
           url: "/api/inquiry/line/registerUpdate",
           type: "POST",
-          data: {
-            lineName: _this.data.lineName,
-            email: _this.data.email,
-            uid: _this.data.uid,
-            id: _this.data.id
-          },
+          data: formData,
+          cache: false,
+          processData: false,
+          contentType: false,
           success: function (data) {
             data = JSON.parse(data);
             if (data.status === "success"){
