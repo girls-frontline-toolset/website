@@ -62,7 +62,7 @@
                 v: "",
                 progress: false,
                 f: false,
-                colors: ["green lighten-1", "deep-purple lighten-1", "red lighten-1", "cyan lighten-1", "purple lighten-1"],
+                colors: ["green lighten-1", "deep-purple lighten-1", "red lighten-1", "cyan lighten-1", "purple lighten-1",'purple darken-3','purple darken-4','deep-orange accent-4'],
                 s: [0, 0, 0],
                 now: [0, 0, 0],
                 loadedImg:0,
