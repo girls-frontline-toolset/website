@@ -24,6 +24,29 @@
         gtag('js', new Date());
         gtag('config', 'UA-108349832-1');
     </script>
+    <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+
+      if(getParameterByName("fn") !== "nbar"){
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/service-worker.js').then(function (reg) {
+            // registration worked
+            console.log('Registration succeeded. Scope is ' + reg.scope);
+          }).catch(function (error) {
+            // registration failed
+            console.log('Registration failed with ' + error);
+          });
+        }
+      }
+    </script>
     <style>
 
       @font-face {
@@ -110,6 +133,6 @@
       <div class="dot dot4"></div>
     </div>
   </div>
-    <script async src="/common/build.js?v=17022019"></script>
+    <script async src="/common/build.js?v=24032019"></script>
   </body>
 </html>
