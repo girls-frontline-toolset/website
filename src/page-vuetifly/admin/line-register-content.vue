@@ -11,8 +11,11 @@
               <v-card>
                 <v-card-title primary-title pa-1>
                   <v-layout row wrap>
-                    <v-flex sm8 xs12>
+                    <v-flex sm4 xs12>
                       <v-text-field type="text" v-model="token" label="token" tabindex="1"></v-text-field>
+                    </v-flex>
+                    <v-flex sm4 xs12>
+                      <v-text-field type="text" v-model="email" label="email" tabindex="2"></v-text-field>
                     </v-flex>
                     <v-flex sm4 xs12>
                       <v-btn color="primary" block dark @click="search()" tabindex="2">{{$t('t.search')}}</v-btn>
@@ -21,7 +24,10 @@
                 </v-card-title>
               </v-card>
             </v-flex>
-            <v-flex xs12 v-if="data.email !== ''">
+            <v-flex xs12 v-if="data.email === 'null' ">
+              <gl-ui-error error="3" text="沒有資料"></gl-ui-error>
+            </v-flex>
+            <v-flex xs12 v-if="data.email !== '' && data.email !== 'null' ">
               <gl-ui-title text="Line 用戶" h2></gl-ui-title>
               <v-form ref="form" v-model="valid">
                 <v-text-field
@@ -64,9 +70,10 @@
 <script>
   import GlUiTitle from "../../components-ui/title";
   import mMeta from "../../mixin/mMeta.js";
+  import GlUiError from "../../components-ui/error";
 
   export default {
-    components: {GlUiTitle},
+    components: {GlUiError, GlUiTitle},
     mixins: [mMeta],
     props: [''],
     commponents: {},
@@ -74,6 +81,7 @@
     data() {
       return {
         token: "",
+        email:"",
         docList: null,
         data: {lineName: "", email: "", uid: "", card: "", id: ""},
         valid: false
@@ -86,7 +94,8 @@
             url: "/api/inquiry/line/getByToken",
             type: "POST",
             data: {
-              token: _this.token
+              token: _this.token,
+              email: _this.email
             },
             success: function (data) {
               data = JSON.parse(data);
@@ -96,6 +105,8 @@
                 _this.data.uid = data.data[0]['uid'];
                 _this.data.card = data.data[0]['card'];
                 _this.data.id = data.data[0]['id'];
+              }else{
+                  _this.data.email = "null";
               }
             }
           }
