@@ -80,9 +80,20 @@ let mMeta = {
         {
           property: "og:image:height",
           content: this.metaImage.height,
+        },
+        {
+          itemprop: "sameAs",
+          content: "https://twitter.com/GF_Toolset"
+        },
+        {
+          itemprop: "sameAs",
+          content: "https://www.facebook.com/girl.kurumichan"
+        },
+        {
+          itemprop: "sameAs",
+          content: "https://www.instagram.com/gf_toolset"
         }
-      ],
-
+      ]
     }
   },
   methods:{

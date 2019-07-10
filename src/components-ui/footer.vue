@@ -2,15 +2,12 @@
     <v-footer height="auto" style="overflow: hidden;" class="grey darken-3">
         <v-layout row wrap justify-center pa-1>
             <v-flex xs12 text-xs-center white--text>
-
-                <a class="unLine" href="javascript: void(window.open('http://www.facebook.com/share.php?u='.concat(encodeURIComponent(location.href)) ));">
-                   <v-btn class="mx-3 white--text" icon><v-icon size="24px">icon-facebook</v-icon></v-btn></a>
-
-                <a class="unLine"  href="javascript: void(window.open('http://twitter.com/home/?status='.concat(encodeURIComponent(document.title)) .concat(' ') .concat(encodeURIComponent(location.href))));">
-                    <v-btn class="mx-3 white--text" icon><v-icon size="24px">icon-twitter</v-icon></v-btn></a>
-
-                <a class="unLine"  href="http://line.naver.jp/R/msg/text/?少女前線 工具集 https://www.ntw-20.com">
-                    <v-btn class="mx-3 white--text" icon><v-icon size="24px">icon-line</v-icon></v-btn></a>
+              <a href="https://twitter.com/GF_Toolset" target="_blank" >
+                <v-btn class="mx-3 white--text" icon><v-icon size="24px">icon-twitter</v-icon></v-btn>
+              </a>
+              <a href="https://www.facebook.com/girl.kurumichan/" target="_blank" >
+                <v-btn class="mx-3 white--text" icon><v-icon size="24px">icon-facebook</v-icon></v-btn>
+              </a>
 
             </v-flex>
            <v-btn v-for="link in links" v-if="link.to.search('http') === -1" :key="link.t" :to="langUrl() + link.to"  color="white" flat >
