@@ -68,6 +68,13 @@
                         required
                         :rules="[() => !!data.src || $t('register.must') ]"
                 ></v-text-field>
+                <v-text-field
+                    v-model="data.alt"
+                    type="text"
+                    :label="'說明:'"
+                    required
+                    :rules="[() => !!data.src || $t('register.must') ]"
+                ></v-text-field>
                 <v-btn color="primary" @click="add()" :disabled="!valid" >提交</v-btn>
                 <v-btn color="primary" @click="clear()" outline>清除</v-btn>
                 </v-form>
@@ -93,7 +100,7 @@
             return {
                 date: [null,null],
                 menu: [false,false],
-                data:{start:'0-0-1997',end:'0-0-1997',src:"",text:""},
+                data:{start:'0-0-1997',end:'0-0-1997',src:"",text:"",alt:""},
                 valid:false
             }
         }, methods: {
@@ -109,6 +116,7 @@
                 formData.append('end',this.data.end);
                 formData.append('src',this.data.src);
                 formData.append('text',this.data.text);
+                formData.append('alt',this.data.alt);
 
                 let _this = this;
                 $.ajax({

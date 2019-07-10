@@ -3,7 +3,9 @@
         <v-layout row wrap >
           <v-flex xs12 sm6 md12 pr-1 v-if="haveEvent">
                 <gl-ui-title :text="$t('title.h2.event-tw')" h2 ></gl-ui-title>
-                <a :href="img.h" target="_blank" v-for="(img,key) in data[now[0]][now[1]][now[2]]" :key="now[0] + '-'+now[1] + '-' + now[2] + '-' + key"><img :src="img.src" style="width: 100%" @load="loaded"></a>
+                <a :href="img.h" target="_blank" v-for="(img,key) in data[now[0]][now[1]][now[2]]" :key="now[0] + '-'+now[1] + '-' + now[2] + '-' + key">
+                  <img :src="img.src" style="width: 100%" @load="loaded" :alt="img.alt" :title="img.alt">
+                </a>
             </v-flex>
 
             <v-flex xs12 sm6 md12 pr-1>
@@ -34,7 +36,7 @@
                 <!--<v-card-media class="white&#45;&#45;text" :height="dialogImgHeight" :src="item.src" >-->
                 <!--</v-card-media>-->
               <v-card-title style="padding: 0;">
-                <img :src="item.src"  alt="event img" style="padding: 0;width: 100%">
+                <img :src="item.src"  :alt="item.alt" style="padding: 0;width: 100%" :title="item.alt">
               </v-card-title>
                 <v-card-title v-if="item.i">
                     <div v-html="item.i">
@@ -120,7 +122,7 @@
                     $.getJSON("/api/inquiry/schedule/getSchedule/" + this.tmpDate.year + "-" +  this.tmpDate.month , function (json) {
                         if(json.status === "success"){
                             for(let i = 0 ; i < json.data.length ; i++){
-                                _this.addData(json.data[i].start, json.data[i].end, json.data[i].src,json.data[i].i, json.data[i].h);
+                                _this.addData(json.data[i].start, json.data[i].end, json.data[i].src,json.data[i].i, json.data[i].h, json.data[i].alt);
                             }
 
 
@@ -141,12 +143,13 @@
                        _this.$s.serverError();
                     });
                 }
-            }, addData(start, end, src, i, h) {
+            },
+            addData(start, end, src, i, h,alt) {
                 let s = start.split('-');
                 let e = end.split('-');
                 s[2] = (s[1] !== this.tmpDate.month) ? "01" : s[2];
                 e[2] = (e[1] !== this.tmpDate.month) ? new Date(this.tmpDate.year, this.tmpDate.month, 0).getDate() : e[2];
-                let even = {"src": "/common/img/event/" + src, "i": i, "h": h};
+                let even = {"src": "/common/img/event/" + src, "i": i, "h": h,"alt": alt};
                 for (let i = parseInt(s[2]), day; i <= parseInt(e[2]); i++) {
                     day = (i < 10) ? "0" + i : "" + i;
                     this.initAarray();

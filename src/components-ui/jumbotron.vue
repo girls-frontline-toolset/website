@@ -5,7 +5,7 @@
                 <v-container fill-height>
                     <v-layout align-center row wrap>
                         <v-flex xs12>
-                            <h4 class="display-3 white--text">{{$t('jumbotron.msg')}}</h4>
+                            <h1 class="display-3 white--text">{{$t('jumbotron.msg')}}</h1>
                             <v-divider class="my-3" style="background-color: hsla(0,0%,100%,.12);"></v-divider>
                         </v-flex>
                         <v-flex xs12 hidden-xs-only pa-0 ma-0>

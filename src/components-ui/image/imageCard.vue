@@ -4,11 +4,12 @@
             <div class='glyphicon-load load' style="text-align: center;"><v-progress-circular :size="50" indeterminate color="primary"></v-progress-circular>
             <v-btn block color="red" class="white--text" @click="errorImg">問題滙報</v-btn>
             </div>
-            <div v-if="item.img" class="pixiv-img" ref="img" :style="getHeight()">
+            <div v-if="item.img" class="pixiv-img" ref="img"  :style="getHeight()">
                 <iframe v-if="item.img != ''" v-on:load="completed" class="pixiv-ifame" style="overflow: hidden;" :style="zoom()" :width="item.img_w" :height="item.img_h" :src="'https://embed.pixiv.net/embed_mk2.php?id='+item.id+'_'+item.md5+'&size=large&border=off&done=null'" ></iframe>
             </div>
             <div v-if="item.img" class="pixiv-content">
-                <span class="user">{{item.user}}</span><img src="/common/img/pixiv_logo.png">
+                <span class="user">{{item.user}}</span>
+                <img src="/common/img/pixiv_logo.png" alt="View on Pixiv" title="View on Pixiv">
                 <span class="title">{{item.title}}</span>
                 <span class="caption">{{item.caption}}</span>
                 <span class="" v-text="getDateFormat(item.update)"></span>
