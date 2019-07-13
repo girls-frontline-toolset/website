@@ -1,3 +1,26 @@
+/** @typedef ajax.girlList
+ *  @property {string} no
+ *  @property {string} name
+ *  @property {string} cn_name
+ *  @property {string} en_name
+ *  @property {string} ja_name
+ *  @property {'0','1',null} heavy
+ *  @property {null,1} isUpdate
+ *  @property {string} src
+ *  @property {0,2,3,4,5} star
+ *  @property {'','AR','HG','MG','RF','SG','SMG'} type
+ */
+
+/** @typedef ajax.exGirlList
+ *  @property {string} no
+ *  @property {string} name
+ *  @property {string} cn_name
+ *  @property {string} en_name
+ *  @property {string} ja_name
+ *  @property {string} src
+ *  @property {'','AR','HG','MG','RF','SG','SMG'} type
+ */
+
 const ajax = {
     getJson:function(obj,vue,url,name,callback){
         if(vue[name] === undefined ){

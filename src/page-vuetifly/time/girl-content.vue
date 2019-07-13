@@ -22,11 +22,22 @@
                 </v-layout></form>
 
                 <v-layout row wrap pa1>
-                    <v-flex xs12 pa-1 class="girl_output">
-                            <a v-for="girl in data" :href='"https://zh.moegirl.org/zh-hant/少女前线:" + girl.name' target='_blank'>
-                            <img :class='girl.className' :src='"/common/girl/" + $t("resourcePath")  + "girl_" + girl.number + ".jpg"' :alt='girl.name' :title='girl.name'></a>
-                     </v-flex>
-                    <gl-ui-error :error="error"></gl-ui-error>
+                  <v-flex xs12 pa-1 class="girl_output">
+                    <gl-ui-title v-if="data.length > 0" :text="this.hh + ':' + this.mm" h2></gl-ui-title>
+                    <a v-for="girl in data" :href='"https://zh.moegirl.org/zh-hant/少女前线:" + girl.name' target='_blank'>
+                      <img :class='girl.className'
+                           :src='"/common/girl/" + $t("resourcePath")  + "girl_" + girl.number + ".jpg"'
+                           :alt='$t(getResourceName(girl.number))' :title='$t(getResourceName(girl.number))'></a>
+                  </v-flex>
+                  <gl-ui-error :error="error"></gl-ui-error>
+                  <v-flex xs12 pa-1 v-if="!$s.app">
+                    <router-link  :to="langUrl() + '/image/' + girl.name.replace('/','%2F')" v-for="girl in data" :key="girl.number">
+                      <v-chip label small color="primary" text-color="white" class="chip-link">
+                        <v-icon left small>label</v-icon>
+                        <h3 style="font-size: unset">{{$t(getResourceName(girl.number))}}</h3>
+                      </v-chip>
+                    </router-link>
+                  </v-flex>
                 </v-layout>
             </v-container>
 
@@ -62,6 +73,7 @@
                 model:"tab-0",
                 data:[],
                 items:[{"t":"time.search","to":"/time/girl","i":"access_time"},{"t":"time.list","to":"/list/girl?f=time&fn=tag","i":"list"}],
+                title:""
             }
         },
         methods: {
@@ -93,9 +105,9 @@
                         _this.$set(_this,"data",tmpList);
 
                       if (tmpList.length > 0 ) {
-                        _this.metaDescription = "人型製造時間查詢 " + _this.hh + ":" + _this.mm;
+                        _this.metaDescription = _this.$t('title.h1.time.girl') + " " + _this.hh + ":" + _this.mm;
                         for (let i = 0; i < tmpList.length; i++) {
-                          _this.metaDescription += " " + tmpList[i].name;
+                            _this.metaDescription += " " + _this.$t(_this.getResourceName(tmpList[i].number));
                         }
 
                         _this.metaImage = {
@@ -146,10 +158,13 @@
 </script>
 
 <style>
-    .girl_output , .fairy_output{
+     .fairy_output{
         margin-top: 10px;
-
     }
+
+     .girl_output {
+       margin-top: 0;
+     }
 
     .girl_output img , .fairy_output img{
         margin-right: 5px;
@@ -170,5 +185,9 @@
     .no_heavy {
         border: 3px solid #a0c11b;
     }
+
+     .chip-link .v-chip__content {
+        cursor: pointer !important;
+     }
 
 </style>

@@ -24,7 +24,8 @@
 
             <v-layout row wrap pa1>
                 <v-flex xs12 pa-1 class="fairy_output">
-                   <img v-for="fairy in data" :src='"/common/fairy/fairy_" + fairy.number + ".jpg"'
+                  <gl-ui-title v-if="data.length > 0" :text="this.hh + ':' + this.mm" h2></gl-ui-title>
+                  <img v-for="fairy in data" :src='"/common/fairy/fairy_" + fairy.number + ".jpg"'
                          :alt='fairy.name' :title='fairy.name'>
                 </v-flex>
                 <gl-ui-error :error="error"></gl-ui-error>

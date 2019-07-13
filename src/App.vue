@@ -1,5 +1,6 @@
 <template>
         <v-app id="app" class="transparent">
+            <gl-ui-resource></gl-ui-resource>
             <gl-ui-dialog></gl-ui-dialog>
             <gl-ui-nav v-if="isShow"></gl-ui-nav>
         <v-layout v-resize="onResize" :style="'height:' + height" v-if="isShow"></v-layout>
@@ -32,10 +33,12 @@
     import GlUiDialog from "./components-ui/dialog";
     import GlUiCookies from "./components-ui/cookies";
     import GlUiLoad from "./components-ui/load";
+    import GlUiResource from "./components-ui/resource";
 
     export default {
         components: {
-          GlUiLoad,
+            GlUiResource,
+            GlUiLoad,
             GlUiCookies,
             GlUiDialog,
             GlUiRightContent,
@@ -147,7 +150,7 @@
     }
 
     .f-18{
-        font-size: 18px;
+        font-size: 18px !important;
     }
 
     body {

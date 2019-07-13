@@ -37,7 +37,7 @@ const i18n = new VueI18n({
 });
 
 import setting from  './setting.js';
-import global from './global';
+import global from './global.js';
 import nav from  './nav.js';
 import router from "./router/router.config";
 
@@ -84,6 +84,20 @@ Vue.prototype.langUrl = function(){
     return '';
   }
   return "/" + lang;
+};
+
+/**
+ * @param {string} number
+ * @param {0|1} option 0:girl 1:ex
+ * @return {string}
+ */
+Vue.prototype.getResourceName = function(number, option = 0 ){
+
+  if (option === undefined || option === 0){
+    return "girl." + number;
+  }else if (option === 1){
+    return "girlEx." + number;
+  }
 };
 
 

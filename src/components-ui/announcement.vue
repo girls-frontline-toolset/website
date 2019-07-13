@@ -26,8 +26,8 @@
 
 <style>
     .gl-announcement-color {
-        color: #8a6d3b;
-        background-color: #fcf8e3;
-        border-color: #faebcc;
+        color: #8a6d3b !important;
+        background-color: #fcf8e3 !important;
+        border-color: #faebcc !important;
     }
 </style>

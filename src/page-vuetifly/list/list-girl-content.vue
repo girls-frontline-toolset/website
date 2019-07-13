@@ -27,7 +27,7 @@
 
                 <v-flex xs12 pa-1>
                     <gl-ui-title h2 :text="$t('t.star') + ':'"></gl-ui-title>
-                    <gl-ui-icon-button v-if="humanoid !== 1" v-for="item,key in star" :key="key" :opacity="item" type="star" :name="key" ></gl-ui-icon-button>
+                    <gl-ui-icon-button v-if="humanoid !== 1" v-for="(item,key) in star" :key="key" :opacity="item" type="star" :name="key" ></gl-ui-icon-button>
                     <gl-ui-icon-button v-if="humanoid === 1" :opacity="other.star_other" type="other" name="star_other" ></gl-ui-icon-button>
                 </v-flex>
 
@@ -42,7 +42,9 @@
         <v-btn color="primary" @click="getAll()">{{$t('t.all')}}</v-btn>
         <v-btn color="primary" v-if="humanoid === 0" outline @click="getGirlTime()">{{$t('time.girl-list')}}</v-btn>
         <div class="list_output">
-            <a v-for="item in listDate" :key="item.no" :href="'https://zh.moegirl.org/zh-hant/少女前线:' + item.n " target='_blank'><img :src='item.s' :alt='item.n' :title='item.n'></a>
+            <a v-for="item in listDate" :key="item.no" :href="'https://zh.moegirl.org/zh-hant/少女前线:' + item.n " target='_blank'>
+              <img :src='item.s' :alt="$t(getResourceName(item.no,humanoid))" :title='$t(getResourceName(item.no,humanoid))'>
+            </a>
         </div>
 
         <div class="list_time_output">
@@ -50,7 +52,9 @@
             <v-flex md6 sm6 xs12 pa-1 v-for="i in 2" :key="i">
                 <div v-for="items in listTime[i - 1]">
                     <gl-ui-title h2 :text="items.title"></gl-ui-title>
-                    <a v-for="item in items.data" :key="item.no" :href="'https://zh.moegirl.org/zh-hant/少女前线:' + item.n " target='_blank'><img :class="item.c"  :src="'/common/girl/' + $t('resourcePath') +'girl_' + item.num + '.jpg'" :alt='item.n' :title='item.n'></a>
+                    <a v-for="item in items.data" :key="item.no" :href="'https://zh.moegirl.org/zh-hant/少女前线:' + item.n " target='_blank'>
+                      <img :class="item.c"  :src="'/common/girl/' + $t('resourcePath') +'girl_' + item.num + '.jpg'" :alt='$t(getResourceName(item.num))' :title='$t(getResourceName(item.num))'>
+                    </a>
                 </div>
             </v-flex>
             </v-layout>

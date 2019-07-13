@@ -17,7 +17,7 @@
 
             <v-layout row wrap pa1>
                 <v-flex xs12 pa-1 class="device_output">
-
+                  <gl-ui-title v-if="data.length > 0" :text="this.mm" h2></gl-ui-title>
                     <div class="div_device" v-for="device in data">
                         <ol>
                             <li :class="device.img+' str_'+device.star+'_bg'">{{device.starT}}</li>
