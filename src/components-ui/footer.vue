@@ -8,6 +8,9 @@
               <a href="https://www.facebook.com/girl.kurumichan/" target="_blank" >
                 <v-btn class="mx-3 white--text" icon><v-icon size="24px">icon-facebook</v-icon></v-btn>
               </a>
+              <a href="https://www.instagram.com/gf_toolset" target="_blank" >
+                <v-btn class="mx-3 white--text" icon><v-icon size="24px">icon-instagram</v-icon></v-btn>
+              </a>
 
             </v-flex>
            <v-btn v-for="link in links" v-if="link.to.search('http') === -1" :key="link.t" :to="langUrl() + link.to"  color="white" flat >
@@ -36,7 +39,7 @@
         name: 'gl-ui-footer',
         data() {
             return {
-                links: [{"t":'footer.feedback',"to":"/more/feedback"}, {"t":'footer.link',"to":"/more/link"}, {"t":'footer.uploadImg',"to":"https//drive.google.com/drive/folders/0B_CazUUBPCsWSDgxMU9NNEl6eDQ"},{"t":'github',"to":"https://github.com/girls-frontline-toolset/website"}, {"t":'footer.add-image',"to":"/image/add"}, {"t":'footer.about',"to":"/more/about"},{"t":'footer.update-log',"to":"/log/update"},{"t":"title.h1.more.sitemap","to":"/more/sitemap"},{"t":"footer.privacy-policy","to":"/more/privacy_policy"}]
+                links: [{"t":'footer.feedback',"to":"/more/feedback"}, {"t":'footer.link',"to":"/more/link"}, {"t":'footer.uploadImg',"to":"https://drive.google.com/drive/folders/0B_CazUUBPCsWSDgxMU9NNEl6eDQ"},{"t":'github',"to":"https://github.com/girls-frontline-toolset/website"}, {"t":'footer.add-image',"to":"/image/add"}, {"t":'footer.about',"to":"/more/about"},{"t":'footer.update-log',"to":"/log/update"},{"t":"title.h1.more.sitemap","to":"/more/sitemap"},{"t":"footer.privacy-policy","to":"/more/privacy_policy"}]
             }
         }, methods: {}, beforeCreate: function () {
         }, created: function () {
