@@ -29,6 +29,22 @@
             return {
                 carousel: null
             }
+        },
+        beforeCreate() {
+            let lang = "";
+            let pathname = window.location.pathname;
+
+            if (pathname.startsWith("/ja")){
+                lang =  '&lang=ja';
+            }else if (pathname.startsWith("/tw")){
+                lang =  '&lang=tw';
+            }else if (pathname.startsWith("/cn")){
+                lang =  '&lang=cn';
+            }else if (pathname.startsWith("/en")){
+                lang =  '&lang=en';
+            }
+
+            window.location = '/404?url=' + pathname + window.location.search + lang;
         }
     }
 </script>
