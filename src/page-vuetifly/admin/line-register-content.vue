@@ -31,6 +31,14 @@
               <gl-ui-title text="Line 用戶" h2></gl-ui-title>
               <v-form ref="form" v-model="valid">
                 <v-text-field
+                  v-model="data.token"
+                  type="token"
+                  name="token"
+                  label="token"
+                  readonly
+                  filled
+                ></v-text-field>
+                <v-text-field
                   v-model="data.email"
                   type="Email"
                   name="title"
@@ -83,7 +91,7 @@
         token: "",
         email:"",
         docList: null,
-        data: {lineName: "", email: "", uid: "", card: "", id: ""},
+        data: {lineName: "", email: "", uid: "", card: "", id: "",token:""},
         valid: false
       }
     }, methods: {
@@ -105,6 +113,7 @@
                 _this.data.uid = data.data[0]['uid'];
                 _this.data.card = data.data[0]['card'];
                 _this.data.id = data.data[0]['id'];
+                _this.data.token = data.data[0]['token'];
               }else{
                   _this.data.email = "null";
               }
