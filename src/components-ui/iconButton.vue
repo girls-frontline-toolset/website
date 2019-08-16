@@ -36,7 +36,7 @@
 </script>
 
 <style>
-  .EILD,.whiteForces,.military, .FST, .star_1, .cells_1, .cells_2, .cells_3, .cells_4, .cells_5, .cells_6,.orange_type, .blue_type, .sangvis, .update , .AR, .SG, .SMG, .HG, .MG, .RF, .star_other, .star_2, .star_3, .star_4, .star_5, .GK, .fairyType_1, .fairyType_0 {
+  .EILD,.whiteForces,.military, .FST, .star_1, .cells_1, .cells_2, .cells_3, .cells_4, .cells_5, .cells_6,.orange_type, .blue_type, .sangvis, .update , .AR, .SG, .SMG, .HG, .MG, .RF, .star_other, .star_2, .star_3, .star_4, .star_5, .star_6, .GK, .fairyType_1, .fairyType_0 {
         background: url('/common/img/sprites.png') no-repeat;
         opacity: .5;
         cursor: pointer;
@@ -44,7 +44,7 @@
     }
 
     @media (max-width: 600px) {
-      .EILD,.whiteForces,.military, .FST, .star_1, .cells_1, .cells_2, .cells_3, .cells_4, .cells_5, .cells_6,.orange_type, .blue_type, .sangvis, .update ,  .AR, .SG, .SMG, .HG, .MG, .RF, .star_other, .star_2, .star_3, .star_4, .star_5, .GK, .fairyType_1, .fairyType_0 {
+      .EILD,.whiteForces,.military, .FST, .star_1, .cells_1, .cells_2, .cells_3, .cells_4, .cells_5, .cells_6,.orange_type, .blue_type, .sangvis, .update ,  .AR, .SG, .SMG, .HG, .MG, .RF, .star_other, .star_2, .star_3, .star_4, .star_5, .star_6, .GK, .fairyType_1, .fairyType_0 {
             zoom: 0.7;
         }
     }
@@ -124,6 +124,12 @@
         background-position: -307px -115px;
         width: 102px;
         height: 55px;
+    }
+
+    .star_6 {
+      background-position: 0 -295px  ;
+      width: 102px;
+      height: 55px;
     }
 
     .GK {

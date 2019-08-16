@@ -81,7 +81,7 @@
                 humanoidItems: [{"i": 0, "t": "time.t-doll"}, {"i": 1, "t": "time.other-doll"}, {"i": 2, "t": "time.update-doll"}],
                 humanoid: 0,
                 type: {"HG":false, "SMG":false, "RF": false, "AR": false, "MG": false, "SG": false},
-                star: {"star_2": false, "star_3": false, "star_4": false, "star_5": false },
+                star: {"star_2": false, "star_3": false, "star_4": false, "star_5": false ,"star_6": false},
                 update: {"update":false},
                 other: {"star_other":false},
                 girlListCount: 0,
@@ -125,7 +125,7 @@
             getAll(){
               this.$ga.event('list', 'girl_list_all');
               this.type =  {"HG":true, "SMG":true, "RF": true, "AR": true, "MG": true, "SG": true};
-              this.star =  {"star_2": true, "star_3": true, "star_4": true, "star_5": true};
+              this.star =  {"star_2": true, "star_3": true, "star_4": true, "star_5": true, "star_6": true};
               this.update = {"update":true};
               this.other = {"star_other":true};
 
@@ -214,6 +214,9 @@
                                 break;
                             case '3':
                                 star = this.star["star_" + 4];
+                                break;
+                            case '5':
+                                star = this.star["star_" + 6];
                                 break;
                         }
                         url = "/common/digiMindGirl/" + this.$t('resourcePath') + "digiMindGirl_";
