@@ -12,7 +12,7 @@
           <img class="no-select" alt="girls-frontline-toolset" style="width: 50%" src="/common/img/GitHub-logo.png">
         </a>
       </gl-ui-avatar-card>
-      <gl-ui-avatar-card icon-img="/common/img/about-icon.jpg" :title="$t('about.webmaster')" name="andy19974z22">
+      <gl-ui-avatar-card icon-img="/common/img/about-icon.jpg" :title="$t('about.webmaster')" name="andy19974a22">
         <span style="font-size: 50px">少女前線很休閒!</span> <br>
         <br>
         歡迎加入本LINE群啊
