@@ -205,7 +205,8 @@
     },
     "magical-tool": {
       "s": "魔法の道具",
-      "so-appetizing": "本当の香ジェネレータ"
+      "so-appetizing": "本当の香ジェネレータ",
+      "logistics-support": "後方支援のおすすめパソコン"
     },
     "line-group":"LINEグループ(台湾語)",
     "easy-mode":"簡易モード"
@@ -230,6 +231,31 @@
   "contributor": {
     "img": "フォトギャラリー協力者",
     "zoom": "ズームイン"
+  },
+  "prop": {
+    "s": "道具",
+    "prop": "道具",
+    "no-specific-requirements": "特定の要件なし",
+    "equipment-contract": "裝備製造契約",
+    "t-doll-contract": "人形製造契約",
+    "quick-repair-contract": "快速修復契約",
+    "quick-production-contract": "快速製造契約",
+    "token": "コイン"
+  },
+  "logistics-support": {
+    "time": "時間",
+    "sum": "合計",
+    "weight-m": "重量/分",
+    "name": "名前",
+    "weights": "重さ",
+    "chapter": "戦役",
+    "start-time": "開始時間",
+    "end-time": "終了時間",
+    "no-data": "データなし",
+    "cancel": "取り消す",
+    "ok": "OK",
+    "weight-sum": "重みの合計",
+    "sort-by": "並べ替え  :"
   },
   "github": "Github"
 }

@@ -21,6 +21,26 @@
  *  @property {'','AR','HG','MG','RF','SG','SMG'} type
  */
 
+/**
+ *  @typedef ajax.getLogisticsSupportList
+ *  @property {number} id
+ *  @property {string} name
+ *  @property {number} manpower
+ *  @property {number} ammunition
+ *  @property {number} material
+ *  @property {number} parts
+ *  @property {number} manpower_h
+ *  @property {number} ammunition_h
+ *  @property {number} material_h
+ *  @property {number} parts_h
+ *  @property {string} prop_1
+ *  @property {string} prop_2
+ *  @property {string} time
+ *  @property {number} timeMinutes
+ *  @property {{weight.manpower,weight.ammunition,weight.material,weight.parts}} weight
+ *  @property {number} sum
+ */
+
 const ajax = {
     getJson:function(obj,vue,url,name,callback){
         if(vue[name] === undefined ){
@@ -145,7 +165,10 @@ const global = {
     getSupportUnitList:function(name,vue,callback){
     ajax.getJson(this.supportUnitList,vue,'/api/inquiry/supportUnit/getAll',name,callback);
     },
-
+    logisticsSupportList:{"data":""},
+    getLogisticsSupportList:function(name,vue,callback){
+      ajax.getJson(this.logisticsSupportList,vue,'/api/inquiry/logisticsSupport/getList',name,callback);
+   },
 };
 
 export default global;

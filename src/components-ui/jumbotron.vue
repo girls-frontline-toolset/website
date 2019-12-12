@@ -38,7 +38,7 @@
             <v-flex xs12>
                 <v-expansion-panel>
                     <v-expansion-panel-content  v-for="(item,key) in data" :key="key" hide-actions>
-                        <div slot="header" @click="click(data[key].to)">{{$t(item.t)}} <v-icon style="float: right;">{{item.i}}</v-icon></div>
+                        <div slot="header" @click="click(data[key].to)">{{$t(item.t)}}<v-chip v-if="data[key].new" small color="red" text-color="white">New</v-chip> <v-icon style="float: right;">{{item.i}}</v-icon></div>
                     </v-expansion-panel-content>
                     <v-expansion-panel-content hide-actions v-if="showImg">
                         <div slot="header" @click="click('/image/all')">{{$t('nav.image-library')}}<v-chip small color="red" text-color="white">+{{number}}</v-chip> <v-icon style="float: right;">photo_library</v-icon></div>
@@ -56,7 +56,7 @@
         name: 'gl-ui-jumbotron',
         data() {
             return {
-                data: [{"t": "jumbotron.girl-time", "i": "access_time", "to": "/time/girl"}, {"t": "jumbotron.fairy-time", "i": "access_time", "to": "/time/fairy"}, {"t": "jumbotron.make-girl", "i": "icon-make", "to": "/make/girl"}, {"t": "jumbotron.il-girl", "i": "icon-il-hb", "to": "/list/girl"}],
+                data: [{"t": "jumbotron.girl-time", "i": "access_time", "to": "/time/girl"}, {"t": "jumbotron.fairy-time", "i": "access_time", "to": "/time/fairy"}, {"t": "jumbotron.make-girl", "i": "icon-make", "to": "/make/girl"}, {"t": "jumbotron.il-girl", "i": "icon-il-hb", "to": "/list/girl"},{"t": "nav.magical-tool.logistics-support", "i": "alarm", "to": "/magical-tool/logistics-support","new":"new"}],
                 number: 0,
                 isShow: true,
                 less600:false,

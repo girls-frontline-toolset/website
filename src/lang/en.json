@@ -205,7 +205,8 @@
     },
     "magical-tool": {
       "s": "magical tool",
-      "so-appetizing": "So appetizing generation"
+      "so-appetizing": "So appetizing generation",
+      "logistics-support": "logistics support calculators"
     },
     "line-group":"LINE Group (Chinese)",
     "easy-mode":"Easy Mode"
@@ -230,6 +231,31 @@
   "contributor": {
     "img": "Illustration contributor",
     "zoom": "Zoom"
+  },
+  "prop": {
+    "s": "Props",
+    "prop": "prop",
+    "no-specific-requirements": "No specific requirements",
+    "equipment-contract": "Equipment Contract",
+    "t-doll-contract": "T-Doll Contract",
+    "quick-repair-contract": "Quick Repair Contract",
+    "quick-production-contract": "Quick Production Contract",
+    "token": "Token"
+  },
+  "logistics-support": {
+    "time": "Time",
+    "sum": "Sum",
+    "weight-m": "Weight/Min",
+    "name": "Name",
+    "weights": "Weights",
+    "chapter": "Chapter",
+    "start-time": "Start Time",
+    "end-time": "End Time",
+    "no-data": "No data",
+    "cancel": "Cancel",
+    "ok": "OK",
+    "weight-sum": "Weight Sum",
+    "sort-by": "Sort By"
   },
   "github": "Github"
 }

@@ -205,7 +205,8 @@
     },
     "magical-tool": {
       "s": "神奇工具",
-      "so-appetizing": "真香生成器"
+      "so-appetizing": "真香生成器",
+      "logistics-support": "后勤推荐计算机"
     },
     "line-group":"LINE群",
     "easy-mode":"简易模式"
@@ -230,6 +231,31 @@
   "contributor": {
     "img": "图片库贡献者",
     "zoom": "放大"
+  },
+  "prop": {
+    "s": "工具",
+    "prop": "工具",
+    "no-specific-requirements": "没特定要求",
+    "equipment-contract": "装备制造契约",
+    "t-doll-contract": "人形制造契约",
+    "quick-repair-contract": "快速修复契约",
+    "quick-production-contract": "快速制造契约",
+    "token": "采购币"
+  },
+  "logistics-support": {
+    "time": "时间",
+    "sum": "总和",
+    "weight-m": "权重/分钟",
+    "name": "名称",
+    "weights": "权重",
+    "chapter": "战役",
+    "start-time": "开始时间",
+    "end-time": "结束时间",
+    "no-data": "没有数据",
+    "cancel": "取消",
+    "ok": "OK",
+    "weight-sum": "权重总和",
+    "sort-by": "排序方式:"
   },
   "github": "Github"
 }

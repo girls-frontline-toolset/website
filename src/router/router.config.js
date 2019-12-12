@@ -19,6 +19,7 @@ import listSupportUnit from '../page-vuetifly/list/list-support-unit.vue';
 //tool
 import android from '../page-vuetifly/tool/android-content.vue';
 import chrome from '../page-vuetifly/tool/chrome-content.vue';
+import logisticsSupport from '../page-vuetifly/tool/logistics-support.vue';
 //bot
 import lineBot from '../page-vuetifly/bot/line-content.vue';
 import lineCommand from '../components-ui/bot/command.vue';
@@ -121,7 +122,7 @@ import en from '../lang/en.json';
 let metaData = {
   default:{
     title: '',
-    description:"一個專為指揮官而設的工具集。包括圖片庫、製造時間 (人形，裝備，妖精)、圖鑑 (人形，妖精，晶片，重裝)、模擬製作 (人形，裝備，晶片組合)、Line bot 教學頁面及好友專區。",
+    description:"一個專為少女前線指揮官而設的工具集。包括圖片庫、製造時間 (人形，裝備，妖精)、圖鑑 (人形，妖精，晶片，重裝)、模擬製作 (人形，裝備，晶片組合)、Line bot 教學頁面及好友專區。",
     image:{url:"/common/SEO/main.jpg",width:"1200",height:"1200"}
   },
   time:{
@@ -313,6 +314,10 @@ let metaData = {
       title: {"cn":cn.nav["magical-tool"]["so-appetizing"],"tw":tw.nav["magical-tool"]["so-appetizing"],"ja":ja.nav["magical-tool"]["so-appetizing"],"en":en.nav["magical-tool"]["so-appetizing"]},
       description:"一個TMP真香生成器! 真香!!",
       image:{url:"/api/line/ImgCool.php?str=真香",width:"960",height:"655"}
+    },
+    logistics_support:{
+      title: {"cn":cn.nav["magical-tool"]["logistics-support"],"tw":tw.nav["magical-tool"]["logistics-support"],"ja":ja.nav["magical-tool"]["logistics-support"],"en":en.nav["magical-tool"]["logistics-support"]},
+      description:"少女前線 後勤推薦計算機 懶人包",
     }
   },
   breadcrumbList:{
@@ -437,7 +442,8 @@ let childrenRoutes = [
     ]},
   {path: 'magical-tool',component:inquire,children:[
       {path: 'so-appetizing', component:soAppetizing,meta: GetMetaData("magical_tool.so_appetizing")},
-      {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
+      {path: 'logistics-support', component:logisticsSupport,meta: GetMetaData("magical_tool.logistics_support")},
+{path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path: 'contributor',component:inquire,children:[
       {path:'register/:id',component:registered,meta:GetMetaData("contributor.register")},

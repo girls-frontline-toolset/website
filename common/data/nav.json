@@ -44,7 +44,8 @@
   },
   {
     "t": "nav.magical-tool.s", "h": "", "i":"build", "list": [
-    {"t": "nav.magical-tool.so-appetizing", "h": "/magical-tool/so-appetizing"}
+    {"t": "nav.magical-tool.so-appetizing", "h": "/magical-tool/so-appetizing"},
+    {"t": "nav.magical-tool.logistics-support", "h": "/magical-tool/logistics-support"}
   ]
   }
 ]
