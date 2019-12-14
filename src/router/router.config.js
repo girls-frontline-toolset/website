@@ -318,6 +318,7 @@ let metaData = {
     logistics_support:{
       title: {"cn":cn.nav["magical-tool"]["logistics-support"],"tw":tw.nav["magical-tool"]["logistics-support"],"ja":ja.nav["magical-tool"]["logistics-support"],"en":en.nav["magical-tool"]["logistics-support"]},
       description:"少女前線 後勤推薦計算機 懶人包",
+      image:{url:"/common/SEO/magical-tool-logistics-support.jpg",width:"1200",height:"783"}
     }
   },
   breadcrumbList:{
@@ -397,6 +398,8 @@ let childrenRoutes = [
     ]},
   {path: 'bot', component: inquire,children:[
       {path: 'line', component:lineBot, props:{promptData:glCardLeftData.line_bot},meta:  GetMetaData("bot.line") ,children:[
+          {path: 'img/:name/:index',component:lineImg , meta:  GetMetaData("bot.line.img")},
+          {path: 'img/:name',component:lineImg , meta:  GetMetaData("bot.line.img")},
           {path: 'img',component:lineImg , meta:  GetMetaData("bot.line.img")},
           {path: '/',component:lineCommand ,meta:  GetMetaData("bot.line")},
         ]},
