@@ -95,8 +95,8 @@
       >
         <template slot="items" slot-scope="props">
           <td><b>{{ props.item.name }}</b></td>
-          <td>{{ Math.floor( props.item.weight.sum * 100) / 100 }}</td>
-          <td>{{props.item.sum}}</td>
+          <td class="orange--text text--darken-4">{{ Math.floor( props.item.weight.sum * 100) / 100 }}</td>
+          <td class="light-green--text text--darken-4">{{props.item.sum}}</td>
           <td>{{ props.item.manpower }}</td>
           <td>{{ props.item.ammunition }}</td>
           <td>{{ props.item.material }}</td>
@@ -161,8 +161,8 @@
         rs: [],
         headers: [
           {text:"",t: 'logistics-support.name', sortable: false, value: 'name'},
-          {text:"",t: 'logistics-support.weight-m', value: 'Weight', sortable: false},
-          {text:"",t: 'logistics-support.sum', value: 'Sum', sortable: false},
+          {text:"",t: 'logistics-support.weight-m', value: 'Weight', sortable: false,class:"orange--text text--darken-4"},
+          {text:"",t: 'logistics-support.sum', value: 'Sum', sortable: false,class:"light-green--text text--darken-4"},
           {text:"",t: 'make.manpower', value: 'manpower', sortable: false},
           {text:"",t: 'make.ammunition', value: 'ammunition', sortable: false},
           {text:"",t: 'make.material', value: 'material', sortable: false},
@@ -184,7 +184,6 @@
         this[this.timePicker.value.split(".")[0]][this.timePicker.value.split(".")[1]] = time;
       },
       search(isFirst) {
-        let _this = this;
         let maxTime = 24 * 60;
         let sortType = "weightSum";
 
@@ -192,7 +191,7 @@
 
           function toTime(str) {
 
-            let timeStr = "";
+            let timeStr;
             if (str.split(":").length === 1) {
               switch (str.length) {
                 case 2:
@@ -215,7 +214,7 @@
 
           this.time.start = toTime(this.time.start);
           this.time.end = toTime(this.time.end);
-          console.log(this.time);
+
           let start = this.timeToMinutes(this.time.start);
           let end = this.timeToMinutes(this.time.end);
 
