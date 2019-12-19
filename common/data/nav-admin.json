@@ -2,7 +2,7 @@
   {"text": "主頁","href": "/admin"},
   {"text": "設定","href": "/admin/setting"},
   {"text": "Log","href": "/admin/updateLog"},
-  {"text": "數據加入","item": [{"text": "每日提示管理", "href": "/admin/dailyTask"},{"text": "實用文庫管理", "href": "/admin/doc"}, {"text": "時間表管理","href":"/admin/schedule"}, {"text": "人型編輯","href":"/admin/girl"}]},
+  {"text": "數據加入","item": [{"text": "每日提示管理", "href": "/admin/dailyTask"},{"text": "實用文庫管理", "href": "/admin/doc"}, {"text": "時間表管理","href":"/admin/schedule"}, {"text": "人型編輯","href":"/admin/girl"},{"text": "連接生成","href": "/admin/linkMake"}]},
   {"text": "圖片","item": [{"text": "圖片管理", "href": "/admin/image"}, {"text": "問題圖片", "href": "/admin/errorImg"}]},
   {"text": "Doc管理","href": "/admin/docMgmt"},
   {"text": "Line 登記","href": "/admin/lineRegister"}
