@@ -72,7 +72,7 @@
       <v-tab-item value="tab-1">
         <v-container grid-list-md pa-0>
           <v-layout row wrap pa1>
-            <v-flex xs4 sm1 pa-1 v-for="item in 12">
+            <v-flex xs4 sm1 pa-1 v-for="item in 13">
               <v-checkbox color="primary" v-model="chapter" :label="''+(item-1)" :value="item-1"/>
             </v-flex>
           </v-layout>
@@ -140,7 +140,7 @@
     data() {
       return {
         less600:false,
-        chapter: [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        chapter: [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,12],
         model: "tab-0",
         items: [{t: "12", i: ""}, {t: "12", i: ""}],
         time: {start: "", end: ""},
@@ -349,13 +349,13 @@
               _this.chapter = [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
               break;
             case "tw":
-              _this.chapter = [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+              _this.chapter = [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
               break;
             case "ja":
               _this.chapter = [0,1, 2, 3, 4, 5, 6, 7, 8, 9];
               break;
             case "cn":
-              _this.chapter = [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+              _this.chapter = [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
               break;
           }
           this.search(true);
