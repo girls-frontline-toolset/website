@@ -73,7 +73,7 @@
             success: function (data) {
               data = JSON.parse(data);
               if (data.status === "success") {
-                _this.$s.glDialogText("添加連接生成", data.data.url);
+                _this.$s.glDialogText("添加連接生成", data.data.url + "?utm_source=facebook&utm_medium=social&utm_campaign=post");
                 _this.clear();
               } else {
                 _this.$s.glDialogText("添加連接生成", "出現問題!!", 1);
