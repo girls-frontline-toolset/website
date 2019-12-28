@@ -323,6 +323,12 @@
                 for (var ii = 0; ii < tagList.length; ii++) {
                     string += "";
                 }
+            },
+            addLinkTag(ref,domain,lang,href){
+              let link = document.createElement("link");
+              link.setAttribute("rel",ref);
+              link.setAttribute("href",domain + lang + href);
+              document.getElementsByTagName('head')[0].appendChild(link);
             }
         }, created() {
             this.isShow = this.$s.less768;
@@ -336,7 +342,11 @@
             this.$g.getWhiteForces('whiteForcesList', this);
             var _this = this;
 
-            if (this.$route.params.name !== undefined && this.$route.params.name !== "all") {
+            let url  = new URL(window.location.href);
+            let pagePathName = url.pathname.replace("/en",'').replace("/tw",'').replace("/cn",'').replace("/ja",'');
+            this.addLinkTag("canonical", "https://www.ntw-20.com" , "", pagePathName);
+
+             if (this.$route.params.name !== undefined && this.$route.params.name !== "all") {
                 this.selectList.push(this.$route.params.name);
                 this.isAll = false;
 
