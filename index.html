@@ -13,7 +13,6 @@
     <link rel="apple-touch-icon" sizes="120x120" href="/common/img/touch-icon-iphone-retina.png" />
     <link rel="apple-touch-icon" sizes="152x152" href="/common/img/touch-icon-ipad-retina.png" />
     <link rel="manifest" href="/manifest.json">
-    <script async src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6"></script>
     <script async src="https://platform.twitter.com/widgets.js"></script>
     <script async src="/common/lib/md5.min.js"></script>
     <title>少女前線工具集</title>
@@ -23,29 +22,6 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'UA-108349832-1');
-    </script>
-    <script>
-      function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, '\\$&');
-        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-          results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
-      }
-
-      if(getParameterByName("fn") !== "nbar"){
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/service-worker.js').then(function (reg) {
-            // registration worked
-            console.log('Registration succeeded. Scope is ' + reg.scope);
-          }).catch(function (error) {
-            // registration failed
-            console.log('Registration failed with ' + error);
-          });
-        }
-      }
     </script>
     <style>
 
@@ -116,9 +92,6 @@
   <link rel="stylesheet" href="/common/lib/lib.css?v=17022019" media="none" onload="if(media!='all')media='all'">
   <noscript><link rel="stylesheet" href="/common/lib/lib.css"></noscript>
 
-  <link rel="stylesheet" href="/common/css/styles.css" media="none" onload="if(media!='all')media='all'">
-  <noscript><link rel="stylesheet" href="/common/css/styles.css?v=07062018"></noscript>
-
   <link rel="stylesheet" href="/common/css/gl-icon.css" media="none" onload="if(media!='all')media='all'">
   <noscript><link rel="stylesheet" href="/common/css/gl-icon.css?v=07062018"></noscript>
 
@@ -133,6 +106,6 @@
       <div class="dot dot4"></div>
     </div>
   </div>
-    <script async src="/common/build.js?v=24032019"></script>
+    <script async src="/common/build.js?v=17072019"></script>
   </body>
 </html>

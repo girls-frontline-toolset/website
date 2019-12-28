@@ -5,7 +5,7 @@
               <a href="https://twitter.com/GF_Toolset" target="_blank" >
                 <v-btn class="mx-3 white--text" icon><v-icon size="24px">icon-twitter</v-icon></v-btn>
               </a>
-              <a href="https://www.facebook.com/girl.kurumichan/" target="_blank" >
+              <a href="https://www.facebook.com/GFLtoolset/" target="_blank" >
                 <v-btn class="mx-3 white--text" icon><v-icon size="24px">icon-facebook</v-icon></v-btn>
               </a>
               <a href="https://www.instagram.com/gf_toolset" target="_blank" >

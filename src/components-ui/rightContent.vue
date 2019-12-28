@@ -1,7 +1,6 @@
 <template>
   <v-flex xs12 sm12 md3 mt-1 pa-1 v-resize="onResize">
     <gl-ui-event-schedule ref="hidden" :complete="complete"></gl-ui-event-schedule>
-    <gl-ui-facebook ref="block" :style="PoClass"></gl-ui-facebook>
     <gl-ui-github-badge :style="BadgeClass"></gl-ui-github-badge>
   </v-flex>
 </template>
