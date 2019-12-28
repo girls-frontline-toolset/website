@@ -36,7 +36,7 @@
                                     </v-flex>
                                     <v-flex xs12 sm6 md4 pa-1 ref="list-2">
                                         <gl-ui-image-add-card :item="item" :ref="item.id"
-                                                              v-for="item,index in data"
+                                                              v-for="(item,index) in data"
                                                               v-if="show(index,1)"
                                                               :key="index"
                                                               :completed="completed" :tag-click="tagClick"
@@ -46,7 +46,7 @@
                                     </v-flex>
                                     <v-flex xs12 sm6 md4 pa-1 hidden-sm-and-down ref="list-3">
                                         <gl-ui-image-add-card :item="item" :ref="item.id"
-                                                              v-for="item,index in data"
+                                                              v-for="(item,index) in data"
                                                               v-if="show(index,2)"
                                                               :key="index"
                                                               :completed="completed" :tag-click="tagClick"
@@ -153,7 +153,7 @@
             enter() {
                 this.erUrl = [];
                 var line = this.select.content.split('\n');
-                const regex = /^https:\/\/www\.pixiv\.net\/member\_illust\.php\?mode\=medium\&illust_id\=[0-9]*[\w\W]*$|^https:\/\/twitter\.com\/[\w\W]*\/status\/[0-9]*$|^https:\/\/twitter\.com\/[\w\W]*\/status\/[0-9]*\?s\=[0-9]+$|^^https:\/\/twitter\.com\/[\w\W]*\/status\/[0-9]*\/[\w\W]*|^https:\/\/www\.pixiv\.net\/member\_illust\.php\?illust_id\=[0-9]*[\w\W]*/g;
+                const regex = /^https:\/\/www\.pixiv\.net\/member\_illust\.php\?mode\=medium\&illust_id\=[0-9]*[\w\W]*$|^https:\/\/twitter\.com\/[\w\W]*\/status\/[0-9]*$|^https:\/\/twitter\.com\/[\w\W]*\/status\/[0-9]*\?s\=[0-9]+$|^^https:\/\/twitter\.com\/[\w\W]*\/status\/[0-9]*\/[\w\W]*|^https:\/\/www\.pixiv\.net\/member\_illust\.php\?illust_id\=[0-9]*[\w\W]*|^https:\/\/www\.pixiv\.net\/artworks\/[0-9]*[\w\W]*/g;
                 for (let i = 0, string, res; i < line.length; i++) {
                     if (line[i] === undefined || line[i] === "") {
                         continue;
@@ -203,7 +203,7 @@
 
                 if (this.erUrl.length === 0) {
                     this.data = [];
-                    const regexPi = /^https:\/\/www\.pixiv\.net\/member\_illust\.php\?mode\=medium\&illust_id\=|^https:\/\/www\.pixiv\.net\/member\_illust\.php\?illust_id\=/g;
+                    const regexPi = /^https:\/\/www\.pixiv\.net\/member\_illust\.php\?mode\=medium\&illust_id\=|^https:\/\/www\.pixiv\.net\/member\_illust\.php\?illust_id\=|^https:\/\/www\.pixiv\.net\/artworks\//g;
                     const regexTw = /^https:\/\/twitter\.com\/[\w\W]*\/status\//g;
 
                     for (let x = 0, res, id; x < line.length; x++) {
