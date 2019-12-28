@@ -8,19 +8,19 @@
                     </v-flex>
                     <v-flex xs12 text-xs-center>
                         <v-avatar class="avatar-d">
-                            <img src="/common/img/line-bot-icon.jpg" alt="line icon">
+                          <gl-ui-img name="gl-line-bot-icon" avatar="true"/>
                         </v-avatar>
                     </v-flex>
                     <v-flex xs12 text-xs-center>
                         <span class="left-text">少女前線 時間查詢</span>
                         @bnj2321p<br>
                         <a href="https://line.me/R/ti/p/%40bnj2321p">
-                            <img style="height:36px;border: 0;" alt="加入好友"
-                                 src="/common/img/zh-Hant.png"></a>
+                          <gl-ui-img name="gl-zh-Hant"  alt="加入好友"/>
+                        </a>
                     </v-flex>
-                    <v-flex xs12 hidden-xs-only>
-                        <gl-ui-title text="QR CODE" h2/>
-                        <img v-if="show" src="/common/img/line-bot.jpg" alt="line icon" style="width: 100%">
+                    <v-flex xs12 hidden-xs-only >
+                      <gl-ui-title text="QR CODE" h2/>
+                      <gl-ui-img v-if="show" name="gl-line-bot" alt="line icon"/>
                     </v-flex>
                     <gl-ui-line-bot-about v-if="show"/>
                 </v-layout>
@@ -53,9 +53,11 @@
     import mPrompt from "../../mixin/mPrompt.js";
     import GlUiLineBotAbout from "../../components-ui/bot/lineBotAbout";
     import mMeta from "../../mixin/mMeta.js";
+    import GlUiImg from "../../components-ui/img";
     export default {
         mixins: [mPrompt,mMeta],
         components: {
+          GlUiImg,
             GlUiLineBotAbout,
             GlUiTitle,
             GlUiCardLeft,

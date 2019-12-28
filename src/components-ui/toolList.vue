@@ -3,7 +3,7 @@
         <v-layout align-center row wrap>
             <v-flex text-xs-center sm6 md3 xs6 v-for="(item,key) in data" :key="'tool-'+key">
                 <router-link :to="langUrl() + item.to" v-on:click.native="click(key)" class="unLine"><v-avatar class="w-100"  size="70%" >
-                    <img :src="item.s" :alt="item.a">
+                  <gl-ui-img :name="item.s" :alt="item.a" avatar="true"/>
                 </v-avatar>
                 <span class="w-100 d-b primary--text"  style="font-size: 24px;" >{{$t(item.a)}}</span>
                 </router-link>
@@ -14,14 +14,16 @@
 </template>
 
 <script>
+    import GlUiImg from "./img";
     export default {
         name: 'gl-ui-tool-list',
-        data() {
+      components: {GlUiImg},
+      data() {
             return {
-                data: [{"s": "/common/img/line-bot-icon.jpg", "a": "nav.other-platform.line", "to": "/bot/line"},
-                    {"s": "/common/img/touch-icon-iphone-retina.png", "a": "nav.other-platform.android", "to": "/tool/android"},
-                    {"s": "/common/img/chrome-icon.png", "a": "nav.other-platform.chrome", "to": "/tool/chrome"},
-                    {"s": "/common/img/group-icon.jpg", "a": "nav.line-group","to": "/more/line" }]
+                data: [{"s": "gl-line-bot-icon", "a": "nav.other-platform.line", "to": "/bot/line"},
+                    {"s": "gl-touch-icon-iphone-retina", "a": "nav.other-platform.android", "to": "/tool/android"},
+                    {"s": "gl-chrome-icon", "a": "nav.other-platform.chrome", "to": "/tool/chrome"},
+                    {"s": "gl-group-icon", "a": "nav.line-group","to": "/more/line" }]
             }
         }, methods: {
             click(index){

@@ -19,8 +19,8 @@
 
                         <v-flex xs12 class="div-h-make-select" text--xs--center>
                             <v-icon class="white--text c-p" size="60px" @click="next(-1)">keyboard_arrow_left</v-icon>
-                            <img src="/common/img/dTickets.png"> x{{selectData[select].tickets}}
-                            <img src="/common/img/nucleus.png"> x{{selectData[select].nucleus}}
+                            <gl-ui-img name="gl-equipment-contract"  zoom="0.4"/> x{{selectData[select].tickets}}
+                            <gl-ui-img name="gl-nucleus"  zoom="0.5"/> x{{selectData[select].nucleus}}
                             <v-icon class="white--text c-p" size="60px" @click="next(1)">keyboard_arrow_right</v-icon>
                         </v-flex>
                     </v-layout>
@@ -123,9 +123,11 @@
     import GlUiHNumberControl from "../../components-ui/make/h-numberControl";
     import GlUiOutputList from "../../components-ui/make/outputList";
     import mMeta from "../../mixin/mMeta.js";
+    import GlUiImg from "../../components-ui/img";
     export default {
         mixins: [mPrompt,mMeta],
         components: {
+          GlUiImg,
             GlUiOutputList,
             GlUiHNumberControl,
             GlUiAlertText,

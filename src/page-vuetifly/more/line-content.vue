@@ -17,7 +17,7 @@
             {{quest.q}}
               <div v-if="quest.i !== ''">
                 <br>
-                <img :src="quest.i" alt=""  style="width: 100px">
+                <gl-ui-img :name="quest.i"  alt=""/>
               </div>
             <v-radio-group v-model="radio[qIndex]" row >
               <v-radio
@@ -83,7 +83,8 @@
                   Line 名稱: <span>少女前線 工具集</span><br>
                   Line ID: <span>ntw-20-bot</span><br>
                   <a href="line://ti/p/zpjy5ufLw-" target="_blank">
-                    <img style="width: 100px" src="/common/img/zh-Hant.png" alt="add line"></a>
+                    <gl-ui-img name="gl-zh-Hant" alt="add line"/>
+                  </a>
                 </div>
               </div>
               <v-btn color="primary" @click="complete()">完成</v-btn>
@@ -115,9 +116,11 @@
   import GlUiCardLeft from "../../components-ui/cardLeft";
   import GlUiGlCardHelp from "../../components-ui/image/glCardHelp.vue";
   import mMeta from "../../mixin/mMeta.js";
+  import GlUiImg from "../../components-ui/img";
 
   export default {
     components: {
+      GlUiImg,
       GlUiCardLeft,
       GlUiTitle,
       GlUiGlCardHelp
@@ -130,7 +133,7 @@
           {"q":"IDW 出現的時間是?","a":3,"s":['1:00','08:06','3:53','1:10','7:55'],"i":""},
           {"q":"太太的種類是?","a":1,"s":['AR','RF','RPG','NTR','LOLI'],"i":""},
           {"q":"以下那個角色是最平的?","a":4,"s":['HK416','SPAS-12','AS Val','MP40','UMP45'],"i":""},
-          {"q":"請說出圖片中的角色名字","a":4,"s":['能登','貝登','阿登','凡爾登','司登'],"i":"/common/img/line-register-1.jpg"}
+          {"q":"請說出圖片中的角色名字","a":4,"s":['能登','貝登','阿登','凡爾登','司登'],"i":"gl-line-register-1"}
         ],
         radio:[0,0,0,0],
         info: {UID: "", email: ""},

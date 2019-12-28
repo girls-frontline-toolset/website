@@ -5,14 +5,14 @@
         <gl-ui-card-left :content="prompt" icon="notifications"/>
         <gl-ui-title :text="$t('title.h1.more.about')" h1/>
       </v-flex>
-      <gl-ui-avatar-card icon-img="/common/img/girls-frontline-toolset.jpg" title="GitHub"
+      <gl-ui-avatar-card icon-img="gl-girls-frontline-toolset" title="GitHub"
                          name="girls-frontline-toolset">
         <span style="font-size: 30px">一個少女前線工具集的組織</span> <br><br>
         <a href="https://github.com/girls-frontline-toolset" TARGET="_blank">
-          <img class="no-select" alt="girls-frontline-toolset" style="width: 50%" src="/common/img/GitHub-logo.png">
+          <gl-ui-img name="gl-GitHub-logo" alt="girls-frontline-toolset" avatar="true"/>
         </a>
       </gl-ui-avatar-card>
-      <gl-ui-avatar-card icon-img="/common/img/about-icon.jpg" :title="$t('about.webmaster')" name="andy19974a22">
+      <gl-ui-avatar-card icon-img="gl-about-icon" :title="$t('about.webmaster')" name="andy19974a22">
         <span style="font-size: 50px">少女前線很休閒!</span> <br>
         <br>
         歡迎加入本LINE群啊
@@ -52,10 +52,11 @@
   import GlUiCardLeft from "../../components-ui/cardLeft";
   import mMeta from "../../mixin/mMeta.js";
   import GlUiAvatarCard from "../../components-ui/avatar-card";
+  import GlUiImg from "../../components-ui/img";
 
   export default {
     mixins: [mPrompt, mMeta],
-    components: {GlUiAvatarCard, GlUiCardLeft, GlUiTitle},
+    components: {GlUiImg, GlUiAvatarCard, GlUiCardLeft, GlUiTitle},
     props: ['promptData'],
     name: 'gl-ui-about',
     data() {

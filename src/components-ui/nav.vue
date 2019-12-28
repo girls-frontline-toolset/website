@@ -6,7 +6,7 @@
                 <v-toolbar-title class="white--text">
                     <router-link :to="langUrl() + '/'" class="unLine white--text">{{$t('title.s')}}</router-link>
                 </v-toolbar-title>
-                <v-spacer></v-spacer>
+                <v-spacer/>
                 <v-tabs value="" slot="extension" v-if="subSubNav" color="gl-main-color" grow>
                     <v-tabs-slider color="yellow"/>
                     <v-tab :href="`#tab-${key}`" v-model="model" :to="langUrl() + item.to" v-for="(item,key) in items"

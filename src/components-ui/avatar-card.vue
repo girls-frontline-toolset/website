@@ -6,7 +6,7 @@
           </v-flex>
           <v-flex sm12 md4 text-xs-center>
                 <v-avatar size="100px">
-                    <img :src="iconImg" alt="icon">
+                  <gl-ui-img :name="iconImg" alt="icon" avatar="true"/>
                 </v-avatar>
               <span class="left-text">{{name}}</span>
             </v-flex>
@@ -18,10 +18,11 @@
 </template>
 <script>
     import GlUiTitle from "./title"
+    import GlUiImg from "./img";
 
     export default {
         name: 'gl-ui-avatar-card',
-        components: {GlUiTitle},
+        components: {GlUiImg, GlUiTitle},
         props:['iconImg','title','name']
             }
 </script>

@@ -8,7 +8,7 @@
                         </v-flex>
                         <v-flex xs12 text-xs-center>
                             <v-avatar class="avatar-d">
-                                <img src="/common/img/touch-icon-ipad-retina.png" alt="android icon">
+                              <gl-ui-img name="gl-touch-icon-iphone-retina"  alt="android icon" avatar="true"/>
                             </v-avatar>
                         </v-flex>
                         <v-flex xs12 text-xs-center>
@@ -47,8 +47,9 @@
     import GlUiCardLeft from "../../components-ui/cardLeft";
     import mPrompt from "../../mixin/mPrompt.js";
     import mMeta from "../../mixin/mMeta.js";
+    import GlUiImg from "../../components-ui/img";
     export default {
-        components: {GlUiCardLeft, GlUiAndroidAbout, GlUiTitle},
+        components: {GlUiImg, GlUiCardLeft, GlUiAndroidAbout, GlUiTitle},
         name: 'gl-ui-android',
         mixins: [mPrompt,mMeta],
         data() {

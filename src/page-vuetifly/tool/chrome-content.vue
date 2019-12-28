@@ -8,7 +8,7 @@
                         </v-flex>
                         <v-flex xs12 text-xs-center>
                             <v-avatar class="avatar-d">
-                                <img src="/common/img/chrome-icon.png" alt="chrome icon">
+                              <gl-ui-img name="gl-chrome-icon"  alt="chrome icon"/>
                             </v-avatar>
                         </v-flex>
                         <v-flex xs12 text-xs-center>
@@ -53,8 +53,9 @@
     import mPrompt from "../../mixin/mPrompt.js";
     import GlUiChromeAbout from "../../components-ui/tool/chromeAbout";
     import mMeta from "../../mixin/mMeta.js";
+    import GlUiImg from "../../components-ui/img";
     export default {
-        components: {GlUiChromeAbout, GlUiCardLeft, GlUiTitle},
+        components: {GlUiImg, GlUiChromeAbout, GlUiCardLeft, GlUiTitle},
         name: 'gl-ui-chrome',
         mixins: [mPrompt,mMeta],
         data() {

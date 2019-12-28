@@ -9,7 +9,7 @@
             </div>
             <div v-if="item.img" class="pixiv-content">
                 <span class="user">{{item.user}}</span>
-                <img src="/common/img/pixiv_logo.png" alt="View on Pixiv" title="View on Pixiv">
+                <gl-ui-img name="gl-pixiv_logo" alt="View on Pixiv"/>
                 <span class="title">{{item.title}}</span>
                 <span class="caption">{{item.caption}}</span>
                 <span class="" v-text="getDateFormat(item.update)"/>
@@ -22,8 +22,10 @@
 </template>
 
 <script>
+    import GlUiImg from "../img";
     export default {
-        props:['item','completedFunction'],
+      components: {GlUiImg},
+      props:['item','completedFunction'],
         name: 'gl-ui-image-card',
         data() {
             return {
