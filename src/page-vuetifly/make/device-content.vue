@@ -2,26 +2,26 @@
     <v-container grid-list-md pt-0 pa-0 mt-1>
         <v-layout row wrap>
             <v-flex md8 sm8 xs12>
-                <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                <gl-ui-alert-text :text="$t('make.msg1')"></gl-ui-alert-text>
-                <gl-ui-title :text="$t('title.h1.make.device')" h1 icon="icon-make"></gl-ui-title>
+                <gl-ui-card-left :content="prompt" icon="notifications"/>
+                <gl-ui-alert-text :text="$t('make.msg1')"/>
+                <gl-ui-title :text="$t('title.h1.make.device')" h1 icon="icon-make"/>
 
                 <v-container grid-list-md pt-1>
                     <v-layout row wrap class="no-select div-make">
                         <gl-ui-number-control color="#389acc" icon="/common/img/manpower.png" :number="number[0]"
-                                              :addFunction="addNumber" index="0" :title="$t('make.manpower')"></gl-ui-number-control>
+                                              :addFunction="addNumber" index="0" :title="$t('make.manpower')"/>
                         <gl-ui-number-control color="#389acc" icon="/common/img/ammunition.png" :number="number[1]"
-                                              :addFunction="addNumber" index="1" :title="$t('make.ammunition')" ></gl-ui-number-control>
+                                              :addFunction="addNumber" index="1" :title="$t('make.ammunition')" />
                         <gl-ui-number-control color="#389acc" icon="/common/img/material.png" :number="number[2]"
-                                              :addFunction="addNumber" index="2" :title="$t('make.material')"></gl-ui-number-control>
+                                              :addFunction="addNumber" index="2" :title="$t('make.material')"/>
                         <gl-ui-number-control color="#389acc" icon="/common/img/parts.png" :number="number[3]"
-                                              :addFunction="addNumber" index="3" :title="$t('make.parts')"></gl-ui-number-control>
+                                              :addFunction="addNumber" index="3" :title="$t('make.parts')"/>
                     </v-layout>
                 </v-container>
                 <v-btn color="primary" @click="start()" >{{$t('make.start')}}</v-btn>
                 <v-btn color="primary" @click="getList()" >{{$t('make.list')}}</v-btn>
                 <v-btn color="primary" outline @click="init()">{{$t('make.clear')}}</v-btn>
-                <gl-ui-output-list v-if="!show" type="device" :dataMake="dataMake" :dataList="dataList" ></gl-ui-output-list>
+                <gl-ui-output-list v-if="!show" type="device" :dataMake="dataMake" :dataList="dataList" />
             </v-flex>
             <v-flex md4 sm4 xs12>
                 <v-layout row wrap>
@@ -66,7 +66,7 @@
                                                 其他星數:無閾值
                                             </dd>
                                             <dt>數據來源:<a href="http://gfdb.baka.pw/statistician.html">IOP製造公司出貨統計2.03 Beta</a></dt>
-                                            <dd></dd>
+                                            <dd/>
                                         </dl>
                                     </v-card-text>
                                 </v-card>
@@ -116,7 +116,7 @@
                     </v-flex>
                 </v-layout>
             </v-flex>
-            <gl-ui-output-list v-if="show" type="device" :dataMake="dataMake" :dataList="dataList" ></gl-ui-output-list>
+            <gl-ui-output-list v-if="show" type="device" :dataMake="dataMake" :dataList="dataList" />
             <div class="rightTop">
                 <img src="/common/img/t-doll-w.png" alt="開始製作" @click="start()">
             </div>

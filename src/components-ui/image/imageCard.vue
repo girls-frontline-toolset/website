@@ -1,7 +1,7 @@
 <template>
     <div class="card-twitter" style="max-width: 520px;margin: 0 auto">
         <div class="image-twitter loadImg" ref="content" @click="click()">
-            <div class='glyphicon-load load' style="text-align: center;"><v-progress-circular :size="50" indeterminate color="primary"></v-progress-circular>
+            <div class='glyphicon-load load' style="text-align: center;"><v-progress-circular :size="50" indeterminate color="primary"/>
             <v-btn block color="red" class="white--text" @click="errorImg">問題滙報</v-btn>
             </div>
             <div v-if="item.img" class="pixiv-img" ref="img"  :style="getHeight()">
@@ -12,7 +12,7 @@
                 <img src="/common/img/pixiv_logo.png" alt="View on Pixiv" title="View on Pixiv">
                 <span class="title">{{item.title}}</span>
                 <span class="caption">{{item.caption}}</span>
-                <span class="" v-text="getDateFormat(item.update)"></span>
+                <span class="" v-text="getDateFormat(item.update)"/>
             </div>
         </div>
         <div class="twitter-tag no-select" v-if="item.tag.length != 0">
@@ -25,7 +25,6 @@
     export default {
         props:['item','completedFunction'],
         name: 'gl-ui-image-card',
-        commponents: {},
         data() {
             return {
                 h: 0,
@@ -98,13 +97,6 @@
                 return {"height":this.h + "px"}
 
             }
-        }, beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

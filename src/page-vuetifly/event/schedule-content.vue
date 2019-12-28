@@ -2,10 +2,10 @@
     <v-container grid-list-md pa-0 mt-1>
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-title :text="$t('title.h2.event-tw')" h1></gl-ui-title>
+                <gl-ui-title :text="$t('title.h2.event-tw')" h1 />
             </v-flex>
             <v-flex xs12>
-                <gl-ui-event-schedule></gl-ui-event-schedule>
+                <gl-ui-event-schedule/>
             </v-flex>
         </v-layout>
     </v-container>
@@ -18,22 +18,6 @@
     export default {
         components: {GlUiEventSchedule, GlUiTitle},
         mixins: [mMeta],
-        props: [''],
-        commponents: {},
-        name: 'gl-ui-schedule',
-        data() {
-            return {}
-        }, methods: {}, beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
-        }
+        name: 'gl-ui-schedule'
     }
 </script>
-
-<style>
-
-</style>

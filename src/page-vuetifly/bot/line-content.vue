@@ -69,7 +69,7 @@
                 items:[{"t":"line.command","to":"/bot/line","i":"access_time"},{"t":"line.img","to":"/bot/line/img","i":"list"}],
                 showInfo: true
             }
-        }, created: function () {
+        }, created() {
             this.showMenuButton = (window.innerWidth < 768);
             this.show = !this.$s.less600();
 

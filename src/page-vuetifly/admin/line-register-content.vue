@@ -2,7 +2,7 @@
   <v-container grid-list-md pa-0 mt-1>
     <v-layout row wrap>
       <v-flex xs12>
-        <gl-ui-title text="Line登記管理" h1></gl-ui-title>
+        <gl-ui-title text="Line登記管理" h1/>
       </v-flex>
       <v-flex xs12>
         <v-container grid-list-md pa-0>
@@ -12,10 +12,10 @@
                 <v-card-title primary-title pa-1>
                   <v-layout row wrap>
                     <v-flex sm4 xs12>
-                      <v-text-field type="text" v-model="token" label="token" tabindex="1"></v-text-field>
+                      <v-text-field type="text" v-model="token" label="token" tabindex="1"/>
                     </v-flex>
                     <v-flex sm4 xs12>
-                      <v-text-field type="text" v-model="email" label="email" tabindex="2"></v-text-field>
+                      <v-text-field type="text" v-model="email" label="email" tabindex="2"/>
                     </v-flex>
                     <v-flex sm4 xs12>
                       <v-btn color="primary" block dark @click="search()" tabindex="2">{{$t('t.search')}}</v-btn>
@@ -25,10 +25,10 @@
               </v-card>
             </v-flex>
             <v-flex xs12 v-if="data.email === 'null' ">
-              <gl-ui-error error="3" text="沒有資料"></gl-ui-error>
+              <gl-ui-error error="3" text="沒有資料"/>
             </v-flex>
             <v-flex xs12 v-if="data.email !== '' && data.email !== 'null' ">
-              <gl-ui-title text="Line 用戶" h2></gl-ui-title>
+              <gl-ui-title text="Line 用戶" h2/>
               <v-form ref="form" v-model="valid">
                 <v-text-field
                   v-model="data.token"
@@ -37,7 +37,7 @@
                   label="token"
                   readonly
                   filled
-                ></v-text-field>
+                />
                 <v-text-field
                   v-model="data.email"
                   type="Email"
@@ -45,7 +45,7 @@
                   label="Email"
                   required
                   :rules="[() => !!data.email|| $t('register.must') ]"
-                ></v-text-field>
+                />
 
                 <v-text-field
                   v-model="data.uid"
@@ -54,7 +54,7 @@
                   label="UID"
                   required
                   :rules="[() => !!data.uid|| $t('register.must') ]"
-                ></v-text-field>
+                />
 
 
                 <img :src="'/common/line/register/' + data.card" alt="card" style="width: 100%;">
@@ -63,7 +63,7 @@
                   v-model="data.lineName" type="text"
                   name="lineName" label="Line Name"
                   required :rules="[() => !!data.lineName|| $t('register.must') ]"
-                ></v-text-field>
+                />
 
                 <v-btn color="primary" @click="update()" :disabled="!valid">更新</v-btn>
               </v-form>
@@ -83,8 +83,6 @@
   export default {
     components: {GlUiError, GlUiTitle},
     mixins: [mMeta],
-    props: [''],
-    commponents: {},
     name: 'gl-ui-doc',
     data() {
       return {
@@ -152,13 +150,6 @@
           }
         });
       }
-      }, beforeCreate() {
-      }, created() {
-      }, beforeMount() {
-      }, mounted() {
-      }, beforeUpdate() {
-      }, updated() {
-      }, render() {
       }
     }
 </script>

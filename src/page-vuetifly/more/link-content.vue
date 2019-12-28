@@ -2,8 +2,8 @@
     <v-container grid-list-md pt-0>
         <v-layout row wrap>
                     <v-flex xs12>
-                        <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                        <gl-ui-title :text="$t('title.h1.more.link')" h1></gl-ui-title>
+                        <gl-ui-card-left :content="prompt" icon="notifications"/>
+                        <gl-ui-title :text="$t('title.h1.more.link')" h1/>
                     </v-flex>
                    <v-flex sm4 xs12 v-for="item in listData" :key="item.src" class="c-p">
                        <a :href="item.src" target="_blank" style="text-decoration: unset">
@@ -39,16 +39,16 @@
                 listData: null
             }
         },
-        mounted: function () {
+        mounted() {
             let _this = this;
             $.getJSON('/common/data/link.json', function (json) {
                 _this.listData = json.link;
             });
         }, methods: {
-            clickLink:function(url){
+            clickLink(url){
                 window.open(url)
             },
-            getImage:function (path){
+            getImage (path){
                 return "/common/img/link/" + path ;
             }
         }

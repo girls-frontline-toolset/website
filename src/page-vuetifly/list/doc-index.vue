@@ -1,10 +1,10 @@
 <template>
     <v-layout row wrap >
     <v-flex xs12>
-        <gl-ui-title text="目錄" h1 ></gl-ui-title>
+        <gl-ui-title text="目錄" h1 />
     </v-flex>
     <v-flex sm6 md4 xs12 v-for="item in docList" :key="item.docList_id" :ref="item.docList_id" class="f-18 u-line">
-        <gl-ui-title :text="item.text" h2 button="more" :item="item.docList_id" :clickF="click" style="margin-bottom: 5px;"></gl-ui-title>
+        <gl-ui-title :text="item.text" h2 button="more" :item="item.docList_id" :clickF="click" style="margin-bottom: 5px;"/>
 
         <div v-for="doc in list[item.docList_id]" :key="doc.url">
             <a :href="'/referrer?url=' + decode(doc.url)" target="_blank">{{doc.title}}</a>
@@ -22,8 +22,6 @@
     export default {
         components: {GlUiTitle},
         mixins: [mMeta],
-        props: [''],
-        commponents: {},
         name: 'gl-list-doc-index-content',
         data() {
             return {
@@ -43,7 +41,6 @@
                 elem.innerHTML = data;
                 return elem.value;
             }
-        }, beforeCreate() {
         }, created() {
             let _this = this;
             this.$g.getDocList('docList',this,function(){
@@ -59,11 +56,6 @@
                 );
             });
 
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

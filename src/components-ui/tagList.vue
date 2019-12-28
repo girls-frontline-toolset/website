@@ -12,22 +12,13 @@
 <script>
     export default {
         props: ['select','items'],
-        commponents: {},
         name: 'gl-ui-tag-list',
         data() {
             return {
                     model:this.select
             }
-        }, methods: {}, beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         },watch:{
             select(data){
-                //console.log(data);
                 this.model = data;
             }
         }

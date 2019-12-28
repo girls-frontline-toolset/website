@@ -2,8 +2,8 @@
   <v-container grid-list-md pa-0 mt-1>
     <v-layout row wrap>
       <v-flex xs12>
-        <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-        <gl-ui-title :text="$t('title.h1.more.about')" h1></gl-ui-title>
+        <gl-ui-card-left :content="prompt" icon="notifications"/>
+        <gl-ui-title :text="$t('title.h1.more.about')" h1/>
       </v-flex>
       <gl-ui-avatar-card icon-img="/common/img/girls-frontline-toolset.jpg" title="GitHub"
                          name="girls-frontline-toolset">
@@ -22,7 +22,7 @@
         Email: admin@ntw-20.com
       </gl-ui-avatar-card>
       <v-flex xs12>
-        <gl-ui-title :text="'圖片庫'  +$t('about.contributor')" h2></gl-ui-title>
+        <gl-ui-title :text="'圖片庫'  +$t('about.contributor')" h2/>
       </v-flex>
       <v-flex xs3 v-for="item in contributor.img" style="text-align: center;" :key="item.id">
           <v-badge color="primary" bottom overlap class="gl-v-badge">

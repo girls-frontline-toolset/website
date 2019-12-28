@@ -30,19 +30,7 @@
 
 <script>
     export default {
-        mixins: [],
         props: ['isShow'],
-        commponents: {},
-        name: 'gl-ui-image-url-help',
-        data() {
-            return {}
-        }, methods: {}, beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
-        }
+        name: 'gl-ui-image-url-help'
     }
 </script>

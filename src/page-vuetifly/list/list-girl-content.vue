@@ -1,39 +1,39 @@
 <template>
     <div>
-        <gl-ui-tag-list v-if="isShow || $s.app" :select="model" :items="items"></gl-ui-tag-list>
-        <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-        <gl-ui-title :text="$t('title.h1.list.girl')" h1 icon="icon-equipment"></gl-ui-title>
+        <gl-ui-tag-list v-if="isShow || $s.app" :select="model" :items="items"/>
+        <gl-ui-card-left :content="prompt" icon="notifications"/>
+        <gl-ui-title :text="$t('title.h1.list.girl')" h1 icon="icon-equipment"/>
 
         <v-container grid-list-md pa-0 mt-1>
             <v-layout row wrap >
                 <v-flex xs6>
                     <v-select :label="$t('time.filter')" item-text="t" item-value="i" :items="humanoidItems" v-model="humanoid"
-                              single-line></v-select>
+                              single-line/>
                 </v-flex>
                 <v-flex xs3 pa-1>
-                    <v-text-field mask="###" type="number" v-model="range[0]" :label="$t('time.start-no')" tabindex="1"></v-text-field>
+                    <v-text-field mask="###" type="number" v-model="range[0]" :label="$t('time.start-no')" tabindex="1"/>
                 </v-flex>
                 <v-flex xs3 pa-1 v-if="humanoid !== 1">
-                    <v-text-field  mask="###" type="number" v-model="range[1]" :label="$t('time.end-no')" tabindex="2"></v-text-field>
+                    <v-text-field  mask="###" type="number" v-model="range[1]" :label="$t('time.end-no')" tabindex="2"/>
                 </v-flex>
                 <v-flex xs3 pa-1 v-else>
-                    <v-text-field  mask="###" type="number" v-model="range[2]" :label="$t('time.end-no')" tabindex="2"></v-text-field>
+                    <v-text-field  mask="###" type="number" v-model="range[2]" :label="$t('time.end-no')" tabindex="2"/>
                 </v-flex>
 
                 <v-flex xs12 pa-1>
-                    <gl-ui-title h2 :text="$t('t.type') + ':'"></gl-ui-title>
-                    <gl-ui-icon-button v-for="(item,key) in type" :key="key" :opacity="item" type="type" :name="key" ></gl-ui-icon-button>
+                    <gl-ui-title h2 :text="$t('t.type') + ':'"/>
+                    <gl-ui-icon-button v-for="(item,key) in type" :key="key" :opacity="item" type="type" :name="key" />
                 </v-flex>
 
                 <v-flex xs12 pa-1>
-                    <gl-ui-title h2 :text="$t('t.star') + ':'"></gl-ui-title>
-                    <gl-ui-icon-button v-if="humanoid !== 1" v-for="(item,key) in star" :key="key" :opacity="item" type="star" :name="key" ></gl-ui-icon-button>
-                    <gl-ui-icon-button v-if="humanoid === 1" :opacity="other.star_other" type="other" name="star_other" ></gl-ui-icon-button>
+                    <gl-ui-title h2 :text="$t('t.star') + ':'"/>
+                    <gl-ui-icon-button v-if="humanoid !== 1" v-for="(item,key) in star" :key="key" :opacity="item" type="star" :name="key" />
+                    <gl-ui-icon-button v-if="humanoid === 1" :opacity="other.star_other" type="other" name="star_other" />
                 </v-flex>
 
                 <v-flex xs12 pa-1 v-if="humanoid === 0 || humanoid === 2">
-                    <gl-ui-title h2 :text="$t('t.other') + ':'"></gl-ui-title>
-                    <gl-ui-icon-button :opacity="update.update" type="update" name="update" ></gl-ui-icon-button>
+                    <gl-ui-title h2 :text="$t('t.other') + ':'"/>
+                    <gl-ui-icon-button :opacity="update.update" type="update" name="update" />
                 </v-flex>
 
             </v-layout>
@@ -51,7 +51,7 @@
             <v-layout row wrap >
             <v-flex md6 sm6 xs12 pa-1 v-for="i in 2" :key="i">
                 <div v-for="items in listTime[i - 1]">
-                    <gl-ui-title h2 :text="items.title"></gl-ui-title>
+                    <gl-ui-title h2 :text="items.title"/>
                     <a v-for="item in items.data" :key="item.no" :href="'https://zh.moegirl.org/zh-hant/少女前线:' + item.n " target='_blank'>
                       <img :class="item.c"  :src="'/common/girl/' + $t('resourcePath') +'girl_' + item.num + '.jpg'" :alt='$t(getResourceName(item.num))' :title='$t(getResourceName(item.num))'>
                     </a>
@@ -60,7 +60,7 @@
             </v-layout>
         </div>
 
-        <gl-ui-error :error="error" :text="errorText"></gl-ui-error>
+        <gl-ui-error :error="error" :text="errorText"/>
     </div>
 </template>
 
@@ -281,8 +281,7 @@
                 this.error = (!leftSide.length) ? 1 : 0 ;
             }
 
-        }, created: function () {
-        console.log(this.$router.locale);
+        }, created() {
 
         for(let i = 0 ; i < this.humanoidItems.length ;i++){
                 this.humanoidItems[i].t = this.$t(this.humanoidItems[i].t);

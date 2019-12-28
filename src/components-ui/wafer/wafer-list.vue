@@ -16,7 +16,6 @@
 <script>
   export default {
     props: ['color','createWafer',"cellList"],
-    commponents: {},
     name: 'gl-ui-wafer-list',
     data() {
       return {
@@ -81,18 +80,12 @@
           }
         }
       }
-    },
-    beforeCreate() {
-    }, created() {
-    }, beforeMount() {
     }, mounted() {
           if(this.cellList){
             this.initItem()
           }
 
 
-    }, beforeUpdate() {
-    }, updated() {
     },watch:{
       cellList(data){
         this.cellList = data;

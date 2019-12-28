@@ -2,14 +2,14 @@
   <v-container grid-list-md pa-0 mt-1>
     <v-layout row wrap>
       <v-flex sm12>
-        <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-        <gl-ui-title text="LINE 群" h1 icon="icon-line-other"></gl-ui-title>
+        <gl-ui-card-left :content="prompt" icon="notifications"/>
+        <gl-ui-title text="LINE 群" h1 icon="icon-line-other"/>
       </v-flex>
       <v-flex sm12>
-        <gl-ui-card-left content="少前同好群 歡迎各位新手,大佬和萌新" ></gl-ui-card-left>
+        <gl-ui-card-left content="少前同好群 歡迎各位新手,大佬和萌新" />
       </v-flex>
       <v-flex sm12 v-if="!$s.app">
-        <gl-ui-title text="Line群 加入登記" h2 ></gl-ui-title>
+        <gl-ui-title text="Line群 加入登記" h2 />
         <v-stepper v-model="e1" vertical>
           <v-stepper-step :complete="e1 > 1" step="1">認證</v-stepper-step>
           <v-stepper-content step="1">
@@ -26,7 +26,7 @@
                 :key="n"
                 :label="n"
                 :value="index"
-              ></v-radio>
+              />
             </v-radio-group>
             </div>
             <v-btn color="primary" @click="submit()">提交</v-btn>
@@ -44,7 +44,7 @@
                   label="電郵"
                   required
                   :rules="[() => !!info.email|| $t('register.must') ]"
-                ></v-text-field>
+                />
                 <v-text-field
                   v-model="info.UID"
                   mask="#################"
@@ -53,9 +53,9 @@
                   label="少女前線 UID"
                   required
                   :rules="[() => !!info.UID|| $t('register.must') ]"
-                ></v-text-field>
-                <gl-ui-gl-card-help></gl-ui-gl-card-help>
-                <gl-ui-title text="名片圖片" h2 icon="icon-line-other"></gl-ui-title>
+                />
+                <gl-ui-gl-card-help/>
+                <gl-ui-title text="名片圖片" h2 icon="icon-line-other"/>
                 <input type="file" ref="UIDFile" accept="image/*"  >
                 <br><br>
                 <v-btn color="primary" @click="add()" :disabled="!valid">{{$t('register.register')}}</v-btn>
@@ -71,7 +71,7 @@
                 type="text"
                 name="代碼"
                 label="代碼"
-              ></v-text-field>
+              />
               <v-btn color="primary" @click="copy()">複製</v-btn>
             </v-stepper-content>
 
@@ -98,7 +98,7 @@
         </v-stepper>
       </v-flex >
       <v-flex sm12 v-else>
-        <gl-ui-card-left content="不支援應用程式版本, 請前往網頁版. https://ntw-20.com" ></gl-ui-card-left>
+        <gl-ui-card-left content="不支援應用程式版本, 請前往網頁版. https://ntw-20.com" />
         <a href="https://ntw-20.com/more/line" target="_blank">
           <v-btn color="primary">
             網頁版
@@ -172,7 +172,7 @@
             cache: false,
             processData: false,
             contentType: false,
-            success: function (data) {
+            success(data) {
               data = JSON.parse(data);
               _this.$s.load(false);
               switch (data.status) {

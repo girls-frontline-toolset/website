@@ -2,15 +2,15 @@
     <v-container grid-list-md pt-0 pa-0 mt-1>
         <v-layout row wrap>
             <v-flex md8 sm8 xs12>
-                <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                <gl-ui-title :text="$t('title.h1.like.list')" h1 icon="icon-friends"></gl-ui-title>
+                <gl-ui-card-left :content="prompt" icon="notifications"/>
+                <gl-ui-title :text="$t('title.h1.like.list')" h1 icon="icon-friends"/>
 
                 <div class="bd">
                     <span class="primary--text">{{$t("t.user-name")}}:</span>蘿莉控蘿莉<span class="primary--text">ID:</span>147867
                     <span class="primary--text">{{$t("t.server.s")}}:</span>TW<br>
                     <span class="primary--text">{{$t("t.remark")}}:</span>來互相點讚喔 ~ <- 這是站長 W
                 </div>
-                <gl-ui-title :text="$t('t.like-fb-list')" h2 ></gl-ui-title>
+                <gl-ui-title :text="$t('t.like-fb-list')" h2 />
 
                 <div class="bd" v-for="item in likeList">
                     <span class="primary--text">{{$t("t.user-name")}}:</span>{{item.user_name}}<span class="primary--text">ID:</span>{{item.ID}}
@@ -28,7 +28,7 @@
                         <v-flex xs12>
                             <v-card>
                                 <v-card-title>
-                                    <gl-ui-title :text="$t('like.rule')" h2></gl-ui-title>
+                                    <gl-ui-title :text="$t('like.rule')" h2/>
                                     <div class="f-18">
                                         {{$t('like.visitor')}} <span class='primary--text'> {{$t('like.ru1')}}</span><br>
                                         {{$t('like.registrant')}} <span class='primary--text'>{{$t('like.ru2')}}</span><br>
@@ -37,7 +37,7 @@
                                     </div>
                                 </v-card-title>
                             </v-card>
-                            <gl-ui-title :text="$t('register.s')" h2></gl-ui-title>
+                            <gl-ui-title :text="$t('register.s')" h2/>
                         </v-flex>
                         <v-flex xs12>
                             <v-text-field
@@ -46,7 +46,7 @@
                                     :label="$t('t.user-name') + ':'"
                                     required
                                     :rules="[() => !!add.name || $t('register.must')  ]"
-                            ></v-text-field>
+                            />
                         </v-flex>
                         <v-flex xs5>
                             <v-text-field
@@ -56,7 +56,7 @@
                                     mask="##########"
                                     required
                                     :rules="[() => !!add.uid || $t('register.must')  ]"
-                            ></v-text-field>
+                            />
                         </v-flex>
                         <v-flex xs1>
                             <v-icon style="padding: 18px 0 0;" class="c-p" @click="showHelp()">help</v-icon>
@@ -69,7 +69,7 @@
                                         :value="item.i"
                                         v-for="item in server"
                                         :key="item.i"
-                                ></v-radio>
+                                />
                             </v-radio-group>
                         </v-flex>
                         <v-flex xs12>
@@ -79,7 +79,7 @@
                                     :label="$t('t.remark') + ':'"
                                     required
                                     :rules="[() => !!add.text || $t('register.must')  ]"
-                            ></v-text-field>
+                            />
                         </v-flex>
                         <v-flex  xs12>
                             <v-btn color="primary" @click="addLikeFb()" :disabled="!valid">{{$t('register.register')}}</v-btn>
@@ -116,7 +116,7 @@
                 valid:false
             }
         }, methods: {
-            showHelp: function () {
+            showHelp() {
                 this.$s.glDialogImg(this.$t('dialog.location'),"/common/img/UID_check.jpg");
             },
             addLikeFb(){
@@ -144,7 +144,7 @@
 
             }
         },
-        beforeCreate: function () {
+        beforeCreate() {
             let _this = this;
             $.getJSON('/api/inquiry/LikeFBList', function (json) {
                 if(json.status === "success"){
@@ -152,7 +152,7 @@
                 }
             });
         },
-        created: function () {
+        created() {
             for(let i = 0 ; this.server.length ; i++){
                 this.server[i].t = this.$t(this.server[i].t);
             }

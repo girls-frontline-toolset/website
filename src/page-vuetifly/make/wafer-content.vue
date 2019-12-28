@@ -2,8 +2,8 @@
   <v-container grid-list-md pt-0 pa-0 mt-1>
     <v-layout row wrap>
       <v-flex xs12>
-        <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-        <gl-ui-title :text="$t('title.h1.make.wafer')" h1></gl-ui-title>
+        <gl-ui-card-left :content="prompt" icon="notifications"/>
+        <gl-ui-title :text="$t('title.h1.make.wafer')" h1/>
       </v-flex>
       <v-flex xs12 sm5 v-if="isLess600">
       <v-btn flat icon dark @click.stop="drawer = !drawer" color="primary"  >
@@ -23,7 +23,7 @@
       >
         <v-card height="100%">
           <v-card-title>
-            <gl-ui-wafer-tool-list :support-unit-list="supportUnitList" :best-arrange="bestArrange" :change-gird="changeGird" :create-wafer="createWafer" :select-color="selectColor"  :cell-list="cellList"></gl-ui-wafer-tool-list>
+            <gl-ui-wafer-tool-list :support-unit-list="supportUnitList" :best-arrange="bestArrange" :change-gird="changeGird" :create-wafer="createWafer" :select-color="selectColor"  :cell-list="cellList"/>
           </v-card-title>
         </v-card>
       </v-navigation-drawer>
@@ -37,7 +37,7 @@
             <v-icon>bug_report</v-icon>
           </v-btn>
         </div>
-        <gl-ui-wafer-tool-list :support-unit-list="supportUnitList" :best-arrange="bestArrange" :change-gird="changeGird" :create-wafer="createWafer" :select-color="selectColor"  :cell-list="cellList"></gl-ui-wafer-tool-list>
+        <gl-ui-wafer-tool-list :support-unit-list="supportUnitList" :best-arrange="bestArrange" :change-gird="changeGird" :create-wafer="createWafer" :select-color="selectColor"  :cell-list="cellList"/>
       </v-flex>
       <v-flex xs10 ref="app" text--center sm6>
         <div ref="loader" class="loader">
@@ -104,8 +104,6 @@
   export default {
     components: {GlUiCardLeft, GlUiWaferToolList, GlUiSupportUnitList, GlUiWaferList, GlUiTitle},
     mixins: [mGeneratePixi, mHandlePixi,mHandleDataPixi,mPrompt,mMeta],
-    props: [''],
-    commponents: {},
     name: 'gl-ui-wafer-content',
     data() {
       return {
@@ -186,8 +184,6 @@
         download.click();
       }
     },
-    beforeCreate() {
-    },
     created() {
       this.$g.getCellList("cellList",this);
       this.$g.getSupportUnitList('supportUnitList', this);
@@ -210,12 +206,6 @@
       };
 
       document.body.appendChild(script);
-    }, beforeMount() {
-    }, mounted() {
-    }, beforeUpdate() {
-    }, updated() {
-    }, render() {
-    }, watch: {
     }
   }
 </script>

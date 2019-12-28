@@ -4,19 +4,7 @@
 <script>
     export default {
         props: ['title','content','icon'],
-        commponents: {},
-        name: 'gl-ui-card-left',
-        data() {
-            return {}
-        }, methods: {}, beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render(h) {
-           //return h("div",{'class':{'bd':true}},[h("div",{'class':{'title':true}},this.title),h("i",{'attrs':{'aria-hidden':true},'class':['material-icons','title','icon','material-icons']},this.icon),this.content])
-        }
+        name: 'gl-ui-card-left'
     }
 </script>
 

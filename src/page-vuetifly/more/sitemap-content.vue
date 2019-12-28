@@ -2,11 +2,11 @@
     <v-container grid-list-md pa-0 mt-1>
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-title :text="$t('title.h1.more.sitemap')" h1></gl-ui-title>
+                <gl-ui-title :text="$t('title.h1.more.sitemap')" h1/>
             </v-flex>
           <v-flex xs12 md6 sm6>
             <div style="margin-top: 10px">
-              <gl-ui-title text="image" h2></gl-ui-title>
+              <gl-ui-title text="image" h2/>
               <v-layout row wrap>
                 <v-flex  v-for="item in dataList.image" :key="item.name" xs4 style="padding: 0">
                   <router-link :to="langUrl()  + item.url">
@@ -18,7 +18,7 @@
           </v-flex>
           <v-flex xs12 md3 sm6 v-for=" index in 2" :key="index">
             <div v-for="(items, key,dataIndex) in dataList" :key="key" v-if="(dataIndex % 3 === index - 1) && key !=='image' " style="margin-top: 10px">
-            <gl-ui-title :text="key" h2></gl-ui-title>
+            <gl-ui-title :text="key" h2/>
               <v-layout row wrap>
                 <v-flex  v-for="item in  items" :key="item.name" :class="(key === 'device time' || key === 'girl time') ? 'xs4':'xs12'">
                   <router-link :to="langUrl()  + item.url" >
@@ -87,7 +87,7 @@
 
       $.ajax({
         url: "/sitemap.xml",
-        success: function (text) {
+        success(text) {
           let dataList = {};
           function pushUrl(title, name, url, callback) {
             if (!dataList[title]) {

@@ -2,7 +2,7 @@
     <v-container>
         <v-layout align-center row wrap>
             <v-flex xs6 mx-auto>
-                <gl-ui-title text="Login" h1></gl-ui-title>
+                <gl-ui-title text="Login" h1/>
                 <v-form ref="form" v-model="valid">
                     <v-text-field
                             v-model="userName"
@@ -11,7 +11,7 @@
                             label="用戶名:"
                             required
                             :rules="[() => !!userName || '必須' ]"
-                    ></v-text-field>
+                    />
                     <v-text-field
                             v-model="pw"
                             name="password"
@@ -19,7 +19,7 @@
                             type="password"
                             required
                             :rules="[() => !!pw || '必須' ]"
-                    ></v-text-field>
+                    />
                     <v-btn color="primary" @click="login()" :disabled="!valid">登入</v-btn>
                 </v-form>
             </v-flex>
@@ -41,7 +41,7 @@
                 valid:false,
             }
         }, methods: {
-            login: function () {
+            login() {
                 var _this = this;
                 $.ajax({
                     url: "/api/inquiry/login",
@@ -50,7 +50,7 @@
                         userName: this.userName,
                         pw: this.pw
                     },
-                    success: function (json) {
+                    success(json) {
                         json = JSON.parse(json);
                         if (json.status === "success") {
                             _this.$router.push({path: '/admin'});
@@ -66,7 +66,7 @@
                 });
 
             }
-        }, beforeCreate: function () {
+        }, beforeCreate() {
             var _this = this;
             $.getJSON('/api/inquiry/status', function (json) {
                 if (json.status === "success") {

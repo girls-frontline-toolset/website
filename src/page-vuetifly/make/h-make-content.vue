@@ -2,20 +2,20 @@
     <v-container grid-list-md pt-0 pa-0 mt-1>
         <v-layout row wrap>
             <v-flex md8 sm8 xs12>
-                <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                <gl-ui-alert-text :text="$t('make.msg1')" :strong="$t('make.msg2')"></gl-ui-alert-text>
-                <gl-ui-title :text="$t('title.h1.make.hGirl')" h1 icon="icon-make"></gl-ui-title>
+                <gl-ui-card-left :content="prompt" icon="notifications"/>
+                <gl-ui-alert-text :text="$t('make.msg1')" :strong="$t('make.msg2')"/>
+                <gl-ui-title :text="$t('title.h1.make.hGirl')" h1 icon="icon-make"/>
 
                 <v-container grid-list-md pt-1>
                     <v-layout row wrap class="no-select div-make">
                         <gl-ui-h-number-control  color="#d7570c" icon="/common/img/manpower.png" :number="number[0]"
-                                                 :addFunction="addNumber" index="0" :title="$t('make.manpower')"></gl-ui-h-number-control>
+                                                 :addFunction="addNumber" index="0" :title="$t('make.manpower')"/>
                         <gl-ui-h-number-control  color="#d7570c" icon="/common/img/ammunition.png" :number="number[1]"
-                                                 :addFunction="addNumber" index="1" :title="$t('make.ammunition')" ></gl-ui-h-number-control>
+                                                 :addFunction="addNumber" index="1" :title="$t('make.ammunition')" />
                         <gl-ui-h-number-control  color="#d7570c" icon="/common/img/material.png" :number="number[2]"
-                                                 :addFunction="addNumber" index="2" :title="$t('make.material')"></gl-ui-h-number-control>
+                                                 :addFunction="addNumber" index="2" :title="$t('make.material')"/>
                         <gl-ui-h-number-control  color="#d7570c" icon="/common/img/parts.png" :number="number[3]"
-                                                 :addFunction="addNumber" index="3" :title="$t('make.parts')"></gl-ui-h-number-control>
+                                                 :addFunction="addNumber" index="3" :title="$t('make.parts')"/>
 
                         <v-flex xs12 class="div-h-make-select" text--xs--center>
                             <v-icon class="white--text c-p" size="60px" @click="next(-1)">keyboard_arrow_left</v-icon>
@@ -28,7 +28,7 @@
                 <v-btn color="primary" @click="start()" >{{$t('make.start')}}</v-btn>
                 <v-btn color="primary" @click="getList()" >{{$t('make.list')}}</v-btn>
                 <v-btn color="primary" outline @click="init()">{{$t('make.clear')}}</v-btn>
-                <gl-ui-output-list v-if="!show" type="hGirl" :dataMake="dataMake" :dataList="dataList" ></gl-ui-output-list>
+                <gl-ui-output-list v-if="!show" type="hGirl" :dataMake="dataMake" :dataList="dataList" />
             </v-flex>
             <v-flex md4 sm4 xs12>
                 <v-layout row wrap>
@@ -48,7 +48,7 @@
                                             </dd>
                                             <dt>資料來源: <a href="http://gfdb.baka.pw/statistician.html">IOP公司出货统计 3.5 BETA</a>
                                             </dt>
-                                            <dd></dd>
+                                            <dd/>
                                         </dl>
                                     </v-card-text>
                                 </v-card>
@@ -109,7 +109,7 @@
                     </v-flex>
                 </v-layout>
             </v-flex>
-            <gl-ui-output-list v-if="show" type="hGirl" :dataMake="dataMake" :dataList="dataList" ></gl-ui-output-list>
+            <gl-ui-output-list v-if="show" type="hGirl" :dataMake="dataMake" :dataList="dataList" />
             <div class="rightTop">
                 <img src="/common/img/t-doll-w.png" alt="開始製作" @click="start()">
             </div>
@@ -155,7 +155,7 @@
                 dataList:[]
             }
         }, methods: {
-            getStarList:function(star){
+            getStarList(star){
                 let sum = ( this.number[0] + this.number[1] + this.number[2] + this.number[3] );
                 let dataList = [];
                 for(var i = 0 ; i < this.girlMakeTime.length ; i ++) {
@@ -182,7 +182,7 @@
                 return dataList;
 
             },
-            addNumber: function (index, num) {
+            addNumber(index, num) {
                 this.$set(this.number, index, this.number[index] += num);
                 if (this.number[index] < 1000) {
                     this.$set(this.number, index, 1000);
@@ -196,7 +196,7 @@
                 this.$set(this,'dataMake',[]);
                 this.$set(this,'dataList',[]);
             },
-            getList: function () {
+            getList() {
                 this.$set(this,'dataMake',[]);
                 this.$ga.event('make','h_girl_make_list');
                 let html, manpower = 0, rations = 0, ammunition = 0, components = 0, moreSum = 0, lessSum = 0, sum = 0;
@@ -254,7 +254,7 @@
 
                 this.$set(this,'dataList',dataList);
             },
-            next: function (event) {
+            next(event) {
                 this.select += event;
                 if (this.select < 0) {
                     this.select = this.selectData.length - 1;
@@ -317,7 +317,7 @@
             }
 
         },
-        mounted: function () {
+        mounted() {
             let _this = this;
             var contList = 0;
 
@@ -362,7 +362,7 @@
             });
 
         },
-        created: function () {
+        created() {
             this.show = !this.$s.less600();
             this.time = this.$s.h_make;
         }

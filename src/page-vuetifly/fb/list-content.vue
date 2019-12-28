@@ -2,32 +2,32 @@
     <v-container grid-list-md pt-0 pa-0 mt-1>
         <v-layout row wrap>
             <v-flex md8 sm8 xs12>
-                <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                <gl-ui-title :text="$t('title.h1.fb.list')" h1 icon="icon-friends"></gl-ui-title>
-                <gl-ui-title :text="$t('t.search') + ':'" h2></gl-ui-title>
+                <gl-ui-card-left :content="prompt" icon="notifications"/>
+                <gl-ui-title :text="$t('title.h1.fb.list')" h1 icon="icon-friends"/>
+                <gl-ui-title :text="$t('t.search') + ':'" h2/>
                 <v-container grid-list-md>
                     <v-layout row wrap>
                         <v-flex xs6 pa-1>
                             <v-select :label="$t('t.type') + ':'" item-text="t" item-value="i" :items="type" v-model="select.s.type"
-                                      @input="getGirl('select')"></v-select>
+                                      @input="getGirl('select')"/>
                         </v-flex>
                         <v-flex xs6 pa-1>
                             <v-select :label="$t('t.star') + ':'" item-text="t" item-value="i" :items="star" v-model="select.s.star"
-                                      @input="getGirl('select')"></v-select>
+                                      @input="getGirl('select')"/>
                         </v-flex>
                         <v-flex xs3 pa-1>
                             <v-select :label="$t('t.character') + ':'" item-text="name" item-value="no" :items="girlSearch"
                                       v-model="select.s.girl"
-                            ></v-select>
+                            />
                         </v-flex>
                         <v-flex xs3 pa-1>
                             <v-select :label="$t('t.server.s') + ':'" item-text="t" item-value="i" :items="server" v-model="select.s.server"
-                            ></v-select>
+                            />
                         </v-flex>
                         <v-flex xs3 pa-1>
                             <v-select :label="$t('t.display-no') + ':'" item-text="t" item-value="i" :items="number"
                                       v-model="select.s.number"
-                            ></v-select>
+                            />
                         </v-flex>
                         <v-flex xs3 pa-1>
                             <v-btn color="primary" @click="search()" block> {{$t('t.search')}}</v-btn>
@@ -54,20 +54,20 @@
             <v-btn color="primary" @click="showMenuButton = false" outline block>登記</v-btn>
             </v-flex>
             <v-flex md4 sm4 xs12 v-if="!showMenuButton">
-                <gl-ui-title :text="$t('register.s')" h2></gl-ui-title>
+                <gl-ui-title :text="$t('register.s')" h2/>
                 <v-form ref="form" v-model="valid" >
                 <v-container grid-list-md>
                     <v-layout row wrap>
                         <v-flex xs7 pa-1>
-                            <gl-ui-title :text="$t('register.commonly-used-character') + ':'" h2></gl-ui-title>
+                            <gl-ui-title :text="$t('register.commonly-used-character') + ':'" h2/>
                             <v-select :label="$t('t.type') + ':'" item-text="t" item-value="i" :items="type" v-model="select.a.type"
-                                      required @input="getGirl('add')"></v-select>
+                                      required @input="getGirl('add')"/>
                             <v-select :label="$t('t.star') + ':'" item-text="t" item-value="i" :items="star" v-model="select.a.star"
-                                      required @input="getGirl('add')"></v-select>
+                                      required @input="getGirl('add')"/>
                             <v-select :label="$t('t.character') + ':'" item-text="name" item-value="no" :items="girlAdd"
                                      v-model="select.a.girl"
                                       required  :rules="[() => select.a.girl !== 0 || $t('register.must') ]"
-                            ></v-select>
+                            />
                         </v-flex>
                         <v-flex xs5 pa-1>
                             <img :src="'/common/girl/girl_' + ((!select.a.girl)?0:select.a.girl) + '.jpg'" class="w-100">
@@ -79,7 +79,7 @@
                                     :label="$t('t.user-name') + ':'"
                                     required
                                     :rules="[() => !!select.a.name || $t('register.must') ]"
-                            ></v-text-field>
+                            />
                         </v-flex>
                         <v-flex xs6>
                             <v-text-field
@@ -89,7 +89,7 @@
                                     mask="##########"
                                     required
                                     :rules="[() => !!select.a.uid || $t('register.must') ]"
-                            ></v-text-field>
+                            />
                         </v-flex>
                         <v-flex xs6>
                             <v-icon style="padding: 18px 0 0;" class="c-p" @click="showHelp()">help</v-icon>
@@ -102,7 +102,7 @@
                                 mask="###"
                                 required
                                 :rules="[() => !!select.a.lv || $t('register.must') ]"
-                        ></v-text-field>
+                        />
                         </v-flex>
                         <v-flex xs8>
                             <v-radio-group v-model="select.a.server" row>
@@ -112,7 +112,7 @@
                                         :value="item.i"
                                         v-for="item in server"
                                         :key="item.i"
-                                ></v-radio>
+                                />
                             </v-radio-group>
                         </v-flex>
                         <v-flex xs12>
@@ -122,7 +122,7 @@
                                 :label="$t('t.remark') + ':'"
                                 required
                                 :rules="[() => !!select.a.text || $t('register.must') ]"
-                        ></v-text-field>
+                        />
                         </v-flex>
                         <v-flex xs12>
                             <v-btn color="primary" @click="addFriend()" :disabled="!valid">{{$t('register.register')}}</v-btn>
@@ -174,10 +174,10 @@
             clear(){
                 this.$refs.form.reset();
             },
-            showHelp: function () {
+            showHelp() {
                 this.$s.glDialogImg("位置查詢","/common/img/UID_check.jpg");
             },
-            getGirl: function (t) {
+            getGirl (t) {
                 let star = (t === "select") ? this.select.s.star : this.select.a.star;
                 let type = (t === "select") ? this.select.s.type : this.select.a.type;
                 if (!star || !type) {
@@ -198,7 +198,7 @@
                     this.girlAdd = list;
                 }
 
-            }, search: function () {
+            }, search() {
                 let _this = this;
 
                 $.ajax({
@@ -220,7 +220,7 @@
                     }
                 );
             },
-            addFriend: function () {
+            addFriend() {
                 let _this = this, data = this.select.a;
 
                 if(!data.type || !data.star || !data.girl || !data.name || !data.uid || !data.lv || !data.text ){
@@ -242,7 +242,7 @@
                             content: _this.select.a.text
 
                         },
-                        success: function (data) {
+                        success(data) {
                             data = JSON.parse(data);
                             if (data.status === "success") {
                                 _this.$s.glDialogText(_this.$t('register.s'), _this.$t('dialog.success')  + "!!");
@@ -263,7 +263,7 @@
 
             }
         },
-        created: function () {
+        created() {
             this.showMenuButton = this.$s.less600();
             this.show = !this.$s.less600();
 
@@ -273,7 +273,7 @@
 
 
         },
-        mounted: function () {
+        mounted() {
             this.$g.getFriendList('fbList', this);
             this.$g.getAllGirlList('allGirl', this);
 

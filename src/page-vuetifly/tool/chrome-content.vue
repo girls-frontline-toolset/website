@@ -4,7 +4,7 @@
                 <v-flex md4 sm4 xs12>
                     <v-layout row wrap>
                         <v-flex xs12>
-                            <gl-ui-title text="Chrome 插件-資料" h1></gl-ui-title>
+                            <gl-ui-title text="Chrome 插件-資料" h1/>
                         </v-flex>
                         <v-flex xs12 text-xs-center>
                             <v-avatar class="avatar-d">
@@ -20,28 +20,27 @@
                         <v-flex xs12 text-xs-center>
                             <v-btn :href="link" target="_blank" color="primary">下載</v-btn>
                         </v-flex>
-                        <gl-ui-chrome-about v-if="show" :ver="version"></gl-ui-chrome-about>
-                        <!-- <gl-ui-android-about v-if="show" :ver="version"></gl-ui-android-about> -->
+                        <gl-ui-chrome-about v-if="show" :ver="version"/>
                     </v-layout>
                 </v-flex>
                 <v-flex md8 sm8 xs12>
                     <v-layout row wrap>
                         <v-flex xs12>
-                            <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
+                            <gl-ui-card-left :content="prompt" icon="notifications"/>
                         </v-flex>
                         <v-flex xs12>
-                            <gl-ui-title text="預覽圖" h2></gl-ui-title>
+                            <gl-ui-title text="預覽圖" h2/>
                             <v-carousel>
-                                <v-carousel-item v-for="(item,i) in carousel" :src="item" :key="i"></v-carousel-item>
+                                <v-carousel-item v-for="(item,i) in carousel" :src="item" :key="i"/>
                             </v-carousel>
                         </v-flex>
                         <v-flex xs12>
-                            <gl-ui-title text="預覽片" h2></gl-ui-title>
+                            <gl-ui-title text="預覽片" h2/>
                             <div class="videoWrapper" style="width: 100%">
                                 <iframe  src="https://www.youtube.com/embed/N_4v0ww20Lw" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
                             </div>
                         </v-flex>
-                        <gl-ui-chrome-about v-if="!show" :ver="version"></gl-ui-chrome-about>
+                        <gl-ui-chrome-about v-if="!show" :ver="version"/>
                   </v-layout>
                 </v-flex>
             </v-layout>

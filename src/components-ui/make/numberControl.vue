@@ -7,9 +7,9 @@
 
          <div class="number">
              <table cellpadding="0" cellspacing="0" >
-                 <tr class="thead" :style="'background-color:'  + color"><td @click="addFunction(index,100)"></td><td @click="addFunction(index,10)"></td><td @click="addFunction(index,1)"></td></tr>
+                 <tr class="thead" :style="'background-color:'  + color"><td @click="addFunction(index,100)"/><td @click="addFunction(index,10)"/><td @click="addFunction(index,1)"/></tr>
                  <tr ref="number"><td>{{f}}</td><td>{{s}}</td><td>{{l}}</td></tr>
-                 <tr class=" tfoot" :style="'background-color:'  + color"><td @click="addFunction(index,-100)"></td><td @click="addFunction(index,-10)"></td><td @click="addFunction(index,-1)"></td></tr>
+                 <tr class=" tfoot" :style="'background-color:'  + color"><td @click="addFunction(index,-100)"/><td @click="addFunction(index,-10)"/><td @click="addFunction(index,-1)"/></tr>
              </table>
          </div>
      </v-flex>
@@ -17,9 +17,7 @@
 
 <script>
     export default {
-        mixins: [],
         props:['number','icon','addFunction','index','title','color'],
-        commponents: {},
         name: 'gl-ui-number-control',
         data() {
             return {
@@ -27,8 +25,6 @@
                 s: 0,
                 l: 0
             }
-        }, methods: {},
-        beforeCreate() {
         },
         created:function(){
             this.f = parseInt(this.number/100);

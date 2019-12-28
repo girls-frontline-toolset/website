@@ -6,7 +6,7 @@
                     <v-layout align-center row wrap>
                         <v-flex xs12>
                             <h1 class="display-3 white--text">{{$t('jumbotron.msg')}}</h1>
-                            <v-divider class="my-3" style="background-color: hsla(0,0%,100%,.12);"></v-divider>
+                            <v-divider class="my-3" style="background-color: hsla(0,0%,100%,.12);"/>
                         </v-flex>
                         <v-flex xs12 hidden-xs-only pa-0 ma-0>
                             <v-btn large color="primary" class="mx-1" v-for="(item,key) in data" :to="langUrl() + item.to" :key="key+'jumbotron'">
@@ -51,8 +51,6 @@
 
 <script>
     export default {
-        props: [''],
-        commponents: {},
         name: 'gl-ui-jumbotron',
         data() {
             return {
@@ -76,19 +74,12 @@
                 _this.countNum = json.count;
                 _this.number = json.number;
             });
-        }, created() {
-
-        }, beforeMount() {
         }, mounted() {
-            //console.log(this.$route.query.fn);
             if (this.$route.query.fn !== undefined){
                 if(this.$route.query.fn === "nbar"){
                     this.showImg = false
                 }
             }
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

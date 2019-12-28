@@ -2,7 +2,7 @@
     <v-container grid-list-md pt-0>
       <v-layout row wrap>
         <v-flex xs12>
-          <gl-ui-title :text="urlName + ' - ' + $t('title.h1.breadcrumbList')" h1 ></gl-ui-title>
+          <gl-ui-title :text="urlName + ' - ' + $t('title.h1.breadcrumbList')" h1 />
         </v-flex>
         <v-flex xs12 v-for="item in urlList" :key="item.url">
           <router-link :to="item.url" class="f-18" >{{item.title}}</router-link>
@@ -31,11 +31,7 @@
         isWaitMeta:true
       }
     }, methods: {
-    }, beforeCreate() {
-    }, created() {
-    }, beforeMount() {
     }, mounted() {
-      //console.log(this.$router.options.routes[0].children);
     let childrenList = this.$router.options.routes[0].children;
 
     for (let i = 0; i < childrenList.length; i++) {

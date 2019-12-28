@@ -2,8 +2,8 @@
     <v-container grid-list-md pa-0 mt-1>
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                <gl-ui-title text="更新記錄" h1></gl-ui-title>
+                <gl-ui-card-left :content="prompt" icon="notifications"/>
+                <gl-ui-title text="更新記錄" h1/>
 
                 <v-list three-line>
                     <v-list-tile v-for="item,key in list" :key="item.title + '-'+ key" avatar >
@@ -31,7 +31,7 @@
             return {
                 list: []
             }
-        },beforeCreate: function () {
+        },beforeCreate() {
             let _this = this;
             $.getJSON('/api/inquiry/UpdateLog', function (json) {
                 for (let i = 0,title = "",poClass; i < json.data.length; i++) {

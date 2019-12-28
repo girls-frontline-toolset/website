@@ -2,7 +2,7 @@
     <v-container grid-list-md pt-0>
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-title text="圖片庫管理" h1></gl-ui-title>
+                <gl-ui-title text="圖片庫管理" h1/>
                 <v-layout row wrap v-if="!isNone">
                     <v-flex xs12 sm6 md4 pa-1 ref="list-1">
                         <div v-for="item,index in data" v-if="show(index,0)">
@@ -11,7 +11,7 @@
                                                   :change-option="changeOption" :index="index"
                                                   :select-option="selectOption[index]" :tag-list="tagList[index]"
                                                   :enter-tag="enterTag"
-                            ></gl-ui-image-add-card>
+                            />
                             <div class="twitter-tag" :style="isDelete(index)">
                                 <v-icon @click="del(index)" class="c-p">delete</v-icon>
                             </div>
@@ -24,7 +24,7 @@
                                                   :change-option="changeOption" :index="index"
                                                   :select-option="selectOption[index]" :tag-list="tagList[index]"
                                                   :enter-tag="enterTag"
-                            ></gl-ui-image-add-card>
+                            />
                             <div class="twitter-tag" :style="isDelete(index)">
                                 <v-icon @click="del(index)" class="c-p">delete</v-icon>
                             </div>
@@ -37,7 +37,7 @@
                                                   :change-option="changeOption" :index="index"
                                                   :select-option="selectOption[index]" :tag-list="tagList[index]"
                                                   :enter-tag="enterTag"
-                            ></gl-ui-image-add-card>
+                            />
                             <div class="twitter-tag" :style="isDelete(index)">
                                 <v-icon @click="del(index)" class="c-p">delete</v-icon>
                             </div>
@@ -89,7 +89,7 @@
                     return (index % 2 === num)
                 }
             },
-            getImage: function () {
+            getImage() {
                 var _this = this;
                 this.data = [];
                 $.getJSON('/api/inquiry/imageManage', function (json) {
@@ -110,7 +110,7 @@
                     }
                 });
             },
-            submit: function () {
+            submit() {
                 var list = [];
                 var _this = this;
 
@@ -127,7 +127,6 @@
                     });
 
                 }
-                //console.log(list);
                 $.ajax({
                         url: "/api/inquiry/updateImage",
                         type: "POST",
@@ -135,7 +134,6 @@
                             data: list,
                         },
                         success: function (data) {
-                            //console.log(data);
                             data = JSON.parse(data);
                             if (data.status == "success") {
                                 _this.getImage()
@@ -145,26 +143,22 @@
                 );
 
             },
-            isDelete: function (index) {
+            isDelete(index) {
                 if (this.data[index].del !== undefined && this.data[index].del === "true") {
                     return {"background-color": "#f00"}
                 }
                 return {};
             },
-            del: function (index) {
+            del(index) {
                 if (this.data[index].del === undefined || this.data[index].del === "false") {
                     this.$set(this.data[index], "del", "true");
                 } else {
                     this.$set(this.data[index], "del", "false");
                 }
             },
-            completed: function () {
-
-
+            completed() {
             }
-        }, beforeCreate: function () {
-
-        }, created: function () {
+        }, created() {
             this.isShow = this.$s.less768;
             this.less960 = this.$s.less960();
             this.$g.getAllGirlList('girlList', this);

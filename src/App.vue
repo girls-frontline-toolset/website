@@ -1,27 +1,27 @@
 <template>
         <v-app id="app" class="transparent">
-            <gl-ui-resource></gl-ui-resource>
-            <gl-ui-dialog></gl-ui-dialog>
-            <gl-ui-nav v-if="isShow"></gl-ui-nav>
-        <v-layout v-resize="onResize" :style="'height:' + height" v-if="isShow"></v-layout>
+            <gl-ui-resource/>
+            <gl-ui-dialog/>
+            <gl-ui-nav v-if="isShow"/>
+        <v-layout v-resize="onResize" :style="'height:' + height" v-if="isShow"/>
             <v-container fluid style="background: hsla(0,0%,100%,.7);" pa-0>
                 <v-layout style="width: 100%;max-width: 1344px;" class="mx-auto">
                     <v-container fluid pa-0 mt-1 mb-1>
                         <v-layout row wrap >
                             <v-flex xs12 sm12 md9 pa-1 mt-0>
-                                <router-view :style="'margin-top:' + mt"></router-view>
+                                <router-view :style="'margin-top:' + mt"/>
                             </v-flex>
-                            <gl-ui-right-content v-if="isShow && isSim"></gl-ui-right-content>
+                            <gl-ui-right-content v-if="isShow && isSim"/>
                         </v-layout>
                     </v-container>
                 </v-layout>
         </v-container>
-        <gl-ui-footer v-if="isShow && isSim"></gl-ui-footer>
+        <gl-ui-footer v-if="isShow && isSim"/>
         <div class="topButton" >
                 <v-icon @click="toTop()" size="50" class="white--text" >keyboard_arrow_up</v-icon>
         </div>
-            <gl-ui-cookies></gl-ui-cookies>
-            <gl-ui-load></gl-ui-load>
+            <gl-ui-cookies/>
+            <gl-ui-load/>
         </v-app>
 </template>
 
@@ -58,11 +58,11 @@
             }
         },
         methods: {
-            onResize:function(){
+            onResize(){
                 this.height = (this.$s.less960())? "35px" : "50px";
                 this.mt =  (this.$s.less960())?'5px':'10px';
             },
-            toTop: function () {
+            toTop () {
                 $('html,body').animate({scrollTop: 0}, 'slow');
             },
             lan(data) {
@@ -71,7 +71,7 @@
                 this.$router.locale = data.i;
             }
         },
-        beforeCreate: function () {
+        beforeCreate() {
             let  _this = this;
             window.pushPush = function (path) {
                 _this.$router.push({path: path});
@@ -81,7 +81,7 @@
                 _this.$router.go(-1);
             };
             window.__pixiv__ = [];
-        }, created: function () {
+        }, created() {
             if (this.$route.query.fn !== undefined) {
                 if (this.$route.query.fn === "nbar") {
                     this.isShow = false;
@@ -96,7 +96,7 @@
           }
         }
 
-         }, mounted: function () {
+         }, mounted() {
         this.$s.appVue = this;
 
         if (this.$route.query.lang !== undefined || this.$route.params.lang !== undefined) {

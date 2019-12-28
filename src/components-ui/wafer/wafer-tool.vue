@@ -16,17 +16,17 @@
       <v-tabs-items>
         <v-tab-item value="tab-0" key="0" :style="'height:' + height + ';overflow: auto'">
           <v-card flat>
-            <gl-ui-wafer-list :cell-list="cellList" :create-wafer="createWafer" :color="selectColor"></gl-ui-wafer-list>
+            <gl-ui-wafer-list :cell-list="cellList" :create-wafer="createWafer" :color="selectColor"/>
           </v-card>
         </v-tab-item>
         <v-tab-item value="tab-1" key="1" :style="'height:' + height + ';overflow: auto'">
           <v-card flat>
-            <gl-ui-support-unit-list :support-unit-list="supportUnitList" click-type="0" :change-data="changeGird"></gl-ui-support-unit-list>
+            <gl-ui-support-unit-list :support-unit-list="supportUnitList" click-type="0" :change-data="changeGird"/>
           </v-card>
         </v-tab-item>
         <v-tab-item value="tab-2" key="2" :style="'height:' + height + ';overflow: auto'">
           <v-card flat>
-            <gl-ui-support-unit-list :support-unit-list="supportUnitList"  click-type="1" :best-arrange="bestArrange" ></gl-ui-support-unit-list>
+            <gl-ui-support-unit-list :support-unit-list="supportUnitList"  click-type="1" :best-arrange="bestArrange" />
           </v-card>
         </v-tab-item>
       </v-tabs-items>
@@ -41,31 +41,19 @@
     import GlUiSupportUnitList from "./support-unit";
     export default {
       components: {GlUiSupportUnitList,GlUiWaferList},
-      mixins: [],
         props: ['supportUnitList','bestArrange','changeGird','createWafer','selectColor','cellList'],
-        commponents: {},
         name: 'gl-ui-wafer-tool-list',
         data() {
             return {
               tabList:[{name:"make.wafer-list"},{name:"make.support-unit-list"},{name:"make.best-sorting"}],
               height:'unset'
             }
-        }, methods: {}, beforeCreate() {
-        }, created() {
-        }, beforeMount() {
         }, mounted() {
             if(this.$s.less600()){
                 console.log(window.innerHeight);
                 this.height = window.innerHeight - 50 +'px'
             }
 
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>
-
-<style>
-
-</style>

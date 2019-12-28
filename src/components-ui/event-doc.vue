@@ -13,9 +13,6 @@
 
 <script>
     export default {
-        mixins: [],
-        props: [''],
-        commponents: {},
         name: 'gl-ui-event-doc',
         data() {
             return {
@@ -23,7 +20,7 @@
                 img_l:null,
                 img_s:null
             }
-        }, methods: {},
+        },
         beforeCreate() {
             let _this = this;
             $.ajax({
@@ -36,12 +33,6 @@
                     }
                 }
             );
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

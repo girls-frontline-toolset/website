@@ -41,8 +41,6 @@
   export default {
     components: {GlUiTitle},
     mixins: [mMeta],
-    props: [''],
-    commponents: {},
     name: 'gl-ui-link-make-setting',
     data() {
       return {

@@ -19,7 +19,6 @@
 
 <script>
   export default {
-    mixins: [],
     props: ['open', 'getNow', 'time'],
     name: 'gl-ui-time-picker',
     data() {

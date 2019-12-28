@@ -1,22 +1,11 @@
 <script>
     export default {
         props: {h1:Boolean,h2:Boolean,h3:Boolean,text:{type:String,default:"Default text"},icon:String,button:String,clickF:Function,item:String},
-        commponents: {},
         name: 'gl-ui-title',
-        data() {
-            return {
-            }
-        }, methods: {
+         methods: {
             click(){
                 this.clickF(this.item)
             }
-        },
-        beforeCreate: function () {
-        }, created: function () {
-        }, beforeMount: function () {
-        }, mounted: function () {
-        }, beforeUpdate: function () {
-        }, updated: function () {
         },
         render: function (h) {
             let el,icon,btn;

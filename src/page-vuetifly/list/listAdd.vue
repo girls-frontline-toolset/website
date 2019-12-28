@@ -2,13 +2,13 @@
     <v-container grid-list-md pt-0 >
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-title text="添加文章" h2></gl-ui-title>
+                <gl-ui-title text="添加文章" h2/>
                 <v-form ref="form" v-model="valid" >
                     <v-select label="種類" item-text="text" item-value="docList_id" :items="docList"
                               v-model="data.type"
                               name="text"
                               required  :rules="[() => data.type !== '0' || $t('register.must') ]"
-                    ></v-select>
+                    />
                     <v-text-field
                             v-model="data.title"
                             type="text"
@@ -16,10 +16,10 @@
                             label="標題"
                             required
                             :rules="[() => !!data.title|| $t('register.must') ]"
-                    ></v-text-field>
+                    />
                     <v-textarea label="內容:"
                                    :rules="[() => !!data.content || $t('register.must') ]"
-                                   v-model="data.content" required></v-textarea>
+                                   v-model="data.content" required/>
                     <v-text-field
                             name="url"
                             v-model="data.url"
@@ -27,7 +27,7 @@
                             label="網址"
                             required
                             :rules="[() => !!data.url|| $t('register.must') ]"
-                    ></v-text-field>
+                    />
                     <v-btn color="primary" @click="add()" :disabled="!valid">{{$t('register.register')}}</v-btn>
                     <v-btn color="primary" outline @click="clear()">{{$t('register.clear')}}</v-btn>
                 </v-form>
@@ -42,8 +42,6 @@
     export default {
         components: {GlUiTitle},
         mixins: [mMeta],
-        props: [''],
-        commponents: {},
         name: 'gl-list-doc-page-content',
         data() {
             return {
@@ -79,19 +77,8 @@
             clear(){
                 this.data = {type:'1',content:'',title:'',url:''} ;
             }
-        }, beforeCreate() {
         }, created() {
             this.$g.getDocList('docList',this);
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>
-
-<style>
-
-</style>
-

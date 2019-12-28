@@ -1,7 +1,7 @@
 <template>
     <v-layout row wrap >
         <v-flex xs12>
-            <gl-ui-title text="搜尋" h1 ></gl-ui-title>
+            <gl-ui-title text="搜尋" h1 />
         </v-flex>
         <v-flex xs12  class="f-18 u-line search-text" >
             <div v-for="item in list" style="margin-bottom: 10px">
@@ -11,7 +11,7 @@
             </div>
         </v-flex>
         <v-flex xs12>
-            <div class="text-xs-center" ><v-pagination v-if="count > 1" v-model="page" :length="count" :total-visible="7" @input="click" ></v-pagination></div>
+            <div class="text-xs-center" ><v-pagination v-if="count > 1" v-model="page" :length="count" :total-visible="7" @input="click" /></div>
             <v-btn v-if="isEmpty" block color="error">!!沒有相關結果!!</v-btn>
         </v-flex>
     </v-layout>
@@ -23,8 +23,6 @@
     export default {
         components: {GlUiTitle},
         mixins: [mMeta],
-        props: [''],
-        commponents: {},
         name: 'gl-list-doc-search-content',
         data() {
             return {
@@ -87,7 +85,6 @@
                 );
 
             }
-        }, beforeCreate() {
         }, created() {
                 if (this.$route.query.query !== undefined) {
                     this.query = this.$route.query.query;
@@ -109,11 +106,6 @@
                 this.search();
 
 
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         },beforeRouteUpdate (to, from, next) {
             if(to.query !== undefined){
 
@@ -122,7 +114,6 @@
                 }else{
                     this.page = 0;
                 }
-                //this.$router.push({path: '/list/doc/search?query=' + to.query});
                 this.query = to.query.query;
                 this.search();
                 next();

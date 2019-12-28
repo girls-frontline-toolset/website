@@ -2,7 +2,7 @@
     <v-container grid-list-md pt-0>
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-title text="增加時間表活動" h1></gl-ui-title>
+                <gl-ui-title text="增加時間表活動" h1/>
             </v-flex>
             <v-flex xs12>
                 <form>
@@ -27,8 +27,8 @@
                             persistent-hint
                             prepend-icon="event"
                             @blur="date[0] = parseDate(data.start)"
-                    ></v-text-field>
-                    <v-date-picker v-model="date[0]" no-title @input="menu[0] = false"></v-date-picker>
+                    />
+                    <v-date-picker v-model="date[0]" no-title @input="menu[0] = false"/>
                 </v-menu>
                 <v-menu
                         ref="menu[1]"
@@ -50,8 +50,8 @@
                             persistent-hint
                             prepend-icon="event"
                             @blur="date[1] = parseDate(data.end)"
-                    ></v-text-field>
-                    <v-date-picker v-model="date[1]" no-title @input="menu[1] = false"></v-date-picker>
+                    />
+                    <v-date-picker v-model="date[1]" no-title @input="menu[1] = false"/>
                 </v-menu>
                 <input ref="file" type="file" id="file" @change="imgChange()"><br>
                 <img ref="previewImg" src="/common/img/bg.jpg" alt="Preview Image" style="width: 100%; max-width: 600px;" />
@@ -60,21 +60,21 @@
                         type="text"
                         :label="'文字:'"
 
-                ></v-text-field>
+                />
                 <v-text-field
                         v-model="data.src"
                         type="text"
                         :label="'網址:'"
                         required
                         :rules="[() => !!data.src || $t('register.must') ]"
-                ></v-text-field>
+                />
                 <v-text-field
                     v-model="data.alt"
                     type="text"
                     :label="'說明:'"
                     required
                     :rules="[() => !!data.src || $t('register.must') ]"
-                ></v-text-field>
+                />
                 <v-btn color="primary" @click="add()" :disabled="!valid" >提交</v-btn>
                 <v-btn color="primary" @click="clear()" outline>清除</v-btn>
                 </v-form>
@@ -93,8 +93,6 @@
     export default {
         components: {GlUiTitle},
         mixins: [MDataFormat,mMeta],
-        props: [''],
-        commponents: {},
         name: 'gl-ui-schedule-content',
         data() {
             return {
@@ -151,17 +149,9 @@
 
               reader.readAsDataURL(_this.$refs.file.files[0]);
             }
-        }, beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
-
         },watch:{
             date:{
-                handler: function(newValue) {
+                handler(newValue) {
                     this.data.start = this.formatDate(newValue[0]);
                     this.data.end  = this.formatDate(newValue[1]);
                 }

@@ -2,7 +2,7 @@
     <v-container grid-list-md pt-0>
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-title text="每日提示管理" h1></gl-ui-title>
+                <gl-ui-title text="每日提示管理" h1/>
             </v-flex>
             <v-flex xs12>
               <v-form ref="form" v-model="valid" >
@@ -16,14 +16,14 @@
                 :label="'類型'"
                 required
                 :rules="[() => !!task.type || $t('register.must') ]"
-              ></v-text-field>
+              />
               <v-text-field
                 v-model="task.text"
                 type="text"
                 :label="'文字'"
                 required
                 :rules="[() => !!task.text || $t('register.must') ]"
-              ></v-text-field>
+              />
               <v-btn color="primary" @click="add()" :disabled="!valid">{{$t('register.register')}}</v-btn>
               <v-btn color="primary" outline @click="clear()">{{$t('register.clear')}}</v-btn>
               </v-form>
@@ -40,8 +40,6 @@
   export default {
         components: {GlUiDatePicker, GlUiTitle},
         mixins: [mMeta],
-        props: [''],
-        commponents: {},
         name: 'gl-ui-update-log',
         data() {
             return {
@@ -81,7 +79,6 @@
         clear() {
           this.task = {"type":"","text":"","start":"","end":""};
         }
-      }, beforeCreate() {
         }, created() {
         let _this = this;
         $.ajax({
@@ -98,10 +95,6 @@
             }
           }
         )
-      }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-      },
+      }
     }
 </script>

@@ -1,20 +1,20 @@
 <template>
   <div>
-    <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-    <gl-ui-title :text="$t('title.h1.list.support-unit')" h1 icon="icon-equipment"></gl-ui-title>
+    <gl-ui-card-left :content="prompt" icon="notifications"/>
+    <gl-ui-title :text="$t('title.h1.list.support-unit')" h1 icon="icon-equipment"/>
 
     <v-container grid-list-md pa-0 mt-1>
       <v-layout row wrap>
 
         <v-flex xs12 pa-1>
-          <gl-ui-title h2 :text="$t('t.type') + ':'"></gl-ui-title>
+          <gl-ui-title h2 :text="$t('t.type') + ':'"/>
           <gl-ui-icon-button v-for="(item,key) in type" :key="key" :opacity="item" type="type"
-                             :name="key"></gl-ui-icon-button>
+                             :name="key"/>
         </v-flex>
         <v-flex xs12 pa-1>
-          <gl-ui-title h2 :text="$t('t.star') + ':'"></gl-ui-title>
+          <gl-ui-title h2 :text="$t('t.star') + ':'"/>
           <gl-ui-icon-button v-for="(item,key) in star" :key="key" :opacity="item" type="star"
-                             :name="key"></gl-ui-icon-button>
+                             :name="key"/>
         </v-flex>
       </v-layout>
     </v-container>
@@ -26,14 +26,14 @@
         <v-flex xs12 pa-1 sm4 v-for="(item, key) in dataList" :key="key">
           <img :alt="item.name" :src="'/common/supportUnit/support-unit-' + item.id + '.jpg'" style="width: 100%"/>
           <div v-for="(star, starKey) in item.star" :key="starKey">
-            <gl-ui-title h2 :text="''+star.num + '' + $t('make.star')"></gl-ui-title>
+            <gl-ui-title h2 :text="''+star.num + '' + $t('make.star')"/>
             <img :alt="'star ' + star.num" :src="'/common/supportUnit/' + item.id + '/' + star.num +'.png'" style="width: 100%">
           </div>
         </v-flex>
 
       </v-layout>
     </v-container>
-    <gl-ui-error :error="error" :text="errorText"></gl-ui-error>
+    <gl-ui-error :error="error" :text="errorText"/>
   </div>
 </template>
 
@@ -47,8 +47,6 @@
   export default {
     components: {GlUiError, GlUiIconButton, GlUiTitle, GlUiCardLeft},
     mixins: [mPrompt,mMeta],
-    props: [''],
-    commponents: {},
     name: 'gl-ui-list-support-unit',
     data() {
       return {
@@ -83,25 +81,14 @@
           listData.push(data);
         }
         this.dataList = listData;
-          //console.log(this.dataList)
         },
       getAll() {
         this.type = {"FST": true};
         this.star = {"star_1": true, "star_2": true, "star_3": true, "star_4": true, "star_5": true};
         this.getList();
       },
-    }, beforeCreate() {
     }, created() {
       this.$g.getSupportUnitList('supportUnitList', this);
-    }, beforeMount() {
-    }, mounted() {
-    }, beforeUpdate() {
-    }, updated() {
-    }, render() {
     }
   }
 </script>
-
-<style>
-
-</style>

@@ -4,7 +4,7 @@
                 <v-flex md4 sm4 xs12>
                     <v-layout row wrap>
                         <v-flex xs12>
-                            <gl-ui-title text="Android App-資料" h1></gl-ui-title>
+                            <gl-ui-title text="Android App-資料" h1/>
                         </v-flex>
                         <v-flex xs12 text-xs-center>
                             <v-avatar class="avatar-d">
@@ -22,19 +22,19 @@
                             <v-btn @click="open(1)" color="primary">下載</v-btn>
                             <v-btn @click="open(2)" color="primary" outline>Google 雲載點</v-btn>
                         </v-flex>
-                        <gl-ui-android-about v-if="show" :ver="version"></gl-ui-android-about>
+                        <gl-ui-android-about v-if="show" :ver="version"/>
                     </v-layout>
                 </v-flex>
                 <v-flex md8 sm8 xs12>
                     <v-layout row wrap>
                         <v-flex xs12>
-                            <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                            <gl-ui-title text="預覽圖" h2></gl-ui-title>
+                            <gl-ui-card-left :content="prompt" icon="notifications"/>
+                            <gl-ui-title text="預覽圖" h2/>
                         </v-flex>
-                        <v-flex sm6 md4 xs12 class="android-img" v-for="item,key in img" :key="key">
+                        <v-flex sm6 md4 xs12 class="android-img" v-for="(item,key) in img" :key="key">
                             <img :src="item" >
                         </v-flex>
-                        <gl-ui-android-about v-if="!show" :ver="version"></gl-ui-android-about>
+                        <gl-ui-android-about v-if="!show" :ver="version"/>
                     </v-layout>
                 </v-flex>
             </v-layout>
@@ -63,7 +63,7 @@
                 block:{"width":0}
             }
         }, methods: {
-            open: function (num) {
+            open(num) {
                 this.$ga.event('android', 'download');
                 switch (num) {
                     case 0:
@@ -79,10 +79,10 @@
 
             }
 
-        }, created: function () {
+        }, created() {
             this.show = !this.$s.less600();
         },
-        mounted: function () {
+        mounted() {
             var _this = this;
             $.getJSON('/common/apk/version.json', function (json) {
                 _this.version = json.version;

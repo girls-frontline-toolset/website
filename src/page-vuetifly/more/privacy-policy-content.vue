@@ -2,7 +2,7 @@
     <v-container grid-list-md pa-0 mt-1>
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-title :text="$t('footer.privacy-policy')" h1></gl-ui-title>
+                <gl-ui-title :text="$t('footer.privacy-policy')" h1/>
             </v-flex>
             <v-flex xs12 class="privacy_policy">
                 <h1>Privacy Policy</h1>
@@ -179,10 +179,7 @@
     export default {
         mixins: [mMeta],
         components: {GlUiTitle},
-        name: 'gl-ui-privacy-policy',
-        data() {
-            return {}
-        }
+        name: 'gl-ui-privacy-policy'
     }
 </script>
 

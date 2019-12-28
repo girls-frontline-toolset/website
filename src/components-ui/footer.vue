@@ -34,19 +34,11 @@
 
 <script>
     export default {
-        props: [''],
-        commponents: {},
         name: 'gl-ui-footer',
         data() {
             return {
                 links: [{"t":'footer.feedback',"to":"/more/feedback"}, {"t":'footer.link',"to":"/more/link"}, {"t":'footer.uploadImg',"to":"https://drive.google.com/drive/folders/0B_CazUUBPCsWSDgxMU9NNEl6eDQ"},{"t":'github',"to":"https://github.com/girls-frontline-toolset/website"}, {"t":'footer.add-image',"to":"/image/add"}, {"t":'footer.about',"to":"/more/about"},{"t":'footer.update-log',"to":"/log/update"},{"t":"title.h1.more.sitemap","to":"/more/sitemap"},{"t":"footer.privacy-policy","to":"/more/privacy_policy"}]
             }
-        }, methods: {}, beforeCreate: function () {
-        }, created: function () {
-        }, beforeMount: function () {
-        }, mounted: function () {
-        }, beforeUpdate: function () {
-        }, updated: function () {
         }
     }
 </script>

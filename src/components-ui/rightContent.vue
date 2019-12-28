@@ -12,7 +12,6 @@
 
   export default {
     components: {GlUiGithubBadge, GlUiFacebook, GlUiEventSchedule},
-    props: [''],
     name: 'gl-ui-right-content',
     data() {
       return {

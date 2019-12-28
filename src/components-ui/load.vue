@@ -13,7 +13,7 @@
           indeterminate
           color="white"
           class="mb-0"
-        ></v-progress-linear>
+        />
       </v-card-text>
     </v-card>
   </v-dialog>

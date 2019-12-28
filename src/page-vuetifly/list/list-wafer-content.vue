@@ -1,22 +1,22 @@
 <template>
     <div>
-        <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-        <gl-ui-title :text="$t('title.h1.list.wafer')" h1 icon="icon-equipment"></gl-ui-title>
+        <gl-ui-card-left :content="prompt" icon="notifications"/>
+        <gl-ui-title :text="$t('title.h1.list.wafer')" h1 icon="icon-equipment"/>
 
 
         <v-container grid-list-md pa-0 mt-1>
             <v-layout row wrap>
                 <v-flex xs12 pa-1>
-                    <gl-ui-title h2 :text="$t('t.color') + ':'"></gl-ui-title>
-                    <gl-ui-icon-button v-for="(item,key) in color" :key="key" :opacity="item" type="color" :name="key" ></gl-ui-icon-button>
+                    <gl-ui-title h2 :text="$t('t.color') + ':'"/>
+                    <gl-ui-icon-button v-for="(item,key) in color" :key="key" :opacity="item" type="color" :name="key" />
                 </v-flex>
                 <v-flex xs12 pa-1>
-                    <gl-ui-title h2 :text="$t('t.cells') + ':'"></gl-ui-title>
-                    <gl-ui-icon-button v-for="(item,key) in cells" :key="key" :opacity="item" type="cells" :name="key" ></gl-ui-icon-button>
+                    <gl-ui-title h2 :text="$t('t.cells') + ':'"/>
+                    <gl-ui-icon-button v-for="(item,key) in cells" :key="key" :opacity="item" type="cells" :name="key" />
                 </v-flex>
 
                 <v-flex xs12 pa-1 v-if="cells['cells_5']">
-                    <gl-ui-title h2 :text="$t('t.type') + ':'" style="display: block;width: 80px;margin-top: 2px;float: left;"></gl-ui-title><v-icon style="padding: 4px 0 0;" class="c-p" @click="showHelp()">help</v-icon>
+                    <gl-ui-title h2 :text="$t('t.type') + ':'" style="display: block;width: 80px;margin-top: 2px;float: left;"/><v-icon style="padding: 4px 0 0;" class="c-p" @click="showHelp()">help</v-icon>
                 </v-flex>
                 <v-flex xs12 pa-1 class="input-sangvis" v-if="cells['cells_5']">
                     <span class="get no-select" @click="click('type',key)" :style="isClick('type',key)"
@@ -31,7 +31,7 @@
                 <img data-rot="0" @click="rotate($event)" v-for="item in itemData" :src='"/common/cell/"+item.gird + "/" + item.position + "-" + item.color + ".png" ' :alt='item.no' :title='item.no'>
         </div>
 
-        <gl-ui-error :error="error" :text="errorText"></gl-ui-error>
+        <gl-ui-error :error="error" :text="errorText"/>
     </div>
 </template>
 
@@ -45,8 +45,6 @@
     export default {
         components: {GlUiError, GlUiIconButton, GlUiCardLeft, GlUiTitle},
         mixins: [mPrompt,mMeta],
-        props: [''],
-        commponents: {},
         name: 'gl-ui-list-wafer-content',
         data() {
             return {
@@ -67,7 +65,7 @@
 
               this.$set(this[a], b, c);
             },
-            showHelp: function () {
+            showHelp() {
                 this.$s.glDialogText("關於","5格分為兩類，5格1類和6格一樣好，比5格2類參數高一些。<br>5星6格 = 5星5格1类(1.0) > 5星5格2类(0.92) > 5星4格 = 4星6格 = 4星5格1类(0.8) > 5星3格(0.76) > 4星5格2类(0.72)。<br><a href='http://nga.178.com/read.php?tid=14732027&fav=c56e1723'>來源</a>");
             },
             getAll(){
@@ -77,14 +75,14 @@
 
                 this.getList();
             },
-            click: function (type, num) {
+            click(type, num) {
             switch (type) {
                 case "type":
                     this.$set(this.type[num], "s", !this.type[num].s);
                     break;
                 }
             },
-            isClick: function (type, num) {
+            isClick(type, num) {
                 switch (type) {
                     case 'type':
                         if (this.type[num].s) {
@@ -130,15 +128,8 @@
                         dom.setAttribute("data-rot","0");
                 }
             }
-        }, beforeCreate() {
-          var a = 0;
         }, created() {
             this.$g.getCellList('cellList', this);
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

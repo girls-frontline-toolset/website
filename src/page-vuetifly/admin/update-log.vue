@@ -2,7 +2,7 @@
     <v-container grid-list-md pt-0>
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-title text="更新記錄管理" h1></gl-ui-title>
+                <gl-ui-title text="更新記錄管理" h1/>
             </v-flex>
             <v-flex xs12>
               <v-form ref="form" v-model="valid" >
@@ -15,14 +15,14 @@
                   :label="'類型'"
                   required
                   :rules="[() => !!log.type || $t('register.must') ]"
-              ></v-text-field>
+              />
               <v-text-field
                 v-model="log.text"
                 type="text"
                 :label="'文字'"
                 required
                 :rules="[() => !!log.text || $t('register.must') ]"
-              ></v-text-field>
+              />
 
               <v-btn color="primary" @click="add()" :disabled="!valid">{{$t('register.register')}}</v-btn>
               <v-btn color="primary" outline @click="clear()">{{$t('register.clear')}}</v-btn>
@@ -40,8 +40,6 @@
   export default {
         components: {GlUiDatePicker, GlUiTitle},
         mixins: [mMeta],
-        props: [''],
-        commponents: {},
         name: 'gl-ui-daily-task',
         data() {
             return {
@@ -87,12 +85,6 @@
         },
         clear() {
           this.log = {date:"",type:"",text:""};
-        }, beforeCreate() {
-      }, created() {
-      }, beforeMount() {
-      }, mounted() {
-      }, beforeUpdate() {
-      }, updated() {
-      },
+        }
     }}
 </script>

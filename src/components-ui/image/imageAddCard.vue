@@ -1,7 +1,6 @@
 <template>
     <div class="addCard">
-        <gl-ui-image-card ref="addCard" :completedFunction="completed" :item="item"
-        ></gl-ui-image-card>
+        <gl-ui-image-card ref="addCard" :completedFunction="completed" :item="item"/>
         <div class="twitter-tag image-tag" v-if="item.tagAdd.length != 0">
             <v-chip label color="primary" class="c-p no-select" style="height: 20px;" small text-color="white"  v-for="t,tIndex in item.tagAdd" @click="tagClick(index,tIndex)" :key="tIndex">#{{t.name}} X</v-chip>
         </div>

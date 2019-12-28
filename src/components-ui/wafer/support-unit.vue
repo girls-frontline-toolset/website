@@ -6,7 +6,7 @@
         <img :alt="item.name" :src="'/common/supportUnit/support-unit-' + item.id +'.jpg'" class="w-100 c-p"/>
       </v-flex>
           <v-flex xs6 pa-1 v-for="i in 5" v-if="toggle[key].open" :key="i">
-            <gl-ui-title h2 :text="i + $t('make.star')"></gl-ui-title>
+            <gl-ui-title h2 :text="i + $t('make.star')"/>
             <img :alt="i" class="no-select c-p"  @click="click(item,item.color,i)" :src="'/common/supportUnit/'+ item.id + '/' + i + '.png'" style="width: 100%"/>
           </v-flex>
     </v-layout>
@@ -18,9 +18,7 @@
 
   export default {
     components: {GlUiTitle},
-    mixins: [],
     props: ['changeData','clickType','bestArrange','supportUnitList'],
-    commponents: {},
     name: 'gl-ui-support-unit-list',
     data() {
       return {
@@ -49,16 +47,10 @@
           this.toggle.push({"name": this.supportUnitList[i].name, "open": false})
         }
       }
-    }, beforeCreate() {
-    }, created() {
-    }, beforeMount() {
     }, mounted() {
       if(this.supportUnitList){
         this.initList();
       }
-    }, beforeUpdate() {
-    }, updated() {
-    }, render() {
     },watch:{
       supportUnitList(data){
        this.supportUnitList = data;
@@ -67,6 +59,3 @@
     }
   }
 </script>
-
-<style>
-</style>

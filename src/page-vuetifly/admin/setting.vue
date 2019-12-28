@@ -2,10 +2,10 @@
     <v-container grid-list-md pt-0>
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-title text="設定" h1></gl-ui-title>
+                <gl-ui-title text="設定" h1/>
             </v-flex>
             <v-flex xs12 >
-                <gl-ui-title text="定義" h2></gl-ui-title>
+                <gl-ui-title text="定義" h2/>
                 <v-menu
                         ref="menu[0]"
                         :close-on-content-click="false"
@@ -26,8 +26,8 @@
                             persistent-hint
                             prepend-icon="event"
                             @blur="date[0] = parseDate(define['time/make'].updateTime)"
-                    ></v-text-field>
-                    <v-date-picker v-model="date[0]" no-title @input="menu[0] = false"></v-date-picker>
+                    />
+                    <v-date-picker v-model="date[0]" no-title @input="menu[0] = false"/>
                 </v-menu>
                 <v-menu
                         ref="menu[1]"
@@ -49,8 +49,8 @@
                             persistent-hint
                             prepend-icon="event"
                             @blur="date[1] = parseDate(define['time/make_device'].updateTime)"
-                    ></v-text-field>
-                    <v-date-picker v-model="date[1]" no-title @input="menu[1] = false"></v-date-picker>
+                    />
+                    <v-date-picker v-model="date[1]" no-title @input="menu[1] = false"/>
                 </v-menu>
                 <v-menu
                         ref="menu[2]"
@@ -72,8 +72,8 @@
                             persistent-hint
                             prepend-icon="event"
                             @blur="date[2] = parseDate(define['time/h_make'].updateTime)"
-                    ></v-text-field>
-                    <v-date-picker v-model="date[2]" no-title @input="menu[2] = false"></v-date-picker>
+                    />
+                    <v-date-picker v-model="date[2]" no-title @input="menu[2] = false"/>
                 </v-menu>
                 <v-menu
                         ref="menu[3]"
@@ -95,8 +95,8 @@
                             persistent-hint
                             prepend-icon="event"
                             @blur="date[3] = parseDate(define['time/h_make_device'].updateTime)"
-                    ></v-text-field>
-                    <v-date-picker v-model="date[3]" no-title @input="menu[3] = false"></v-date-picker>
+                    />
+                    <v-date-picker v-model="date[3]" no-title @input="menu[3] = false"/>
                 </v-menu>
                 <v-text-field
                         v-model="define.announcement"
@@ -104,7 +104,7 @@
                         :label="'公告:'"
                         required
                         :rules="[() => !!define.announcement || $t('register.must') ]"
-                ></v-text-field>
+                />
 
                 <v-btn color="primary" @click="updateDefine()">提交</v-btn>
                 <v-btn color="primary" @click="clear(0)" outline>清除</v-btn>
@@ -117,28 +117,28 @@
                         :label="'Version:'"
                         required
                         :rules="[() => !!android.version || $t('register.must') ]"
-                ></v-text-field>
+                />
                 <v-text-field
                         v-model="android.text"
                         type="text"
                         :label="'Text:'"
                         required
                         :rules="[() => !!android.text || $t('register.must') ]"
-                ></v-text-field>
+                />
                 <v-text-field
                         v-model="android.link"
                         type="text"
                         :label="'Link:'"
                         required
                         :rules="[() => !!android.link || $t('register.must') ]"
-                ></v-text-field>
+                />
                 <v-text-field
                         v-model="android.googleLink"
                         type="text"
                         :label="'Google Drive Link:'"
                         required
                         :rules="[() => !!android.googleLink || $t('register.must') ]"
-                ></v-text-field>
+                />
 
                 <v-btn color="primary" @click="updateAndroid()">提交</v-btn>
                 <v-btn color="primary" @click="clear(1)" outline>清除</v-btn>
@@ -154,8 +154,6 @@
     export default {
         components: {GlUiTitle},
         mixins: [MDataFormat,mMeta],
-        props: [''],
-        commponents: {},
         name: 'gl-ui-setting',
         data() {
             return {
@@ -178,7 +176,7 @@
                             "time/h_make_device":_this.define['time/h_make_device'].updateTime,
                             announcement: _this.define.announcement
                         },
-                        success: function (data) {
+                        success(data) {
                             data = JSON.parse(data);
                             if (data.status === "success") {
                                 _this.$s.glDialogText("已更新", "已成功!!");
@@ -202,7 +200,7 @@
                             mySelect: _this.android.mySelect,
                             googleLink: _this.android.googleLink
                         },
-                        success: function (data) {
+                        success(data) {
                             data = JSON.parse(data);
                             if (data.status === "success") {
                                 _this.$s.glDialogText("已更新", "已成功!!");
@@ -237,19 +235,13 @@
                     _this.date = [_this.jsonDate(json['time/make'].updateTime),_this.jsonDate(json['time/make_device'].updateTime),_this.jsonDate(json['time/h_make'].updateTime),_this.jsonDate(json['time/h_make_device'].updateTime)];
                 });
             },
-        }, beforeCreate() {
         }, created() {
             this.getDefine();
             this.getAndroid();
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         },
         watch: {
             date:{
-                handler: function(newValue) {
+                handler(newValue) {
                     this.define['time/make'].updateTime = this.formatDate(newValue[0]);
                     this.define['time/make_device'].updateTime = this.formatDate(newValue[1]);
                     this.define['time/h_make'].updateTime = this.formatDate(newValue[2]);

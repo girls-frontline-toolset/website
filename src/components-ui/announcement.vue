@@ -5,21 +5,11 @@
 </template>
 <script>
     export default {
-        props: [''],
-        commponents: {},
         name: 'gl-ui-announcement',
         data() {
             return {
                 announcement:this.$s.announcement,
             }
-        }, methods: {},
-        beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

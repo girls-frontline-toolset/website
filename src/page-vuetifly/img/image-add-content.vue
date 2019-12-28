@@ -2,14 +2,14 @@
     <v-container grid-list-md pt-0 pa-0 mt-1>
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                <gl-ui-title text="圖片庫 添加作品" h1></gl-ui-title>
+                <gl-ui-card-left :content="prompt" icon="notifications"/>
+                <gl-ui-title text="圖片庫 添加作品" h1/>
             </v-flex>
             <v-flex xs12 v-if="el === 1">
-                <gl-ui-image-url-help :is-show="isShow"></gl-ui-image-url-help>
+                <gl-ui-image-url-help :is-show="isShow"/>
                 <v-form ref="form" v-model="valid">
                     <v-text-field v-model="select.email" type="email"
-                                  label="E-mail  (選擇填寫)" name="email"></v-text-field>
+                                  label="E-mail  (選擇填寫)" name="email"/>
                     <div class="red--text f-18" v-if=" erUrl.length !== 0 ">
                         網址錯誤:
                         <div v-for="item in erUrl"><span>{{item.name}}</span><br></div>
@@ -17,7 +17,7 @@
                     <v-text-field @keyup.enter="enter()" class="image-url" multi-line
                                   label="網址(支援 pixiv 及 twitter): 每網址一行"
                                   :rules="[() => !!select.content || '必須' ]"
-                                  v-model="select.content" required></v-text-field>
+                                  v-model="select.content" required/>
                 </v-form>
                 <v-btn color="primary" @click="send()" :disabled="!valid">繼續</v-btn>
                 <v-btn color="primary" outline @click="$refs.form.reset()">清除</v-btn>
@@ -32,7 +32,7 @@
                                                               :completed="completed" :tag-click="tagClick"
                                                               :change-option="changeOption" :index="index"
                                                               :select-option="selectOption[index]" :tag-list="tagList[index]" :enter-tag="enterTag"
-                                        ></gl-ui-image-add-card>
+                                        />
                                     </v-flex>
                                     <v-flex xs12 sm6 md4 pa-1 ref="list-2">
                                         <gl-ui-image-add-card :item="item" :ref="item.id"
@@ -42,7 +42,7 @@
                                                               :completed="completed" :tag-click="tagClick"
                                                               :change-option="changeOption" :index="index"
                                                               :select-option="selectOption[index]" :tag-list="tagList[index]" :enter-tag="enterTag"
-                                        ></gl-ui-image-add-card>
+                                        />
                                     </v-flex>
                                     <v-flex xs12 sm6 md4 pa-1 hidden-sm-and-down ref="list-3">
                                         <gl-ui-image-add-card :item="item" :ref="item.id"
@@ -52,7 +52,7 @@
                                                               :completed="completed" :tag-click="tagClick"
                                                               :change-option="changeOption" :index="index"
                                                               :select-option="selectOption[index]" :tag-list="tagList[index]" :enter-tag="enterTag"
-                                        ></gl-ui-image-add-card>
+                                        />
                                     </v-flex>
                                 </v-layout>
                             <v-btn color="primary" @click="submit()" :disabled="!valid">提交</v-btn>
@@ -109,7 +109,7 @@
                     return (index % 2 === num)
                 }
             },
-            submit: function () {
+            submit() {
                 var _this = this;
                 var postList = [];
 
@@ -236,7 +236,7 @@
                 }
             }
 
-        }, created: function () {
+        }, created() {
             this.isShow = this.$s.less960();
             this.less600 = this.$s.less600();
             this.$g.getAllGirlList('girlList', this);

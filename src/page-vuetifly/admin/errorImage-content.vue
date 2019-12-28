@@ -2,7 +2,7 @@
     <v-container grid-list-md pt-0>
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-title text="問題圖片管理" h1></gl-ui-title>
+                <gl-ui-title text="問題圖片管理" h1/>
             </v-flex>
             <v-flex xs12 v-if="isNone">
                 <v-btn block color="error" >!!沒有問題圖片!!</v-btn>
@@ -42,8 +42,6 @@
     export default {
         components: {GlUiTitle},
         mixins: [mMeta],
-        props: [''],
-        commponents: {},
         name: 'gl-ui-error-image',
         data() {
             return {
@@ -113,12 +111,6 @@
                 _this.isNone = true;
             }
         });
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

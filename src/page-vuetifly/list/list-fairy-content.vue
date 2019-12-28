@@ -1,29 +1,29 @@
 <template>
     <div>
-        <gl-ui-tag-list v-if="isShow || $s.app" :select="model" :items="items"></gl-ui-tag-list>
-        <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-        <gl-ui-title :text="$t('title.h1.list.fairy')" h1 icon="icon-equipment"></gl-ui-title>
+        <gl-ui-tag-list v-if="isShow || $s.app" :select="model" :items="items"/>
+        <gl-ui-card-left :content="prompt" icon="notifications"/>
+        <gl-ui-title :text="$t('title.h1.list.fairy')" h1 icon="icon-equipment"/>
 
         <v-container grid-list-md pa-0 mt-1>
             <v-layout row wrap>
                 <v-flex xs6>
                     <v-select :label="$t('time.filter')" item-text="t" item-value="i" :items="fairyItems" v-model="fairy"
-                              single-line></v-select>
+                              single-line/>
                 </v-flex>
                 <v-flex xs3 pa-1>
-                    <v-text-field mask="###" type="number" v-model="range[0]" :label="$t('time.start-no')" tabindex="1"></v-text-field>
+                    <v-text-field mask="###" type="number" v-model="range[0]" :label="$t('time.start-no')" tabindex="1"/>
                 </v-flex>
                 <v-flex xs3 pa-1 v-if="fairy === 0">
-                    <v-text-field mask="###" type="number" v-model="range[1]" :label="$t('time.end-no')" tabindex="2"></v-text-field>
+                    <v-text-field mask="###" type="number" v-model="range[1]" :label="$t('time.end-no')" tabindex="2"/>
                 </v-flex>
                 <v-flex xs3 pa-1 v-if="fairy === 1">
-                    <v-text-field mask="###" type="number" v-model="range[2]" :label="$t('time.end-no')" tabindex="2"></v-text-field>
+                    <v-text-field mask="###" type="number" v-model="range[2]" :label="$t('time.end-no')" tabindex="2"/>
                 </v-flex>
 
                 <v-flex xs12 pa-1>
-                    <gl-ui-title h2 :text="$t('t.type') + ': '"></gl-ui-title>
-                    <gl-ui-icon-button v-for="item, key in type" :key="key" :opacity="item" type="type"
-                                       :name="key"></gl-ui-icon-button>
+                    <gl-ui-title h2 :text="$t('t.type') + ': '"/>
+                    <gl-ui-icon-button v-for="(item, key) in type" :key="key" :opacity="item" type="type"
+                                       :name="key"/>
                 </v-flex>
 
             </v-layout>
@@ -42,14 +42,14 @@
             <v-layout row wrap >
                 <v-flex md6 sm6 xs12 pa-1 v-for="i in 2" :key="i">
                     <div v-for="items in listTime[i - 1]">
-                        <gl-ui-title h2 :text="items.title"></gl-ui-title>
+                        <gl-ui-title h2 :text="items.title"/>
                         <img v-for="item in items.data" :src="item.s" :alt='item.n' :title='item.n'>
                     </div>
                 </v-flex>
             </v-layout>
         </div>
 
-        <gl-ui-error :error="error" :text="errorText"></gl-ui-error>
+        <gl-ui-error :error="error" :text="errorText"/>
     </div>
 </template>
 
@@ -103,7 +103,7 @@
                     this.type[i] = true;
                 }
             },
-            getFairyTime: function () {
+            getFairyTime() {
                 this.$ga.event('list', 'fairy_time_list');
                 this.init();
 
@@ -128,12 +128,12 @@
                 this.listTime = [leftSide, dataList];
                 this.error = (!leftSide.length) ? 1 :  0 ;
 
-            }, getAll:function (){
+            }, getAll(){
                 this.$ga.event('list', 'fairy_list_all');
                 this.type =  {"fairyType_0": true, "fairyType_1": true};
                 this.getList();
 
-            },getList: function () {
+            },getList() {
                 this.$ga.event('list', 'fairy_list');
                 this.init();
 
@@ -161,7 +161,7 @@
                 this.$set(this,'listData',html);
                 this.error = (!html.length) ? 1 :  0 ;
 
-            }, getImgList: function (index, isAll) {
+            }, getImgList(index, isAll) {
                 this.listTime = [[],[]];
                 let data = this.fairyList[index];
                 if (this.fairy === 1) {
@@ -189,7 +189,7 @@
 
             }
         },
-        mounted: function () {
+        mounted() {
 
             for(let i = 0; i < this.fairyItems.length ; i++){
              this.fairyItems[i].t = this.$t(this.fairyItems[i].t);

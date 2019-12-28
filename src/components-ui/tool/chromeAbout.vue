@@ -1,6 +1,6 @@
 <template>
     <v-flex xs12>
-        <gl-ui-title text="關於" h2 ></gl-ui-title>
+        <gl-ui-title text="關於" h2 />
         <div class="f-18">
         Chrome 的插件!!<br>
         在電腦上更易查詢到時間!!<br>
@@ -19,19 +19,7 @@
     import GlUiTitle from "../title";
     export default {
         components: {GlUiTitle},
-        mixins: [],
         props: ['ver'],
-        commponents: {},
-        name: 'gl-ui-chrome-about',
-        data() {
-            return {}
-        }, methods: {}, beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
-        }
+        name: 'gl-ui-chrome-about'
     }
 </script>

@@ -11,18 +11,6 @@
 <script>
     export default {
         props: {list: Array, clickF: Function},
-        commponents: {},
-        name: 'gl-ui-hot-time',
-        data() {
-            return {}
-        }, methods: {},
-      beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, watch: {
-        }
+        name: 'gl-ui-hot-time'
     }
 </script>

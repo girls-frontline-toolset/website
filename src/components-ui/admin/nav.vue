@@ -23,9 +23,7 @@
 
   export default {
     components: {GlUiAdminNavList},
-    mixins: [],
     props: ['horizontal'],
-    commponents: {},
     name: 'gl-ui-admin-nav',
     data() {
       return {
@@ -33,15 +31,6 @@
         mini: true,
         showNav: false
       }
-    }, methods: {},
-    beforeCreate() {
-
-    }, created() {
-    }, beforeMount() {
-    }, mounted() {
-    }, beforeUpdate() {
-    }, updated() {
-    }, render() {
     }
   }
 </script>

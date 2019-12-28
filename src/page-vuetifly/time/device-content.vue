@@ -1,14 +1,14 @@
 <template>
     <div>
-        <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-        <gl-ui-title :text="$t('title.h1.time.device')" h1 icon="icon-equipment"></gl-ui-title>
-        <gl-ui-hot-time :list="hotTime" :clickF="badge"></gl-ui-hot-time>
+        <gl-ui-card-left :content="prompt" icon="notifications"/>
+        <gl-ui-title :text="$t('title.h1.time.device')" h1 icon="icon-equipment"/>
+        <gl-ui-hot-time :list="hotTime" :clickF="badge"/>
 
         <v-container grid-list-md pa-0>
                 <v-layout row wrap pa1>
                     <v-flex xs8 pa-1>
                         <v-text-field mask="##" type="number" v-model="mm" :label="$t('t.minute')" tabindex="1"
-                                      autofocus @keyup.enter.native="search()"></v-text-field>
+                                      autofocus @keyup.enter.native="search()"/>
                     </v-flex>
                     <v-flex xs4 pa-1>
                         <v-btn color="primary" block dark @click="search()" tabindex="2">{{$t('t.inquiry')}}</v-btn>
@@ -17,17 +17,17 @@
 
             <v-layout row wrap pa1>
                 <v-flex xs12 pa-1 class="device_output">
-                  <gl-ui-title v-if="data.length > 0" :text="this.mm" h2></gl-ui-title>
+                  <gl-ui-title v-if="data.length > 0" :text="this.mm" h2/>
                     <div class="div_device" v-for="device in data">
                         <ol>
                             <li :class="device.img+' str_'+device.star+'_bg'">{{device.starT}}</li>
                             <li :class="'str_'+device.star">{{device.name}}</li>
                             <li>{{device.type}}</li>
-                            <li v-html="device.attribute"></li>
+                            <li v-html="device.attribute"/>
                         </ol>
                     </div>
                 </v-flex>
-                <gl-ui-error :error="error"></gl-ui-error>
+                <gl-ui-error :error="error"/>
             </v-layout>
         </v-container>
     </div>
@@ -63,11 +63,11 @@
                 valid:false
             }
         }, methods: {
-            badge: function (obj) {
+            badge(obj) {
                 this.mm = this.hotTime[obj].time;
                 this.search();
             },
-            search: function () {
+            search () {
                 this.error = 0;
                 var _this = this;
                 let mm = (!this.mm) ? 0 : this.mm;
@@ -117,7 +117,7 @@
         created() {
             this.$g.getHotTimeDevice('hotTime', this);
         },
-        mounted: function () {
+        mounted() {
           let _this = this;
           function updateMeta(){
             _this.metaTitle = _this.mm + " "  + _this.metaTitle;

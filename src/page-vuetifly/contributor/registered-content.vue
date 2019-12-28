@@ -3,7 +3,7 @@
     <v-form ref="form" v-model="valid" >
     <v-layout row wrap>
       <v-flex xs12>
-        <gl-ui-title :text="$t('contributor.img')" h1 icon="icon-friends"></gl-ui-title>
+        <gl-ui-title :text="$t('contributor.img')" h1 icon="icon-friends"/>
       </v-flex>
       <v-flex xs12>
         <v-text-field
@@ -13,21 +13,21 @@
           :label="$t('t.user-name')"
           required
           :rules="[() => !!user.username|| $t('register.must') ]"
-        ></v-text-field>
+        />
       </v-flex>
       <v-flex xs12 sm6>
         <input type="file" ref="iconFile" @change="changeIcon($event)" @click="drawLoad()">
-        <v-slider step="0.05" v-model="zoom" thumb-label max="5" :label="$t('contributor.zoom')"></v-slider>
+        <v-slider step="0.05" v-model="zoom" thumb-label max="5" :label="$t('contributor.zoom')"/>
       </v-flex >
       <v-flex xs12 sm6>
-        <canvas ref="canvas" style="background-color:rgba(158, 167, 184, 0.2);width: 250px;height:250px"  @touchstart="mouseDown($event)" @touchend="mouseUp($event)"  @mousedown="mouseDown($event)" @mouseup="mouseUp($event)"></canvas>
+        <canvas ref="canvas" style="background-color:rgba(158, 167, 184, 0.2);width: 250px;height:250px"  @touchstart="mouseDown($event)" @touchend="mouseUp($event)"  @mousedown="mouseDown($event)" @mouseup="mouseUp($event)"/>
       </v-flex>
       <v-flex xs12 >
         <v-btn color="primary" @click="add()" :disabled="!valid">{{$t('register.register')}}</v-btn>
         <v-btn color="primary" outline @click="clear()">{{$t('register.clear')}}</v-btn>
       </v-flex>
       <v-flex >
-        <canvas ref="drawImage" style="display:none;background-color:rgba(158, 167, 184, 0.2);width: 250px;height:250px"></canvas>
+        <canvas ref="drawImage" style="display:none;background-color:rgba(158, 167, 184, 0.2);width: 250px;height:250px"/>
       </v-flex>
     </v-layout>
     </v-form>
@@ -89,7 +89,7 @@
               file: img1,
               email: _this.user.email,
             },
-            success: function(data){
+            success(data){
               data = JSON.parse(data);
               if(data.status === "success"){
                 _this.$s.glDialogText("貢獻者登記","已成功!!");
@@ -201,7 +201,7 @@
         }
       }
     },
-    beforeCreate: function () {
+    beforeCreate() {
       let key = this.$route.params.id;
 
       let _this = this;
@@ -213,7 +213,7 @@
         }
       });
     },
-    mounted: function () {
+    mounted() {
       this.cut_img_canvas = this.$refs.canvas;
       this.cut_img_canvas.width = 250;
       this.cut_img_canvas.height = 250;

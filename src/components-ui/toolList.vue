@@ -15,8 +15,6 @@
 
 <script>
     export default {
-        props: [''],
-        commponents: {},
         name: 'gl-ui-tool-list',
         data() {
             return {
@@ -29,14 +27,6 @@
             click(index){
                 this.$ga.event('index-button', this.data[index].a);
             }
-        },
-        beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

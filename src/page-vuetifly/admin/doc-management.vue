@@ -2,7 +2,7 @@
   <v-container grid-list-md pa-0 mt-1>
     <v-layout row wrap>
       <v-flex xs12>
-        <gl-ui-title text="文庫管理" h1></gl-ui-title>
+        <gl-ui-title text="文庫管理" h1/>
       </v-flex>
     </v-layout>
     <v-layout row wrap v-if="!isNone">
@@ -11,7 +11,7 @@
                   v-model="doc.docListId  "
                   name="text"
                   required :rules="[() => doc.docListId !== '0' || $t('register.must') ]"
-        ></v-select>
+        />
         <v-text-field
           v-model="doc.title"
           type="text"
@@ -19,11 +19,11 @@
           label="標題"
           required
           :rules="[() => !!doc.title|| $t('register.must') ]"
-        ></v-text-field>
+        />
 
         <v-textarea label="內容:"
                     :rules="[() => !!doc.content || $t('register.must') ]"
-                    v-model="doc.content" required></v-textarea>
+                    v-model="doc.content" required/>
         <v-text-field
           name="url"
           v-model="doc.url"
@@ -31,7 +31,7 @@
           label="網址"
           required
           :rules="[() => !!doc.url|| $t('register.must') ]"
-        ></v-text-field>
+        />
         <v-btn :href="decode(doc.url)" target="_blank" color="primary">Test url</v-btn>
         <v-btn outline color="primary" @click="deleteDoc(doc.id)">delete</v-btn>
         <hr style="border: 1px hsla(42, 100%, 50%, 0.8) solid;">
@@ -52,8 +52,6 @@
   export default {
     components: {GlUiTitle},
     mixins: [mMeta],
-    props: [''],
-    commponents: {},
     name: 'gl-ui-doc-management',
     data() {
       return {
@@ -126,21 +124,9 @@
         return elem.value;
       }
     },
-    beforeCreate() {
-    },
     created() {
       this.$g.getDocList('docListType', this);
       this.init();
-    },
-    beforeMount() {
-    },
-    mounted() {
-    },
-    beforeUpdate() {
-    },
-    updated() {
-    },
-    render() {
     }
   }
 </script>

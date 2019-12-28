@@ -2,13 +2,13 @@
     <v-layout v-resize="onResize" v-if="isShow">
         <v-layout v-if="Small">
             <v-toolbar fixed tabs color="gl-main-color" dark height="35" style="transform: translateY(0px)">
-                <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+                <v-toolbar-side-icon @click.stop="drawer = !drawer"/>
                 <v-toolbar-title class="white--text">
                     <router-link :to="langUrl() + '/'" class="unLine white--text">{{$t('title.s')}}</router-link>
                 </v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-tabs value="" slot="extension" v-if="subSubNav" color="gl-main-color" grow>
-                    <v-tabs-slider color="yellow"></v-tabs-slider>
+                    <v-tabs-slider color="yellow"/>
                     <v-tab :href="`#tab-${key}`" v-model="model" :to="langUrl() + item.to" v-for="(item,key) in items"
                            class="white--text" :key="item.t">
                         {{$t(item.t)}}
@@ -62,7 +62,7 @@
                                     :label="$t('nav.easy-mode')"
                                     v-model="simpleMode"
                                     color="primary"
-                            ></v-switch>
+                            />
                         </v-list-tile>
 
                         <v-layout justify-space-around>
@@ -90,7 +90,7 @@
                 <v-toolbar-title class="white--text">
                     <router-link :to="langUrl() + '/'" class="white--text unLine">{{$t('title.s')}}</router-link>
                 </v-toolbar-title>
-                <v-spacer></v-spacer>
+                <v-spacer/>
 
                 <v-menu offset-y>
                     <v-btn slot="activator" color="primary" dark>
@@ -136,8 +136,6 @@
 
 <script>
     export default {
-        props: [''],
-        commponents: {},
         name: 'gl-ui-nav',
         data() {
             return {
@@ -184,7 +182,7 @@
         beforeCreate() {
             $.getJSON('/common/data/nav.json', json => this.list = json);
 
-        }, created: function () {
+        }, created() {
             this.$nav.nav = this;
             let language = window.navigator.userLanguage || window.navigator.language;
             switch (language.toLowerCase()) {
@@ -205,8 +203,7 @@
             }
 
 
-        }, beforeMount: function () {
-        }, mounted: function () {
+        }, mounted() {
             this.onResize();
         if (this.$route.query.lang !== undefined || this.$route.params.lang !== undefined) {
           switch (this.$route.query.lang) {
@@ -239,8 +236,6 @@
               break;
           }
         }
-        }, beforeUpdate: function () {
-        }, updated: function () {
         }, watch: {
             simpleMode(data) {
                 this.$s.appVue.isSim = !data;

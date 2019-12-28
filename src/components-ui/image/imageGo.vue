@@ -4,18 +4,9 @@
 
 <script>
     export default {
-        props: [''],
-        commponents: {},
         name: 'gl-ui-image-go',
         data() {
             return {}
-        }, methods: {}, beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

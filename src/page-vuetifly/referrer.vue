@@ -7,11 +7,8 @@
         mixins: [mMeta],
         props: [''],
         components: {},
-        name: 'gl-referrer',
-        data() {
-            return {}
-        }, methods: {}, beforeCreate() {
-        }, created() {
+        name: 'gl-referrer'
+        , created() {
             if (this.$route.query.url !== undefined){
 
                 let url = this.$route.query.url;
@@ -24,11 +21,6 @@
             }else{
                 this.$router.push({path: '/'});
             }
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

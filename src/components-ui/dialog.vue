@@ -3,13 +3,13 @@
         <v-dialog v-model="dialog" max-width="500">
             <v-toolbar dark :color="color[type]">
                 <v-toolbar-title class="white--text">{{title}}</v-toolbar-title>
-                <v-spacer></v-spacer>
+                <v-spacer/>
                 <v-btn icon @click.native="dialog = false">
                     <v-icon>highlight_off</v-icon>
                 </v-btn>
             </v-toolbar>
             <v-card>
-                <v-card-text v-if="text"  v-html="text"></v-card-text>
+                <v-card-text v-if="text"  v-html="text"/>
                 <img v-if="img" :src="img" class="w-100">
             </v-card>
         </v-dialog>
@@ -18,9 +18,6 @@
 
 <script>
     export default {
-        mixins: [],
-        props: [''],
-        commponents: {},
         name: 'gl-ui-dialog',
         data() {
             return {
@@ -49,17 +46,9 @@
                 this.dialog = true;
                 this.type = 0;
             }
-        },
-        beforeCreate() {
-
-        }, created() {
-        }, beforeMount() {
         }, mounted() {
             this.$s.glDialog =  this;
 
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

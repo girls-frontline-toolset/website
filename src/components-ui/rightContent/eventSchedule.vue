@@ -2,20 +2,20 @@
     <v-container row pa-1 ref="r">
         <v-layout row wrap >
           <v-flex xs12 sm6 md12 pr-1 v-if="haveEvent">
-                <gl-ui-title :text="$t('title.h2.event-tw')" h2 ></gl-ui-title>
+                <gl-ui-title :text="$t('title.h2.event-tw')" h2 />
                 <a :href="img.h" target="_blank" v-for="(img,key) in data[now[0]][now[1]][now[2]]" :key="now[0] + '-'+now[1] + '-' + now[2] + '-' + key">
                   <img :src="img.src" style="width: 100%" @load="loaded" :alt="img.alt" :title="img.alt">
                 </a>
             </v-flex>
 
             <v-flex xs12 sm6 md12 pr-1>
-                <gl-ui-title :text="$t('title.h2.event-schedule-tw')" h2></gl-ui-title>
+                <gl-ui-title :text="$t('title.h2.event-schedule-tw')" h2/>
                 <v-date-picker ma-0 style="margin: 0" full-width color="gl-main-color" :event-color="eventColor" :events="functionEvents" :day-format="dataFormat" locale="zh-tw"  v-model="picker">
                     <v-container v-if="progress" fluid fill-height text-xs-center dark-overlay align-center>
                         <v-layout row align-center>
                             <v-flex xs12 sm6>
                                 <v-progress-circular class="mx-auto" indeterminate color="amber"
-                                                     :size="70"></v-progress-circular>
+                                                     :size="70"/>
                             </v-flex>
                         </v-layout>
                     </v-container>
@@ -26,15 +26,13 @@
         <v-dialog :activator="resizeDialogImgHeight()" pr-1 v-model="dialog" max-width="570" flat dark tile content-class="glScrollbar white">
             <v-toolbar ref="dia"  dark color="gl-main-color">
                 <v-toolbar-title class="white--text">{{picker}}</v-toolbar-title>
-                <v-spacer></v-spacer>
+                <v-spacer/>
                 <v-btn icon @click.native="dialog = false">
                     <v-icon>highlight_off</v-icon>
                 </v-btn>
             </v-toolbar>
             <v-card class="mt-0 mb-2" style="box-shadow:unset" v-for="(item,key) in data[s[0]][s[1]][s[2]]"
                     :href="item.h" target="_blank" :key="key">
-                <!--<v-card-media class="white&#45;&#45;text" :height="dialogImgHeight" :src="item.src" >-->
-                <!--</v-card-media>-->
               <v-card-title style="padding: 0;">
                 <img :src="item.src"  :alt="item.alt" style="padding: 0;width: 100%" :title="item.alt">
               </v-card-title>
@@ -53,7 +51,6 @@
     export default {
         components: {GlUiTitle},
         props: ['complete'],
-        commponents: {},
         name: 'gl-ui-eventSchedule',
         data() {
             return {
@@ -168,17 +165,11 @@
                 return [now.getFullYear().toString(),""+month,day];
             }
 
-        },
-        beforeCreate: function () {
         }, created: function () {
             let data = this.getNow();
             this.now = data;
             this.tmpDate.year = parseInt(data[0]);
             this.tmpDate.month = data[1];
-        }, beforeMount: function () {
-        }, mounted: function () {
-        }, beforeUpdate: function () {
-        }, updated: function () {
         }, watch: {
             picker: function (date) {
 

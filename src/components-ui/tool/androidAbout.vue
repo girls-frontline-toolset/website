@@ -1,6 +1,6 @@
 <template>
     <v-flex xs12>
-        <gl-ui-title text="關於" h2 ></gl-ui-title>
+        <gl-ui-title text="關於" h2 />
          <div class="f-18">
             這APP 只是用APP來看這網頁!! <br>
             要是喜歡 可以下載來用喔W<br>
@@ -21,19 +21,7 @@
     import GlUiTitle from "../title";
     export default {
         components: {GlUiTitle},
-        mixins: [],
         props: ['ver'],
-        commponents: {},
-        name: 'gl-ui-android-about',
-        data() {
-            return {}
-        }, methods: {}, beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
-        }
+        name: 'gl-ui-android-about'
     }
 </script>

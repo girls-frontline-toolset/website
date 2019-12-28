@@ -1,20 +1,20 @@
 <template>
     <div >
-            <gl-ui-tag-list  :select="model"  :items="items"></gl-ui-tag-list>
-            <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-            <gl-ui-title :text="$t('title.h1.time.girl')" h1 icon="icon-doll"></gl-ui-title>
-            <gl-ui-hot-time :list="hotTime" :clickF="badge"></gl-ui-hot-time>
+            <gl-ui-tag-list  :select="model"  :items="items"/>
+            <gl-ui-card-left :content="prompt" icon="notifications"/>
+            <gl-ui-title :text="$t('title.h1.time.girl')" h1 icon="icon-doll"/>
+            <gl-ui-hot-time :list="hotTime" :clickF="badge"/>
 
             <v-container grid-list-md pa-0>
                 <form>
                 <v-layout row wrap pa1>
                     <v-flex xs4 pa-1>
                             <v-text-field mask="#" type="number" v-model="hh" :label="$t('t.hour')" tabindex="1"
-                                          autofocus></v-text-field>
+                                          autofocus/>
                         </v-flex>
                         <v-flex xs4 pa-1>
                             <v-text-field mask="##" type="number" v-model="mm" :label="$t('t.minute')" tabindex="2"
-                                          @keyup.enter.native="search()"></v-text-field>
+                                          @keyup.enter.native="search()"/>
                         </v-flex>
                         <v-flex xs4 pa-1>
                             <v-btn color="primary" block dark @click="search()" tabindex="3">{{$t('t.inquiry')}}</v-btn>
@@ -23,13 +23,13 @@
 
                 <v-layout row wrap pa1>
                   <v-flex xs12 pa-1 class="girl_output">
-                    <gl-ui-title v-if="data.length > 0" :text="this.hh + ':' + this.mm" h2></gl-ui-title>
+                    <gl-ui-title v-if="data.length > 0" :text="this.hh + ':' + this.mm" h2/>
                     <a v-for="girl in data" :href='"https://zh.moegirl.org/zh-hant/少女前线:" + girl.name' target='_blank'>
                       <img :class='girl.className'
                            :src='"/common/girl/" + $t("resourcePath")  + "girl_" + girl.number + ".jpg"'
                            :alt='$t(getResourceName(girl.number))' :title='$t(getResourceName(girl.number))'></a>
                   </v-flex>
-                  <gl-ui-error :error="error"></gl-ui-error>
+                  <gl-ui-error :error="error"/>
                   <v-flex xs12 pa-1 v-if="!$s.app">
                     <router-link  :to="langUrl() + '/image/' + girl.name.replace('/','%2F')" v-for="girl in data" :key="girl.number">
                       <v-chip label small color="primary" text-color="white" class="chip-link">
@@ -77,11 +77,11 @@
             }
         },
         methods: {
-            badge: function (obj) {
+            badge (obj) {
                 [this.hh,this.mm] = this.hotTime[obj].time.split(":");
                 this.search();
             },
-            search: function () {
+            search() {
                 this.$ga.event('time', 'search_girl');
                 var _this = this;
 
@@ -131,10 +131,10 @@
         created() {
             this.$g.getHotTimeGirl('hotTime', this);
         },
-        mounted: function () {
+        mounted() {
           let _this = this;
           function updateMeta(){
-            _this.metaTitle = _this.hh + ":" + _this.mm + " "  + _this.metaTitle;
+            _this.metaTitle = _this.hh + ":" + _this.mm + " "  + _this.$t('title.h1.time.girl');
             document.title = _this.metaTitle;
           }
 

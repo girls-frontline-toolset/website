@@ -2,7 +2,7 @@
     <v-container grid-list-md pa-0 mt-1>
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-title text="數據板" h1></gl-ui-title>
+                <gl-ui-title text="數據板" h1/>
             </v-flex>
           <v-flex xs6 v-for="item in card" :key="item.title">
             <v-card :color="(item.count >10 && item.type !== 'imgCount')?'#ff0000':'#ffb300'" class="white--text" :to="item.url">
@@ -22,15 +22,11 @@
     export default {
         components: {GlUiTitle},
         mixins: [mMeta],
-        props: [''],
-        commponents: {},
         name: 'gl-ui-data-board',
         data() {
             return {
               card:[{type:"img",title:"圖片庫待批核總數",count:0,url:"/admin/image"},{type:"doc",title:"Doc 待批核總數",count:0,url:"/admin/docMgmt"},{type:"errorImg",title:"問題圖片待處理總數",count:0,url:"/admin/errorImg"},{type:"imgCount",title:"圖片總數",count:0,url:""}]
             }
-        }, methods: {
-        }, beforeCreate() {
         }, created() {
         let _this = this;
         $.ajax({
@@ -53,11 +49,6 @@
             }
           }
         );
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

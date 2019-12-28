@@ -1,11 +1,11 @@
 <template>
     <v-layout v-resize="onResize" justify-center>
         <v-container row pa-1>
-            <v-flex xs12 id="fb-root"></v-flex>
+            <v-flex xs12 id="fb-root"/>
             <v-flex xs12 id="fb-page">
-                <gl-ui-title text="Facebook" h2></gl-ui-title>
-                <gl-ui-fb-page-small v-if="isShow" class="fb-page-small is-load"></gl-ui-fb-page-small>
-                <gl-ui-fb-page-big  v-else class="is-load"></gl-ui-fb-page-big>
+                <gl-ui-title text="Facebook" h2/>
+                <gl-ui-fb-page-small v-if="isShow" class="fb-page-small is-load"/>
+                <gl-ui-fb-page-big  v-else class="is-load"/>
             </v-flex>
         </v-container>
     </v-layout>

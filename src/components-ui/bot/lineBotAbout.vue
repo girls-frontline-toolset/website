@@ -1,6 +1,6 @@
 <template>
     <v-flex xs12>
-        <gl-ui-title text="關於" h2 ></gl-ui-title>
+        <gl-ui-title text="關於" h2 />
         <div class="f-18">
             這是同好寫的line 機械人喔! <br>
             可以加入群組 <br>
@@ -19,9 +19,6 @@
     import GlUiTitle from "../title";
     export default {
         components: {GlUiTitle},
-        mixins: [],
-        props: [''],
-        commponents: {},
         name: 'gl-ui-line-bot-about',
         data() {
             return {
@@ -33,13 +30,6 @@
         $.getJSON('/api/line/text.json', function (json) {
           _this.ver = json.ver;
         });
-
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

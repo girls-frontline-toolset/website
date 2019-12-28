@@ -2,10 +2,10 @@
   <v-container grid-list-md pt-0 pa-0 style="height: 100%">
     <v-layout row wrap style="height: 100%">
       <v-flex :class="(less600)?'xs12':'xs3'">
-        <gl-ui-admin-nav :horizontal="less600"></gl-ui-admin-nav>
+        <gl-ui-admin-nav :horizontal="less600"/>
       </v-flex>
       <v-flex :class="(less600)?'xs12':'xs9'">
-        <router-view></router-view>
+        <router-view/>
       </v-flex>
     </v-layout>
   </v-container>
@@ -22,10 +22,7 @@
       return {
         less600: false
       }
-    }, methods: function () {
-
-
-    }, beforeCreate: function () {
+    }, beforeCreate() {
       var _this = this;
       $.getJSON('/api/inquiry/status', function (json) {
         if (json.status === "success") {

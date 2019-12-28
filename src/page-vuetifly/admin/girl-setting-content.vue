@@ -2,24 +2,24 @@
     <v-container grid-list-md pt-0>
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-title text="人型編輯" h1></gl-ui-title>
+                <gl-ui-title text="人型編輯" h1/>
             </v-flex>
             <v-flex xs3 pa-1>
                 <v-text-field v-model="data.no" type="text" :label="'編號:'"
-                    mask="####" @input="setData()" ></v-text-field>
+                    mask="####" @input="setData()" />
             </v-flex>
             <v-flex xs3 pa-1>
                 <v-text-field :label="$t('t.type') + ':'" type="text" v-model="select.s.type"
-                          ></v-text-field >
+                          />
             </v-flex>
             <v-flex xs3 pa-1>
                 <v-text-field :label="$t('t.star') + ':'" type="text" v-model="select.s.star"
-                              ></v-text-field>
+                              />
             </v-flex>
             <v-flex xs3 pa-1>
                 <v-text-field :label="$t('t.character') + ':'" item-text="name" item-value="no" :items="girlSearch"
                           v-model="select.s.girl" @input="($event.no !== undefined)? data.no = $event.no: '' "
-                ></v-text-field>
+                />
             </v-flex>
              <v-flex xs3 pa-1>
                 <img id="img" :src="(data.no > allGirl.length)?'/common/girl/girl_0.jpg' :'/common/girl/girl_' + data.no  + '.jpg'" style="width: 115px;height: 203px">
@@ -42,8 +42,6 @@
     export default {
         components: {GlUiTitle},
         mixins: [mMeta],
-        props: [''],
-        commponents: {},
         name: 'gl-ui-girl-setting',
         data() {
             return {
@@ -59,7 +57,6 @@
             addGirl(){
                 let _this = this;
 
-                //console.log(this.select.s);
                 let formData = new FormData();
 
                 if($('#girlFile')[0].files[0] !== undefined){
@@ -80,11 +77,9 @@
                         processData: false,
                         contentType: false,
                         success: function(data){
-                            //console.log(data);
                             data = JSON.parse(data);
                             if(data.status === "success"){
                                 _this.$s.glDialogText("人型編輯", "已成功!!");
-                                //_this.data = {type:'1',content:'',title:'',url:''} ;
                             }else{
                                 _this.$s.glDialogText("人型編輯", "出現問題!!", 1);
                             }
@@ -119,10 +114,8 @@
 
                     this.girlSearch = list;
             }
-        }, beforeCreate() {
         }, created() {
             this.$g.getAllGirlList('allGirl',this);
-        }, beforeMount() {
         }, mounted() {
             $('#girlFile').change(function() {
                 var input = this;
@@ -131,13 +124,10 @@
 
                 reader.onload = function (e) {
                     $('#img').attr('src', e.target.result);
-                }
+                };
 
                 reader.readAsDataURL(input.files[0]);
             });
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

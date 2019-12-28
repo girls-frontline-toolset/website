@@ -2,12 +2,12 @@
   <v-container grid-list-md pa-0 mt-1>
     <v-layout row wrap>
       <v-flex xs12>
-        <gl-ui-title :text="$t('nav.magical-tool.so-appetizing')" h1 icon="icon-make"></gl-ui-title>
+        <gl-ui-title :text="$t('nav.magical-tool.so-appetizing')" h1 icon="icon-make"/>
       </v-flex>
       <v-flex xs12 md4>
           <v-layout row wrap pa1>
             <v-flex xs8 md12 pa-1>
-              <v-text-field type="text" maxlength="3" v-model="text" :label="$t('make.string')" tabindex="1" @keyup.enter.native="generate()"></v-text-field>
+              <v-text-field type="text" maxlength="3" v-model="text" :label="$t('make.string')" tabindex="1" @keyup.enter.native="generate()"/>
             </v-flex>
             <v-flex xs4 md12 pa-1>
               <v-btn color="primary" block dark @click="generate()" tabindex="2">{{$t('make.generate')}}</v-btn>
@@ -36,8 +36,6 @@
     export default {
       components: {GlUiTitle, GlUiAlertText},
       mixins: [mMeta],
-        props: [''],
-        commponents: {},
         name: 'so-appetizing-content',
         data() {
             return {
@@ -63,18 +61,8 @@
             ctx.drawImage(img, 0, 0, (img.naturalWidth/4 * 3),(img.naturalHeight/4 * 3) );
             this.base64String = this.canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
           }
-        }, beforeCreate() {
-        }, created() {
-        }, beforeMount() {
         }, mounted() {
         this.canvas = document.createElement("canvas");
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>
-
-<style>
-
-</style>

@@ -6,19 +6,7 @@
 
 <script>
     export default {
-        mixins: [],
         props: ['text','strong'],
-        commponents: {},
-        name: 'gl-ui-alert-text',
-        data() {
-            return {}
-        }, methods: {}, beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
-        }
+        name: 'gl-ui-alert-text'
     }
 </script>

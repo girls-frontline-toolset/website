@@ -8,7 +8,7 @@
             return {
                 carousel: null
             }
-        },beforeCreate: function () {
+        },beforeCreate() {
             var _this = this;
             $.getJSON('/api/inquiry/logout', function (json) {
                 if (json.status === "success") {

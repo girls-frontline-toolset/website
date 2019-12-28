@@ -6,7 +6,6 @@
 <script>
     export default {
         props: {error:Number,text:String},
-        commponents: {},
         name: 'gl-ui-error',
         data() {
             return {
@@ -14,12 +13,6 @@
                 color:[undefined,"error","primary","error"],
                 icon:[undefined,"warning","priority_high","warning"]
             }
-        }, methods: {}, beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
         },watch:{
             text(data){
                 this.errorText[3] = data;

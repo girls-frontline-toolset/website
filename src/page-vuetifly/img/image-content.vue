@@ -2,24 +2,24 @@
     <v-container grid-list-md pt-0 pa-0 mt-1>
         <v-layout row wrap>
             <v-flex xs12>
-                <gl-ui-card-left :content="prompt" icon="notifications"></gl-ui-card-left>
-                <gl-ui-title :text="$t('title.h1.img')" h1 ></gl-ui-title>
+                <gl-ui-card-left :content="prompt" icon="notifications"/>
+                <gl-ui-title :text="$t('title.h1.img')" h1 />
             </v-flex>
             <v-flex xs12 pa-1>
-                    <gl-ui-title h2 :text="$t('t.type') + ':' "></gl-ui-title>
-                    <gl-ui-icon-button v-for="(item,key) in type" :key="key" :opacity="item" type="type" :name="key" ></gl-ui-icon-button>
+                    <gl-ui-title h2 :text="$t('t.type') + ':' "/>
+                    <gl-ui-icon-button v-for="(item,key) in type" :key="key" :opacity="item" type="type" :name="key" />
             </v-flex>
             <v-flex xs12 pa-1>
-                    <gl-ui-title h2 :text="$t('t.star') + ':' "></gl-ui-title>
-                    <gl-ui-icon-button v-for="(item,key) in star" :key="key" :opacity="item" type="star" :name="key" ></gl-ui-icon-button>
+                    <gl-ui-title h2 :text="$t('t.star') + ':' "/>
+                    <gl-ui-icon-button v-for="(item,key) in star" :key="key" :opacity="item" type="star" :name="key" />
             </v-flex>
             <v-flex class="input-sangvis" v-if="type.sangvis||type.military || type.whiteForces || type.EILD" xs12 pa-1>
-                <gl-ui-title h2 text="鐵血人形:"></gl-ui-title>
+                <gl-ui-title h2 text="鐵血人形:"/>
                 <span class="get no-select" @click="click('sangvis',key)" :style="isClick('sangvis',key)"
                       v-for="(item, key, index) in sangvis" :alt="item.name">{{item.name}}</span>
             </v-flex>
             <v-flex class="input-girl" xs12 pa-1>
-                <gl-ui-title h2 :text="$t('t.character') + ':'"></gl-ui-title>
+                <gl-ui-title h2 :text="$t('t.character') + ':'"/>
                 <v-chip label color="primary" class="c-p no-select" style="height: 20px;" small text-color="white"  v-for="t,key in selectList" @click="tagClick(key)" :key="key">#{{t}} X</v-chip>
                 <v-alert :value="isAll" outline color="primary" icon="priority_high">
                     !! {{$t("img.all-character")}} !!
@@ -32,25 +32,25 @@
                 <gl-ui-image-card :completedFunction="completed" :item="item" :ref="item.id"
                                  v-for="(item,index) in data"
                                   :key="index"
-                                 v-if="show(index,0)"></gl-ui-image-card>
-                <gl-ui-image-add v-if="showBlock[0]"></gl-ui-image-add>
-                <gl-ui-image-delete v-if="showBlock[0]"></gl-ui-image-delete>
+                                 v-if="show(index,0)"/>
+                <gl-ui-image-add v-if="showBlock[0]"/>
+                <gl-ui-image-delete v-if="showBlock[0]"/>
              </v-flex>
              <v-flex xs12 sm6 md4 pa-1 ref="list-2">
                  <gl-ui-image-card :completedFunction="completed" :item="item" :ref="item.id"
                                    v-for="(item,index) in data"
                                    :key="index"
-                                   v-if="show(index,1)"></gl-ui-image-card>
-                 <gl-ui-image-add v-if="showBlock[1]"></gl-ui-image-add>
-                 <gl-ui-image-delete v-if="showBlock[1]"></gl-ui-image-delete>
+                                   v-if="show(index,1)"/>
+                 <gl-ui-image-add v-if="showBlock[1]"/>
+                 <gl-ui-image-delete v-if="showBlock[1]"/>
              </v-flex>
              <v-flex xs12 sm6 md4 pa-1 hidden-sm-and-down ref="list-3">
                  <gl-ui-image-card :completedFunction="completed" :item="item" :ref="item.id"
                                    v-for="(item,index) in data"
                                    :key="index"
-                                   v-if="show(index,2)"></gl-ui-image-card>
-                 <gl-ui-image-add v-if="showBlock[2]"></gl-ui-image-add>
-                 <gl-ui-image-delete v-if="showBlock[2]"></gl-ui-image-delete>
+                                   v-if="show(index,2)"/>
+                 <gl-ui-image-add v-if="showBlock[2]"/>
+                 <gl-ui-image-delete v-if="showBlock[2]"/>
              </v-flex>
 
              <v-flex xs12 pa-1>
@@ -123,7 +123,7 @@
                 this.$set(this[a], b, c);
                 this.getGirlList();
             },
-            isClick: function (type, num) {
+            isClick(type, num) {
                 switch (type) {
                     case 'sangvis':
                         if (this.sangvis[num].s) {
@@ -134,7 +134,7 @@
                         break;
                 }
             },
-            moreImage: function () {
+            moreImage() {
                 this.$ga.event('imageGallery','moreImage');
                 var _this = this;
                 $.ajax({
@@ -174,7 +174,7 @@
                     }
                 );
             },
-            completed: function () {
+            completed() {
                 this.completedCount++;
 
                 if (this.completedCount === this.data.length) {
@@ -211,7 +211,7 @@
                     this.$set(this.showBlock, [min_index], true);
                 }
             },
-            reSet:function(){
+            reSet(){
                 this.completedCount = 0;
                 this.isNone = false;
                 this.limit = 0;
@@ -221,7 +221,7 @@
                 this.$set(this.showBlock, 1, false);
                 this.$set(this.showBlock, 2, false);
             },
-            tagClick: function (data) {
+            tagClick(data) {
                 this.reSet();
                 this.$delete(this.selectList, data);
             },
@@ -303,7 +303,7 @@
                 this.reSet();
                 this.selectList = list;
             }
-            , click: function (type, num) {
+            , click(type, num) {
                 switch (type) {
                     case "sangvis":
                         this.$set(this.sangvis[num], "s", !this.sangvis[num].s);
@@ -311,20 +311,20 @@
                         break;
                 }
             },
-            image: function () {
+            image() {
                 this.point = this.data.length;
                 for (var i = 0; i < this.data.length; i++) {
                     this.getPixivTwitterImg(i);
                 }
             },
-            tag: function (tag) {
+            tag(tag) {
                 var string = "";
                 var tagList = tag.split("__");
                 for (var ii = 0; ii < tagList.length; ii++) {
                     string += "";
                 }
             }
-        }, created: function () {
+        }, created() {
             this.isShow = this.$s.less768;
             this.less960 = this.$s.less960();
             this.less600 = this.$s.less600();
@@ -354,8 +354,6 @@
               });
             }
 
-            //console.log(this.$route.query);
-            //console.log();
             $.ajax({
                 url: "/api/inquiry/image/0",
                 type: "POST",
@@ -365,12 +363,10 @@
                 },
                 success: function (json) {
                     json = JSON.parse(json);
-                    //json = json.decode(json);
 
                     if (json.status == "success") {
                         _this.data = json.data;
                         _this.limit += 9;
-                        //_this.$set(_this, 'data', json.data);
                         _this.$nextTick(function () {
                             _this.image();
                         });

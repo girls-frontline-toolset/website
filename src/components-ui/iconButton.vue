@@ -4,9 +4,7 @@
 
 <script>
     export default {
-        mixins: [],
         props: {'type': String,'name': String, 'opacity': Boolean},
-        commponents: {},
         name: 'gl-ui-icon-button',
         data() {
             return {
@@ -23,14 +21,6 @@
             click() {
                 this.$parent.setData(this.type, this.name, !this.opacity);
             }
-        },
-        beforeCreate() {
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>

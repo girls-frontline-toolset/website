@@ -1,11 +1,11 @@
 <template>
     <v-container pa-1>
-        <gl-ui-title :text="$t('title.h2.featured-image')" h2></gl-ui-title>
+        <gl-ui-title :text="$t('title.h2.featured-image')" h2/>
         <v-layout row wrap>
             <v-flex sm4 xs12 md4 v-for="item,key in data" :key="key" :ref="'list-'+key">
                 <gl-ui-image-card :completedFunction="completed"
-                                  :item="item" :ref="item.id"></gl-ui-image-card>
-                <gl-ui-image-go v-if="showBlock[key]"></gl-ui-image-go>
+                                  :item="item" :ref="item.id"/>
+                <gl-ui-image-go v-if="showBlock[key]"/>
             </v-flex>
         </v-layout>
     </v-container>
@@ -20,8 +20,6 @@
     export default {
         mixins: [mPixivTwitter],
         components: {GlUiImageGo, GlUiImageCard, GlUiTitle},
-        props: [''],
-        commponents: {},
         name: 'gl-ui-featured-image',
         data() {
             return {
@@ -54,7 +52,6 @@
         }, beforeCreate() {
             let _this = this;
             $.getJSON('/api/inquiry/tImage', function (json) {
-                //console.log(json.status);
                 if (json.status === "success") {
                     _this.data = json.data;
                     _this.$nextTick(
@@ -68,12 +65,6 @@
             }).fail(function() {
                 _this.$s.serverError();
             });
-        }, created() {
-        }, beforeMount() {
-        }, mounted() {
-        }, beforeUpdate() {
-        }, updated() {
-        }, render() {
         }
     }
 </script>
