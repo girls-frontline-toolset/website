@@ -59,6 +59,14 @@ var mPixivTwitter = {
 
             }
         },
+        htmlToString(html){
+          return  html.replace(/&amp;/g, "&")
+            .replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">")
+            .replace(/&nbsp;/g, " ")
+            .replace(/&#39;/g, "\'")
+            .replace(/&quot;/g, "\"");
+        },
         pixiv: function (data) {
             if (this.$refs[data.img_id][0].$refs.addCard === undefined) {
                 var piv = this.$refs[data.img_id][0].$refs.content;
@@ -78,14 +86,15 @@ var mPixivTwitter = {
             this.$set(this.data[pivNum], 'img_w', data.img_w);
             this.$set(this.data[pivNum], 'img', data.img);
                 if(caption.length !== 0) {
-                    caption = caption.replace(/&amp;/g, "&");
-                    caption = caption.replace(/&lt;/g, "<");
-                    caption = caption.replace(/&gt;/g, ">");
-                    caption = caption.replace(/&nbsp;/g, " ");
-                    caption = caption.replace(/&#39;/g, "\'");
-                    caption = caption.replace(/&quot;/g, "\"");
+                  caption = this.htmlToString(caption);
+                }
+                if(caption.length > 200){
+                  caption = caption.substring(0,200) + "..."
                 }
             this.$set(this.data[pivNum], 'caption', caption);
+                if(data.title !== 0) {
+                  data.title = this.htmlToString(data.title);
+                }
             this.$set(this.data[pivNum], 'title', data.title);
             this.$set(this.data[pivNum], 'update', data.update);
             this.$set(this.data[pivNum], 'user', data.user);

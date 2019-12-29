@@ -79,7 +79,7 @@
                 return(hr + ":"+ min + " " +  ampm + " - " + month + " " + date + ", " + year);
             },click:function(){
                 if(this.item.img){
-                    window.open("https://www.pixiv.net/member_illust.php?mode=medium&illust_id="+this.item.id);
+                    window.open("https://www.pixiv.net/artworks/"+this.item.id);
                 }
             },zoom:function(event){
                 var clientWidth = this.$refs.content.clientWidth;
