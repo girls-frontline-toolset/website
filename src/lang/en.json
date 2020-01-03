@@ -136,7 +136,9 @@
   "dialog":{
     "error":"Error",
     "error-1":"Error! Please try again!!<br>Please make sure all information is correct!!",
+    "error-2": "Error! Please try again!!",
     "success":"Success",
+    "success-1": "Successful! Thanks for your report or suggestion !!",
     "location":"Location Search"
   },
   "img":{
@@ -256,6 +258,12 @@
     "ok": "OK",
     "weight-sum": "Weight Sum",
     "sort-by": "Sort By"
+  },
+  "feedback":{
+    "content": "Content:",
+    "email": "E-mail  (Option)",
+    "submit": "Submit",
+    "title": "Report a problem, suggest or remove an illustration"
   },
   "github": "Github"
 }

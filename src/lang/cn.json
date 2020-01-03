@@ -136,7 +136,9 @@
   "dialog":{
     "error":"出现问题",
     "error-1":"出现问题 请再试!!<br>请确定全部资料正确!!",
+    "error-2": "出现问题 请再试!!",
     "success":"已成功",
+    "success-1": "已成功!!感谢你的回报或建议!!",
     "location":"位置查询"
   },
   "img":{
@@ -256,6 +258,12 @@
     "ok": "OK",
     "weight-sum": "权重总和",
     "sort-by": "排序方式:"
+  },
+  "feedback":{
+    "content": "内容:",
+    "email": "E-mail  (选择填写)",
+    "submit": "提交",
+    "title": "问题回报,建议或移除作品"
   },
   "github": "Github"
 }

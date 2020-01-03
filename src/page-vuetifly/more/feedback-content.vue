@@ -3,15 +3,15 @@
         <v-layout row wrap>
             <v-flex xs12>
                 <gl-ui-card-left :content="prompt" icon="notifications"/>
-                <gl-ui-title text="問題回報,建議或移除作品" h1/>
+                <gl-ui-title :text="$t('feedback.title')" h1/>
                 <v-form ref="form" v-model="valid">
                     <v-text-field v-model="data.email" type="email"
-                                  label="E-mail  (選擇填寫)" name="email"/>
-                    <v-textarea label="內容:"
-                                  :rules="[() => !!data.content || '必須' ]"
+                                  :label="$t('feedback.email')" name="email"/>
+                    <v-textarea :label="$t('feedback.content')"
+                                  :rules="[() => !!data.content || $t('register.must') ]"
                                   v-model="data.content" required/>
-                    <v-btn color="primary" @click="send()" :disabled="!valid"> 登記</v-btn>
-                    <v-btn color="primary" outline @click="$refs.form.reset()">清除</v-btn>
+                    <v-btn color="primary" @click="send()" :disabled="!valid">{{$t('feedback.submit')}}</v-btn>
+                    <v-btn color="primary" outline @click="$refs.form.reset()">{{$t('register.clear')}}</v-btn>
                 </v-form>
             </v-flex>
         </v-layout>
@@ -52,9 +52,9 @@
                         success(data) {
                             data = JSON.parse(data);
                             if (data.status === "success") {
-                                _this.$s.glDialogText("問題回報或建議","已成功!!感謝你的回報或建議!!");
+                                _this.$s.glDialogText(_this.$t('feedback.title'),_this.$t('dialog.success-1'));
                             } else {
-                                _this.$s.glDialogText("問題回報或建議","出現問題 請再試!!",1);
+                                _this.$s.glDialogText(_this.$t('feedback.title'),_this.$t('dialog.error-2'),1);
                             }
                         }
                     }
