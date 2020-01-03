@@ -5,7 +5,8 @@
     "h2":{
       "featured-image":"選ばれた作品",
       "event-schedule-tw":"活動スケジュール(台湾版)",
-      "event-tw":"今日のイベント(台湾版)"
+      "event-tw":"今日のイベント(台湾版)",
+      "recommended-feature": "推奨機能"
     },
     "h1":{
       "time":{

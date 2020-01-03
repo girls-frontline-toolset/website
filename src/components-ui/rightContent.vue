@@ -1,5 +1,6 @@
 <template>
   <v-flex xs12 sm12 md3 mt-1 pa-1 v-resize="onResize">
+    <gl-ui-promotion-function/>
     <gl-ui-event-schedule ref="hidden" :complete="complete"></gl-ui-event-schedule>
     <gl-ui-github-badge :style="BadgeClass"></gl-ui-github-badge>
   </v-flex>
@@ -9,12 +10,13 @@
   import GlUiEventSchedule from "./rightContent/eventSchedule";
   import GlUiFacebook from "./rightContent/facebook";
   import GlUiGithubBadge from "./rightContent/github-badge";
+  import GlUiPromotionFunction from "./rightContent/recommendedFunction";
 
   export default {
-    components: {GlUiGithubBadge, GlUiFacebook, GlUiEventSchedule},
+    components: {GlUiPromotionFunction, GlUiGithubBadge, GlUiFacebook, GlUiEventSchedule},
     name: 'gl-ui-right-content',
     data() {
-      return {
+          return {
         hiddenHeight: 0,
         rightMargin: 0,
         block: {width: 0, isPo: true},

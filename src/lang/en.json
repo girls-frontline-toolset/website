@@ -5,7 +5,8 @@
     "h2":{
       "featured-image":"Featured Image",
       "event-schedule-tw":"Event Schedule (tw Ver)",
-      "event-tw":"Today's Event (tw Ver)"
+      "event-tw":"Today's Event (tw Ver)",
+      "recommended-feature": "Recommended Feature"
     },
     "h1":{
       "time":{

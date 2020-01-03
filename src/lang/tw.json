@@ -5,7 +5,8 @@
     "h2":{
       "featured-image":"精選圖片",
       "event-schedule-tw":"活動時間表(繁中版)",
-      "event-tw":"本日活動(繁中版)"
+      "event-tw":"本日活動(繁中版)",
+      "recommended-feature": "推薦功能"
     },
     "h1":{
       "time":{
