@@ -1,9 +1,10 @@
 let path = require('path');
 let webpack = require('webpack');
-let ExtractTextPlugin = require("extract-text-webpack-plugin");
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const extractLibStyle = new ExtractTextPlugin("lib/lib.css");
-const extractProjectStyle = new ExtractTextPlugin("css/styles.css");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 let PrerenderSpaPlugin = require('prerender-spa-plugin');
 const Renderer = PrerenderSpaPlugin.PuppeteerRenderer;
 let fs = require("fs");
@@ -11,7 +12,9 @@ let fs = require("fs");
 let indexText = fs.readFileSync('index.html', 'utf8');
 let bodyString = indexText.match(new RegExp(/<body class="glScrollbar">[\w\W]*<\/body>/gi))[0];
 
-let urlList = [];
+let urlList = ["/make/hGirl","/en/make/hGirl","/ja/make/hGirl","/tw/make/hGirl","/tw/make/girl","/make/girl","/ja/make/girl","/cn/make/girl","/en/make/girl"];
+
+let runSAPPrerender = false;
 // let urlList = ["/time/", "/list/","/tool/","/bot/","/more/","/fb/","/log/","/like/","/make/","/image/","/event/", "/magical-tool/",
 //   "/tw/time/", "/tw/list/","/tw/tool/","/tw/bot/","/tw/more/","/tw/fb/","/tw/log/","/tw/like/","/tw/make/","/tw/image/","/tw/event/", "/tw/magical-tool/",
 //   "/cn/time/", "/cn/list/","/cn/tool/","/cn/bot/","/cn/more/","/cn/fb/","/cn/log/","/cn/like/","/cn/make/","/cn/image/","/cn/event/", "/cn/magical-tool/",
@@ -21,10 +24,12 @@ let urlList = [];
 //let urlList = require('./urlList/url-tw.json');
 //let urlList = require('./urlList/url-cn.json');
 //let urlList = require('./urlList/url-ja.json');
+//let urlList = require('./urlList/url-en.json');
 //let urlList = require('./urlList/url-image.json');
 //let urlList = require('./urlList/url-image-tw.json');
 //let urlList = require('./urlList/url-image-cn.json');
 //let urlList = require('./urlList/url-image-ja.json');
+//let urlList = require('./urlList/url-image-en.json');
 module.exports = {
     entry: {
         'app': './src/main.js',
@@ -35,29 +40,26 @@ module.exports = {
         filename: 'build.js'
     },
     module: {
-        rules: [{
-            test: /\.json$/,
-            loader: 'json-loader'
-        },
+        rules: [
             {
                 test: /\.css$/,
-                loader: extractLibStyle.extract({
-                    use: [
-                        {
-                            loader: 'css-loader'
-                        }
-                    ]
-                })
+                use: [
+                  process.env.NODE_ENV !== 'production'
+                   ? 'vue-style-loader'
+                  : MiniCssExtractPlugin.loader,
+                  'css-loader'
+              ]
             }, {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
                     loaders: {
-                        css: extractProjectStyle.extract({
-                            use: 'css-loader',
-                            fallback: 'vue-style-loader'
-                        }),
-                        json: 'json-loader'
+                        css: [
+                          process.env.NODE_ENV !== 'production'
+                            ? 'vue-style-loader'
+                            : MiniCssExtractPlugin.loader,
+                          'css-loader'
+                        ]
                     }
                 }
             },
@@ -77,45 +79,17 @@ module.exports = {
             {
                 test: /\.(woff|woff2|eot|ttf)$/,
                 loader: 'url-loader?limit=100000'
-            }
+            },
+          {
+            test: /\.styl(us)?$/,
+            use: [
+              'css-loader',
+              'stylus-loader'
+            ]
+          }
         ]
     },
-    plugins: [
-        new VueLoaderPlugin(),
-        extractLibStyle,
-        extractProjectStyle,
-    //      new PrerenderSpaPlugin({
-    //        staticDir:path.join(__dirname, 'page'),
-    //        indexPath: path.join(__dirname, 'index.html'),
-    //        routes: urlList,
-    //        // routes: ["/image/all/"],
-    //        //routes: ["/magical-tool/so-appetizing/","/ja/magical-tool/so-appetizing/","/tw/magical-tool/so-appetizing/","/cn/magical-tool/so-appetizing/"],
-    //
-    //       server: {
-    //       proxy: {
-    //         '/**': {
-    //           target: 'http://192.168.10.235:8080',
-    //           secure: false
-    //         }
-    //       }
-    //     },
-    //
-    //     postProcess(renderedRoute) {
-    //       //console.log(renderedRoute.route);
-    //       renderedRoute.html = renderedRoute.html.replace(/<body class="glScrollbar">[\w\W]*<\/body>/gi, bodyString);
-    //       renderedRoute.html = renderedRoute.html.replace(/<style type="text\/css" id="vuetify-theme-stylesheet">[\w\W]*<\/style>/gmi, "");
-    //       return renderedRoute
-    //     },
-    //
-    //     renderer: new Renderer({
-    //       headless: false,
-    //       maxConcurrentRoutes: 15,
-    //       skipThirdPartyRequests: true,
-    //       renderAfterDocumentEvent: 'render-event',
-    //     }),
-    //   }
-    // )
-  ],
+    plugins: getPlugin(),
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
@@ -153,16 +127,18 @@ module.exports = {
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
+
+
+  module.exports.optimization ={
+    minimizer: [
+      new UglifyJsPlugin()
+      ]
+  };
+
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
       }
     }),
     new webpack.LoaderOptionsPlugin({
@@ -177,4 +153,50 @@ if (process.env.NODE_ENV === 'production') {
       'window.Tether': 'tether',
     }),
   ])
+}
+
+function getPlugin(){
+  let array = [new BundleAnalyzerPlugin(),
+    new VuetifyLoaderPlugin(),
+    new VueLoaderPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'lib/lib.css'
+    })];
+
+  if(runSAPPrerender){
+    let sapPrerender = new PrerenderSpaPlugin({
+            staticDir:path.join(__dirname, 'page'),
+            indexPath: path.join(__dirname, 'index.html'),
+            routes: urlList,
+            // routes: ["/image/all/"],
+            //routes: ["/magical-tool/so-appetizing/","/ja/magical-tool/so-appetizing/","/tw/magical-tool/so-appetizing/","/cn/magical-tool/so-appetizing/"],
+
+           server: {
+           proxy: {
+             '/**': {
+               target: 'http://192.168.10.235:8080',
+               secure: false
+             }
+           }
+         },
+
+         postProcess(renderedRoute) {
+           //console.log(renderedRoute.route);
+           renderedRoute.html = renderedRoute.html.replace(/<body class="glScrollbar">[\w\W]*<\/body>/gi, bodyString);
+           renderedRoute.html = renderedRoute.html.replace(/<style type="text\/css" id="vuetify-theme-stylesheet">[\w\W]*<\/style>/gmi, "");
+           return renderedRoute
+         },
+         renderer: new Renderer({
+           headless: false,
+           maxConcurrentRoutes: 15,
+           skipThirdPartyRequests: true,
+           renderAfterDocumentEvent: 'render-event',
+         }),
+       }
+     );
+
+    array.push(sapPrerender);
+  }
+
+  return array;
 }
