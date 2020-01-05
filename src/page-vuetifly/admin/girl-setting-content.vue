@@ -69,23 +69,16 @@
                 formData.append('name',this.select.s.girl.name ||this.select.s.girl);
 
 
-                $.ajax({
-                        url:"/api/inquiry/a/updateGirl",
-                        type:"POST",
-                        data: formData,
-                        cache: false,
-                        processData: false,
-                        contentType: false,
-                        success: function(data){
-                            data = JSON.parse(data);
-                            if(data.status === "success"){
-                                _this.$s.glDialogText("人型編輯", "已成功!!");
-                            }else{
-                                _this.$s.glDialogText("人型編輯", "出現問題!!", 1);
-                            }
-                        }
-                    }
-                );
+              this.$s.postData("/api/inquiry/a/updateGirl",
+                formData,
+                function(data){
+                  if(data.status === "success"){
+                    _this.$s.glDialogText("人型編輯", "已成功!!");
+                  }else{
+                    _this.$s.glDialogText("人型編輯", "出現問題!!", 1);
+                  }
+                }
+              );
             },
             clearGirl(){
                 this.select.s = {girl:"",star:"",type:""};

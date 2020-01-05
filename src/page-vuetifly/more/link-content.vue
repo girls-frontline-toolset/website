@@ -41,7 +41,7 @@
         },
         mounted() {
             let _this = this;
-            $.getJSON('/common/data/link.json', function (json) {
+          this.$s.getJSON('/common/data/link.json', function (json) {
                 _this.listData = json.link;
             });
         }, methods: {

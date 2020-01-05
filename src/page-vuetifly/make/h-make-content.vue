@@ -364,9 +364,16 @@
             });
 
         },
+          beforeCreate() {
+            let _this = this;
+            this.$s.getDefine(function () {
+              _this.$nextTick(function () {
+                _this.time = _this.$s.h_make;
+              });
+            });
+          },
         created() {
             this.show = !this.$s.less600();
-            this.time = this.$s.h_make;
         }
 
     }

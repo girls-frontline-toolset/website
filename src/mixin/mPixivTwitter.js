@@ -65,7 +65,8 @@ var mPixivTwitter = {
             .replace(/&gt;/g, ">")
             .replace(/&nbsp;/g, " ")
             .replace(/&#39;/g, "\'")
-            .replace(/&quot;/g, "\"");
+            .replace(/&quot;/g, "\"")
+            .replace(/&#44;/g, ",");
         },
         pixiv: function (data) {
             if (this.$refs[data.img_id][0].$refs.addCard === undefined) {

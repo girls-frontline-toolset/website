@@ -44,16 +44,13 @@
         }, created() {
             let _this = this;
             this.$g.getDocList('docList',this,function(){
-                $.ajax({
-                        url:"/common/data/docList.json",
-                        type:"GET",
-                        success: function(data){
-                            if(data.status === "success"){
-                                _this.list = data.data;
-                            }
-                        }
-                    }
-                );
+
+              _this.$s.getJSON("/common/data/docList.json",
+                function(data){
+                  if(data.status === "success"){
+                    _this.list = data.data;
+                  }
+                });
             });
 
         }

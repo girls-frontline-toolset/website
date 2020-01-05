@@ -34,19 +34,16 @@
         }, methods: {
             errorImg(){
               let _this = this;
-                $.ajax({
-                url: "/api/inquiry/errorImage/"+ _this.item.type +"/" + _this.item.id,
-                type: "GET",
-                success: function(data){
-                    data = JSON.parse(data);
-                    if(data.status === "success"){
-                        _this.$s.glDialogText("問題滙報",_this.$t('dialog.success') + "!!");
-                    }else{
-                        _this.$s.glDialogText("問題滙報",_this.$t('dialog.error-1'),1);
-                    }
+              this.$s.getJSON( "/api/inquiry/errorImage/"+ _this.item.type +"/" + _this.item.id,
+                function(data){
+                  if(data.status === "success"){
+                    _this.$s.glDialogText("問題滙報",_this.$t('dialog.success') + "!!");
+                  }else{
+                    _this.$s.glDialogText("問題滙報",_this.$t('dialog.error-1'),1);
+                  }
+                }
+              );
 
-                    }
-                });
             },
             clickTag(name){
               this.$router.push({path: this.langUrl() + '/image/' + name.replace("/","%2F")});

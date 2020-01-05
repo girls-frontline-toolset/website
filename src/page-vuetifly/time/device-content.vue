@@ -73,7 +73,7 @@
                 let mm = (!this.mm) ? 0 : this.mm;
                 this.$ga.event('time', 'search_device');
 
-                $.getJSON("/api/inquiry/device/" + mm, function ($data) {
+              this.$s.getJSON("/api/inquiry/device/" + mm, function ($data) {
                     if ($data.status === "success") {
                         let dataList = [];
 
@@ -108,9 +108,9 @@
                         _this.data = [];
                         _this.error = 1;
                     }
-                }).fail(function(){
-                    _this.data = [];
-                    _this.error = 2;
+                },function(){
+                _this.data = [];
+                _this.error = 2;
                 });
             },
         },

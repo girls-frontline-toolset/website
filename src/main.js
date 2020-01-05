@@ -1,14 +1,61 @@
 import 'babel-polyfill';
 import Vue from 'vue'
 import App from './App.vue'
-import Vuetify from 'vuetify'
+
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios,axios);
+
+import Vuetify from 'vuetify/lib'
+
+//import Vuetify, {
+  //VAlert,
+  //VApp,
+ // VNavigationDrawer,
+ // VFooter,
+  //VToolbar,
+ // VLayout,
+ // VDialog,
+ // VBtn,
+ // VList,
+ // VIcon,
+ // VContainer,
+ // VImg,
+ // VFlex,
+ // VForm,
+ // VAvatar,
+ // VListTile,
+  //VListGroup,
+  //VListTileContent,
+ // VListTileTitle,
+  //VBadge,
+ // VCard,
+//  VSpacer,
+ // VDatePicker,
+ // VToolbarTitle,
+ // VTooltip,
+  //VDivider,
+ // VCardText,
+ // VProgressLinear,
+//  VToolbarSideIcon,
+ // VSwitch,
+ // VProgressCircular,
+ // VListTileAction,
+ // VExpansionPanel,
+ // VExpansionPanelContent,
+//  VChip,
+ // VMenu
+//} from 'vuetify/lib'
+//import { Ripple,Resize } from 'vuetify/lib/directives'
+//import 'vuetify/src/stylus/app.styl'
 import routes from './router/router.config.js'
 import colors from 'vuetify/es5/util/colors'
 
 //import 'bootstrap/dist/css/bootstrap.min.css'
 //import 'bootstrap/dist/js/bootstrap.min.js'
 
-import 'jquery/src/jquery';
+//import 'jquery/src/jquery';
 import 'vuetify/dist/vuetify.min.css'
 
 // lang

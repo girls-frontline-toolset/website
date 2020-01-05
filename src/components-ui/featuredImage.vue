@@ -51,7 +51,7 @@
 
         }, beforeCreate() {
             let _this = this;
-            $.getJSON('/api/inquiry/tImage', function (json) {
+        this.$s.getJSON('/api/inquiry/tImage', function (json) {
                 if (json.status === "success") {
                     _this.data = json.data;
                     _this.$nextTick(
@@ -62,9 +62,9 @@
                         }
                     );
                 }
-            }).fail(function() {
-                _this.$s.serverError();
-            });
+            },function() {
+          _this.$s.serverError();
+        });
         }
     }
 </script>

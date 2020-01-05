@@ -54,26 +54,21 @@
         },
         add() {
           let _this = this;
-          $.ajax({
-                  url:"/api/inquiry/notification/add",
-                  type:"POST",
-
-                  data:{
-                      start: _this.task.start,
-                      end: _this.task.end,
-                      type: _this.task.type,
-                      text: _this.task.text
-                  },
-                  success: function(data){
-                      data = JSON.parse(data);
-                      if(data.status === "success"){
-                          _this.$s.glDialogText("添加每日任務", "已成功!!");
-                          _this.clear();
-                      }else{
-                          _this.$s.glDialogText("添加每日任務", "出現問題!!", 1);
-                      }
-                  }
+          this.$s.postData("/api/inquiry/notification/add",
+            {
+              start: _this.task.start,
+              end: _this.task.end,
+              type: _this.task.type,
+              text: _this.task.text
+            },
+            function(data){
+              if(data.status === "success"){
+                _this.$s.glDialogText("添加每日任務", "已成功!!");
+                _this.clear();
+              }else{
+                _this.$s.glDialogText("添加每日任務", "出現問題!!", 1);
               }
+            }
           );
         },
         clear() {
@@ -81,20 +76,17 @@
         }
         }, created() {
         let _this = this;
-        $.ajax({
-            url: "/api/inquiry/notification/getNotificationType",
-            type: "POST",
-            success: function (data) {
-              data = JSON.parse(data);
-              if (data.status === "success") {
-                for (let i = 0; i < data.data.length; i++) {
-                    _this.type.push(data.data[i].type)
-                }
-                console.log(_this.type);
+
+        this.$s.getJSON("/api/inquiry/notification/getNotificationType",
+          function (data) {
+            if (data.status === "success") {
+              for (let i = 0; i < data.data.length; i++) {
+                _this.type.push(data.data[i].type)
               }
+              console.log(_this.type);
             }
           }
-        )
+        );
       }
     }
 </script>

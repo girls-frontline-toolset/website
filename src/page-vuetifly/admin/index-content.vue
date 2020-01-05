@@ -24,7 +24,7 @@
       }
     }, beforeCreate() {
       var _this = this;
-      $.getJSON('/api/inquiry/status', function (json) {
+      this.$s.getJSON('/api/inquiry/status', function (json) {
         if (json.status === "success") {
           if (json.message === "isLogin") {
           } else {

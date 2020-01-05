@@ -95,29 +95,24 @@
     }, methods: {
       search() {
         let _this = this;
-
-        $.ajax({
-            url: "/api/inquiry/line/getByToken",
-            type: "POST",
-            data: {
-              token: _this.token,
-              email: _this.email
-            },
-            success: function (data) {
-              data = JSON.parse(data);
-              if (data.status === "success" && data.data.length > 0) {
-                _this.data.lineName = data.data[0]['line_name'];
-                _this.data.email = data.data[0]['email'];
-                _this.data.uid = data.data[0]['uid'];
-                _this.data.card = data.data[0]['card'];
-                _this.data.id = data.data[0]['id'];
-                _this.data.token = data.data[0]['token'];
-              }else{
-                  _this.data.email = "null";
-              }
+        this.$s.postData("/api/inquiry/line/getByToken",
+          {
+            token: _this.token,
+            email: _this.email
+          },
+          function (data) {
+            if (data.status === "success" && data.data.length > 0) {
+              _this.data.lineName = data.data[0]['line_name'];
+              _this.data.email = data.data[0]['email'];
+              _this.data.uid = data.data[0]['uid'];
+              _this.data.card = data.data[0]['card'];
+              _this.data.id = data.data[0]['id'];
+              _this.data.token = data.data[0]['token'];
+            }else{
+              _this.data.email = "null";
             }
           }
-        )
+        );
 
       },
       update() {
@@ -135,20 +130,14 @@
         formData.append('id',   _this.data.id);
         formData.append('card',   _this.data.card);
 
-        $.ajax({
-          url: "/api/inquiry/line/registerUpdate",
-          type: "POST",
-          data: formData,
-          cache: false,
-          processData: false,
-          contentType: false,
-          success: function (data) {
-            data = JSON.parse(data);
+        this.$s.postData("/api/inquiry/line/registerUpdate",
+          formData,
+          function (data) {
             if (data.status === "success"){
               _this.$s.glDialogText("Line登記管理", "完成");
             }
           }
-        });
+        );
       }
       }
     }

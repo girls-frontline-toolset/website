@@ -40,7 +40,7 @@
 
 <style scoped>
   .gl-ui-img {
-    background: url('/common/img/sprites-1.png') no-repeat;
+    background: url('/common/img/sprites-1.png?v=2912019') no-repeat;
   }
 
   .gl-about-icon { background-position:  -5px -5px; height: 88px; width: 88px; }

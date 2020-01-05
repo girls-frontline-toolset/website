@@ -29,20 +29,16 @@
             }
         }, created() {
         let _this = this;
-        $.ajax({
-            url: "/api/inquiry/a/getDataBoard",
-            type: "POST",
-            success: function (data) {
-              data = JSON.parse(data);
-              if (data.status === "success") {
-                for (let key in data.data) {
-                  for (let i = 0; i < _this.card.length; i++) {
-                    if (_this.card[i].type === key) {
-                      if(data.data.hasOwnProperty(key)){
-                        _this.card[i].count = data.data[key];
-                      }
-                      break;
+        this.$s.getJSON("/api/inquiry/a/getDataBoard",
+          function (data) {
+            if (data.status === "success") {
+              for (let key in data.data) {
+                for (let i = 0; i < _this.card.length; i++) {
+                  if (_this.card[i].type === key) {
+                    if(data.data.hasOwnProperty(key)){
+                      _this.card[i].count = data.data[key];
                     }
+                    break;
                   }
                 }
               }

@@ -53,37 +53,33 @@
             },
             search(){
                 let _this = this;
-                $.ajax({
-                        url:"/api/inquiry/doc/search",
-                        type:"POST",
 
-                        data:{
-                            type: _this.type,
-                            index: _this.page,
-                            query: _this.query
-                        },
-                        success: function(data){
-                                data = JSON.parse(data);
-                            if(data.status === "success"){
+              this.$s.postData("/api/inquiry/doc/search",
+                {
+                  type: _this.type,
+                  index: _this.page,
+                  query: _this.query
+                },
+                function(data){
+                  if(data.status === "success"){
 
-                                _this.page += 1;
-                                _this.list = data.data;
-                                _this.count = Math.ceil((parseFloat(data.count) / 5));
-                                if(data.data.length >4){
-                                    _this.more = true;
-                                }else{
-                                    _this.more = false;
-                                }
-                                _this.isEmpty = false;
-                            }else{
-                                _this.list = null;
-                                _this.page = 0;
-                                _this.isEmpty = true;
-                            }
-                        }
+                    _this.page += 1;
+                    _this.list = data.data;
+                    _this.count = Math.ceil((parseFloat(data.count) / 5));
+                    if(data.data.length >4){
+                      _this.more = true;
+                    }else{
+                      _this.more = false;
                     }
-                );
+                    _this.isEmpty = false;
+                  }else{
+                    _this.list = null;
+                    _this.page = 0;
+                    _this.isEmpty = true;
+                  }
+                }
 
+              );
             }
         }, created() {
                 if (this.$route.query.query !== undefined) {

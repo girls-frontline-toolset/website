@@ -27,7 +27,7 @@
         }, methods: {},
       beforeCreate() {
         var _this = this;
-        $.getJSON('/api/line/text.json', function (json) {
+        this.$s.getJSON('/api/line/text.json', function (json) {
           _this.ver = json.ver;
         });
         }

@@ -81,7 +81,7 @@
 
       this.$ga.event('line', 'image');
       let _this = this;
-      $.getJSON('/api/line/text.json', function (json) {
+      this.$s.getJSON('/api/line/text.json', function (json) {
 
         let list = [];
 

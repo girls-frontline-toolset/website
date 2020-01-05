@@ -33,7 +33,7 @@
             }
         },beforeCreate() {
             let _this = this;
-            $.getJSON('/api/inquiry/UpdateLog', function (json) {
+        this.$s.getJSON('/api/inquiry/UpdateLog', function (json) {
                 for (let i = 0,title = "",poClass; i < json.data.length; i++) {
                     poClass = "";
                     switch (json.data[i].type) {

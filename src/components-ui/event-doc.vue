@@ -23,15 +23,12 @@
         },
         beforeCreate() {
             let _this = this;
-            $.ajax({
-                    url:"/common/data/event-doc.json",
-                    success: function(data){
-                        _this.url = data.url;
-                        _this.img_l = data.img_l;
-                        _this.img_s = data.img_s;
-
-                    }
-                }
+            this.$s.getJSON("/common/data/event-doc.json",
+              function(data){
+                _this.url = data.url;
+                _this.img_l = data.img_l;
+                _this.img_s = data.img_s;
+              }
             );
         }
     }

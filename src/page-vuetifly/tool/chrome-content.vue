@@ -70,7 +70,7 @@
         },
         beforeCreate: function () {
             let _this = this;
-            $.getJSON('/common/data/chrome-version.json',
+          this.$s.getJSON('/common/data/chrome-version.json',
                 function(json){
                     _this.version = json.version;
                     _this.link = json.link

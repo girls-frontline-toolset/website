@@ -119,9 +119,9 @@
                     <v-icon>icon-line</v-icon>
                 </v-btn>
             </v-toolbar>
-
-            <v-layout id="sub-nav" @click.self="close()" @mousemove.self="close()"
-                      style="display:none;position: fixed;top: 53px;width:100%;height: 100%;z-index:50;" row>
+          <transition name="fade">
+            <v-layout v-if="showSubNav" ref="sub-nav" @click.self="close()" @mousemove.self="close()"
+                      style="position: fixed;top: 53px;width:100%;height: 100%;z-index:50;" row>
                 <v-flex xs12 order-lg2 class="orange lighten-5" style="height: 45px;">
                     <div class="toRight" style="height: 100%;display:block"
                          :style="'padding-right:'+boxWidth + 'px'"></div>
@@ -130,20 +130,23 @@
                     </v-btn>
                 </v-flex>
             </v-layout>
+          </transition>
         </v-layout>
     </v-layout>
 </template>
 
 <script>
+    import nav from '../data/nav.json';
     export default {
         name: 'gl-ui-nav',
         data() {
             return {
+                showSubNav:false,
                 windowSize: {
                     x: 0,
                     y: 0
                 },
-                list: null,
+                list: nav,
                 isShow: true,
                 drawer: null,
                 Small: false,
@@ -163,14 +166,14 @@
             subList(key, even) {
                 var x = even.target.getBoundingClientRect().x + (even.target.getBoundingClientRect().width) / 2;
                 if (this.list[key].list.length !== 0) {
-                    $("#sub-nav").fadeIn(500);
+                    this.showSubNav = true;
                     this.active = key;
                     let w = window.innerWidth - (x + ((this.list[key].list.length * 106) / 2));
                     this.boxWidth = (w < 0) ? 0 : w;
                 }
             },
             close() {
-                $("#sub-nav").fadeOut(500);
+              this.showSubNav = false;
             },
             lan(data) {
                 this.language = data;
@@ -178,10 +181,6 @@
                 this.drawer = false;
                 this.$router.locale = data.i;
             },
-        },
-        beforeCreate() {
-            $.getJSON('/common/data/nav.json', json => this.list = json);
-
         }, created() {
             this.$nav.nav = this;
             let language = window.navigator.userLanguage || window.navigator.language;
@@ -256,5 +255,12 @@
         position: absolute;
         top: 0;
         left: 0;
+    }
+
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity .5s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+      opacity: 0;
     }
 </style>

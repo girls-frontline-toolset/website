@@ -67,7 +67,7 @@
       }
     }, beforeCreate() {
       let _this = this;
-      $.getJSON('/api/inquiry/contributor/getImgList', function (json) {
+      this.$s.getJSON('/api/inquiry/contributor/getImgList', function (json) {
         if (json.status === "success") {
           _this.contributor.img = json.data;
         }

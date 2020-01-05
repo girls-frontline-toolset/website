@@ -164,53 +164,45 @@
                 android:{"version":"1.3.1","text":"新加返回鍵功能\n新加日文及簡體","link":"https://www.ntw-20.com/common/apk/girls-frontline-time-1.3.1.apk","googleLink":"https://drive.google.com/open?id=1B5THJA6LhcNdJ5W4Z9A6illJwTE1kPrq"}
             }
         }, methods: {
-            updateDefine(){
-                let _this = this;
-                $.ajax({
-                        url: "/api/inquiry/uDefine",
-                        type: "POST",
-                        data: {
-                            "time/make":_this.define['time/make'].updateTime,
-                            "time/make_device":_this.define['time/make_device'].updateTime,
-                            "time/h_make":_this.define['time/h_make'].updateTime,
-                            "time/h_make_device":_this.define['time/h_make_device'].updateTime,
-                            announcement: _this.define.announcement
-                        },
-                        success(data) {
-                            data = JSON.parse(data);
-                            if (data.status === "success") {
-                                _this.$s.glDialogText("已更新", "已成功!!");
-                                _this.getDefine();
-                            }else{
-                                _this.$s.glDialogText(_this.$t('dialog.error'), _this.$t('dialog.error'),1);
-                            }
-                        }
-                    }
-                );
+            updateDefine() {
+              let _this = this;
+              this.$s.postData("/api/inquiry/uDefine",
+                {
+                  "time/make": _this.define['time/make'].updateTime,
+                  "time/make_device": _this.define['time/make_device'].updateTime,
+                  "time/h_make": _this.define['time/h_make'].updateTime,
+                  "time/h_make_device": _this.define['time/h_make_device'].updateTime,
+                  announcement: _this.define.announcement
+                },
+                function (data) {
+                  if (data.status === "success") {
+                    _this.$s.glDialogText("已更新", "已成功!!");
+                    _this.getDefine();
+                  } else {
+                    _this.$s.glDialogText(_this.$t('dialog.error'), _this.$t('dialog.error'), 1);
+                  }
+                }
+              );
             },
             updateAndroid(){
                 let _this = this;
-                $.ajax({
-                        url: "/api/inquiry/uAndroid",
-                        type: "POST",
-                        data: {
-                            version: _this.android.version,
-                            text: _this.android.text,
-                            link: _this.android.link,
-                            mySelect: _this.android.mySelect,
-                            googleLink: _this.android.googleLink
-                        },
-                        success(data) {
-                            data = JSON.parse(data);
-                            if (data.status === "success") {
-                                _this.$s.glDialogText("已更新", "已成功!!");
-                                _this.getAndroid();
-                            }else{
-                                _this.$s.glDialogText(_this.$t('dialog.error'), _this.$t('dialog.error'),1);
-                            }
-                        }
-                    }
-                );
+              this.$s.postData("/api/inquiry/uAndroid",
+                {
+                  version: _this.android.version,
+                  text: _this.android.text,
+                  link: _this.android.link,
+                  mySelect: _this.android.mySelect,
+                  googleLink: _this.android.googleLink
+                },
+                function(data) {
+                  if (data.status === "success") {
+                    _this.$s.glDialogText("已更新", "已成功!!");
+                    _this.getAndroid();
+                  }else{
+                    _this.$s.glDialogText(_this.$t('dialog.error'), _this.$t('dialog.error'),1);
+                  }
+                }
+              );
             },
             clear(num){
                 switch (num){
@@ -224,13 +216,13 @@
             },
             getAndroid() {
                 let _this = this;
-                $.getJSON('/common/apk/version.json', function (json) {
+              this.$s.getJSON('/common/apk/version.json', function (json) {
                     _this.android = json;
                 });
             },
             getDefine(){
                 let _this = this;
-                $.getJSON('/common/data/define.json', function (json) {
+              this.$s.getJSON('/common/data/define.json', function (json) {
                     _this.define = json;
                     _this.date = [_this.jsonDate(json['time/make'].updateTime),_this.jsonDate(json['time/make_device'].updateTime),_this.jsonDate(json['time/h_make'].updateTime),_this.jsonDate(json['time/h_make_device'].updateTime)];
                 });

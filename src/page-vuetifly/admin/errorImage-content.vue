@@ -63,22 +63,17 @@
             deleteAll(){
                 let _this = this;
 
-                $.ajax({
-                        url: "/api/inquiry/deleteImage",
-                        type: "POST",
-                        data: {
-                            data: _this.data,
-                        },
-                        success: function (data) {
-                            _this.isNone = true;
-                        }
-                    }
-                );
+              this.$s.postData("/api/inquiry/deleteImage",
+                {data: _this.data,},
+                function (data) {
+                  _this.isNone = true;
+                }
+              );
 
             },
             deleteItem(item){
                 let _this = this;
-                $.getJSON('/api/inquiry/deleteOneImage/' + item.type + "/" + item.id,
+              this.$s.getJSON('/api/inquiry/deleteOneImage/' + item.type + "/" + item.id,
                         function(json){
                                 if(json.status === "success"){
                                     _this.data =  json.data;
@@ -90,7 +85,7 @@
             },
             removeItem(item){
                 let _this = this;
-                $.getJSON('/api/inquiry/removeImage/' + item.type + "/" + item.id,
+              this.$s.getJSON('/api/inquiry/removeImage/' + item.type + "/" + item.id,
                     function(json){
                         if(json.status === "success"){
                             _this.data =  json.data;
@@ -103,7 +98,7 @@
         },
         beforeCreate: function () {
         let _this = this;
-        $.getJSON('/api/inquiry/getErrorImage', function (json) {
+          this.$s.getJSON('/api/inquiry/getErrorImage', function (json) {
             if(json.status === "success"){
                 _this.data =  json.data;
                 _this.isNone = false;

@@ -269,9 +269,17 @@
                 return dataList;
             }
 
-        }, created() {
+        },
+        beforeCreate() {
+           let _this = this;
+           this.$s.getDefine(function () {
+              _this.$nextTick(function () {
+                _this.time = _this.$s.make_device;
+             });
+            });
+          },
+        created() {
             this.show = this.$s.less600;
-            this.time = this.$s.make_device;
             this.$g.getDeviceMakeTime('deviceMakeTime',this);
             this.$g.getAllDevice('deviceList',this);
         }

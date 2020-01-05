@@ -50,29 +50,25 @@
                 valid:false
             }
         }, methods: {
-            add(){
-                let _this = this;
-                $.ajax({
-                        url:"/api/inquiry/doc/addDoc",
-                        type:"POST",
+            add() {
+              let _this = this;
+              this.$s.postData("/api/inquiry/doc/addDoc",
+                {
+                  content: _this.data.content,
+                  title: _this.data.title,
+                  type: _this.data.type,
+                  url: _this.data.url
+                },
+                function (data) {
+                  if (data.status === "success") {
+                    _this.$s.glDialogText("添加文章", "已成功!!感謝你的推薦!! 請等待批核");
+                    _this.data = {type: '1', content: '', title: '', url: ''};
+                  } else {
+                    _this.$s.glDialogText("添加文章", "出現問題!!", 1);
+                  }
+                }
+              );
 
-                        data:{
-                            content: _this.data.content,
-                            title: _this.data.title,
-                            type: _this.data.type,
-                            url: _this.data.url
-                        },
-                        success: function(data){
-                            data = JSON.parse(data);
-                            if(data.status === "success"){
-                                _this.$s.glDialogText("添加文章","已成功!!感謝你的推薦!! 請等待批核");
-                                _this.data = {type:'1',content:'',title:'',url:''} ;
-                            }else{
-                                _this.$s.glDialogText("添加文章", "出現問題!!", 1);
-                            }
-                        }
-                    }
-                );
             },
             clear(){
                 this.data = {type:'1',content:'',title:'',url:''} ;

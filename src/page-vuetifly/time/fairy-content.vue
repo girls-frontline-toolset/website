@@ -74,7 +74,7 @@
                 let hh = (!this.hh)?0:this.hh;
                 let mm = (!this.mm)?0:this.mm;
 
-                $.getJSON("/api/inquiry/fairy/" + hh + "/" + mm, function ($data) {
+              this.$s.getJSON("/api/inquiry/fairy/" + hh + "/" + mm, function ($data) {
                     if ($data.status === "success") {
                         let dataList = [];
 
@@ -103,7 +103,7 @@
                         _this.data = [];
                         _this.error = 1;
                     }
-                }).fail(function(){
+                },function(){
                 _this.data = [];
                 _this.error = 2;
                 });

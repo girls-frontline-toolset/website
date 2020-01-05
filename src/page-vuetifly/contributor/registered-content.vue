@@ -80,28 +80,22 @@
           img1 = drawImage.toDataURL();
         }
 
-        $.ajax({
-            url:"/api/inquiry/contributor/register",
-            type:"POST",
-
-            data:{
-              name: _this.user.username,
-              file: img1,
-              email: _this.user.email,
-            },
-            success(data){
-              data = JSON.parse(data);
-              if(data.status === "success"){
-                _this.$s.glDialogText("貢獻者登記","已成功!!");
-                _this.clear() ;
-                _this.$router.push({path:'/more/about'});
-              }else{
-                _this.$s.glDialogText("貢獻者登記", "出現問題!!", 1);
-              }
+        this.$s.postData("/api/inquiry/contributor/register",
+          {
+            name: _this.user.username,
+            file: img1,
+            email: _this.user.email,
+          },
+          function (data) {
+            if (data.status === "success") {
+              _this.$s.glDialogText("貢獻者登記", "已成功!!");
+              _this.clear();
+              _this.$router.push({path: '/more/about'});
+            } else {
+              _this.$s.glDialogText("貢獻者登記", "出現問題!!", 1);
             }
           }
         );
-
       },
       clear(){
           this.user.username = "";
@@ -205,7 +199,7 @@
       let key = this.$route.params.id;
 
       let _this = this;
-      $.getJSON('/api/inquiry/contributor/checkKey?key=' + key, function (json) {
+      this.$s.getJSON('/api/inquiry/contributor/checkKey?key=' + key, function (json) {
         if (json.status === "success") {
           _this.user = json.data;
         } else {

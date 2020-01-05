@@ -85,13 +85,13 @@
         },
         mounted() {
             var _this = this;
-            $.getJSON('/common/apk/version.json', function (json) {
+          this.$s.getJSON('/common/apk/version.json', function (json) {
                 _this.version = json.version;
                 _this.link = json.link;
                 _this.googleLink = json.googleLink;
             });
 
-            $.getJSON('/common/data/android-img.json', function (json) {
+          this.$s.getJSON('/common/data/android-img.json', function (json) {
                 _this.img = json.img;
             });
         }

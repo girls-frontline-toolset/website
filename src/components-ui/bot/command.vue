@@ -23,7 +23,7 @@
         beforeCreate: function () {
         this.$ga.event('line', 'command');
         var _this = this;
-        $.getJSON('/common/data/bot-line.json', function (json) {
+        this.$s.getJSON('/common/data/bot-line.json', function (json) {
             _this.description = json;
         });
         }

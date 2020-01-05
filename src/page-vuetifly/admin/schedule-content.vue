@@ -116,25 +116,18 @@
                 formData.append('text',this.data.text);
                 formData.append('alt',this.data.alt);
 
-                let _this = this;
-                $.ajax({
-                        url:"/api/inquiry/schedule/addSchedule",
-                        type:"POST",
-                        data: formData,
-                        cache: false,
-                        processData: false,
-                        contentType: false,
-                        success: function(data){
-                            data = JSON.parse(data);
-                            if(data.status === "success"){
-                                _this.$s.glDialogText("添加時間表", "已成功!!");
-                                _this.data = {start:'0-0-1997',end:'0-0-1997',src:"",text:""} ;
-                            }else{
-                                _this.$s.glDialogText("添加時間表", "出現問題!!", 1);
-                            }
-                        }
-                    }
-                );
+              let _this = this;
+              this.$s.postData("/api/inquiry/schedule/addSchedule",
+                formData,
+                function (data) {
+                  if (data.status === "success") {
+                    _this.$s.glDialogText("添加時間表", "已成功!!");
+                    _this.data = {start: '0-0-1997', end: '0-0-1997', src: "", text: ""};
+                  } else {
+                    _this.$s.glDialogText("添加時間表", "出現問題!!", 1);
+                  }
+                }
+              );
             },
             clear(){
                 this.data = {start:'0-0-1997',end:'0-0-1997',src:"",text:""};

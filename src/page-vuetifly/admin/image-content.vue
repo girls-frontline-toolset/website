@@ -92,7 +92,7 @@
             getImage() {
                 var _this = this;
                 this.data = [];
-                $.getJSON('/api/inquiry/imageManage', function (json) {
+              this.$s.getJSON('/api/inquiry/imageManage', function (json) {
                     if (json.status === "success") {
                         _this.data = json.data;
                        // console.log(_this.data);
@@ -127,20 +127,17 @@
                     });
 
                 }
-                $.ajax({
-                        url: "/api/inquiry/updateImage",
-                        type: "POST",
-                        data: {
-                            data: list,
-                        },
-                        success: function (data) {
-                            data = JSON.parse(data);
-                            if (data.status == "success") {
-                                _this.getImage()
-                            }
-                        }
-                    }
-                );
+
+              this.$s.postData("/api/inquiry/updateImage",
+                {
+                  data: list,
+                },
+                function (data) {
+                  if (data.status === "success") {
+                    _this.getImage()
+                  }
+                }
+              );
 
             },
             isDelete(index) {

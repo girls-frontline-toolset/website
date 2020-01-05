@@ -42,33 +42,30 @@
             }
         }, methods: {
             login() {
-                var _this = this;
-                $.ajax({
-                    url: "/api/inquiry/login",
-                    type: "POST",
-                    data: {
-                        userName: this.userName,
-                        pw: this.pw
-                    },
-                    success(json) {
-                        json = JSON.parse(json);
-                        if (json.status === "success") {
-                            _this.$router.push({path: '/admin'});
-                        } else {
-                            _this.tryNum++;
-                            if (_this.tryNum >= 5) {
-                                _this.$router.push({path: '/'});
-                            } else {
-                                _this.$s.glDialogText("登入錯誤", "請再試!!", 1);
-                            }
-                        }
+              var _this = this;
+              this.$s.postData("/api/inquiry/login",
+                {
+                  userName: this.userName,
+                  pw: this.pw
+                },
+                function (json) {
+                  if (json.status === "success") {
+                    _this.$router.push({path: '/admin'});
+                  } else {
+                    _this.tryNum++;
+                    if (_this.tryNum >= 5) {
+                      _this.$router.push({path: '/'});
+                    } else {
+                      _this.$s.glDialogText("登入錯誤", "請再試!!", 1);
                     }
-                });
+                  }
+                }
+              );
 
             }
         }, beforeCreate() {
             var _this = this;
-            $.getJSON('/api/inquiry/status', function (json) {
+        this.$s.getJSON('/api/inquiry/status', function (json) {
                 if (json.status === "success") {
                     if (json.message === "isLogin") {
                         _this.$router.push({path: '/admin'});

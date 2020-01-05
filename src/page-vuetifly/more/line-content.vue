@@ -168,33 +168,28 @@
         formData.append('UID',   this.info.UID);
 
         this.$s.load(true);
-        $.ajax({
-            url: "/api/inquiry/line/register",
-            type:"POST",
-            data: formData,
-            cache: false,
-            processData: false,
-            contentType: false,
-            success(data) {
-              data = JSON.parse(data);
-              _this.$s.load(false);
-              switch (data.status) {
-                case "typeError":
-                  _this.$s.glDialogText("Line群 加入登記", "只支援 jpg,png,gif 圖片", 1);
-                  break;
-                case "unsuccess":
-                  _this.$s.glDialogText("Line群 加入登記", "出現問題!! 請再試", 1);
-                  break;
-                case "success":
-                  _this.token = data.token;
-                  _this.e1 = 3;
-                  break;
-                default:
-                  _this.$s.glDialogText("Line群 加入登記", "出現問題!! 請再試", 1);
-              }
+
+        this.$s.postData("/api/inquiry/line/register",
+          formData,
+          function(data) {
+            _this.$s.load(false);
+            switch (data.status) {
+              case "typeError":
+                _this.$s.glDialogText("Line群 加入登記", "只支援 jpg,png,gif 圖片", 1);
+                break;
+              case "unsuccess":
+                _this.$s.glDialogText("Line群 加入登記", "出現問題!! 請再試", 1);
+                break;
+              case "success":
+                _this.token = data.token;
+                _this.e1 = 3;
+                break;
+              default:
+                _this.$s.glDialogText("Line群 加入登記", "出現問題!! 請再試", 1);
             }
-        }
+          }
         );
+
       },
       clear(){
         this.info =  {UID: "", email: ""};

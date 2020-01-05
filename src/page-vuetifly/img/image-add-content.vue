@@ -129,26 +129,23 @@
                         });
                     }
                 }
-                this.$ga.event('imageGallery', 'imageAdd');
-                $.ajax({
-                        url: "/api/inquiry/addImage",
-                        type: "POST",
-                        data: {
-                            data: postList,
-                            email: _this.select.email
-                        },
-                        success: function (data) {
-                            data = JSON.parse(data);
-                            if (data.status === "success") {
-                                _this.$s.glDialogText("添加作品", "已成功!!感謝你的推薦!! 請等待批核");
-                                _this.reSet();
-                                _this.select = {email: "",content: ""}
-                            } else {
-                                _this.$s.glDialogText("添加作品", "出現問題 請再試!!", 1);
-                            }
-                        }
-                    }
-                );
+              this.$ga.event('imageGallery', 'imageAdd');
+              this.$s.postData("/api/inquiry/addImage",
+                {
+                  data: postList,
+                  email: _this.select.email
+                },
+                function (data) {
+                  if (data.status === "success") {
+                    _this.$s.glDialogText("添加作品", "已成功!!感謝你的推薦!! 請等待批核");
+                    _this.reSet();
+                    _this.select = {email: "", content: ""}
+                  } else {
+                    _this.$s.glDialogText("添加作品", "出現問題 請再試!!", 1);
+                  }
+                }
+              );
+
             },
             enter() {
                 this.erUrl = [];
@@ -170,7 +167,7 @@
             reSet() {
                 this.el = 1;
                 this.data = [];
-                $('html,body').animate({scrollTop: 0});
+                this.$vuetify.goTo(0,{duration:10,easing:'easeInOutCubic'});
             },
             completed() {},
             send() {
@@ -225,7 +222,7 @@
                         }
 
                     }
-                    $('html,body').animate({scrollTop: 0});
+                    this.$vuetify.goTo(0,{duration:10,easing:'easeInOutCubic'});
                     this.el = 2;
                     let _this = this;
                     this.$nextTick(function () {

@@ -200,24 +200,19 @@
 
             }, search() {
                 let _this = this;
-
-                $.ajax({
-                        url: "/api/inquiry/friendListQuery",
-                        type: "POST",
-                        data: {
-                            myType: _this.select.s.type,
-                            myStar: _this.select.s.star,
-                            myServer: _this.select.s.server,
-                            mySelect: _this.select.s.number,
-                            myNum: (_this.select.s.girl === 0 )? '' :_this.select.s.girl
-                        },
-                        success: function (data) {
-                            data = JSON.parse(data);
-                            if (data.status === "success") {
-                                _this.fbList = data.data;
-                            }
-                        }
+                this.$s.postData("/api/inquiry/friendListQuery",
+                  {
+                    myType: _this.select.s.type,
+                    myStar: _this.select.s.star,
+                    myServer: _this.select.s.server,
+                    mySelect: _this.select.s.number,
+                    myNum: (_this.select.s.girl === 0 )? '' :_this.select.s.girl
+                  },
+                  function (data) {
+                    if (data.status === "success") {
+                      _this.fbList = data.data;
                     }
+                  }
                 );
             },
             addFriend() {
@@ -228,39 +223,33 @@
                     return;
                 }
 
-                $.ajax({
-                        url: "/api/inquiry/addFriend",
-                        type: "POST",
-                        data: {
-                            type: _this.select.a.type,
-                            star: _this.select.a.star,
-                            num: _this.select.a.girl,
-                            name: _this.select.a.name,
-                            id: _this.select.a.uid,
-                            grade: _this.select.a.lv,
-                            servo: _this.select.a.server,
-                            content: _this.select.a.text
-
-                        },
-                        success(data) {
-                            data = JSON.parse(data);
-                            if (data.status === "success") {
-                                _this.$s.glDialogText(_this.$t('register.s'), _this.$t('dialog.success')  + "!!");
-                                $.getJSON('/api/inquiry/friendList', function (data) {
-                                    if (data.status === "success") {
-                                        _this.fbList = data.data;
-                                        _this.clear();
-                                        $('html,body').animate({scrollTop: 0}, 'slow');
-                                    }
-                                });
-                            } else {
-                                _this.$s.glDialogText(_this.$t('dialog.error'), _this.$t('dialog.error-1'),1);
-                            }
-                            return false;
-                        }
-                    }
-                );
-
+              this.$s.postData("/api/inquiry/addFriend",
+                {
+                  type: _this.select.a.type,
+                  star: _this.select.a.star,
+                  num: _this.select.a.girl,
+                  name: _this.select.a.name,
+                  id: _this.select.a.uid,
+                  grade: _this.select.a.lv,
+                  servo: _this.select.a.server,
+                  content: _this.select.a.text
+                },
+                function (data) {
+                  if (data.status === "success") {
+                    _this.$s.glDialogText(_this.$t('register.s'), _this.$t('dialog.success') + "!!");
+                    _this.$s.getJSON('/api/inquiry/friendList', function (data) {
+                      if (data.status === "success") {
+                        _this.fbList = data.data;
+                        _this.clear();
+                        _this.$vuetify.goTo(0,{duration:10,easing:'easeInOutCubic'});
+                      }
+                    });
+                  } else {
+                    _this.$s.glDialogText(_this.$t('dialog.error'), _this.$t('dialog.error-1'), 1);
+                  }
+                  return false;
+                }
+              );
             }
         },
         created() {

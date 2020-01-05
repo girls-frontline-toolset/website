@@ -63,12 +63,25 @@
                 this.mt =  (this.$s.less960())?'5px':'10px';
             },
             toTop () {
-                $('html,body').animate({scrollTop: 0}, 'slow');
+              this.$vuetify.goTo(0,{duration:10,easing:'easeInOutCubic'});
             },
             lan(data) {
                 this.language = data;
                 this.$i18n.locale = data.i;
                 this.$router.locale = data.i;
+            },
+            updateTitle(){
+              this.$nextTick(function(){
+                this.$vuetify.goTo(0,{duration:10,easing:'easeInOutCubic'});
+              });
+              let title = "少女前線 工具集";
+              let title2 = this.$route.meta.title['tw'];
+              title = this.$t('title.s');
+              title2 = this.$route.meta.title[this.$i18n.locale];
+              document.title = (!title2 )? title : title2 + "-"+  title;
+
+              let count_num = document.getElementById("count_num");
+              count_num.setAttribute("src","//counter1.fc2.com/counter_img.php?id=89451780");
             }
         },
         beforeCreate() {
@@ -96,25 +109,29 @@
           }
         }
 
-         }, mounted() {
+         },
+      mounted() {
+        let _this = this;
+
+        this.$router.afterEach((to, route) => {
+          _this.updateTitle();
+        });
         this.$s.appVue = this;
 
         if (this.$route.query.lang !== undefined || this.$route.params.lang !== undefined) {
-          if (this.$route.query.lang === "tw" || this.$route.query.lang === "cn" || this.$route.query.lang === "ja"|| this.$route.query.lang === "en"||
-              this.$route.params.lang === "tw" || this.$route.params.lang === "cn" || this.$route.params.lang === "ja"|| this.$route.params.lang === "en") {
-            let lang = this.$route.query.lang ||  this.$route.params.lang;
+          if (this.$route.query.lang === "tw" || this.$route.query.lang === "cn" || this.$route.query.lang === "ja" || this.$route.query.lang === "en" ||
+            this.$route.params.lang === "tw" || this.$route.params.lang === "cn" || this.$route.params.lang === "ja" || this.$route.params.lang === "en") {
+            let lang = this.$route.query.lang || this.$route.params.lang;
             for (let i = 0; i < this.languages.length; i++) {
               if (this.languages[i].i === lang) {
                 this.lan(this.languages[i]);
-                let title = this.$t('title.s');
-                document.title = (!this.$router.meta.title[lang])? title : this.$router.meta.title[lang] + "-"+  title;
               }
             }
 
           }
         }
-
-        }
+        this.updateTitle();
+      }
     }
 </script>
 

@@ -85,10 +85,14 @@
 
       this.getChildren(path,routerPath);
 
-      $.ajax({
-        url: "/sitemap.xml",
-        success(text) {
+      this.$s.getTxtFile("/sitemap.xml",
+        function(text) {
+
+          let parser = new DOMParser();
+          text = parser.parseFromString(text, "text/xml");
+
           let dataList = {};
+
           function pushUrl(title, name, url, callback) {
             if (!dataList[title]) {
               dataList[title] = (title !== 'time') ? [] : {};
@@ -116,10 +120,10 @@
                     pushUrl("fairy " + urlObject[1], (urlObject[3] === undefined || urlObject[3] === "") ? '/' : urlObject[3] + ":" + urlObject[4], url);
                     break;
                   case "girl":
-                    pushUrl("girl " + urlObject[1], (urlObject[3] === undefined || urlObject[3] === "") ? '/' : (urlObject[4] === undefined || urlObject[4] === "")? urlObject[3]:urlObject[3] + ":" + urlObject[4] , url);
+                    pushUrl("girl " + urlObject[1], (urlObject[3] === undefined || urlObject[3] === "") ? '/' : (urlObject[4] === undefined || urlObject[4] === "") ? urlObject[3] : urlObject[3] + ":" + urlObject[4], url);
                     break;
                   case "device":
-                    pushUrl("device " + urlObject[1], (urlObject[3] === undefined || urlObject[3] === "") ? '/' : urlObject[3] , url);
+                    pushUrl("device " + urlObject[1], (urlObject[3] === undefined || urlObject[3] === "") ? '/' : urlObject[3], url);
                     break;
                 }
                 break;
@@ -129,18 +133,17 @@
 
               default:
                 let text = "";
-                if (urlObject[3] !== undefined && urlObject[3] !==""){
+                if (urlObject[3] !== undefined && urlObject[3] !== "") {
                   text = path[urlObject[1]][urlObject[2]][urlObject[3]].text
-                }else{
+                } else {
                   text = path[urlObject[1]][urlObject[2]].text
                 }
-                pushUrl(urlObject[1],text, url);
+                pushUrl(urlObject[1], text, url);
                 break;
             }
           }
           _this.$set(_this, 'dataList', dataList);
-        }
-      });
+        });
     }
   }
 </script>

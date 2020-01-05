@@ -41,24 +41,20 @@
             }
         }, methods: {
             send() {
-                let _this = this;
-                $.ajax({
-                        url: "/api/inquiry/email",
-                        type: "POST",
-                        data: {
-                            email: _this.data.email,
-                            content: _this.data.content
-                        },
-                        success(data) {
-                            data = JSON.parse(data);
-                            if (data.status === "success") {
-                                _this.$s.glDialogText(_this.$t('feedback.title'),_this.$t('dialog.success-1'));
-                            } else {
-                                _this.$s.glDialogText(_this.$t('feedback.title'),_this.$t('dialog.error-2'),1);
-                            }
-                        }
-                    }
-                )
+              let _this = this;
+              this.$s.postData("/api/inquiry/email",
+                {
+                  email: _this.data.email,
+                  content: _this.data.content
+                },
+                function (data) {
+                  if (data.status === "success") {
+                    _this.$s.glDialogText(_this.$t('feedback.title'), _this.$t('dialog.success-1'));
+                  } else {
+                    _this.$s.glDialogText(_this.$t('feedback.title'), _this.$t('dialog.error-2'), 1);
+                  }
+                }
+              );
             }
         }
     }

@@ -78,8 +78,6 @@ import pageNotFound from '../page-vuetifly/error/page-not-found-content.vue';
 //magical-tool
 import soAppetizing from "../page-vuetifly/magical-tool/so-appetizing-content.vue";
 
-import 'jquery/src/jquery';
-
 import VueAnalytics from 'vue-analytics';
 
 Vue.use(VueRouter);
@@ -244,7 +242,7 @@ let metaData = {
     girl:{
       title: {"cn":cn.title.h1.make.girl,"tw":tw.title.h1.make.girl,"ja":ja.title.h1.make.girl,"en":en.title.h1.make.girl},
       description:"又是MP5嗎? 模擬造槍 能為你平息心癮，保留資源及國籍測試 只是玩樂用途 與遊戲未必相同",
-      image:{url:"/common/girl/girl_26.jpg",width:"242",height:"429"},
+      image:{url:"/common/SEO/make-girl.jpg",width:"1200",height:"783"}
     },
     device:{
       title: {"cn":cn.title.h1.make.device,"tw":tw.title.h1.make.device,"ja":ja.title.h1.make.device,"en":en.title.h1.make.device},
@@ -254,7 +252,7 @@ let metaData = {
     hGirl:{
       title: {"cn":cn.title.h1.make.hGirl,"tw":tw.title.h1.make.hGirl,"ja":ja.title.h1.make.hGirl,"en":en.title.h1.make.hGirl},
       description:"又是MP5嗎? 模擬重造-槍 能為你平息心癮，保留資源及國籍測試。 只是玩樂用途 與遊戲未必相同 !!本頁閾和遊戲不相同!!",
-      image:{url:"/common/girl/girl_188.jpg",width:"242",height:"429"},
+      image:{url:"/common/SEO/make-hGirl.jpg",width:"1200",height:"783"}
     },
     hDevice:{
       title: {"cn":cn.title.h1.make.hDevice,"tw":tw.title.h1.make.hDevice,"ja":ja.title.h1.make.hDevice,"en":en.title.h1.make.hDevice},
@@ -503,20 +501,3 @@ Vue.use(VueAnalytics, {
 
 export default router;
 
-router.afterEach(route => {
-
-  //console.log(route);
-  let title = "少女前線 工具集";
-    let title2 = route.meta.title['tw'];
-    if(this.a.app.t !== undefined){
-        title = this.a.app.t('title.s');
-        title2 = route.meta.title[this.a.locale];
-    }else{
-        this.a.meta = route.meta;
-    }
-
-    document.title = (!title2 )? title : title2 + "-"+  title;
-    this.a.meta.pageTitle =  document.title;
-    $("#count_num").attr("src","//counter1.fc2.com/counter_img.php?id=89451780");
-    $('html,body').animate({scrollTop: 0});
-});

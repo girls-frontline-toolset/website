@@ -6,27 +6,30 @@ var mSelectImg = {
         }
     },
     methods: {
+        $(id){
+          return document.getElementById(id)
+        },
         changeOption: function (index, num) {
-            var type = $("#" + index + '_type').val();
+            var type = this.$(index + '_type').value;
             if (num === 0) {
                 if (type === "HG" || type === "SMG" || type === "RF" || type === "AR" || type === "MG" || type === "SG") {
-                    this.$set(this.selectOption, index, [{"val": 5, "text": "5"}, {"val": 4, "text": "4"}, {"val": 3, "text": "3"}, {"val": 2, "text": "2"}]);
-                    $("#" + index + '_star').val("");
+                  this.$set(this.selectOption, index, [{"val": 5, "text": "5"}, {"val": 4, "text": "4"}, {"val": 3, "text": "3"}, {"val": 2, "text": "2"}]);
+                  this.$( index + '_star').value = "";
                 } else if (type === "sangvis") {
                     this.$set(this.selectOption, index, [{"val": "common", "text": "常規"}, {"val": "armor", "text": "裝甲"}, {"val": "unusual", "text": "特殊"}, {"val": "boss", "text": "頭目"}]);
-                    $("#" + index + '_star').val("");
+                  this.$(index + '_star').value = "";
                 } else if (type === "military") {
                   this.$set(this.selectOption, index, [{"val": "common", "text": "常規"}, {"val": "armor", "text": "裝甲"}, {"val": "unusual", "text": "特殊"}, {"val": "boss", "text": "頭目"}]);
-                  $("#" + index + '_star').val("");
+                  this.$(index + '_star').value = "";
                 } else if (type === "eild") {
                   this.$set(this.selectOption, index, [{"val": "common", "text": "常規"}, {"val": "armor", "text": "裝甲"}, {"val": "unusual", "text": "特殊"}, {"val": "boss", "text": "頭目"}]);
-                  $("#" + index + '_star').val("");
+                  this.$(index + '_star').value = "";
                 } else if (type === "whiteforces") {
                   this.$set(this.selectOption, index, [{"val": "common", "text": "常規"}, {"val": "armor", "text": "裝甲"}, {"val": "unusual", "text": "特殊"}, {"val": "boss", "text": "頭目"}]);
-                  $("#" + index + '_star').val("");
+                  this.$(index + '_star').value = "";
                 } else if (type === "GK") {
-                    this.$set(this.selectOption, index, [{"val": "npc", "text": "npc"}]);
-                    $("#" + index + '_star').val("");
+                  this.$set(this.selectOption, index, [{"val": "npc", "text": "npc"}]);
+                  this.$(index + '_star').value = "";
                 } else {
                     this.$set(this.selectOption, index, []);
                 }
@@ -34,7 +37,7 @@ var mSelectImg = {
             }
 
             var list = [];
-            var option2 = $("#" + index + '_star').val();
+            var option2 = this.$(index + '_star').value;
 
             switch (option2) {
                 case "5":
@@ -87,14 +90,15 @@ var mSelectImg = {
 
         },
         enterTag: function (index) {
+            let glSelect = this.$(index + '_girls');
 
-            var id = $("#" + index + '_girls').val();
+
+            var id = glSelect.value;
             if (id === "") {
                 return;
             }
 
-            var text = $("#" + index + '_girls option[value=' + id + ']').text();
-
+            let text = glSelect.options[glSelect.selectedIndex].text;
             for (var i = 0; i < this.data[index]['tagAdd'].length; i++) {
                 if (this.data[index]['tagAdd'][i].name === text) {
                     return

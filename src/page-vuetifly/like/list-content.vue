@@ -119,38 +119,34 @@
             showHelp() {
                 this.$s.glDialogImg(this.$t('dialog.location'),"/common/img/UID_check.jpg");
             },
-            addLikeFb(){
-                let _this = this;
-                $.ajax({
-                        url:"/api/inquiry/addLikeList",
-                        type:"POST",
-                        data:{
-                            username: _this.add.name,
-                            id: _this.add.uid,
-                            servo:_this.add.server,
-                            text:_this.add.text
-                        },
-                        success: function(data){
-                            data = JSON.parse(data);
-                            if(data.status === "success"){
-                                _this.$s.glDialogText(_this.$t('register.s'),_this.$t('dialog.success') + "!!");
-                                _this.$refs.form.reset();
-                            }else{
-                                _this.$s.glDialogText(_this.$t('register.s'),_this.$t('dialog.error-1'),1);
-                            }
-                        }
-                    }
-                );
+            addLikeFb() {
+              let _this = this;
+              this.$s.postData("/api/inquiry/addLikeList",
+                {
+                  username: _this.add.name,
+                  id: _this.add.uid,
+                  servo: _this.add.server,
+                  text: _this.add.text
+                },
+                function (data) {
+                  if (data.status === "success") {
+                    _this.$s.glDialogText(_this.$t('register.s'), _this.$t('dialog.success') + "!!");
+                    _this.$refs.form.reset();
+                  } else {
+                    _this.$s.glDialogText(_this.$t('register.s'), _this.$t('dialog.error-1'), 1);
+                  }
+                }
+              );
 
             }
         },
         beforeCreate() {
-            let _this = this;
-            $.getJSON('/api/inquiry/LikeFBList', function (json) {
-                if(json.status === "success"){
-                    _this.likeList = json.data;
-                }
-            });
+          let _this = this;
+          this.$s.getJSON('/api/inquiry/LikeFBList', function (json) {
+            if (json.status === "success") {
+              _this.likeList = json.data;
+            }
+          });
         },
         created() {
             for(let i = 0 ; this.server.length ; i++){

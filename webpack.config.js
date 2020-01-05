@@ -132,7 +132,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.optimization ={
     minimizer: [
       new UglifyJsPlugin()
-      ]
+      ],
   };
 
   module.exports.plugins = (module.exports.plugins || []).concat([
@@ -145,9 +145,6 @@ if (process.env.NODE_ENV === 'production') {
       minimize: true
     }),
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
       tether: 'tether',
       Tether: 'tether',
       'window.Tether': 'tether',

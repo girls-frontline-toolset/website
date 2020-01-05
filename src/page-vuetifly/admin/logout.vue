@@ -10,7 +10,7 @@
             }
         },beforeCreate() {
             var _this = this;
-            $.getJSON('/api/inquiry/logout', function (json) {
+        this.$s.getJSON('/api/inquiry/logout', function (json) {
                 if (json.status === "success") {
                     _this.$router.push({path: '/'});
                 }

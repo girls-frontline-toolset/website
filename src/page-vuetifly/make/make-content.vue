@@ -264,8 +264,15 @@
                 this.$set(this,'dataList',dataList);
             }
         },
+          beforeCreate() {
+            let _this = this;
+            this.$s.getDefine(function () {
+              _this.$nextTick(function () {
+                _this.time = _this.$s.make;
+              });
+            });
+          },
         created() {
-            this.time = this.$s.make;
             this.show = !this.$s.less600();
             this.$g.getAllGirlList('girlList', this);
             this.$g.getGirlMakeTime('girlMakeTime', this);

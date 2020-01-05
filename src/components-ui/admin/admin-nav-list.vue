@@ -46,7 +46,7 @@
     },
     beforeCreate() {
       let _this = this;
-      $.getJSON('/common/data/nav-admin.json', function (json) {
+      this.$s.getJSON('/common/data/nav-admin.json', function (json) {
         _this.navList = json.group;
       });
     }

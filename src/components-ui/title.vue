@@ -1,7 +1,9 @@
 <script>
-    export default {
+  import { VBtn, VLayout,VFlex,VIcon } from 'vuetify/lib'
+  export default {
         props: {h1:Boolean,h2:Boolean,h3:Boolean,text:{type:String,default:"Default text"},icon:String,button:String,clickF:Function,item:String},
         name: 'gl-ui-title',
+        components:{VBtn, VLayout,VFlex,VIcon},
          methods: {
             click(){
                 this.clickF(this.item)

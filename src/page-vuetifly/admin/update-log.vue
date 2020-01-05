@@ -62,26 +62,20 @@
         },
         add() {
           let _this = this;
-          $.ajax({
-                  url:"/api/inquiry/log/add",
-                  type:"POST",
-
-                  data:{
-                    date: _this.log.date,
-                    type: _this.log.type,
-                    text: _this.log.text,
-                  },
-                  success: function(data){
-                      data = JSON.parse(data);
-                      if(data.status === "success"){
-                          _this.$s.glDialogText("添加更新記錄", "已成功!!");
-                          _this.clear();
-                      }else{
-                          _this.$s.glDialogText("添加更新記錄", "出現問題!!", 1);
-                      }
-                  }
+          this.$s.postData("/api/inquiry/log/add",
+            {
+              date: _this.log.date,
+              type: _this.log.type,
+              text: _this.log.text,
+            },
+            function (data) {
+              if (data.status === "success") {
+                _this.$s.glDialogText("添加更新記錄", "已成功!!");
+                _this.clear();
+              } else {
+                _this.$s.glDialogText("添加更新記錄", "出現問題!!", 1);
               }
-          );
+            });
         },
         clear() {
           this.log = {date:"",type:"",text:""};

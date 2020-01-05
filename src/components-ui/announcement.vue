@@ -4,12 +4,22 @@
     </v-alert>
 </template>
 <script>
+    import setting from "../setting";
+
     export default {
         name: 'gl-ui-announcement',
         data() {
             return {
-                announcement:this.$s.announcement,
+                announcement:"",
             }
+        },
+        beforeCreate() {
+          let _this = this;
+          this.$s.getDefine(function(){
+            _this.$nextTick(function(){
+              _this.announcement = _this.$s.announcement
+            });
+          });
         }
     }
 </script>

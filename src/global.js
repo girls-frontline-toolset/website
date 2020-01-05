@@ -1,3 +1,4 @@
+import axios from 'axios'
 /** @typedef ajax.girlList
  *  @property {string} no
  *  @property {string} name
@@ -54,16 +55,17 @@ const ajax = {
                 callback(false);
             }
         } else {
-            $.getJSON(url, function (json) {
-                obj.data = json.data;
-                vue[name] = obj.data;
-                if(callback !== undefined ){
-                    callback(true);
-                }
-            }).fail(
-                function() {
-                    vue.error = 2;
-                });
+          axios.get(url)
+            .then(function (response) {
+              let json = response.data
+              obj.data = json.data;
+              vue[name] = obj.data;
+              if (callback !== undefined) {
+                callback(true);
+              }
+            }).catch(function () {
+            vue.error = 2;
+          });
         }
     }
 };

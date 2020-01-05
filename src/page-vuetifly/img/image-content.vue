@@ -137,42 +137,40 @@
             moreImage() {
                 this.$ga.event('imageGallery','moreImage');
                 var _this = this;
-                $.ajax({
-                        url: "/api/inquiry/image/" + this.limit,
-                        type: "POST",
-                        data: {
-                            selectList: this.selectList,
-                            isAll: this.isAll
-                        },
-                        success: function (data) {
-                            data = JSON.parse(data);
 
-                            if (data.status === "success") {
-                                for (var i = 0; i < data.data.length; i++) {
-                                    _this.data.push(data.data[i]);
-                                }
-                            }
+              let data = {isAll: this.isAll};
+              if (this.selectList.length !== 0) {
+                data.selectList = this.selectList
+              }
 
-                            _this.limit += 9;
-                            _this.$nextTick(function () {
-
-                                if (_this.point === _this.data.length) {
-                                    _this.isNone = true;
-                                    return;
-                                }
-
-                                _this.$set(_this.showBlock, 0, false);
-                                _this.$set(_this.showBlock, 1, false);
-                                _this.$set(_this.showBlock, 2, false);
-
-                                for (var i = _this.point; i < _this.data.length; i++) {
-                                    _this.getPixivTwitterImg(i);
-                                }
-                                _this.point = _this.data.length;
-                            });
-                        }
+              this.$s.postData("/api/inquiry/image/" + this.limit,
+                data,
+                function (data) {
+                  if (data.status === "success") {
+                    for (var i = 0; i < data.data.length; i++) {
+                      _this.data.push(data.data[i]);
                     }
-                );
+                  }
+
+                  _this.limit += 9;
+                  _this.$nextTick(function () {
+
+                    if (_this.point === _this.data.length) {
+                      _this.isNone = true;
+                      return;
+                    }
+
+                    _this.$set(_this.showBlock, 0, false);
+                    _this.$set(_this.showBlock, 1, false);
+                    _this.$set(_this.showBlock, 2, false);
+
+                    for (var i = _this.point; i < _this.data.length; i++) {
+                      _this.getPixivTwitterImg(i);
+                    }
+                    _this.point = _this.data.length;
+                  });
+                }
+              );
             },
             completed() {
                 this.completedCount++;
@@ -364,25 +362,23 @@
               });
             }
 
-            $.ajax({
-                url: "/api/inquiry/image/0",
-                type: "POST",
-                data: {
-                    isAll: this.isAll,
-                    selectList: this.selectList
-                },
-                success: function (json) {
-                    json = JSON.parse(json);
+        let data = {isAll: this.isAll};
+        if (this.selectList.length !== 0 ) {
+          data.selectList = this.selectList
+        }
 
-                    if (json.status == "success") {
-                        _this.data = json.data;
-                        _this.limit += 9;
-                        _this.$nextTick(function () {
-                            _this.image();
-                        });
-                    }
-                }
-            });
+        this.$s.postData("/api/inquiry/image/0",
+          data,
+          function (json) {
+            if (json.status == "success") {
+              _this.data = json.data;
+              _this.limit += 9;
+              _this.$nextTick(function () {
+                _this.image();
+              });
+            }
+          }
+        );
         },
         beforeRouteUpdate (to, from, next) {
             if (to.path.match(/^\/image\/[\w\W]*$/gm) !== null) {

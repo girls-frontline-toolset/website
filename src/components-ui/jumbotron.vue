@@ -62,7 +62,7 @@
             }
         }, methods: {
             click(key){
-               this.$router.push({'path':key});
+               this.$router.push({'path':this.langUrl() + key});
             },
             onResize() {
                 this.isShow = !(this.$s.less960());
@@ -70,7 +70,7 @@
             }
         }, beforeCreate() {
             let _this = this;
-            $.getJSON('/common/data/image.json', function (json) {
+        this.$s.getJSON('/common/data/image.json', function (json) {
                 _this.countNum = json.count;
                 _this.number = json.number;
             });

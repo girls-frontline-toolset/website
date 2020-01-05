@@ -63,56 +63,42 @@
     methods: {
       init() {
         let _this = this;
-        $.ajax({
-            url: "/api/inquiry/doc/getNewDoc",
-            type: "POST",
-            success: function (data) {
-              data = JSON.parse(data);
-              if (data.status === "success") {
-                _this.docList = data.data;
-                _this.isNone = (_this.docList.length === 0 );
-              }
+        this.$s.getJSON("/api/inquiry/doc/getNewDoc",
+          function (data) {
+            if (data.status === "success") {
+              _this.docList = data.data;
+              _this.isNone = (_this.docList.length === 0 );
             }
-          }
-        );
+          });
       },
       add() {
         let _this = this;
-        $.ajax({
-            url: "/api/inquiry/doc/update",
-            type: "POST",
-
-            data: {
-              doc: _this.docList
-            },
-            success: function (data) {
-              data = JSON.parse(data);
-              if (data.status === "success") {
-                _this.$s.glDialogText("文庫管理", "已成功!!");
-                _this.init();
-              } else {
-                _this.$s.glDialogText("文庫管理", "出現問題!!", 1);
-              }
+        this.$s.postData("/api/inquiry/doc/update",
+          {
+            doc: _this.docList
+          },
+          function (data) {
+            if (data.status === "success") {
+              _this.$s.glDialogText("文庫管理", "已成功!!");
+              _this.init();
+            } else {
+              _this.$s.glDialogText("文庫管理", "出現問題!!", 1);
             }
           }
         );
       },
       deleteDoc(id) {
         let _this = this;
-        $.ajax({
-            url: "/api/inquiry/doc/delete",
-            type: "POST",
 
-            data: {
-              id: id
-            },
-            success: function (data) {
-              data = JSON.parse(data);
-              if (data.status === "success") {
-                _this.init();
-              } else {
-                _this.$s.glDialogText("文庫管理", "出現問題!!", 1);
-              }
+        this.$s.postData("/api/inquiry/doc/delete",
+          {
+            id: id
+          },
+          function (data) {
+            if (data.status === "success") {
+              _this.init();
+            } else {
+              _this.$s.glDialogText("文庫管理", "出現問題!!", 1);
             }
           }
         );
