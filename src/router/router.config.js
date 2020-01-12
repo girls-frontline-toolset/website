@@ -436,6 +436,7 @@ let childrenRoutes = [
   {path:'image',component:inquire,children:[
       {path: 'add', component:imageAdd, props:{promptData:glCardLeftData.addImage}, meta: GetMetaData("image.add")},
       {path: ':name', component:image, props:{promptData:glCardLeftData.image},meta: GetMetaData("image.name")},
+      {path: ':name/:name2', component:image, props:{promptData:glCardLeftData.image},meta: GetMetaData("image.name")},
       {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},
   {path:'event',component:inquire,children:[

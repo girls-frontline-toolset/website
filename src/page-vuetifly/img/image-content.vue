@@ -349,8 +349,13 @@
                 this.isAll = false;
 
                 let name = this.$route.params.name;
-              this.$nextTick(function () {
-                this.metaTitle = name + " - " + this.$route.meta.pageTitle;
+
+               if(this.$route.params.name2){
+                 name += "/" + this.$route.params.name2;
+               }
+
+               this.$nextTick(function () {
+                 this.metaTitle = name + " - " + this.$t('title.s');
                 this.metaDescription = "少前前線圖片庫 " + name + " 精選圖片";
                 document.dispatchEvent(new Event('render-event'));
                 document.title = this.metaTitle;
