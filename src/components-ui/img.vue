@@ -54,7 +54,7 @@
   .gl-line-register-1 { background-position:  -5px -473px; height: 139px; width: 120px; }
   .gl-nucleus { background-position:  -5px -617px; height: 96px; width: 98px; }
   .gl-pixiv_logo { background-position:  -191px -5px; height: 24px; width: 60px; }
-  .gl-quick-Production-contract { background-position:  -5px -718px; height: 125px; width: 119px; }
+  .gl-quick-production-contract { background-position:  -5px -718px; height: 125px; width: 119px; }
   .gl-quick-repair-contract { background-position:  -5px -848px; height: 125px; width: 119px; }
   .gl-t-doll-contract { background-position:  -562px -98px; height: 125px; width: 119px; }
   .gl-token { background-position:  -686px -98px; height: 125px; width: 128px; }
