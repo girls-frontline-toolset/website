@@ -9,7 +9,7 @@
         {{$t('logistics-support.chapter')}}
       </v-tab>
     </v-tabs>
-    <v-tabs-items v-model="model" >
+    <v-tabs-items v-model="model">
       <v-tab-item value="tab-0">
         <v-container grid-list-md pa-0>
           <v-layout row wrap pa1>
@@ -72,7 +72,7 @@
       <v-tab-item value="tab-1">
         <v-container grid-list-md pa-0>
           <v-layout row wrap pa1>
-            <v-flex xs4 sm1 pa-1 v-for="item in 13">
+            <v-flex xs4 sm1 pa-1 v-for="item in chapter.length ">
               <v-checkbox color="primary" v-model="chapter" :label="''+(item-1)" :value="item-1"/>
             </v-flex>
           </v-layout>
@@ -101,18 +101,38 @@
           <td>{{ props.item.ammunition }}</td>
           <td>{{ props.item.material }}</td>
           <td>{{ props.item.parts }}</td>
-          <td v-if="props.item.prop_1 === '1'"><gl-ui-img name="gl-equipment-contract" zoom="0.3"/></td>
-          <td v-else-if="props.item.prop_1 === '2'"><gl-ui-img name="gl-t-doll-contract" zoom="0.3"/></td>
-          <td v-else-if="props.item.prop_1 === '3'"><gl-ui-img name="gl-quick-repair-contract" zoom="0.3"/></td>
-          <td v-else-if="props.item.prop_1 === '4'"><gl-ui-img name="gl-quick-production-contract" zoom="0.3"/></td>
-          <td v-else-if="props.item.prop_1 === '5'"><gl-ui-img name="gl-token" zoom="0.3"/></td>
+          <td v-if="props.item.prop_1 === '1'">
+            <gl-ui-img name="gl-equipment-contract" zoom="0.3"/>
+          </td>
+          <td v-else-if="props.item.prop_1 === '2'">
+            <gl-ui-img name="gl-t-doll-contract" zoom="0.3"/>
+          </td>
+          <td v-else-if="props.item.prop_1 === '3'">
+            <gl-ui-img name="gl-quick-repair-contract" zoom="0.3"/>
+          </td>
+          <td v-else-if="props.item.prop_1 === '4'">
+            <gl-ui-img name="gl-quick-production-contract" zoom="0.3"/>
+          </td>
+          <td v-else-if="props.item.prop_1 === '5'">
+            <gl-ui-img name="gl-token" zoom="0.3"/>
+          </td>
           <td v-else/>
 
-          <td v-if="props.item.prop_2 === '1'"><gl-ui-img name="gl-equipment-contract" zoom="0.3"/></td>
-          <td v-else-if="props.item.prop_2 === '2'"><gl-ui-img name="gl-t-doll-contract" zoom="0.3"/></td>
-          <td v-else-if="props.item.prop_2 === '3'"><gl-ui-img name="gl-quick-repair-contract" zoom="0.3"/></td>
-          <td v-else-if="props.item.prop_2 === '4'"><gl-ui-img name="gl-quick-production-contract" zoom="0.3"/></td>
-          <td v-else-if="props.item.prop_2 === '5'"><gl-ui-img name="gl-token" zoom="0.3"/></td>
+          <td v-if="props.item.prop_2 === '1'">
+            <gl-ui-img name="gl-equipment-contract" zoom="0.3"/>
+          </td>
+          <td v-else-if="props.item.prop_2 === '2'">
+            <gl-ui-img name="gl-t-doll-contract" zoom="0.3"/>
+          </td>
+          <td v-else-if="props.item.prop_2 === '3'">
+            <gl-ui-img name="gl-quick-repair-contract" zoom="0.3"/>
+          </td>
+          <td v-else-if="props.item.prop_2 === '4'">
+            <gl-ui-img name="gl-quick-production-contract" zoom="0.3"/>
+          </td>
+          <td v-else-if="props.item.prop_2 === '5'">
+            <gl-ui-img name="gl-token" zoom="0.3"/>
+          </td>
           <td v-else/>
           <td>{{ props.item.time }}</td>
         </template>
@@ -139,20 +159,20 @@
     mixins: [mPrompt, mMeta],
     data() {
       return {
-        less600:false,
-        chapter: [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,12],
+        less600: false,
+        chapter: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
         model: "tab-0",
         items: [{t: "12", i: ""}, {t: "12", i: ""}],
         time: {start: "", end: ""},
         timePicker: {open: false, getNow: false, time: null, value: ""},
         weight: {manpower: 1, ammunition: 1, material: 1, parts: 1},
         propList: [
-          {name:"",t:"prop.no-specific-requirements", value: 0},
-          {name:"",t: "prop.equipment-contract", value: 1},
-          {name:"",t: "prop.t-doll-contract", value: 2},
-          {name:"",t: "prop.quick-repair-contract", value: 3},
-          {name:"",t: "prop.quick-production-contract", value: 4},
-          {name:"",t: "prop.token", value: 5}
+          {name: "", t: "prop.no-specific-requirements", value: 0},
+          {name: "", t: "prop.equipment-contract", value: 1},
+          {name: "", t: "prop.t-doll-contract", value: 2},
+          {name: "", t: "prop.quick-repair-contract", value: 3},
+          {name: "", t: "prop.quick-production-contract", value: 4},
+          {name: "", t: "prop.token", value: 5}
         ],
         prop: [0, 0],
         modal2: false,
@@ -160,16 +180,28 @@
         logisticsSupportList: [],
         rs: [],
         headers: [
-          {text:"",t: 'logistics-support.name', sortable: false, value: 'name'},
-          {text:"",t: 'logistics-support.weight-m', value: 'Weight', sortable: false,class:"orange--text text--darken-4"},
-          {text:"",t: 'logistics-support.sum', value: 'Sum', sortable: false,class:"light-green--text text--darken-4"},
-          {text:"",t: 'make.manpower', value: 'manpower', sortable: false},
-          {text:"",t: 'make.ammunition', value: 'ammunition', sortable: false},
-          {text:"",t: 'make.material', value: 'material', sortable: false},
-          {text:"",t: 'make.parts', value: 'Actions', sortable: false},
-          {text:"",t: 'prop.prop', value: 'prop_1', sortable: false},
-          {text:"",t: 'prop.prop', value: 'prop_2', sortable: false},
-          {text:"",t: 'logistics-support.time', value: 'Time', sortable: false},
+          {text: "", t: 'logistics-support.name', sortable: false, value: 'name'},
+          {
+            text: "",
+            t: 'logistics-support.weight-m',
+            value: 'Weight',
+            sortable: false,
+            class: "orange--text text--darken-4"
+          },
+          {
+            text: "",
+            t: 'logistics-support.sum',
+            value: 'Sum',
+            sortable: false,
+            class: "light-green--text text--darken-4"
+          },
+          {text: "", t: 'make.manpower', value: 'manpower', sortable: false},
+          {text: "", t: 'make.ammunition', value: 'ammunition', sortable: false},
+          {text: "", t: 'make.material', value: 'material', sortable: false},
+          {text: "", t: 'make.parts', value: 'Actions', sortable: false},
+          {text: "", t: 'prop.prop', value: 'prop_1', sortable: false},
+          {text: "", t: 'prop.prop', value: 'prop_2', sortable: false},
+          {text: "", t: 'logistics-support.time', value: 'Time', sortable: false},
         ],
         sortType: "weightSum"
       }
@@ -206,7 +238,7 @@
                 default:
                   timeStr = str
               }
-            }else{
+            } else {
               timeStr = str
             }
             return timeStr;
@@ -253,13 +285,13 @@
 
             let isChapter = false;
             for (let j = 0; j < this.chapter.length; j++) {
-              if (data.name.split("-")[0] === "" + this.chapter[j]){
+              if (data.name.split("-")[0] === "" + this.chapter[j]) {
                 isChapter = true;
                 break;
               }
             }
 
-            if (!isChapter){
+            if (!isChapter) {
               continue;
             }
 
@@ -291,16 +323,16 @@
 
         this.rs = filter;
 
-        let desc = "" +  this.metaDescription + " ";
+        let desc = "" + this.metaDescription + " ";
 
         for (let i = 0; i < 4; i++) {
-          if (this.rs[1]){
+          if (this.rs[1]) {
             desc += this.rs[i].name + " "
           }
         }
         this.metaDescription = desc;
 
-        if(!isFirst){
+        if (!isFirst) {
           this.$ga.event('logistics-support', sortType);
         }
 
@@ -346,16 +378,16 @@
 
           switch (_this.$i18n.locale) {
             case "en":
-              _this.chapter = [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+              _this.chapter = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
               break;
             case "tw":
-              _this.chapter = [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+              _this.chapter = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
               break;
             case "ja":
-              _this.chapter = [0,1, 2, 3, 4, 5, 6, 7, 8, 9];
+              _this.chapter = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
               break;
             case "cn":
-              _this.chapter = [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+              _this.chapter = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
               break;
           }
           this.search(true);
