@@ -43,7 +43,9 @@
         <v-btn color="primary" v-if="humanoid === 0" outline @click="getGirlTime()">{{$t('time.girl-list')}}</v-btn>
         <div class="list_output">
             <a v-for="item in listDate" :key="item.no" :href="'https://zh.moegirl.org/zh-hant/少女前线:' + item.n " target='_blank'>
-              <img :src='item.s' :alt="$t(getResourceName(item.no,humanoid))" :title='$t(getResourceName(item.no,humanoid))'>
+                <div :alt="$t(getResourceName(item.no,humanoid))" :title='$t(getResourceName(item.no,humanoid))'
+                     :style="'display: inline-block;zoom:' + zoom + ';margin-right: 5px'"
+                     :class="'t-doll-' + ((item.type)?  item.type + '-': '') + 'sprites-' + ((item.lang)? item.lang.replace('/','') + '-'  : '') + item.no"></div>
             </a>
         </div>
 
@@ -53,7 +55,9 @@
                 <div v-for="items in listTime[i - 1]">
                     <gl-ui-title h2 :text="items.title"/>
                     <a v-for="item in items.data" :key="item.no" :href="'https://zh.moegirl.org/zh-hant/少女前线:' + item.n " target='_blank'>
-                      <img :class="item.c"  :src="'/common/girl/' + $t('resourcePath') +'girl_' + item.num + '.jpg'" :alt='$t(getResourceName(item.num))' :title='$t(getResourceName(item.num))'>
+                        <div :alt='$t(getResourceName(item.num))' :title='$t(getResourceName(item.num))'
+                             :class="item.c + ' ' +'t-doll-sprites-' + ((item.lang)? item.lang.replace('/','') + '-'  : '') + item.num"
+                             :style="'display: inline-block; zoom: ' + zoom  + ';margin-right: 5px;'"/>
                     </a>
                 </div>
             </v-flex>
@@ -72,8 +76,9 @@
     import GlUiError from "../../components-ui/error";
     import GlUiTagList from "../../components-ui/tagList";
     import mMeta from "../../mixin/mMeta.js";
+    import mCheckWebp from "../../mixin/mModernizr-checkWebp.js";
     export default {
-        mixins: [mPrompt,mMeta],
+        mixins: [mPrompt,mMeta,mCheckWebp],
         components: {GlUiTagList, GlUiError, GlUiIconButton, GlUiTitle, GlUiCardLeft},
         name: 'gl-ui-list-content',
         data() {
@@ -95,6 +100,7 @@
                 error:0,
                 isShow:false,
                 model:"tab-1",
+                zoom:'0.5',
                 errorText:"not-text",
                 items:[{"t":"time.search","to":"/time/girl","i":"access_time"},{"t":"time.list","to":"/list/girl?f=time&fn=tag","i":"list"}],
 
@@ -196,6 +202,7 @@
             },
             getImgList(type, index, isAll) {
                 let data = null, star = null, url = "", name = "";
+                let t = ''
 
                 if (type === "girl") {
                     data = this.girlList[index];
@@ -220,6 +227,7 @@
                                 break;
                         }
                         url = "/common/digiMindGirl/" + this.$t('resourcePath') + "digiMindGirl_";
+                        t = 'digi';
                     }
 
                     name = (data.src)? data.src:data.name;
@@ -229,10 +237,11 @@
                     star = this.other["star_other"];
                     url = "/common/exGirl/" + this.$t('resourcePath') + "exgirl_";
                     name = (data.src)? data.src:data.name;
+                    t = 'ex';
                 }
 
                 if (isAll || (this.type[data.type] && star)) {
-                    return {"no":index + 1 ,"n":name,"s": url + (index + 1 ) + '.jpg'};
+                    return {"no":index + 1 ,"n":name,"s": url + (index + 1 ) + '.jpg', "lang":this.$t('resourcePath'), "type":t };
                 }
                 return null;
 
@@ -263,7 +272,7 @@
 
                                         if (!this.getImgList("girl", number - 1)) continue;
 
-                                        dataHtml.push({"n":name,"c":getClass[girl.heavy],"num":number});
+                                        dataHtml.push({"n":name,"c":getClass[girl.heavy], "lang":this.$t('resourcePath'), "num":number});
                                     }
                                 }
 
@@ -281,8 +290,15 @@
                 this.error = (!leftSide.length) ? 1 : 0 ;
             }
 
+        }, mounted(){
+          let link = document.createElement("link");
+          link.rel = "stylesheet"
+          link.href = "/common/css/t-doll-sprites.css"
+          document.head.append(link);
         }, created() {
+        console.log(Modernizr);
 
+        this.zoom = (this.$s.less600())? '0.4':'0.5';
         for(let i = 0 ; i < this.humanoidItems.length ;i++){
                 this.humanoidItems[i].t = this.$t(this.humanoidItems[i].t);
             }
@@ -402,5 +418,15 @@
             width: 20%;
 
         }
+
+      .webp .no_heavy, .no-webp .no_heavy {
+        border: 5px solid #a0c11b;
+      }
+
+
+      .webp .is_heavy, .no-webp .is_heavy {
+        border: 5px solid #ed7b4a;
+      }
+
     }
 </style>
