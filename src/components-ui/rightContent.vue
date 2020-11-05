@@ -2,7 +2,7 @@
   <v-flex xs12 sm12 md3 mt-1 pa-1 v-resize="onResize">
     <gl-ui-promotion-function/>
     <gl-ui-event-schedule ref="hidden" :complete="complete"></gl-ui-event-schedule>
-    <gl-ui-github-badge :style="BadgeClass"></gl-ui-github-badge>
+    <gl-ui-buy-me-a-coffee></gl-ui-buy-me-a-coffee>
   </v-flex>
 </template>
 
@@ -11,9 +11,10 @@
   import GlUiFacebook from "./rightContent/facebook";
   import GlUiGithubBadge from "./rightContent/github-badge";
   import GlUiPromotionFunction from "./rightContent/recommendedFunction";
+  import GlUiBuyMeACoffee from "./rightContent/buyMeACoffee";
 
   export default {
-    components: {GlUiPromotionFunction, GlUiGithubBadge, GlUiFacebook, GlUiEventSchedule},
+    components: {GlUiBuyMeACoffee, GlUiPromotionFunction, GlUiGithubBadge, GlUiFacebook, GlUiEventSchedule},
     name: 'gl-ui-right-content',
     data() {
           return {
