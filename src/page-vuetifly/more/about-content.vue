@@ -12,13 +12,13 @@
           <gl-ui-img name="gl-GitHub-logo" alt="girls-frontline-toolset" avatar="true"/>
         </a>
       </gl-ui-avatar-card>
-      <gl-ui-avatar-card icon-img="gl-about-icon" :title="$t('about.webmaster')" name="andy19974a22">
+      <gl-ui-avatar-card icon-img="gl-about-icon" :title="$t('about.webmaster')" name="bell-rabbit">
         <span style="font-size: 50px">少女前線很休閒!</span> <br>
         <br>
         歡迎加入本LINE群啊
         <router-link :to="langUrl() + '/more/line'">>>點這<<</router-link>
         <br>
-        本人的網頁: <a href="http://kurumichan.com/">http://kurumichan.com/</a><br>
+        本人的網頁: <a href="https://andypang.dev/">https://andypang.dev/</a><br>
         Email: admin@ntw-20.com
       </gl-ui-avatar-card>
       <v-flex xs12>
