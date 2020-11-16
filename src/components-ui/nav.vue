@@ -1,6 +1,6 @@
 <template>
-    <v-layout v-resize="onResize" v-if="isShow">
-        <v-layout v-if="Small">
+    <div v-resize="onResize" v-if="isShow">
+        <div v-if="Small">
             <v-toolbar fixed tabs color="gl-main-color" dark height="35" style="transform: translateY(0px)">
                 <v-toolbar-side-icon @click.stop="drawer = !drawer"/>
                 <v-toolbar-title class="white--text">
@@ -82,9 +82,9 @@
                 </v-navigation-drawer>
             </v-layout>
 
-        </v-layout>
+        </div>
 
-        <v-layout v-else>
+        <div v-else>
             <v-toolbar fixed color="gl-main-color" dark scroll-off-screen scroll-target="#scrolling-techniques"
                        height="53" style="transform: translateY(0px)">
                 <v-toolbar-title class="white--text">
@@ -120,7 +120,7 @@
                 </v-btn>
             </v-toolbar>
           <transition name="fade">
-            <v-layout v-if="showSubNav" ref="sub-nav" @click.self="close()" @mousemove.self="close()"
+            <div v-if="showSubNav" ref="sub-nav" @click.self="close()" @mousemove.self="close()"
                       style="position: fixed;top: 53px;width:100%;height: 100%;z-index:50;" row>
                 <v-flex xs12 order-lg2 class="orange lighten-5" style="height: 45px;">
                     <div class="toRight" style="height: 100%;display:block"
@@ -129,10 +129,10 @@
                            v-for="(btn,key) in list[active].list.slice().reverse()" :key="btn.t+'-s'">{{$t(btn.t)}}
                     </v-btn>
                 </v-flex>
-            </v-layout>
+            </div>
           </transition>
-        </v-layout>
-    </v-layout>
+        </div>
+    </div>
 </template>
 
 <script>

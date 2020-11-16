@@ -1,5 +1,4 @@
 <template>
-    <v-layout row justify-center>
         <v-dialog v-model="dialog" max-width="500">
             <v-toolbar dark :color="color[type]">
                 <v-toolbar-title class="white--text">{{title}}</v-toolbar-title>
@@ -13,7 +12,6 @@
                 <img v-if="img" :src="img" class="w-100">
             </v-card>
         </v-dialog>
-    </v-layout>
 </template>
 
 <script>

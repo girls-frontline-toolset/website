@@ -3,7 +3,7 @@
             <gl-ui-resource/>
             <gl-ui-dialog/>
             <gl-ui-nav v-if="isShow"/>
-        <v-layout v-resize="onResize" :style="'height:' + height" v-if="isShow"/>
+        <div v-resize="onResize" :style="'height:' + height" v-if="isShow"/>
             <v-container fluid style="background: hsla(0,0%,100%,.7);" pa-0>
                 <v-layout style="width: 100%;max-width: 1344px;" class="mx-auto">
                     <v-container fluid pa-0 mt-1 mb-1>
