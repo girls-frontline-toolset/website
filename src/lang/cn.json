@@ -203,6 +203,7 @@
     "other-platform":{
       "s":"其他平台",
       "android":"Android App",
+      "android-web-app":"Android Web App",
       "chrome":"Chrome App",
       "line":"Line 机械人"
     },
@@ -217,6 +218,17 @@
   "line":{
   "command":"指令表",
   "img":"梗图表"
+  },
+  "other-platform": {
+    "android-web-app": {
+      "t": "Android Web App",
+      "how-to-install": "如何安装",
+      "How-to-install-step-1": "浏览 ntw-20.com, 点击 \"加到主页.\"",
+      "How-to-install-step-2": "点击 \"安装\"",
+      "How-to-install-step-3": "在应用主页找到应用程式!!",
+      "preview": "预览图",
+      "title": "Android Web App - 资料"
+    }
   },
   "footer":{
     "feedback":"回报或建议",

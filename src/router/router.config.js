@@ -18,6 +18,7 @@ import listWafer from '../page-vuetifly/list/list-wafer-content.vue';
 import listSupportUnit from '../page-vuetifly/list/list-support-unit.vue';
 //tool
 import android from '../page-vuetifly/tool/android-content.vue';
+import androidWebApp from '../page-vuetifly/tool/android-web-app-content.vue';
 import chrome from '../page-vuetifly/tool/chrome-content.vue';
 import logisticsSupport from '../page-vuetifly/tool/logistics-support.vue';
 //bot
@@ -101,6 +102,7 @@ let glCardLeftData = {
     "hMake":["! 此列表只供參考!","右下角的圖示可製作喔","!!本頁閾和遊戲不相同!!"],
     "cGirl":["可以匯出成圖片喔","可以用連結來保存"],
     "cAndroid":["一個方便使用的APP版"],
+    "cAndroidWebApp":["一個方便使用的WebApp版"],
     "cChrome":["Chrome 插件!"],
     "image":["歡迎加入作品","點作品tag可以單獨瀏覽"],
     "addImage":["支援 pixiv 及 twitter","可以不加上tag"],
@@ -176,7 +178,12 @@ let metaData = {
   tool:{
     android:{
       title: {"cn":cn.nav["other-platform"].android,"tw":tw.nav["other-platform"].android,"ja":ja.nav["other-platform"].android,"en":en.nav["other-platform"].android},
-      description:"少女前線-工具集 版本:V1.3.3 google play下載，要是喜歡可以下載來用喔W",
+      description:"少女前線-工具集 版本:V1.3.3 WebApp版已推出 請使用WebApp版!!",
+      image:{url:"/common/img/touch-icon-ipad-retina.png",width:"152",height:"152"},
+    },
+    androidWebApp:{
+      title: {"cn":cn.nav["other-platform"]["android-web-app"],"tw":tw.nav["other-platform"]["android-web-app"],"ja":ja.nav["other-platform"]["android-web-app"],"en":en.nav["other-platform"]["android-web-app"]},
+      description:"少女前線-工具集 WebApp",
       image:{url:"/common/img/touch-icon-ipad-retina.png",width:"152",height:"152"},
     },
     chrome:{
@@ -392,6 +399,7 @@ let childrenRoutes = [
       ]},
   {path: 'tool', component: inquire,children:[
       {path: 'android', component:android, props:{promptData:glCardLeftData.cAndroid},meta: GetMetaData("tool.android")},
+      {path: 'android-web-app', component:androidWebApp, props:{promptData:glCardLeftData.cAndroidWebApp},meta: GetMetaData("tool.android-web-app")},
       {path: 'chrome', component:chrome, props:{promptData:glCardLeftData.cChrome},meta: GetMetaData("tool.chrome")},
       {path: '/',  component: breadcrumbList,meta:GetMetaData("breadcrumbList")}
     ]},

@@ -21,7 +21,7 @@
       data() {
             return {
                 data: [{"s": "gl-line-bot-icon", "a": "nav.other-platform.line", "to": "/bot/line"},
-                    {"s": "gl-touch-icon-iphone-retina", "a": "nav.other-platform.android", "to": "/tool/android"},
+                    {"s": "gl-touch-icon-iphone-retina", "a": "nav.other-platform.android-web-app", "to": "/tool/android-web-app"},
                     {"s": "gl-chrome-icon", "a": "nav.other-platform.chrome", "to": "/tool/chrome"},
                     {"s": "gl-group-icon", "a": "nav.line-group","to": "/more/line" }]
             }

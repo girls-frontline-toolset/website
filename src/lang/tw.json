@@ -203,6 +203,7 @@
     "other-platform":{
       "s":"其他平台",
       "android":"Android App",
+      "android-web-app":"Android Web App",
       "chrome":"Chrome App",
       "line":"Line 機械人"
     },
@@ -213,6 +214,17 @@
     },
     "line-group":"LINE群",
     "easy-mode":"簡易模式"
+  },
+  "other-platform": {
+    "android-web-app": {
+      "t": "Android Web App",
+      "how-to-install": "如何安裝",
+      "How-to-install-step-1": "瀏覽 ntw-20.com, 點擊 \"加到主頁.\"",
+      "How-to-install-step-2": "點擊 \"安裝\"",
+      "How-to-install-step-3": "在應用主頁找到應用程式!!",
+      "preview": "預覽圖",
+      "title": "Android Web App - 資料"
+    }
   },
   "line":{
     "command":"指令表",

@@ -203,6 +203,7 @@
     "other-platform":{
       "s":"その他のプラットフォーム",
       "android":"Android App",
+      "android-web-app":"Android Web App",
       "chrome":"Chrome App",
       "line":"Line ロボット"
     },
@@ -213,6 +214,17 @@
     },
     "line-group":"LINEグループ(台湾語)",
     "easy-mode":"簡易モード"
+  },
+  "other-platform": {
+    "android-web-app": {
+      "t": "Android Web App",
+      "how-to-install": "How-to-install",
+      "How-to-install-step-1": "Go to ntw-20.com, Click \"add to home page.\"",
+      "How-to-install-step-2": "Click \"Install\"",
+      "How-to-install-step-3": "Find the app in your home menu!",
+      "preview": "Preview",
+      "title": "Android Web App - Info"
+    }
   },
   "line":{
   "command":"コマンド",

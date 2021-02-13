@@ -32,6 +32,7 @@
   {
     "t": "nav.other-platform.s", "h": "", "i":"phone_android", "list": [
     {"t": "nav.other-platform.android", "h": "/tool/android"},
+    {"t": "nav.other-platform.android-web-app", "h": "/tool/android-web-app"},
     {"t": "nav.other-platform.chrome", "h": "/tool/chrome"},
     {"t": "nav.other-platform.line","h":"/bot/line"}
   ]
